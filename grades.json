@@ -1,0 +1,1883 @@
+{
+  "id": "DernieresNotes",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "moyGenerale": { "_T": 10, "V": "14,87" },
+      "moyGeneraleClasse": { "_T": 10, "V": "11,65" },
+      "baremeMoyGenerale": { "_T": 10, "V": "20" },
+      "baremeMoyGeneraleParDefaut": { "_T": 10, "V": "20" },
+      "avecDetailDevoir": true,
+      "avecDetailService": true,
+      "listeServices": {
+        "_T": 24,
+        "V": [
+          {
+            "L": "FRANCAIS",
+            "N": "131#CaduPxXMkQTFduIRfCneC9Mit-uHdfb2U0gtsbs55UY",
+            "G": 12,
+            "ordre": 5,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "15,5" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "12,17" },
+            "moyMin": { "_T": 10, "V": "8,7" },
+            "moyMax": { "_T": 10, "V": "15,5" },
+            "couleur": "#2338BB"
+          },
+          {
+            "L": "MATH\u00C9MATIQUES > \u00C9crit",
+            "N": "131#0Wt89DSkvIPPUpanrP7ZccdDbdTVYaJw0MvLmHBv1Lo",
+            "G": 12,
+            "ordre": 9,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "16,88" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "11,24" },
+            "moyMin": { "_T": 10, "V": "7" },
+            "moyMax": { "_T": 10, "V": "17,25" },
+            "couleur": "#FF8040"
+          },
+          {
+            "L": "HISTOIRE-G\u00C9OGRAPHIE",
+            "N": "131#TCe2oiMEEZcIu71AuZFzptryzKkWa79rpG6mbH8i67Y",
+            "G": 12,
+            "ordre": 6,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "15,67" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "11,22" },
+            "moyMin": { "_T": 10, "V": "7,5" },
+            "moyMax": { "_T": 10, "V": "15,67" },
+            "couleur": "#2BD5F3"
+          },
+          {
+            "L": "PHYSIQUE-CHIMIE",
+            "N": "131#Xubm5sz7VBieIDQwRdptqsBgiu2qrmd0RFK0Ggf76hE",
+            "G": 12,
+            "ordre": 11,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "15,5" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "11,21" },
+            "moyMin": { "_T": 10, "V": "9" },
+            "moyMax": { "_T": 10, "V": "15,5" },
+            "couleur": "#77EAEF"
+          },
+          {
+            "L": "ANGLAIS LV1",
+            "N": "131#YsEhBVMR_zXLTTQ3C3_NqBK5LlFhZoZ91bYsQgG7Rwo",
+            "G": 12,
+            "ordre": 1,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "14" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "10,86" },
+            "moyMin": { "_T": 10, "V": "5,8" },
+            "moyMax": { "_T": 10, "V": "14" },
+            "couleur": "#E0E5A4"
+          },
+          {
+            "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+            "N": "131#_8fN5VaGQ9D7tavnZ4VPQ19ZyhEGP5sHHdRUrVVgAPE",
+            "G": 12,
+            "ordre": 12,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "15,75" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "10,47" },
+            "moyMin": { "_T": 10, "V": "7,63" },
+            "moyMax": { "_T": 10, "V": "15,75" },
+            "couleur": "#050347"
+          },
+          {
+            "L": "TECHNOLOGIE",
+            "N": "131#V5KYW0q7NeNeYviCWM02b1GLN-g3zMEK4vzAJ9aKb_8",
+            "G": 12,
+            "ordre": 13,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "14,25" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "11,96" },
+            "moyMin": { "_T": 10, "V": "8,38" },
+            "moyMax": { "_T": 10, "V": "16,25" },
+            "couleur": "#E19C84"
+          },
+          {
+            "L": "MUSIQUE",
+            "N": "131#ORZsERdAUn3nCLQruYqYMeLxT_gyHfUxqyP14WktKU8",
+            "G": 12,
+            "ordre": 10,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "14" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "13,85" },
+            "moyMin": { "_T": 10, "V": "10" },
+            "moyMax": { "_T": 10, "V": "17" },
+            "couleur": "#E55748"
+          },
+          {
+            "L": "\u00C9DUCATION PHYSIQUE ET SPORTIVE",
+            "N": "131#h0nO2TqKJygCjKAYxTciisqGP62f_aaWu1UJmG3a03o",
+            "G": 12,
+            "ordre": 3,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "15,75" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "12,84" },
+            "moyMin": { "_T": 10, "V": "8,5" },
+            "moyMax": { "_T": 10, "V": "18,5" },
+            "couleur": "#80FF00"
+          },
+          {
+            "L": "ESPAGNOL LV2",
+            "N": "131#dNycHQbcneOxHdq1PJZIfgOBZLlSd0F4fLqtv7hszAY",
+            "G": 12,
+            "ordre": 4,
+            "estServiceEnGroupe": true,
+            "moyEleve": { "_T": 10, "V": "16,13" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "10,89" },
+            "moyMin": { "_T": 10, "V": "4" },
+            "moyMax": { "_T": 10, "V": "16,13" },
+            "couleur": "#B6A6EB"
+          },
+          {
+            "L": "ARTS PLASTIQUES",
+            "N": "131#w-UM19tqASjqkJJZ_mmjFfwx4rE0k0VsayAGxLPENdw",
+            "G": 12,
+            "ordre": 2,
+            "estServiceEnGroupe": false,
+            "moyEleve": { "_T": 10, "V": "9" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "10,59" },
+            "moyMin": { "_T": 10, "V": "6,5" },
+            "moyMax": { "_T": 10, "V": "15,67" },
+            "couleur": "#173ED9"
+          },
+          {
+            "L": "LATIN",
+            "N": "131#rqOxN3KijQZ0Q6AWLChBVfe6uRew-gR_J1SKwCLRD4M",
+            "G": 12,
+            "ordre": 8,
+            "estServiceEnGroupe": true,
+            "moyEleve": { "_T": 10, "V": "16" },
+            "baremeMoyEleve": { "_T": 10, "V": "20" },
+            "baremeMoyEleveParDefaut": { "_T": 10, "V": "20" },
+            "moyClasse": { "_T": 10, "V": "15,4" },
+            "moyMin": { "_T": 10, "V": "2" },
+            "moyMax": { "_T": 10, "V": "20" },
+            "couleur": "#A202AC"
+          }
+        ]
+      },
+      "listeDevoirs": {
+        "_T": 24,
+        "V": [
+          {
+            "N": "33#90e67h0KIKaqbeaRpRNZeZXlvtFwTmGuRvHbE6qtWSk",
+            "G": 59,
+            "note": { "_T": 10, "V": "19" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "17/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "131#CaduPxXMkQTFduIRfCneC9Mit-uHdfb2U0gtsbs55UY",
+                "G": 12,
+                "couleur": "#2338BB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,88" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "19" },
+            "noteMin": { "_T": 10, "V": "3" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#0rA_L-WEc-ASkChbNthDRDXM9B9zL8C7KCsLHtgZ2zA",
+            "G": 59,
+            "note": { "_T": 10, "V": "17" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "08/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "131#CaduPxXMkQTFduIRfCneC9Mit-uHdfb2U0gtsbs55UY",
+                "G": 12,
+                "couleur": "#2338BB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12,32" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "8" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#y9jrcXCKw4zxt1uYp0bjgeq-ejAOmNxt9zoV6yQ6KxY",
+            "G": 59,
+            "note": { "_T": 10, "V": "17,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "12/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "131#CaduPxXMkQTFduIRfCneC9Mit-uHdfb2U0gtsbs55UY",
+                "G": 12,
+                "couleur": "#2338BB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,94" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17,5" },
+            "noteMin": { "_T": 10, "V": "6" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#r_LP4woxO5tM7aiGbfpe45I4gYcJU7rtEpjuRSCNNVg",
+            "G": 59,
+            "note": { "_T": 10, "V": "16,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "09/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "131#CaduPxXMkQTFduIRfCneC9Mit-uHdfb2U0gtsbs55UY",
+                "G": 12,
+                "couleur": "#2338BB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,56" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16,5" },
+            "noteMin": { "_T": 10, "V": "3" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#a8L4rku0RrhMSUS18aTq3ah2L1GdZExnDudRHxNstNk",
+            "G": 59,
+            "note": { "_T": 10, "V": "17" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "10/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES > \u00C9crit",
+                "N": "131#0Wt89DSkvIPPUpanrP7ZccdDbdTVYaJw0MvLmHBv1Lo",
+                "G": 12,
+                "couleur": "#FF8040"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,69" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "4" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#ChowyS-Ijx0JqdWCj7MN8ALWUI0KGgJiUm-eUIklwWk",
+            "G": 59,
+            "note": { "_T": 10, "V": "16" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "12/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES > \u00C9crit",
+                "N": "131#0Wt89DSkvIPPUpanrP7ZccdDbdTVYaJw0MvLmHBv1Lo",
+                "G": 12,
+                "couleur": "#FF8040"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,34" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "7" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#hsTwb1WiEjSyexqtm3OwVzxdhh2f-6pd5AZWnXPMCXM",
+            "G": 59,
+            "note": { "_T": 10, "V": "16,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "14/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES > \u00C9crit",
+                "N": "131#0Wt89DSkvIPPUpanrP7ZccdDbdTVYaJw0MvLmHBv1Lo",
+                "G": 12,
+                "couleur": "#FF8040"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,26" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "18" },
+            "noteMin": { "_T": 10, "V": "6" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#m8bddQZetRa-dCvrydmBhF1uFVHNtZNolz79f2meu30",
+            "G": 59,
+            "note": { "_T": 10, "V": "18" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "11/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES > \u00C9crit",
+                "N": "131#0Wt89DSkvIPPUpanrP7ZccdDbdTVYaJw0MvLmHBv1Lo",
+                "G": 12,
+                "couleur": "#FF8040"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,83" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "18" },
+            "noteMin": { "_T": 10, "V": "9" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#FRg5BWEpInrDnwRyG56nJU9Qv9slDsT0WZgYz158v-I",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "27/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                "N": "131#TCe2oiMEEZcIu71AuZFzptryzKkWa79rpG6mbH8i67Y",
+                "G": 12,
+                "couleur": "#2BD5F3"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,11" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15" },
+            "noteMin": { "_T": 10, "V": "5" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#HaCiHVeXCfRhDyboKjrksu0FIrbGDK9_i6BxTgNMyZk",
+            "G": 59,
+            "note": { "_T": 10, "V": "16" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "29/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                "N": "131#TCe2oiMEEZcIu71AuZFzptryzKkWa79rpG6mbH8i67Y",
+                "G": 12,
+                "couleur": "#2BD5F3"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,32" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "7" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#BX0AQLBX-SFSZ9vEU8YBKDAjTUDlHt0vS3XRGuEmCYM",
+            "G": 59,
+            "note": { "_T": 10, "V": "17" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "13/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                "N": "131#TCe2oiMEEZcIu71AuZFzptryzKkWa79rpG6mbH8i67Y",
+                "G": 12,
+                "couleur": "#2BD5F3"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,08" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "7" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#0sTYoI3xNvAgiCXCG1Y4UcFqR_38LaJ6IpJ7bzVbAaY",
+            "G": 59,
+            "note": { "_T": 10, "V": "|1" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "10/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                "N": "131#TCe2oiMEEZcIu71AuZFzptryzKkWa79rpG6mbH8i67Y",
+                "G": 12,
+                "couleur": "#2BD5F3"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,31" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "5" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#4PeoIb5BdctCUNyL8Yk532gtbyR4fepCUPjzrt94Xa0",
+            "G": 59,
+            "note": { "_T": 10, "V": "15" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "09/12/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "PHYSIQUE-CHIMIE",
+                "N": "131#Xubm5sz7VBieIDQwRdptqsBgiu2qrmd0RFK0Ggf76hE",
+                "G": 12,
+                "couleur": "#77EAEF"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,42" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15" },
+            "noteMin": { "_T": 10, "V": "4" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#LcFKUujr0b8yf3yCXO8LVp9tAZy4FJpdYQimeSTDyNk",
+            "G": 59,
+            "note": { "_T": 10, "V": "17" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "29/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "PHYSIQUE-CHIMIE",
+                "N": "131#Xubm5sz7VBieIDQwRdptqsBgiu2qrmd0RFK0Ggf76hE",
+                "G": 12,
+                "couleur": "#77EAEF"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,77" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "7" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#s5lDq95hd3c9YUZXD2iZtRUCQBLMFiKt2M5W4VidnnU",
+            "G": 59,
+            "note": { "_T": 10, "V": "|1" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "06/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "PHYSIQUE-CHIMIE",
+                "N": "131#Xubm5sz7VBieIDQwRdptqsBgiu2qrmd0RFK0Ggf76hE",
+                "G": 12,
+                "couleur": "#77EAEF"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,42" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15" },
+            "noteMin": { "_T": 10, "V": "6" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#k-jej7x2JTSKxG3sr31x-TU9YTw2poXqCN8Gn9h3LgI",
+            "G": 59,
+            "note": { "_T": 10, "V": "18" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "10/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "PHYSIQUE-CHIMIE",
+                "N": "131#Xubm5sz7VBieIDQwRdptqsBgiu2qrmd0RFK0Ggf76hE",
+                "G": 12,
+                "couleur": "#77EAEF"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,62" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "18" },
+            "noteMin": { "_T": 10, "V": "1" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#b8EtP0nzo3bUcHHlbyCKMPOJQuYPIhjJnqJ0aBqFWdI",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "16/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "131#YsEhBVMR_zXLTTQ3C3_NqBK5LlFhZoZ91bYsQgG7Rwo",
+                "G": 12,
+                "couleur": "#E0E5A4"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "9,94" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15" },
+            "noteMin": { "_T": 10, "V": "3" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#Z76A5TJYwMsYRIlK3D1GaO-mBcdfiL-vDxs5cy_UjfU",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "28/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "131#YsEhBVMR_zXLTTQ3C3_NqBK5LlFhZoZ91bYsQgG7Rwo",
+                "G": 12,
+                "couleur": "#E0E5A4"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,17" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "14" },
+            "noteMin": { "_T": 10, "V": "3,5" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#mxWBUhe9XVwaNhSmTW949V_mdTpBUKPu18aJac7i7p8",
+            "G": 59,
+            "note": { "_T": 10, "V": "14,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "19/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "131#YsEhBVMR_zXLTTQ3C3_NqBK5LlFhZoZ91bYsQgG7Rwo",
+                "G": 12,
+                "couleur": "#E0E5A4"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,83" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15" },
+            "noteMin": { "_T": 10, "V": "5" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#Oys6O_5VM8iJhKSeOStYyQjqgWGgzU-fdGz0WD7TAk0",
+            "G": 59,
+            "note": { "_T": 10, "V": "15,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "16/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "131#YsEhBVMR_zXLTTQ3C3_NqBK5LlFhZoZ91bYsQgG7Rwo",
+                "G": 12,
+                "couleur": "#E0E5A4"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,6" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15,5" },
+            "noteMin": { "_T": 10, "V": "5" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#t94ZyP7laea-nAhWo3RT51JYijI0t1Nhs-UazTHwRCM",
+            "G": 59,
+            "note": { "_T": 10, "V": "14,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "21/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                "N": "131#_8fN5VaGQ9D7tavnZ4VPQ19ZyhEGP5sHHdRUrVVgAPE",
+                "G": 12,
+                "couleur": "#050347"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "9,8" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15,5" },
+            "noteMin": { "_T": 10, "V": "4" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#7hSJDHUB8Kq4lxip2JnajTRGxEIQQBzToTbKjymLnOI",
+            "G": 59,
+            "note": { "_T": 10, "V": "17" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "05/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                "N": "131#_8fN5VaGQ9D7tavnZ4VPQ19ZyhEGP5sHHdRUrVVgAPE",
+                "G": 12,
+                "couleur": "#050347"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,65" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "3" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#osK2LujTK3kdIJZRDJuVpJV_w3qpC4glxlbespdhZ34",
+            "G": 59,
+            "note": { "_T": 10, "V": "16" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "09/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                "N": "131#_8fN5VaGQ9D7tavnZ4VPQ19ZyhEGP5sHHdRUrVVgAPE",
+                "G": 12,
+                "couleur": "#050347"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,61" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "3" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#C-Q1_S5zwiZrNr8QiwE-NqKn_99P1Jk7i8TF3shK4qI",
+            "G": 59,
+            "note": { "_T": 10, "V": "15,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "16/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                "N": "131#_8fN5VaGQ9D7tavnZ4VPQ19ZyhEGP5sHHdRUrVVgAPE",
+                "G": 12,
+                "couleur": "#050347"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,73" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15,5" },
+            "noteMin": { "_T": 10, "V": "4" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#Vfp_yNh6RysAbB3psCO31euWpXikiu-DvzhEuMbKUAU",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "28/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "TECHNOLOGIE",
+                "N": "131#V5KYW0q7NeNeYviCWM02b1GLN-g3zMEK4vzAJ9aKb_8",
+                "G": 12,
+                "couleur": "#E19C84"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,83" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "7" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#MSt_Qtzmk_Xg8QHJ7CF-jNB-F0Q4xnx9jaw8iRkv9I8",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "01/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "TECHNOLOGIE",
+                "N": "131#V5KYW0q7NeNeYviCWM02b1GLN-g3zMEK4vzAJ9aKb_8",
+                "G": 12,
+                "couleur": "#E19C84"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "7" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#mkNcn3ymoYSHmYWhAMOS62TF_jwqqZdLK6zBXcyjxy8",
+            "G": 59,
+            "note": { "_T": 10, "V": "15" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "15/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "TECHNOLOGIE",
+                "N": "131#V5KYW0q7NeNeYviCWM02b1GLN-g3zMEK4vzAJ9aKb_8",
+                "G": 12,
+                "couleur": "#E19C84"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12,28" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "6" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#LcNmoWU7Obm67433-Nu33oEpffleSIR225JoukErgzQ",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "12/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "TECHNOLOGIE",
+                "N": "131#V5KYW0q7NeNeYviCWM02b1GLN-g3zMEK4vzAJ9aKb_8",
+                "G": 12,
+                "couleur": "#E19C84"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,7" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "5" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#C-cdS6vPfogyE35rYchP2L5CWwB452M0d3x_-GT6V78",
+            "G": 59,
+            "note": { "_T": 10, "V": "11" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "19/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "MUSIQUE",
+                "N": "131#ORZsERdAUn3nCLQruYqYMeLxT_gyHfUxqyP14WktKU8",
+                "G": 12,
+                "couleur": "#E55748"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "13,33" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "19" },
+            "noteMin": { "_T": 10, "V": "8" },
+            "commentaire": "Mi-s\u00E9quence - Verif. Acquis",
+            "coefficient": 0.0,
+            "estFacultatif": true,
+            "estBonus": true,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#JtKhiAST4s7-FbLGwaEqQl5-glyMs00lvT5fVXqYkOg",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "16/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "MUSIQUE",
+                "N": "131#ORZsERdAUn3nCLQruYqYMeLxT_gyHfUxqyP14WktKU8",
+                "G": 12,
+                "couleur": "#E55748"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "13,85" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "10" },
+            "commentaire": "Fin de s\u00E9quence - Restitut\u00B0 Acquis",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#lcVnm7QHh8DCF4ruAvZJIhSjVJXWkqWJarTtFiSW8lc",
+            "G": 59,
+            "note": { "_T": 10, "V": "15,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "12/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "\u00C9DUCATION PHYSIQUE ET SPORTIVE",
+                "N": "131#h0nO2TqKJygCjKAYxTciisqGP62f_aaWu1UJmG3a03o",
+                "G": 12,
+                "couleur": "#80FF00"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12,98" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "19" },
+            "noteMin": { "_T": 10, "V": "9" },
+            "commentaire": "1\u00E8re \u00E9valuation - Athl\u00E9tisme",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#sa3YbImfj_v1lx9urMIKG-KmX2ckqrkJ583hP-CUuRg",
+            "G": 59,
+            "note": { "_T": 10, "V": "16" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "16/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "\u00C9DUCATION PHYSIQUE ET SPORTIVE",
+                "N": "131#h0nO2TqKJygCjKAYxTciisqGP62f_aaWu1UJmG3a03o",
+                "G": 12,
+                "couleur": "#80FF00"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12,92" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "18" },
+            "noteMin": { "_T": 10, "V": "7" },
+            "commentaire": "2nd \u00E9valuation - Handball",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#ORu2o2QzwPbeaJHp2J4qUabqhhdVm49-omVR0HgE9uo",
+            "G": 59,
+            "note": { "_T": 10, "V": "15" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "14/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ESPAGNOL LV2",
+                "N": "131#dNycHQbcneOxHdq1PJZIfgOBZLlSd0F4fLqtv7hszAY",
+                "G": 12,
+                "couleur": "#B6A6EB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,78" },
+            "estEnGroupe": true,
+            "noteMax": { "_T": 10, "V": "18" },
+            "noteMin": { "_T": 10, "V": "3" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#8aEm4ZqNzTrbOWo1VSxEbRO98a6UaaAxx4DN_K5pOZg",
+            "G": 59,
+            "note": { "_T": 10, "V": "15,5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "28/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ESPAGNOL LV2",
+                "N": "131#dNycHQbcneOxHdq1PJZIfgOBZLlSd0F4fLqtv7hszAY",
+                "G": 12,
+                "couleur": "#B6A6EB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,53" },
+            "estEnGroupe": true,
+            "noteMax": { "_T": 10, "V": "15,5" },
+            "noteMin": { "_T": 10, "V": "5" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#COREzO0tiJ-N2CJaJti8LJ8fGqKKS2euDdekT046StA",
+            "G": 59,
+            "note": { "_T": 10, "V": "18" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "12/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ESPAGNOL LV2",
+                "N": "131#dNycHQbcneOxHdq1PJZIfgOBZLlSd0F4fLqtv7hszAY",
+                "G": 12,
+                "couleur": "#B6A6EB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,9" },
+            "estEnGroupe": true,
+            "noteMax": { "_T": 10, "V": "18" },
+            "noteMin": { "_T": 10, "V": "2" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#p4YH1a19vd4s6crDkzJkD6pgMSm8_gkFBP5rWtVm5Qg",
+            "G": 59,
+            "note": { "_T": 10, "V": "16" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "09/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ESPAGNOL LV2",
+                "N": "131#dNycHQbcneOxHdq1PJZIfgOBZLlSd0F4fLqtv7hszAY",
+                "G": 12,
+                "couleur": "#B6A6EB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,35" },
+            "estEnGroupe": true,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "6" },
+            "commentaire": "4\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#weFCRQBxN8tsq6Ez6IjvP-SzM2wU6HF5px2hB5Mv80U",
+            "G": 59,
+            "note": { "_T": 10, "V": "|1" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "23/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ARTS PLASTIQUES",
+                "N": "131#w-UM19tqASjqkJJZ_mmjFfwx4rE0k0VsayAGxLPENdw",
+                "G": 12,
+                "couleur": "#173ED9"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "9,67" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "15" },
+            "noteMin": { "_T": 10, "V": "4" },
+            "commentaire": "1er devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#TbcIsrh3bZQpejR0r93_rWhmJzR9Cb41mmlVU19NuLg",
+            "G": 59,
+            "note": { "_T": 10, "V": "12" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "14/10/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ARTS PLASTIQUES",
+                "N": "131#w-UM19tqASjqkJJZ_mmjFfwx4rE0k0VsayAGxLPENdw",
+                "G": 12,
+                "couleur": "#173ED9"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "9,89" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "4" },
+            "commentaire": "2nd devoir",
+            "coefficient": 1.0,
+            "estFacultatif": true,
+            "estBonus": true,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#X-xYunDidvlfxCo8_fF9FgWNonrOrkgbQj_0bVVT9nw",
+            "G": 59,
+            "note": { "_T": 10, "V": "10" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "11/11/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ARTS PLASTIQUES",
+                "N": "131#w-UM19tqASjqkJJZ_mmjFfwx4rE0k0VsayAGxLPENdw",
+                "G": 12,
+                "couleur": "#173ED9"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "11,35" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "8" },
+            "commentaire": "3\u00E8me devoir",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#3SFCZIO0n9MrT7FyfXoYZjXhu5ZAWTek_spE8k4eK2k",
+            "G": 59,
+            "note": { "_T": 10, "V": "|5" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "31/08/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES > \u00C9crit",
+                "N": "131#0Wt89DSkvIPPUpanrP7ZccdDbdTVYaJw0MvLmHBv1Lo",
+                "G": 12,
+                "couleur": "#FF8040"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Hors p\u00E9riode",
+                "N": "105#m7d8Qw1wAkHvpByzgYEDRR2PKUsf8enhgJBETIh07W4"
+              }
+            },
+            "ListeThemes": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Equations",
+                  "N": "187#PwyH-4eRDGLyuFMYegl-Y1pojX-EUJPPX1yCP_L3aeo"
+                }
+              ]
+            },
+            "moyenne": { "_T": 10, "V": "|5" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "" },
+            "noteMin": { "_T": 10, "V": "" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false,
+            "executionQCM": {
+              "_T": 24,
+              "V": {
+                "N": "54#2F-ZW0YWYO336qPwotMfD5Y-sZyhsskHwDEFLqHQi6U",
+                "G": 56,
+                "QCM": {
+                  "_T": 24,
+                  "V": {
+                    "L": "QCM 1 - Math\u00E9matiques 3e",
+                    "N": "115#9ws7cRtv2XliY2PBtY9ldubFftupLWV6oAz9xvSXBQg",
+                    "G": 55,
+                    "nbQuestionsTotal": 10,
+                    "nombreDePointsTotal": 20,
+                    "avecQuestionsSoumises": true,
+                    "nombreQuestObligatoires": 0,
+                    "nbCompetencesTotal": 0
+                  }
+                },
+                "ListeThemes": {
+                  "_T": 24,
+                  "V": [
+                    {
+                      "L": "Equations",
+                      "N": "187#PwyH-4eRDGLyuFMYegl-Y1pojX-EUJPPX1yCP_L3aeo"
+                    }
+                  ]
+                },
+                "fichierDispo": false,
+                "estEnPublication": true,
+                "dateDebutPublication": { "_T": 7, "V": "04/09/2017 08:00:00" },
+                "dateFinPublication": { "_T": 7, "V": "13/09/2017 18:00:00" },
+                "consigne": { "_T": 21, "V": "" },
+                "estLieADevoir": true,
+                "estLieAEvaluation": false,
+                "estUnTAF": false,
+                "estUneActivite": false,
+                "estSupprimable": true,
+                "estDemarre": false,
+                "existeExecutionEleve": true,
+                "etatCloture": 2,
+                "estFini": false,
+                "nbQuestRepondues": 0,
+                "nbQuestBonnes": 0,
+                "noteQCM": { "_T": 10, "V": "|5" },
+                "autoriserLaNavigation": true,
+                "homogeneiserNbQuestParNiveau": false,
+                "jeuQuestionFixe": false,
+                "melangerLesQuestionsGlobalement": true,
+                "melangerLesQuestionsParNiveau": false,
+                "melangerLesReponses": true,
+                "ressentiRepondant": true,
+                "publierCorrige": false,
+                "tolererFausses": false,
+                "acceptIncomplet": false,
+                "pointsSelonPourcentage": false,
+                "afficherResultatNote": false,
+                "afficherResultatNiveauMaitrise": false,
+                "modeDiffusionCorrige": 2,
+                "nombreQuestionsSoumises": 0,
+                "dureeMaxQCM": 0.0416666666666667,
+                "nbMaxTentative": 0,
+                "nombreDePoints": 20,
+                "listeProfesseurs": {
+                  "_T": 24,
+                  "V": [
+                    {
+                      "L": "M. PROFESSEUR M.",
+                      "N": "109#mdXt3qyjZSm7g_JuedEaNu90jpyQF8j5QsjCJJ7QE68"
+                    }
+                  ]
+                },
+                "ramenerSur20": false,
+                "service": {
+                  "_T": 24,
+                  "V": {
+                    "L": "MATH\u00C9MATIQUES > \u00C9crit",
+                    "N": "131#0Wt89DSkvIPPUpanrP7ZccdDbdTVYaJw0MvLmHBv1Lo"
+                  }
+                },
+                "coefficientDevoir": { "_T": 10, "V": "1" },
+                "nomPublic": "3A"
+              }
+            }
+          },
+          {
+            "N": "33#zToQZ0BCARiiyH0c9fdU95DfBwh7bzZa0aZcSy2swlQ",
+            "G": 59,
+            "note": { "_T": 10, "V": "6" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "24/12/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ARTS PLASTIQUES",
+                "N": "131#w-UM19tqASjqkJJZ_mmjFfwx4rE0k0VsayAGxLPENdw",
+                "G": 12,
+                "couleur": "#173ED9"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 2",
+                "N": "105#lZy97grF_4dNfV_vlcAgz1Jvjf328RPtSutWuHX3k5c"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "10,11" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "19" },
+            "noteMin": { "_T": 10, "V": "2" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#Qskwhj3Je58DW8r8W4fJZlZCRPwtpWeb9DsGiq9StwY",
+            "G": 59,
+            "note": { "_T": 10, "V": "14" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "17/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "131#CaduPxXMkQTFduIRfCneC9Mit-uHdfb2U0gtsbs55UY",
+                "G": 12,
+                "couleur": "#2338BB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 3",
+                "N": "105#7u7hsNx6zxDr_NtNUSXaYoDm640NLCie3HfHsZB4g_8"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "13,04" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "10" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#hS5FJ6NADyHcslprlrpRNZQvx04t6JLiWbjVgR3yhBk",
+            "G": 59,
+            "note": { "_T": 10, "V": "9" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "20/01/2027" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "131#CaduPxXMkQTFduIRfCneC9Mit-uHdfb2U0gtsbs55UY",
+                "G": 12,
+                "couleur": "#2338BB"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 3",
+                "N": "105#7u7hsNx6zxDr_NtNUSXaYoDm640NLCie3HfHsZB4g_8"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12,46" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "16" },
+            "noteMin": { "_T": 10, "V": "8" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#FATt9YtEEG-6vw5a2zxhzK9xfyHG7h45Q1fws3QFlsE",
+            "G": 59,
+            "note": { "_T": 10, "V": "15" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "20/01/2027" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "LATIN",
+                "N": "131#rqOxN3KijQZ0Q6AWLChBVfe6uRew-gR_J1SKwCLRD4M",
+                "G": 12,
+                "couleur": "#A202AC"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 3",
+                "N": "105#7u7hsNx6zxDr_NtNUSXaYoDm640NLCie3HfHsZB4g_8"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12,67" },
+            "estEnGroupe": true,
+            "noteMax": { "_T": 10, "V": "15" },
+            "noteMin": { "_T": 10, "V": "10" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#ERVo3_G1paI0uSSh_G_UYamuu0ZMiszTwdCB5SG_bW0",
+            "G": 59,
+            "note": { "_T": 10, "V": "17" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "20/01/2027" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "LATIN",
+                "N": "131#rqOxN3KijQZ0Q6AWLChBVfe6uRew-gR_J1SKwCLRD4M",
+                "G": 12,
+                "couleur": "#A202AC"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 3",
+                "N": "105#7u7hsNx6zxDr_NtNUSXaYoDm640NLCie3HfHsZB4g_8"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "13,67" },
+            "estEnGroupe": true,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "1" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#J1AirgfArHtmIpn_rjU_1UdE6kw_6g4chulUa47-YTo",
+            "G": 59,
+            "note": { "_T": 10, "V": "12" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "20/01/2027" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "PHYSIQUE-CHIMIE",
+                "N": "131#Xubm5sz7VBieIDQwRdptqsBgiu2qrmd0RFK0Ggf76hE",
+                "G": 12,
+                "couleur": "#77EAEF"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "13,59" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "18" },
+            "noteMin": { "_T": 10, "V": "10" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          },
+          {
+            "N": "33#Tn8rxWUSftNoEkHdh8iEp2TBkeGyIupGx6JSL2hKj9g",
+            "G": 59,
+            "note": { "_T": 10, "V": "12" },
+            "bareme": { "_T": 10, "V": "20" },
+            "baremeParDefaut": { "_T": 10, "V": "20" },
+            "date": { "_T": 7, "V": "21/09/2026" },
+            "service": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "131#YsEhBVMR_zXLTTQ3C3_NqBK5LlFhZoZ91bYsQgG7Rwo",
+                "G": 12,
+                "couleur": "#E0E5A4"
+              }
+            },
+            "periode": {
+              "_T": 24,
+              "V": {
+                "L": "Trimestre 1",
+                "N": "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg"
+              }
+            },
+            "ListeThemes": { "_T": 24, "V": [] },
+            "moyenne": { "_T": 10, "V": "12,85" },
+            "estEnGroupe": false,
+            "noteMax": { "_T": 10, "V": "17" },
+            "noteMin": { "_T": 10, "V": "8" },
+            "commentaire": "",
+            "coefficient": 1.0,
+            "estFacultatif": false,
+            "estBonus": false,
+            "estRamenerSur20": false
+          }
+        ]
+      }
+    },
+    "nom": "DernieresNotes"
+  }
+}

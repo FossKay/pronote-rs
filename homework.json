@@ -1,0 +1,189 @@
+{
+  "id": "PageCahierDeTexte",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "ListeTravauxAFaire": {
+        "_T": 24,
+        "V": [
+          {
+            "N": "147#BwjL8UZ9sP-qe4D9UhSeyZFz-EXdwzV0Q8X6_uOjmvQ",
+            "descriptif": {
+              "_T": 21,
+              "V": "<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">\n<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">Exercices n\u00B0 2 \u00E0 4</div>\n</div>"
+            },
+            "avecMiseEnForme": true,
+            "PourLe": { "_T": 7, "V": "22/06/2026" },
+            "avecRendu": true,
+            "genreRendu": 2,
+            "peuRendre": true,
+            "TAFFait": false,
+            "niveauDifficulte": 0,
+            "duree": 0.0,
+            "DonneLe": { "_T": 7, "V": "18/06/2026" },
+            "dateCDT": { "_T": 7, "V": "18/06/2026" },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#fUW6W4iAPjdDAVZIbh7an_Np5vmClRe2KS5PMyAVE0Y"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "nomPublic": "3A",
+            "ListeThemes": { "_T": 24, "V": [] },
+            "libelleCBTheme": "Des mati\u00E8res du travail \u00E0 faire",
+            "ListePieceJointe": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "147#IwpDx5oBAN_bhVaFhrAFDM4si9bmgPPFzLfSSuS0k4I",
+            "descriptif": {
+              "_T": 21,
+              "V": "<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">\n<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">Exercices n\u00B0 2 \u00E0 4</div>\n</div>"
+            },
+            "avecMiseEnForme": true,
+            "PourLe": { "_T": 7, "V": "25/06/2026" },
+            "avecRendu": true,
+            "genreRendu": 2,
+            "peuRendre": true,
+            "TAFFait": false,
+            "niveauDifficulte": 0,
+            "duree": 0.0,
+            "DonneLe": { "_T": 7, "V": "22/06/2026" },
+            "dateCDT": { "_T": 7, "V": "22/06/2026" },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#fUW6W4iAPjdDAVZIbh7an_Np5vmClRe2KS5PMyAVE0Y"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "nomPublic": "3A",
+            "ListeThemes": { "_T": 24, "V": [] },
+            "libelleCBTheme": "Des mati\u00E8res du travail \u00E0 faire",
+            "ListePieceJointe": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "147#zhq-FeVwonVWj9gwzYa8SoHBQXFIV2tRozTl7lW_VWM",
+            "descriptif": {
+              "_T": 21,
+              "V": "<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">\n<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">Exercices n\u00B0 2 \u00E0 4</div>\n</div>"
+            },
+            "avecMiseEnForme": true,
+            "PourLe": { "_T": 7, "V": "25/06/2026" },
+            "avecRendu": true,
+            "genreRendu": 2,
+            "peuRendre": true,
+            "TAFFait": false,
+            "niveauDifficulte": 0,
+            "duree": 0.0,
+            "DonneLe": { "_T": 7, "V": "25/06/2026" },
+            "dateCDT": { "_T": 7, "V": "25/06/2026" },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#fUW6W4iAPjdDAVZIbh7an_Np5vmClRe2KS5PMyAVE0Y"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "nomPublic": "3A",
+            "ListeThemes": { "_T": 24, "V": [] },
+            "libelleCBTheme": "Des mati\u00E8res du travail \u00E0 faire",
+            "ListePieceJointe": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "147#ybzPCxaHJ_oMb-GKFrOhCiHVaRVFNZq0fcHvOkPL0KA",
+            "descriptif": {
+              "_T": 21,
+              "V": "<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">Enoncez votre raisonnement&nbsp;</div>"
+            },
+            "avecMiseEnForme": true,
+            "PourLe": { "_T": 7, "V": "22/06/2026" },
+            "avecRendu": true,
+            "genreRendu": 4,
+            "peuRendre": true,
+            "TAFFait": false,
+            "niveauDifficulte": 0,
+            "duree": 0.0,
+            "DonneLe": { "_T": 7, "V": "18/06/2026" },
+            "dateCDT": { "_T": 7, "V": "18/06/2026" },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#fUW6W4iAPjdDAVZIbh7an_Np5vmClRe2KS5PMyAVE0Y"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "nomPublic": "3A",
+            "ListeThemes": { "_T": 24, "V": [] },
+            "libelleCBTheme": "Des mati\u00E8res du travail \u00E0 faire",
+            "ListePieceJointe": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "147#a7QHu0-FGe2VBd7LAZal_O8upMTZnGuTW7e8ytkNNo0",
+            "descriptif": {
+              "_T": 21,
+              "V": "<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">Enoncez votre raisonnement&nbsp;</div>"
+            },
+            "avecMiseEnForme": true,
+            "PourLe": { "_T": 7, "V": "25/06/2026" },
+            "avecRendu": true,
+            "genreRendu": 4,
+            "peuRendre": true,
+            "TAFFait": false,
+            "niveauDifficulte": 0,
+            "duree": 0.0,
+            "DonneLe": { "_T": 7, "V": "22/06/2026" },
+            "dateCDT": { "_T": 7, "V": "22/06/2026" },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#fUW6W4iAPjdDAVZIbh7an_Np5vmClRe2KS5PMyAVE0Y"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "nomPublic": "3A",
+            "ListeThemes": { "_T": 24, "V": [] },
+            "libelleCBTheme": "Des mati\u00E8res du travail \u00E0 faire",
+            "ListePieceJointe": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "147#QQjrrZ1Fdaeb9F4W82kXX3PimewMVybMBSzmpGb2GiI",
+            "descriptif": {
+              "_T": 21,
+              "V": "<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">Enoncez votre raisonnement&nbsp;</div>"
+            },
+            "avecMiseEnForme": true,
+            "PourLe": { "_T": 7, "V": "25/06/2026" },
+            "avecRendu": true,
+            "genreRendu": 4,
+            "peuRendre": true,
+            "TAFFait": false,
+            "niveauDifficulte": 0,
+            "duree": 0.0,
+            "DonneLe": { "_T": 7, "V": "25/06/2026" },
+            "dateCDT": { "_T": 7, "V": "25/06/2026" },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#fUW6W4iAPjdDAVZIbh7an_Np5vmClRe2KS5PMyAVE0Y"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "nomPublic": "3A",
+            "ListeThemes": { "_T": 24, "V": [] },
+            "libelleCBTheme": "Des mati\u00E8res du travail \u00E0 faire",
+            "ListePieceJointe": { "_T": 24, "V": [] }
+          }
+        ]
+      }
+    },
+    "nom": "PageCahierDeTexte"
+  }
+}

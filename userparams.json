@@ -1,0 +1,1033 @@
+{
+  "id": "ParametresUtilisateur",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "ressource": {
+        "L": "PARENT Fanny",
+        "N": "46#P_1_pAXrDuuSci5U3XHTdWDBDtLmxeb3tE2ske_4x7s",
+        "G": 4,
+        "P": 320,
+        "Etablissement": {
+          "_T": 24,
+          "V": {
+            "L": "SITE DE DEMONSTRATION",
+            "N": "50#YXKzwaa0tXeu0t0Q_VBt-ZynIgI2wAzKIvgFXNeSDVs"
+          }
+        },
+        "photoBase64": { "_T": 25, "V": 0 },
+        "avecPhoto": true,
+        "classeDEleve": {
+          "L": "3A",
+          "N": "23#8DlCa6WyFmY4kI8c3G6MisZL9UOkcCiyp_YXUmDGKPY"
+        },
+        "estClasseRattachementduJour": false,
+        "listeClassesHistoriques": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "3A",
+              "N": "23#8DlCa6WyFmY4kI8c3G6MisZL9UOkcCiyp_YXUmDGKPY",
+              "courant": true,
+              "AvecNote": true,
+              "AvecFiliere": false
+            }
+          ]
+        },
+        "listeGroupes": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "3ESPGR.2",
+              "N": "60#tRfHf5DgZsOzfC3sZsG_bMtujxjg-Q03VJWHnJvMTyQ"
+            },
+            {
+              "L": "3LATINGR.1",
+              "N": "60#2Lr_BRHyTRVD0RpSNRJ89lRaJiU6BhEhqYPVIGTc-bM"
+            },
+            {
+              "L": "3THEATRGR.1",
+              "N": "60#WbCzzjAMNgmCfxUX_U8qoRJzsMK_Tdxbat3u2qfkOek"
+            },
+            {
+              "L": "MANGGR.1",
+              "N": "60#QaT5-h0Ue7Rjc5-Lbcfv9R3rEg-qoD2Ow6TGpnq1sxA"
+            }
+          ]
+        },
+        "listeOngletsPourPiliers": {
+          "_T": 24,
+          "V": [
+            {
+              "G": 45,
+              "listePaliers": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Cycle 4",
+                    "N": "100#8PjOvGDF5iAcX5nKY36ZgRtk_eXVKbxpCt3bsdgLakU",
+                    "G": 27,
+                    "listePiliers": {
+                      "_T": 24,
+                      "V": [
+                        {
+                          "L": "D1.1 - Langue fran\u00E7aise \u00E0 l'oral et \u00E0 l'\u00E9crit",
+                          "N": "107#4xkb1qGrJZ1rfF1iUcrcvILUOenR99d1GAHCX33aGj0",
+                          "G": 23,
+                          "P": 1,
+                          "estPilierLVE": false,
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D1.3 - Langages math\u00E9matiques, scientifiques et informatiques",
+                          "N": "107#fh7RjFH_DFwQhwlpjxUKpMFTTwht4YfyhmI_c7M7_Es",
+                          "G": 23,
+                          "P": 3,
+                          "estPilierLVE": false,
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D1.4 - Langage des arts et du corps",
+                          "N": "107#TO2lSV5FIlJ19mft-0kj8GDDNPjem2KixpbOomX4u8o",
+                          "G": 23,
+                          "P": 4,
+                          "estPilierLVE": false,
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D2 - Les m\u00E9thodes et outils pour apprendre",
+                          "N": "107#5CQbbmxGV7OSb9pHRFZkgXsR9skHQVRq-g74IbQXcZc",
+                          "G": 23,
+                          "P": 5,
+                          "estPilierLVE": false,
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D3 - La formation de la personne et du citoyen",
+                          "N": "107#nUaV-vaBm4k-yjj6B9A4goeUhPj3vKXjlURlS8fvwEI",
+                          "G": 23,
+                          "P": 6,
+                          "estPilierLVE": false,
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D4 - Les syst\u00E8mes naturels et les syst\u00E8mes techniques",
+                          "N": "107#V51Dkv6GJgghIh86_REUXaC7Ombszsm8AIQ4wnKZc0k",
+                          "G": 23,
+                          "P": 7,
+                          "estPilierLVE": false,
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D5 - Les repr\u00E9sentations du monde et l'activit\u00E9 humaine",
+                          "N": "107#E60dC7bwr6F6pPO2H7EysbrJCdMChaz1w89xdEaFzGQ",
+                          "G": 23,
+                          "P": 8,
+                          "estPilierLVE": false,
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D1.2 - Langues \u00E9trang\u00E8res et r\u00E9gionales - ANGLAIS LV1",
+                          "N": "107#VMoMCAFbo2iPniEt2yg_Ln0Ikp1XRQ6l-cm0GHVjfbU",
+                          "G": 23,
+                          "P": 2,
+                          "estPilierLVE": true,
+                          "Service": {
+                            "_T": 24,
+                            "V": {
+                              "L": "ANGLAIS LV1",
+                              "N": "131#-kTiDaZixyXU2knBgnJ6hdHYDrY-E2_co6Hn5h8M-S8"
+                            }
+                          },
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D1.2 - Langues \u00E9trang\u00E8res et r\u00E9gionales - ESPAGNOL LV2",
+                          "N": "107#VMoMCAFbo2iPniEt2yg_Ln0Ikp1XRQ6l-cm0GHVjfbU",
+                          "G": 23,
+                          "P": 2,
+                          "estPilierLVE": true,
+                          "Service": {
+                            "_T": 24,
+                            "V": {
+                              "L": "ESPAGNOL LV2",
+                              "N": "131#3kBhmfQg7jy01vqIg32t75YH9b7oFAZkCWZAKC_v5Ng"
+                            }
+                          },
+                          "estSocleCommun": true
+                        },
+                        {
+                          "L": "D1.2 - Langues \u00E9trang\u00E8res et r\u00E9gionales - LATIN",
+                          "N": "107#VMoMCAFbo2iPniEt2yg_Ln0Ikp1XRQ6l-cm0GHVjfbU",
+                          "G": 23,
+                          "P": 2,
+                          "estPilierLVE": true,
+                          "Service": {
+                            "_T": 24,
+                            "V": {
+                              "L": "LATIN",
+                              "N": "131#MYJiXEe1UhhURG7Egcj8a6Be7Q-ISuG6L_BmLsZuhOQ"
+                            }
+                          },
+                          "estSocleCommun": true
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            },
+            {
+              "G": 249,
+              "listePaliers": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Comp\u00E9tences num\u00E9riques",
+                    "N": "100#IY2YqrN27DfaQBPnksXwZSavVZjn2JLseYy_d9SAZ0A",
+                    "G": 27,
+                    "listePiliers": {
+                      "_T": 24,
+                      "V": [
+                        {
+                          "L": "Information et donn\u00E9es",
+                          "N": "107#-W2hpOP7CGZZDlcpRcJ6MJu8LVG2Gt3uiGD3fTWFUsA",
+                          "G": 23,
+                          "P": 21,
+                          "estPilierLVE": false
+                        },
+                        {
+                          "L": "Communication et collaboration",
+                          "N": "107#meaxR6G4rhcIvitBR3OJz1nHj-RVBYJo47ROYRhjWDs",
+                          "G": 23,
+                          "P": 22,
+                          "estPilierLVE": false
+                        },
+                        {
+                          "L": "Cr\u00E9ation de contenu",
+                          "N": "107#6dyTcZHIzZon6sNr_9yEzdmK9ZSARketPq2RCxeqtNQ",
+                          "G": 23,
+                          "P": 23,
+                          "estPilierLVE": false
+                        },
+                        {
+                          "L": "Protection et s\u00E9curit\u00E9",
+                          "N": "107#p4J5MHP-lITENgBl8oTuJIjRXY4xfCcyxEw9tU5tbtI",
+                          "G": 23,
+                          "P": 24,
+                          "estPilierLVE": false
+                        },
+                        {
+                          "L": "Environnement num\u00E9rique",
+                          "N": "107#dHnai03WpUDldksk3TWEdNb-5XKtEGqUk_2D4owpZgU",
+                          "G": 23,
+                          "P": 25,
+                          "estPilierLVE": false
+                        }
+                      ]
+                    }
+                  }
+                ]
+              }
+            }
+          ]
+        },
+        "listeOngletsPourPeriodes": {
+          "_T": 24,
+          "V": [
+            {
+              "G": 12,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 198,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 13,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 19,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  { "G": 1, "L": "Ann\u00E9e (Trois trimestres)" },
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 230,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 100,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 219,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 216,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 41,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 111,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "G": 1,
+                    "L": "Ann\u00E9e (Trois trimestres)",
+                    "DatePublication": { "_T": 7, "V": "29/06/2026" }
+                  },
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1,
+                    "datePublication": { "_T": 7, "V": "01/07/2025" }
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1,
+                    "datePublication": { "_T": 7, "V": "29/12/2025" }
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1,
+                    "datePublication": { "_T": 7, "V": "29/06/2026" }
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 99,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 201,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 277,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            },
+            {
+              "G": 278,
+              "listePeriodes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Trimestre 1",
+                    "N": "105#OKmy7I-Nuo5SM3EYMwK7COJdbsUGU88mV7CQ-GFBf9E",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 2",
+                    "N": "105#aguL_YdeWcfNWNmZCn9fJRBP1y8tKJxiwtQlGP8GRko",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Trimestre 3",
+                    "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk",
+                    "G": 2,
+                    "A": true,
+                    "GenreNotation": 1
+                  },
+                  {
+                    "L": "Hors p\u00E9riode",
+                    "N": "105#MJltjmQ20Yp7ZwnU5o471FKUlvDc6THiP5gmnPGmHs4",
+                    "G": 4,
+                    "A": true,
+                    "GenreNotation": 0
+                  }
+                ]
+              },
+              "periodeParDefaut": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#1waIDogwuLelBwpHzmH0NGgOnX4HdQi3Vop0vNeTzsk"
+                }
+              }
+            }
+          ]
+        },
+        "listeNumerosUtiles": {
+          "_T": 24,
+          "V": [
+            {
+              "G": 1,
+              "L": "Tchatez ou appelez le 3018",
+              "commentaire": "En cas de harc\u00E8lement et de cyberharc\u00E8lement",
+              "numeroTelBrut": "3018",
+              "numeroTelFormate": "30 18",
+              "url": "https://swie.index-education.com/redirect.php?produit=pn&page=contact-harcelement&version=2026.2.7.0&distrib=FR&lg=fr&flag=Espace_Eleve"
+            }
+          ]
+        },
+        "passeLeBrevet": true
+      },
+      "listeInformationsEtablissements": {
+        "_T": 24,
+        "V": [
+          {
+            "L": "SITE DE DEMONSTRATION",
+            "N": "50#YXKzwaa0tXeu0t0Q_VBt-ZynIgI2wAzKIvgFXNeSDVs",
+            "urlLogo": {
+              "_T": 23,
+              "V": "fichierurlpublique/logo.png?param=AB51E5A41312E5C0F357F9CFD89CC0F20608963B229FA1E5A33C76FBAD23F802344812B0589926868F50ABBF3FE0C82AD94854E5A9AE71C8C9F1E93415E5AA10181FD0ADE2952BCD247D3AD18957531E"
+            },
+            "avecReferentsHarcelementPublie": true,
+            "listeReferentsHarcelement": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "JUILLIARD J.",
+                  "N": "106#QBVv1LgGwQWhfTPubcuBSOhLU8dO7OglExsfoQszcbQ",
+                  "G": 34,
+                  "strInfoComplementaire": "CPE",
+                  "avecDiscussion": false
+                },
+                {
+                  "L": "HURAULT S.",
+                  "N": "106#2VuozA8Ofb0enrg_sz_0oPG99DLgmQKRjn6KH_E5swI",
+                  "G": 34,
+                  "strInfoComplementaire": "Assistant d'\u00E9ducation",
+                  "avecDiscussion": true
+                },
+                {
+                  "L": "OLIVERA G.",
+                  "N": "106#Ay6H7zYZL59ZQfljUOFEA3QXcO-6mRuuE_FmSvWnJB8",
+                  "G": 34,
+                  "strInfoComplementaire": "CPE",
+                  "avecDiscussion": true
+                }
+              ]
+            },
+            "Coordonnees": {
+              "Adresse1": "Rue Paul Langevin",
+              "Adresse2": "",
+              "Adresse3": "",
+              "Adresse4": "",
+              "CodePostal": "13013",
+              "LibellePostal": "",
+              "LibelleVille": "Marseille",
+              "Province": "",
+              "Pays": "",
+              "SiteInternet": ""
+            },
+            "avecInformations": true
+          }
+        ]
+      },
+      "parametresUtilisateur": {
+        "version": 1,
+        "EDT": {
+          "afficherCoursAnnules": true,
+          "axeInverseEDT": false,
+          "axeInversePlanningHebdo": true,
+          "axeInversePlanningJour": false,
+          "axeInversePlanningJour2": false,
+          "nbJours": 0,
+          "nbRessources": 0,
+          "nbJoursEDT": 0,
+          "nbSequences": 0
+        },
+        "Communication": { "DiscussionNonLues": false }
+      },
+      "autorisationsSession": {
+        "fonctionnalites": {
+          "gestionTwitter": true,
+          "attestationEtendue": false,
+          "gestionARBulletins": true
+        }
+      },
+      "autorisations": {
+        "AvecDiscussion": true,
+        "AvecDiscussionPersonnels": true,
+        "AvecDiscussionProfesseurs": true,
+        "avecJustificationAbsence": true,
+        "avecJustificationRetard": true,
+        "incidents": {},
+        "intendance": {},
+        "services": {},
+        "avecDroitDeconnexionMessagerie": true,
+        "cours": {
+          "domaineConsultationEDT": { "_T": 8, "V": "[1..62]" },
+          "domaineModificationCours": { "_T": 8, "V": "[]" },
+          "masquerPartiesDeClasse": true
+        },
+        "avecFonctionnalitesOptionnellesCasier": true,
+        "tailleMaxDocJointEtablissement": 5242880.0,
+        "tailleMaxRenduTafEleve": 5242880.0,
+        "tailleTravailAFaire": 1000,
+        "tailleCirconstance": 10000,
+        "tailleCommentaire": 1000,
+        "consulterDonneesAdministrativesAutresEleves": true,
+        "compte": { "avecInformationsPersonnelles": true },
+        "autoriserImpressionBulletinReleveBrevet": true
+      },
+      "infosDroitDeconnexion": {
+        "notes": {
+          "heurePublicationNote": 7,
+          "nombreJoursDecalagePublicationNote": 1
+        },
+        "taf": {
+          "heureDebutDesactivationPublication": 20,
+          "heureFinDesactivationPublication": 7
+        },
+        "messagerie": {
+          "listeJoursOuvresDeconnexion": [
+            "lundi",
+            "mardi",
+            "mercredi",
+            "jeudi",
+            "vendredi"
+          ],
+          "listeJoursNonOuvresDeconnexion": ["samedi", "dimanche"],
+          "avecJourFerieDeconnexion": true,
+          "heureAvantDeconnexion": 7,
+          "heureApresDeconnexion": 20
+        }
+      },
+      "autorisationKiosque": true,
+      "tabEtablissementsModeleGrille": [],
+      "listeOnglets": [
+        { "G": 7 },
+        { "G": 6, "Onglet": [{ "G": 49 }, { "G": 148 }] },
+        { "G": 61, "Onglet": [{ "G": 89 }, { "G": 88 }, { "G": 275 }] },
+        {
+          "G": 3,
+          "Onglet": [
+            { "G": 198 },
+            { "G": 12 },
+            { "G": 217, "Onglet": [{ "G": 13 }, { "G": 41 }] },
+            { "G": 227 }
+          ]
+        },
+        {
+          "G": 55,
+          "Onglet": [
+            { "G": 204, "Onglet": [{ "G": 201 }, { "G": 277 }] },
+            { "G": 218, "Onglet": [{ "G": 100 }, { "G": 219 }] },
+            { "G": 237, "Onglet": [{ "G": 45 }, { "G": 216 }] },
+            { "G": 178 },
+            { "G": 249 },
+            { "G": 228 }
+          ]
+        },
+        { "G": 39, "Onglet": [{ "G": 83 }, { "G": 44 }, { "G": 34 }] },
+        { "G": 5, "Onglet": [{ "G": 16 }, { "G": 19 }, { "G": 37 }] },
+        {
+          "G": 52,
+          "Onglet": [{ "G": 288 }, { "G": 42 }, { "G": 101 }, { "G": 195 }]
+        },
+        {
+          "G": 2,
+          "Onglet": [
+            { "G": 8 },
+            { "G": 131 },
+            { "G": 284 },
+            { "G": 9 },
+            { "G": 10 }
+          ]
+        }
+      ],
+      "listeOngletsInvisibles": [44, 83, 227, 228],
+      "listeOngletsNotification": [131, 148, 8, 275]
+    },
+    "nom": "ParametresUtilisateur",
+    "Signature": {
+      "notifications": { "compteurCentraleNotif": 2 },
+      "notificationsCommunication": [
+        { "onglet": 131, "nb": 0 },
+        { "onglet": 148, "nb": 0 },
+        { "onglet": 8, "nb": 2 },
+        { "onglet": 275, "nb": 0 },
+        { "onglet": 253, "nb": 0 }
+      ],
+      "actualisationMessage": true
+    }
+  },
+  "dataNonSec": {
+    "fichiers": [
+      "/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAMCAgMCAgMDAwMEAwMEBQgFBQQEBQoHBwYIDAoMDAsK\r\nCwsNDhIQDQ4RDgsLEBYQERMUFRUVDA8XGBYUGBIUFRT/2wBDAQMEBAUEBQkFBQkUDQsNFBQUFBQU\r\nFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBT/wAARCAD7AMkDASIA\r\nAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQA\r\nAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3\r\nODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWm\r\np6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEA\r\nAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSEx\r\nBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElK\r\nU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3\r\nuLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD2uiii\r\nvw888KKKKACiiigAooooAKK4rx18XvDfgBWjv7zz78DIsbXDy+2ey/8AAiPbNeAeL/2mPE2us8Wl\r\nLFoVocgGIeZMR7uRgf8AAQD71vCjOpstD0cPgK+I1irLuz6svdQtdNgM13cw2sI6yTyBFH4muS1H\r\n40eCNLYibxHZuR/z7lp//QAa+LNT1e+1q5NxqF5cX056y3ErSN+ZNVK7I4RfaZ7UMmgv4k38v6Z9\r\njP8AtG+BFYgapM4B+8LSXB/Nantf2g/AdyQP7bMLE9JbWYfrsx+tfGVFX9Uh3Zt/Y+H7v71/kfem\r\nj+PvDevsF0/XbC6kPAiS4Xf/AN8k5/St+vzsrqvDHxR8U+ECg03WbmOFf+XeVvNix6bGyB+GDWUs\r\n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"
+    ]
+  }
+}

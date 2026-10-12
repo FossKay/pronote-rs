@@ -1,0 +1,2788 @@
+{
+  "id": "PageAccueil",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "estDansUnePeriodeDeDeconnexion": true,
+      "infosDroitDeconnexion": {
+        "notes": {
+          "heurePublicationNote": 7,
+          "nombreJoursDecalagePublicationNote": 1
+        },
+        "taf": {
+          "heureDebutDesactivationPublication": 20,
+          "heureFinDesactivationPublication": 7
+        },
+        "messagerie": {
+          "listeJoursOuvresDeconnexion": [
+            "lundi",
+            "mardi",
+            "mercredi",
+            "jeudi",
+            "vendredi"
+          ],
+          "listeJoursNonOuvresDeconnexion": ["samedi", "dimanche"],
+          "avecJourFerieDeconnexion": true,
+          "heureAvantDeconnexion": 7,
+          "heureApresDeconnexion": 20
+        }
+      },
+      "vieScolaire": {
+        "L": "Observations, Absences, Absences aux repas, Absences \u00E0 l'internat, Retards, Passages \u00E0 l'infirmerie, Sanctions, Exclusions de cours, Autres punitions, Mesures conservatoires",
+        "listeAbsences": {
+          "_T": 24,
+          "V": [
+            {
+              "N": "1#WMioHe-KOgUibPG0_kRMams4qScmcObC7knRugrx1es",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "08/07/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "14/07/2025 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "25h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "PROBLEME DE TRANSPORT",
+                    "N": "89#ThCnOuxfnJ2PWN8zZj_vMx5kMjj8UAU7zWvQmjNvLJQ"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#U-epoUH35Kl-kQlJieX1J8LLKNpvBSGRD7Qm0_ctP2A",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "18/07/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "24/07/2025 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "24h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "REUNION (AUTRE)",
+                    "N": "89#QW20qAs1SDz3OVgX4vr2wZ5yZHsvlO0UsyW8Jh8x9v4"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#sx8WqwTrTy2ZfMt8InXvKHMmgp9TZf6J9xGSmGs2Tn4",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "16/09/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "16/09/2025 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "6h00",
+              "NbrJours": 2.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "DIVERS",
+                    "N": "89#-ITMkssmFUv4OKQPF_esNVLKzEagXItFOQLeCv_AIcM"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#6Zfx3TDo7HxXHr9F-N17dtCMaidTbgKYtAfQJOkj8HI",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "18/09/2025 13:30:00" },
+              "dateFin": { "_T": 7, "V": "18/09/2025 14:30:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "1h00",
+              "NbrJours": 1.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "RDV MEDICAL EXTERIEUR",
+                    "N": "89#WELC-075Pmr-Cu0GDrH6r_Gk9Rpi8uYUDNKTVdcLIII"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#BCiuo0eVChtvDh96gY4-P_0JAPIGAnd1jDAYE08K3os",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "26/09/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "02/10/2025 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "DIVERS",
+                    "N": "89#-ITMkssmFUv4OKQPF_esNVLKzEagXItFOQLeCv_AIcM"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#0lu7VXd_ab_jOxUXhC3c-EYPJDcLCx4CrYGEtzEpRro",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "24/10/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "30/10/2025 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "CONVOCATION ADMINISTRATIV",
+                    "N": "89#iBqRUgC2VAL_OXlVWyJstZyps_ATsDN1M3hegXAixb4"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#1hmlJ5qraKaJh4HXs7DOC77HiVr7UJaJQYgQmlVTix0",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "11/11/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "11/11/2025 17:30:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "6h00",
+              "NbrJours": 2.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "MALADIE SANS CERTIFICAT",
+                    "N": "89#oEBcGiMQ88ZFeM0C4_OlL0k5gXt3GLhasr6HCsR1SJ0"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#YS-Pk-cMfKYAUJKr-H8qDiL4oh1BvQ8zBu0ofpvtKLk",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "17/11/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "24/11/2025 08:30:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 10.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "PROBLEME DE TRANSPORT",
+                    "N": "89#ThCnOuxfnJ2PWN8zZj_vMx5kMjj8UAU7zWvQmjNvLJQ"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#WwLam5Z63sLeyeiM4U1K2GnKfeE5vMvhYVXGYLcT4VQ",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "28/11/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "04/12/2025 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": false,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "SANS EXCUSES",
+                    "N": "89#C6HKpH3FJjA69tSS2MMQnMbP4zKV17YmsbpoKJJr4aQ"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#KpFIEewDQ5zgnpMns3rJTO6opmwnIA8RIGk1ndWPPGk",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "15/12/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "22/12/2025 08:30:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 10.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "EXCLUSION TEMPORAIRE",
+                    "N": "89#AUmpx9VsjiSDhhw6kRtj8lI346tIg3t-flCXSrtvXgA"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#MYZvY1z9onvmXSVzRYAEKrI8VKvUPSey0WMncVQefs8",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "06/01/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "07/01/2026 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "9h00",
+              "NbrJours": 3.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "RAISON FAMILIALE",
+                    "N": "89#HGaJ7XIaq8NmaTXA1N2Sm2Qzy-rM7qk-yh-i3SOWvag"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#wDBq-XQ_zWeTpt_DJqKrQwfGlZADZzHEEkwk1hSrW08",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "19/01/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "26/01/2026 08:30:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 10.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "RDV ASSISTANTE SOCIALE",
+                    "N": "89#Cw4ynB1av0tCeeWCuzEYwxJS0pYycYrzf2d2Q0is0EA"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#lA2BSJbKAZdM73bNGWUsXg1mTUzt2K6wmkFHH___rTI",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "11/02/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "11/02/2026 13:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": true,
+              "justifie": false,
+              "aJustifierParParents": true,
+              "etatJustification": 0,
+              "NbrHeures": "3h00",
+              "NbrJours": 1.0,
+              "listeMotifs": { "_T": 24, "V": [] },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#zjLYY5OmMD1b9kRkauRKSEZwFDNnfpW3gX3hN8CFdQg",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "24/02/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "02/03/2026 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": false,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "SANS EXCUSES",
+                    "N": "89#C6HKpH3FJjA69tSS2MMQnMbP4zKV17YmsbpoKJJr4aQ"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#te5xk-SqjcqERiKLSyj_0ckx3q6m7W2oUGisrqthfCM",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "10/03/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "23/03/2026 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "52h00",
+              "NbrJours": 18.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "INFIRMERIE",
+                    "N": "89#VpcBxAXaKvWoQOG2Imzqrw-Y0BNbfL1ik58ugCfQI6U"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#4jlqvHXsWsF4YumxrYg77-kE92GnROknWc4pYPbdQgI",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "30/03/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "06/04/2026 08:30:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": true,
+              "justifie": false,
+              "aJustifierParParents": true,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 10.0,
+              "listeMotifs": { "_T": 24, "V": [] },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#tuzG84vFUq2B5hZYAZkSmFtJlCSbZLMX_bhQzcDq8zI",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "14/04/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "20/04/2026 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "23h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "INFIRMERIE",
+                    "N": "89#VpcBxAXaKvWoQOG2Imzqrw-Y0BNbfL1ik58ugCfQI6U"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#qQdBQbQ-j5UPeGVqTXbAPgwXXTEtqOm4g4_XX6geyw8",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "27/04/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "04/05/2026 08:30:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 0.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "REUNION DELEGUES",
+                    "N": "89#JePChma3-DAI6fjX9wpC64qQJQnODibdixJKBhTi4OU"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "1#5ORecmO-webZz84IXvonuiyID8IzHyQFJ-9slRKmBI4",
+              "G": 13,
+              "dateDebut": { "_T": 7, "V": "12/05/2026 08:00:00" },
+              "dateFin": { "_T": 7, "V": "18/05/2026 18:00:00" },
+              "ouverte": false,
+              "reglee": false,
+              "estMotifNonEncoreConnu": false,
+              "justifie": true,
+              "aJustifierParParents": false,
+              "etatJustification": 0,
+              "NbrHeures": "26h00",
+              "NbrJours": 9.0,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "RDV ASSISTANTE SOCIALE",
+                    "N": "89#Cw4ynB1av0tCeeWCuzEYwxJS0pYycYrzf2d2Q0is0EA"
+                  }
+                ]
+              },
+              "page": {
+                "Onglet": 19,
+                "membre": {
+                  "_T": 24,
+                  "V": {
+                    "L": "PARENT Fanny",
+                    "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                    "P": 320
+                  }
+                },
+                "Absence": 13,
+                "message": ""
+              }
+            },
+            {
+              "N": "130#H8wuPwAJp19Rv0w_pPpnfH56-mGgeBQW2GBgJIT2NuU",
+              "G": 71,
+              "estLieAUnIncident": false,
+              "dateDemande": { "_T": 7, "V": "10/07/2025 13:41:06" },
+              "nature": {
+                "_T": 24,
+                "V": {
+                  "L": "Mesure conservatoire",
+                  "N": "99#mC-AL76vJ0S1XeISM1MASj4L2uikeNVIabGq8mJxcbg",
+                  "G": 10
+                }
+              },
+              "estUneExclusion": true,
+              "listeMotifs": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Dissipation",
+                    "N": "94#vdWyGFr4P-fXYOMTdOcHSrvxXiP2oiW8vegpI-GCtr4"
+                  }
+                ]
+              },
+              "commentaire": "",
+              "circonstances": "",
+              "documentsCirconstances": { "_T": 24, "V": [] },
+              "decideur": {
+                "_T": 24,
+                "V": {
+                  "N": "0",
+                  "G": 2,
+                  "fonction": { "_T": 24, "V": { "N": "0" } }
+                }
+              },
+              "dateDebut": { "_T": 7, "V": "11/07/2025 08:00:00" },
+              "dateFin": { "_T": 7, "V": "16/07/2025 18:00:00" },
+              "demandeur": {
+                "_T": 24,
+                "V": {
+                  "L": "Index I.",
+                  "N": "106#tsoim1jOHelZPwjAy8Nq4H-pbjgMIwHt2IZyRW-3HnM",
+                  "G": 2,
+                  "fonction": { "_T": 24, "V": { "N": "0" } }
+                }
+              },
+              "duree": 6.0,
+              "interditAcces": { "_T": 26, "V": "[1,2]" }
+            }
+          ]
+        }
+      },
+      "menuDeLaCantine": { "listeRepas": { "_T": 24, "V": [] } },
+      "actualites": {
+        "listeModesAff": [
+          {
+            "G": 0,
+            "listeActualites": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "F\u00EAte du coll\u00E8ge !",
+                  "N": "65#WYeb-D0GvPmbCr39YMjf0hiBGpxI-l7fDq2RWIi0LYM",
+                  "reponseAnonyme": false,
+                  "estInformation": true,
+                  "estSondage": false,
+                  "nature": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Divers",
+                      "N": "70#gUZiJA_Wd9bAsJrUml1t6x9EvIR--PCI--BW2fik17Q"
+                    }
+                  },
+                  "lue": false,
+                  "dateDebut": { "_T": 7, "V": "08/07/2025" },
+                  "dateFin": { "_T": 7, "V": "29/06/2026" },
+                  "estProlonge": true,
+                  "dateCreation": { "_T": 7, "V": "08/07/2025 14:36:10" },
+                  "auteur": "Index I.",
+                  "estAuteur": false,
+                  "elmauteur": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Index I.",
+                      "N": "106#tsoim1jOHelZPwjAy8Nq4H-pbjgMIwHt2IZyRW-3HnM",
+                      "G": 34
+                    }
+                  },
+                  "prenom": "Fanny",
+                  "public": {
+                    "_T": 24,
+                    "V": {
+                      "L": "PARENT Fanny",
+                      "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                      "G": 4
+                    }
+                  },
+                  "genrePublic": 4
+                },
+                {
+                  "L": "Quel avenir pour l'ancien pr\u00E9au ?",
+                  "N": "65#l9PurknKrts4pqy7lKDzW56UQu6Nc97r7y3k9pcq1uc",
+                  "reponseAnonyme": false,
+                  "estInformation": false,
+                  "estSondage": true,
+                  "nature": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Divers",
+                      "N": "70#gUZiJA_Wd9bAsJrUml1t6x9EvIR--PCI--BW2fik17Q"
+                    }
+                  },
+                  "lue": false,
+                  "dateDebut": { "_T": 7, "V": "08/07/2025" },
+                  "dateFin": { "_T": 7, "V": "07/10/2026" },
+                  "estProlonge": false,
+                  "dateCreation": { "_T": 7, "V": "08/07/2025 14:44:34" },
+                  "auteur": "Index I.",
+                  "estAuteur": false,
+                  "elmauteur": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Index I.",
+                      "N": "106#tsoim1jOHelZPwjAy8Nq4H-pbjgMIwHt2IZyRW-3HnM",
+                      "G": 34
+                    }
+                  },
+                  "prenom": "Fanny",
+                  "public": {
+                    "_T": 24,
+                    "V": {
+                      "L": "PARENT Fanny",
+                      "N": "46#-vhW5sJQtK3fbPm6_TBV-rnN66wwL8VByDhYyiPCjBE",
+                      "G": 4
+                    }
+                  },
+                  "genrePublic": 4
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "elections": { "listeElections": { "_T": 24, "V": [] } },
+      "agenda": {
+        "listeEvenements": [
+          {
+            "L": "Inscription au groupe d'activit\u00E9",
+            "N": "71#I_Kmfz9SeJ8G20U8IHUdChiA43ytf9uSoyR2Xel-r_g",
+            "G": 0,
+            "DateDebut": { "_T": 7, "V": "18/07/2025 14:00:00" },
+            "DateFin": { "_T": 7, "V": "25/07/2025 17:00:00" },
+            "datePublication": { "_T": 7, "V": "21/06/2025" },
+            "Commentaire": "Petit journal,\nClub d'\u00E9chec,\nUNSS,\n...\nLes inscriptions aux activit\u00E9s hors enseignement sont ouvertes.",
+            "estConseilClasse": false,
+            "CouleurCellule": "#FFED00",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Convocation \u00E0 la vie scolaire - Index Index",
+            "N": "26#aMyYm-Wd1VrmcMEkgo6QRS0SOWib2cYXV56GgJ711NY",
+            "G": 11,
+            "DateDebut": { "_T": 7, "V": "21/07/2025 14:30:00" },
+            "DateFin": { "_T": 7, "V": "21/07/2025 15:30:00" },
+            "Commentaire": "\nA discuter ensemble",
+            "estConseilClasse": false,
+            "CouleurCellule": "#DDA0DD",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Convocation \u00E0 la vie scolaire - Index Index",
+            "N": "26#rC28gOYHXGF2lFRITIC9dT3Dm66JB_rrqkC2IStKyM4",
+            "G": 11,
+            "DateDebut": { "_T": 7, "V": "28/07/2025 14:30:00" },
+            "DateFin": { "_T": 7, "V": "28/07/2025 15:30:00" },
+            "Commentaire": "Motif : Dissipation\nA discuter ensemble",
+            "estConseilClasse": false,
+            "CouleurCellule": "#DDA0DD",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "\u00C9lection des d\u00E9l\u00E9gu\u00E9s de classe",
+            "N": "71#pZba-5RgRzSIiiZFDHA-XcOCBq8Tsigwrj5f91uHNDc",
+            "G": 0,
+            "journeeEntiere": true,
+            "DateDebut": { "_T": 7, "V": "29/07/2025" },
+            "DateFin": { "_T": 7, "V": "29/07/2025" },
+            "datePublication": { "_T": 7, "V": "21/06/2025" },
+            "Commentaire": "\u00C0 convenir avec les professeurs principaux.\nHoraires variables.",
+            "estConseilClasse": false,
+            "CouleurCellule": "#FFED00",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Chorale Gospel",
+            "N": "71#6fMgfKAVRPl_9I6p5W4W5s8JS3BZYTaosubgT6yr3YI",
+            "G": 0,
+            "journeeEntiere": true,
+            "DateDebut": { "_T": 7, "V": "05/08/2025" },
+            "DateFin": { "_T": 7, "V": "05/08/2025" },
+            "datePublication": { "_T": 7, "V": "21/06/2025" },
+            "Commentaire": "D\u00E9but des s\u00E9lection pour les nouveaux arrivants.",
+            "estConseilClasse": false,
+            "CouleurCellule": "#FFED00",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Convocation \u00E0 la vie scolaire - Index Index",
+            "N": "26#CnMCMaJFK8gOteceXqqDTFpArxanJFERcGyr0LAs270",
+            "G": 11,
+            "DateDebut": { "_T": 7, "V": "11/08/2025 14:30:00" },
+            "DateFin": { "_T": 7, "V": "11/08/2025 15:30:00" },
+            "Commentaire": "Motif : Dissipation\nA discuter ensemble",
+            "estConseilClasse": false,
+            "CouleurCellule": "#DDA0DD",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Voyage scolaire des 3\u00E8me \u00E0 Provins",
+            "N": "71#x-f_L_7Hm40DZeodCpT7hudsDTzyaB5aadPZZcw-j40",
+            "G": 0,
+            "DateDebut": { "_T": 7, "V": "15/08/2025 08:00:00" },
+            "DateFin": { "_T": 7, "V": "15/08/2025 20:00:00" },
+            "datePublication": { "_T": 7, "V": "21/06/2025" },
+            "Commentaire": "",
+            "estConseilClasse": false,
+            "CouleurCellule": "#A6CAF0",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Convocation \u00E0 la vie scolaire - Index Index",
+            "N": "26#fX7jnsL6fBFZ9ty8zAmn3YoGKQhbnayNyusrmMuamzc",
+            "G": 11,
+            "DateDebut": { "_T": 7, "V": "25/08/2025 14:30:00" },
+            "DateFin": { "_T": 7, "V": "25/08/2025 15:30:00" },
+            "Commentaire": "\nA discuter ensemble",
+            "estConseilClasse": false,
+            "CouleurCellule": "#DDA0DD",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Convocation \u00E0 la vie scolaire - Index Index",
+            "N": "26#wPeC9KWt67oVL7LFSiUf7bvi4CxdMXWVM-nPtiQd8HM",
+            "G": 11,
+            "DateDebut": { "_T": 7, "V": "01/09/2025 14:30:00" },
+            "DateFin": { "_T": 7, "V": "01/09/2025 15:30:00" },
+            "Commentaire": "Motif : Dissipation\nA discuter ensemble",
+            "estConseilClasse": false,
+            "CouleurCellule": "#DDA0DD",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          },
+          {
+            "L": "Convocation \u00E0 la vie scolaire - Index Index",
+            "N": "26#sQg2576Ev7ElbcNYonC3H91s39ujq-pbhrtDpwcaY0A",
+            "G": 11,
+            "DateDebut": { "_T": 7, "V": "15/09/2025 14:30:00" },
+            "DateFin": { "_T": 7, "V": "15/09/2025 15:30:00" },
+            "Commentaire": "Motif : Dissipation\nA discuter ensemble",
+            "estConseilClasse": false,
+            "CouleurCellule": "#DDA0DD",
+            "listeFichiers": { "_T": 24, "V": [] },
+            "estPeriodique": false
+          }
+        ]
+      },
+      "dateSelectionnee": { "_T": 7, "V": "21/07/2025" },
+      "jourCycleSelectionne": 0,
+      "avecCoursAnnule": true,
+      "ParametreExportiCal": "3096354B600E59919B70C184429C261E2F65C5975D2848730EC127546E9B2E6D6BD04F08E1C894A9EF1635744ACBD333",
+      "avecExportICal": true,
+      "prefsGrille": { "genreRessource": 4 },
+      "ListeCours": [
+        {
+          "N": "29#FqccmzYivotXMkMqgBlIoRXX4jodVfaQQxBoukS0HXw",
+          "G": 0,
+          "P": 392,
+          "place": 6,
+          "duree": 2,
+          "DateDuCours": { "_T": 7, "V": "21/07/2025 11:00:00" },
+          "CouleurFond": "#FF8040",
+          "ListeContenus": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0",
+                "G": 16
+              },
+              { "G": 3, "L": "PROFESSEUR M." },
+              {
+                "L": "207",
+                "N": "129#va_nNzArVBA1PPY8ceAMjQfPjGpQ8rC3fM8uG7HGJL0",
+                "G": 17
+              }
+            ]
+          },
+          "AvecTafPublie": false,
+          "cahierDeTextes": {
+            "_T": 24,
+            "V": {
+              "N": "18#F3-2p6po7j_rzx_LpclR1nDgg5ngu3_cG_BQz-QIo3U",
+              "originesCategorie": { "_T": 24, "V": [] }
+            }
+          },
+          "AvecCdT": true
+        },
+        {
+          "N": "29#MzsKbWVHRKGLPIwLkbJ546X6EkNTOCqGfmgzsk0xFxo",
+          "G": 0,
+          "P": 397,
+          "place": 15,
+          "duree": 2,
+          "DateDuCours": { "_T": 7, "V": "21/07/2025 15:30:00" },
+          "CouleurFond": "#80FF00",
+          "ListeContenus": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "\u00C9DUCATION PHYSIQUE ET SPORTIVE",
+                "N": "79#ul20-CB7wXgmrIrsh9qB8OSmCE980WLUBv69-OEyxPc",
+                "G": 16
+              },
+              { "G": 3, "L": "ROUX N." },
+              {
+                "L": "Piscine municipale",
+                "N": "129#ceHxa2KPU6cuSR7hKWeRta1pYcgc28V2fbKOCTCYNek",
+                "G": 17
+              }
+            ]
+          },
+          "AvecTafPublie": false,
+          "cahierDeTextes": {
+            "_T": 24,
+            "V": {
+              "N": "18#MNJgywEOBROtNR6fwjS1fIYjyy9WZvLjTw5bptMYkT4",
+              "originesCategorie": { "_T": 24, "V": [] }
+            }
+          },
+          "AvecCdT": true
+        },
+        {
+          "N": "29#aCHFhSD5ZnkJ1XInnS7tHIMW2kvtyzheo1BXXBQ4INY",
+          "G": 0,
+          "P": 415,
+          "place": 11,
+          "duree": 2,
+          "DateDuCours": { "_T": 7, "V": "21/07/2025 13:30:00" },
+          "CouleurFond": "#050347",
+          "ListeContenus": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                "N": "79#az3s4Uq3gQeYeQTAHVOrbslTiYbHvrYfbwn2cUO1pkE",
+                "G": 16
+              },
+              { "G": 3, "L": "TESSIER A." },
+              {
+                "L": "Labo 2",
+                "N": "129#8cASBh5rnJed0z6SndGsIfENDtfPx-HUUFNurm5A8Lw",
+                "G": 17
+              }
+            ]
+          },
+          "AvecTafPublie": false,
+          "cahierDeTextes": {
+            "_T": 24,
+            "V": {
+              "N": "18#4823o4Znx3N_F9xv9jpOA2P2PI2lxBpgdcwblEqwkQE",
+              "originesCategorie": { "_T": 24, "V": [] }
+            }
+          },
+          "AvecCdT": true
+        },
+        {
+          "N": "29#cWAyyI5fBtKLGg3TXgA15pLQNtvPbGpT9Mb3X_RIO2I",
+          "G": 0,
+          "P": 383,
+          "place": 13,
+          "duree": 2,
+          "DateDuCours": { "_T": 7, "V": "21/07/2025 14:30:00" },
+          "CouleurFond": "#E0E5A4",
+          "ListeContenus": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "ANGLAIS LV1",
+                "N": "79#MEOTYXY87H7RtQU6098csMapnMEiqqMDitstsYMXw7w",
+                "G": 16
+              },
+              { "G": 3, "L": "BROWN J." },
+              {
+                "L": "103",
+                "N": "129#aOQwIGTNHCU4imaLxXc7EALRHZwYxXzR6X_NqmHdFWM",
+                "G": 17
+              }
+            ]
+          },
+          "AvecTafPublie": false,
+          "cahierDeTextes": {
+            "_T": 24,
+            "V": {
+              "N": "18#mrb1Bp3AsFcWSvGHsUG5Gcec-5F4rt7AdJ_2GL1BM0Q",
+              "originesCategorie": { "_T": 24, "V": [] }
+            }
+          },
+          "AvecCdT": true
+        },
+        {
+          "N": "29#nieOOGsU70DaL0HNFbxKaTooB1qoXzMkaIcvBcMF08M",
+          "G": 0,
+          "P": 390,
+          "place": 4,
+          "duree": 2,
+          "DateDuCours": { "_T": 7, "V": "21/07/2025 10:00:00" },
+          "CouleurFond": "#2BD5F3",
+          "ListeContenus": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                "N": "79#Dk-6hoxs4E_5_01yisiMQyqCnDXfmmFHFXs7Oeaxh7o",
+                "G": 16
+              },
+              { "G": 3, "L": "MOREAU C." },
+              {
+                "L": "206",
+                "N": "129#rUGRBlKsnDcdNs2FStdW7p6ueu6_-ZkPIxz_zszy7x0",
+                "G": 17
+              }
+            ]
+          },
+          "AvecTafPublie": false,
+          "cahierDeTextes": {
+            "_T": 24,
+            "V": {
+              "N": "18#vVE2tgIFaqy9PzFgdALI6DV2c7qHp0XcqZNCBibLzIE",
+              "originesCategorie": { "_T": 24, "V": [] }
+            }
+          },
+          "AvecCdT": true
+        },
+        {
+          "N": "29#Kjqw6k_EMj6QOCZqdqz6IrwlH-3ASQJ6fIJ3g76f_NU",
+          "G": 0,
+          "P": 386,
+          "place": 2,
+          "duree": 2,
+          "DateDuCours": { "_T": 7, "V": "21/07/2025 09:00:00" },
+          "CouleurFond": "#2338BB",
+          "ListeContenus": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "FRANCAIS",
+                "N": "79#j0WfeAoIKw_ZNk7aJULqVer-igrsco3XyMiNis2aYiI",
+                "G": 16
+              },
+              { "G": 3, "L": "GALLET B." },
+              {
+                "L": "105",
+                "N": "129#So1xAdgu6JWprLO5WUVoMid-lwrnt4uR_lT1Ba2je_4",
+                "G": 17
+              }
+            ]
+          },
+          "AvecTafPublie": false,
+          "cahierDeTextes": {
+            "_T": 24,
+            "V": {
+              "N": "18#wKBhF_WGRXUAeDdq9EYxRz_z0IM6QQ2Lh7RRDaCfImY",
+              "originesCategorie": { "_T": 24, "V": [] }
+            }
+          },
+          "AvecCdT": true
+        }
+      ],
+      "premierePlaceHebdoDuJour": 0,
+      "debutDemiPensionHebdo": 8,
+      "finDemiPensionHebdo": 11,
+      "absences": {
+        "joursCycle": {
+          "_T": 24,
+          "V": [
+            {
+              "jourCycle": 0,
+              "numeroSemaine": 4,
+              "DP": {
+                "midi": {
+                  "icone": { "text": "", "delete": true },
+                  "hint": "L'\u00E9l\u00E8ve n'\u00E9tait pas pr\u00E9vu au repas du midi"
+                }
+              }
+            },
+            {
+              "jourCycle": 1,
+              "numeroSemaine": 4,
+              "DP": {
+                "midi": {
+                  "icone": { "text": "", "delete": true },
+                  "hint": "L'\u00E9l\u00E8ve n'\u00E9tait pas pr\u00E9vu au repas du midi"
+                }
+              }
+            },
+            {
+              "jourCycle": 2,
+              "numeroSemaine": 4,
+              "DP": {
+                "midi": {
+                  "icone": { "text": "", "check": true },
+                  "hint": "L'\u00E9l\u00E8ve \u00E9tait pr\u00E9sent au repas de midi"
+                }
+              }
+            },
+            {
+              "jourCycle": 3,
+              "numeroSemaine": 4,
+              "DP": {
+                "midi": {
+                  "icone": { "text": "", "check": true },
+                  "hint": "L'\u00E9l\u00E8ve \u00E9tait pr\u00E9sent au repas de midi"
+                }
+              }
+            },
+            {
+              "jourCycle": 4,
+              "numeroSemaine": 4,
+              "DP": {
+                "midi": {
+                  "icone": { "text": "", "delete": true },
+                  "hint": "L'\u00E9l\u00E8ve n'\u00E9tait pas pr\u00E9vu au repas du midi"
+                }
+              }
+            }
+          ]
+        }
+      },
+      "recreations": {
+        "_T": 24,
+        "V": [{ "L": "R\u00E9cr\u00E9ation du matin", "place": 4 }]
+      },
+      "travailAFaire": {
+        "listeTAF": {
+          "_T": 24,
+          "V": [
+            {
+              "N": "147#S6qBJZpIC3XULb8dIZHJ_btFgeXMHES2N5SdOjcDK_c",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "ANGLAIS LV1",
+                  "N": "79#MEOTYXY87H7RtQU6098csMapnMEiqqMDitstsYMXw7w"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div>R\u00E9daction : raconter en 300 mots une anecdote de vos vacances</div>"
+              },
+              "ordre": 45860,
+              "pourLe": { "_T": 7, "V": "22/07/2025" },
+              "donneLe": { "_T": 7, "V": "21/07/2025" },
+              "CouleurFond": "#E0E5A4",
+              "couleurTexte": "#000000",
+              "niveauDifficulte": 0,
+              "duree": 0.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": false,
+              "avecRendu": true,
+              "genreRendu": 2,
+              "peuRendre": true
+            },
+            {
+              "N": "147#AslbfiyuNrAqdHdVKZzcpTXslBMqZnB0KJ0nUWoSvzc",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "ANGLAIS LV1",
+                  "N": "79#MEOTYXY87H7RtQU6098csMapnMEiqqMDitstsYMXw7w"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div>Apprendre la premi\u00E8re colonne de verbes irr\u00E9guliers</div>"
+              },
+              "ordre": 45863,
+              "pourLe": { "_T": 7, "V": "25/07/2025" },
+              "donneLe": { "_T": 7, "V": "22/07/2025" },
+              "CouleurFond": "#E0E5A4",
+              "couleurTexte": "#000000",
+              "niveauDifficulte": 0,
+              "duree": 0.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": false
+            },
+            {
+              "N": "147#buGFxU2qhkZ9Sg9gJNA42tgJGr1GDzxU50iVdZMraTU",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "ARTS PLASTIQUES",
+                  "N": "79#VMoEwWbxgMdNkcW-OrVHnHU4x_jVKktmT5DQro4IKvI"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div>Choisir un artiste du courant impressionniste et rechercher sa biographie et ses oeuvres c\u00E9l\u00E8bres</div>"
+              },
+              "ordre": 45861,
+              "pourLe": { "_T": 7, "V": "23/07/2025" },
+              "donneLe": { "_T": 7, "V": "16/07/2025" },
+              "CouleurFond": "#173ED9",
+              "couleurTexte": "#FFFFFF",
+              "niveauDifficulte": 0,
+              "duree": 0.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": true
+            },
+            {
+              "N": "147#8RIRmLQvMMF4hHb8HEgitxXX5QZ4YRQArDwqwwBG7w8",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "FRANCAIS",
+                  "N": "79#j0WfeAoIKw_ZNk7aJULqVer-igrsco3XyMiNis2aYiI"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div>R\u00E9sumez en 400 mots un livre que vous avez lu pendant les vacances.</div>"
+              },
+              "ordre": 45860,
+              "pourLe": { "_T": 7, "V": "22/07/2025" },
+              "donneLe": { "_T": 7, "V": "21/07/2025" },
+              "CouleurFond": "#2338BB",
+              "couleurTexte": "#FFFFFF",
+              "niveauDifficulte": 0,
+              "duree": 0.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": false,
+              "avecRendu": true,
+              "genreRendu": 2,
+              "peuRendre": true
+            },
+            {
+              "N": "147#DK0KOhNMHuxWxw8Y4kY0IFJouuTM899fKRodBqgteIw",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                  "N": "79#Dk-6hoxs4E_5_01yisiMQyqCnDXfmmFHFXs7Oeaxh7o"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div>Remplir la frise chronologique</div>"
+              },
+              "ordre": 45860,
+              "pourLe": { "_T": 7, "V": "22/07/2025" },
+              "donneLe": { "_T": 7, "V": "21/07/2025" },
+              "CouleurFond": "#2BD5F3",
+              "couleurTexte": "#000000",
+              "niveauDifficulte": 0,
+              "duree": 0.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": true
+            },
+            {
+              "N": "147#4fQtweX4IqiTfgEYzfc5KZcJy-WQwPsuPxIZZPC4Ajk",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "MUSIQUE",
+                  "N": "79#WCCrKzJxxrSfBeXhZyr_8Bpi2JW8TKh_ZN326dDo958"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div>Rechercher la biographie de Jean-S\u00E9bastien Bach</div>"
+              },
+              "ordre": 45862,
+              "pourLe": { "_T": 7, "V": "24/07/2025" },
+              "donneLe": { "_T": 7, "V": "17/07/2025" },
+              "CouleurFond": "#E55748",
+              "couleurTexte": "#000000",
+              "niveauDifficulte": 0,
+              "duree": 0.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": false
+            },
+            {
+              "N": "147#JOewoD74c53-AOtTbJ81kj2lcKGoQpooMeEfYF-gi5Y",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "MATH\u00C9MATIQUES",
+                  "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div>Exercices n\u00B05, 6 et 7 p.43</div>"
+              },
+              "ordre": 45859,
+              "pourLe": { "_T": 7, "V": "21/07/2025" },
+              "donneLe": { "_T": 7, "V": "17/07/2025" },
+              "CouleurFond": "#FF8040",
+              "couleurTexte": "#000000",
+              "niveauDifficulte": 2,
+              "duree": 30.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": false,
+              "avecRendu": true,
+              "genreRendu": 2,
+              "peuRendre": true
+            },
+            {
+              "N": "147#X5a5ATtD0Jm3mePqeJs2oMSHOZOqA1v7USdfb1i0S7w",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "MATH\u00C9MATIQUES",
+                  "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0"
+                }
+              },
+              "descriptif": {
+                "_T": 21,
+                "V": "<div style=\"font-family: arial,helvetica,sans-serif; font-size: 11px;\">Lire le chapitre 1</div>"
+              },
+              "ordre": 45859,
+              "pourLe": { "_T": 7, "V": "21/07/2025" },
+              "donneLe": { "_T": 7, "V": "17/07/2025" },
+              "CouleurFond": "#FF8040",
+              "couleurTexte": "#000000",
+              "niveauDifficulte": 0,
+              "duree": 0.0,
+              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "TAFFait": false,
+              "avecRendu": true,
+              "genreRendu": 4,
+              "peuRendre": true
+            }
+          ]
+        }
+      },
+      "discussions": {
+        "listeEtiquettes": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "Brouillons",
+              "N": "51#vqyO9lusXkU2huZDNA8U8izjnnhnN2ucLV8wdlAuIxw",
+              "G": 4
+            },
+            {
+              "L": "Corbeille",
+              "N": "51#JYduV4ak32Bz5yJd56pdt8LaeRKAHFoO-oAe-9HkV3k",
+              "G": 5
+            }
+          ]
+        },
+        "listeMessagerie": { "_T": 24, "V": [] },
+        "messagerieDesactivee": true
+      },
+      "ressourcePedagogique": {
+        "listeRessources": {
+          "_T": 24,
+          "V": [
+            {
+              "G": 0,
+              "ressource": {
+                "_T": 24,
+                "V": {
+                  "L": "Test Doc CDT.txt",
+                  "N": "37#p10G8z_yaN9gzjTF-RCdthxqKt47_M2NiqzTQXo6TLI",
+                  "G": 48
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] },
+              "date": { "_T": 7, "V": "30/03/2026 13:30:00" },
+              "matiere": {
+                "_T": 24,
+                "V": { "N": "79#az3s4Uq3gQeYeQTAHVOrbslTiYbHvrYfbwn2cUO1pkE" }
+              }
+            },
+            {
+              "G": 0,
+              "ressource": {
+                "_T": 24,
+                "V": {
+                  "L": "3e_MATHS_01_Utiliser les nombres pour comparer, calculer et r\u00E9soudre des probl\u00E8mes.pdf",
+                  "N": "37#Xub1ShYZucj9P88rGSqx391CVXdHEqgGWDhP8z07t1s",
+                  "G": 48
+                }
+              },
+              "ListeThemes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Calcul",
+                    "N": "187#wGuUxVQzZeTpsBjmJVQJPO92--Kv8E_bcWd5cEqxuEw",
+                    "Matiere": {
+                      "_T": 24,
+                      "V": {
+                        "L": "MATH\u00C9MATIQUES",
+                        "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0"
+                      }
+                    }
+                  }
+                ]
+              },
+              "date": { "_T": 7, "V": "30/03/2026 11:00:00" },
+              "matiere": {
+                "_T": 24,
+                "V": { "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0" }
+              }
+            },
+            {
+              "G": 0,
+              "ressource": {
+                "_T": 24,
+                "V": {
+                  "L": "Test Doc CDT.txt",
+                  "N": "37#p10G8z_yaN9gzjTF-RCdthxqKt47_M2NiqzTQXo6TLI",
+                  "G": 48
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] },
+              "date": { "_T": 7, "V": "30/03/2026 10:00:00" },
+              "matiere": {
+                "_T": 24,
+                "V": { "N": "79#Dk-6hoxs4E_5_01yisiMQyqCnDXfmmFHFXs7Oeaxh7o" }
+              }
+            },
+            {
+              "G": 0,
+              "ressource": {
+                "_T": 24,
+                "V": {
+                  "L": "Biographie-Mozart.pdf",
+                  "N": "37#XRx6lq1vfCrX2AS5HjAbTunOVYsO0Fm2-z8gqQYPSHc",
+                  "G": 48
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] },
+              "date": { "_T": 7, "V": "19/03/2026 11:00:00" },
+              "matiere": {
+                "_T": 24,
+                "V": { "N": "79#WCCrKzJxxrSfBeXhZyr_8Bpi2JW8TKh_ZN326dDo958" }
+              }
+            },
+            {
+              "G": 0,
+              "ressource": {
+                "_T": 24,
+                "V": {
+                  "L": "3e_MATHS_04_Interpr\u00E9ter, repr\u00E9senter et traiter des donn\u00E9es.pdf",
+                  "N": "37#_QM5ffF6pdMy5-6rjxm5MDjMzaVqEkoiOBqKxBMbqKw",
+                  "G": 48
+                }
+              },
+              "ListeThemes": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Statistiques",
+                    "N": "187#nst2XQKbmM9fnZ1qVirqW1Ijvq2gp9uy72zZL05Q6QE",
+                    "Matiere": {
+                      "_T": 24,
+                      "V": {
+                        "L": "MATH\u00C9MATIQUES",
+                        "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0"
+                      }
+                    }
+                  }
+                ]
+              },
+              "date": { "_T": 7, "V": "19/03/2026 08:00:00" },
+              "matiere": {
+                "_T": 24,
+                "V": { "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0" }
+              }
+            }
+          ]
+        },
+        "listeMatieres": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "MUSIQUE",
+              "N": "79#WCCrKzJxxrSfBeXhZyr_8Bpi2JW8TKh_ZN326dDo958",
+              "G": 16,
+              "couleur": "#E55748"
+            },
+            {
+              "L": "HISTOIRE-G\u00C9OGRAPHIE",
+              "N": "79#Dk-6hoxs4E_5_01yisiMQyqCnDXfmmFHFXs7Oeaxh7o",
+              "G": 16,
+              "couleur": "#2BD5F3"
+            },
+            {
+              "L": "MATH\u00C9MATIQUES",
+              "N": "79#T0_D8ooDrSkMtSotgaPPOcpMYyX6gsK3HqGkbB5l0T0",
+              "G": 16,
+              "couleur": "#FF8040"
+            },
+            {
+              "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+              "N": "79#az3s4Uq3gQeYeQTAHVOrbslTiYbHvrYfbwn2cUO1pkE",
+              "G": 16,
+              "couleur": "#050347"
+            }
+          ]
+        }
+      },
+      "documentsASigner": { "nombreDocumentsDocumentsSignatures": 0 },
+      "notes": {
+        "avecDetailDevoir": true,
+        "avecDetailService": true,
+        "listeDevoirs": {
+          "_T": 24,
+          "V": [
+            {
+              "N": "33#ojrQUTizbrHgGFkuKkhXM9b4RtePhJemIY23P52nXWQ",
+              "G": 59,
+              "note": { "_T": 10, "V": "19" },
+              "bareme": { "_T": 10, "V": "20" },
+              "baremeParDefaut": { "_T": 10, "V": "20" },
+              "date": { "_T": 7, "V": "18/07/2025" },
+              "service": {
+                "_T": 24,
+                "V": {
+                  "L": "FRANCAIS",
+                  "N": "131#a3ivwsaWzH2lSVagi2gBIYyPhOMM1NufgTItlFFE2eU",
+                  "G": 12,
+                  "couleur": "#2338BB"
+                }
+              },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 1",
+                  "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] }
+            },
+            {
+              "N": "33#1nUbjLmR325l-DNccAkxsyHh9ERXZggg-90863n0E_0",
+              "G": 59,
+              "note": { "_T": 10, "V": "14,5" },
+              "bareme": { "_T": 10, "V": "20" },
+              "baremeParDefaut": { "_T": 10, "V": "20" },
+              "date": { "_T": 7, "V": "21/07/2025" },
+              "service": {
+                "_T": 24,
+                "V": {
+                  "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                  "N": "131#yy_mTYDsseS5bgzJEOf0xb5AnVSZnuEZp0w2AZycJIA",
+                  "G": 12,
+                  "couleur": "#050347"
+                }
+              },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 1",
+                  "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] }
+            },
+            {
+              "N": "33#n5rYFYLSsMrIAa8jUKCtbbaAsaot69AuyqzrQ7N9Z6w",
+              "G": 59,
+              "note": { "_T": 10, "V": "15" },
+              "bareme": { "_T": 10, "V": "20" },
+              "baremeParDefaut": { "_T": 10, "V": "20" },
+              "date": { "_T": 7, "V": "15/07/2025" },
+              "service": {
+                "_T": 24,
+                "V": {
+                  "L": "ESPAGNOL LV2",
+                  "N": "131#gD09k7CYXiZRs94DYrnF1ZSQjd0I6j1gWwnOxbw0BnI",
+                  "G": 12,
+                  "couleur": "#B6A6EB"
+                }
+              },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 1",
+                  "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] }
+            },
+            {
+              "N": "33#Z_wmp-1NG9D4Q_APqDR2o9tQ3L7ktFgkzT_ngoglmMc",
+              "G": 59,
+              "note": { "_T": 10, "V": "14" },
+              "bareme": { "_T": 10, "V": "20" },
+              "baremeParDefaut": { "_T": 10, "V": "20" },
+              "date": { "_T": 7, "V": "18/07/2025" },
+              "service": {
+                "_T": 24,
+                "V": {
+                  "L": "FRANCAIS",
+                  "N": "131#a3ivwsaWzH2lSVagi2gBIYyPhOMM1NufgTItlFFE2eU",
+                  "G": 12,
+                  "couleur": "#2338BB"
+                }
+              },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 3",
+                  "N": "105#S5LE2WvO7DsZ7iwjR9Sm-SZDZB_sOkECHDhHscM__qU"
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] }
+            },
+            {
+              "N": "33#tW9er7VSY2vvfUuk4Eqyajk-K0sjvInYN32rUfgajtQ",
+              "G": 59,
+              "note": { "_T": 10, "V": "12" },
+              "bareme": { "_T": 10, "V": "20" },
+              "baremeParDefaut": { "_T": 10, "V": "20" },
+              "date": { "_T": 7, "V": "21/07/2025" },
+              "service": {
+                "_T": 24,
+                "V": {
+                  "L": "ANGLAIS LV1",
+                  "N": "131#jzcbV0BtjT8Hgr-GEsogWIFo22BWt6jE2YkhMRLHzA0",
+                  "G": 12,
+                  "couleur": "#E0E5A4"
+                }
+              },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 1",
+                  "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] }
+            }
+          ]
+        },
+        "page": {
+          "periode": {
+            "_T": 24,
+            "V": {
+              "L": "Trimestre 3",
+              "N": "105#S5LE2WvO7DsZ7iwjR9Sm-SZDZB_sOkECHDhHscM__qU"
+            }
+          }
+        }
+      },
+      "competences": {
+        "listeEvaluations": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "Comp\u00E9tences num\u00E9riques CN 1-3",
+              "N": "52#asL6piKMbeUNYW-kV7W6ksYxmJvGmWqZ7DPAFLybv5M",
+              "G": 29,
+              "listeNiveauxDAcquisitions": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Ma\u00EEtrise satisfaisante",
+                    "N": "93#cohR-LY9HUlOsXGWADL91k94KrnFcoeBq3N4pKaDUKU",
+                    "G": 2,
+                    "abbreviation": "A",
+                    "ordre": 9,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Concevoir une formule conditionnelle.",
+                        "N": "25#DmKatJzjEFLjCOM78BavRcD2lsdk1DSVy9DAUX28A2w"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise fragile",
+                    "N": "93#3mbYKSiHb5OSfEhf7kEooZZHt4trjNE_GJZeoBKHDSA",
+                    "G": 4,
+                    "abbreviation": "C",
+                    "ordre": 8,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Adapter le format d'une donn\u00E9e (texte/nombre).",
+                        "N": "25#azgNtZLL3VwmzYfU49lhaCfGoiQI_IaW7sUUWwK-otw"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Tr\u00E8s bonne ma\u00EEtrise",
+                    "N": "93#Wm4WLtcpKkorVXDSNAqSw1sVMH7gCuR1cg1Q4_LKNys",
+                    "G": 1,
+                    "abbreviation": "A+",
+                    "ordre": 7,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Automatiser un traitement de donn\u00E9es.",
+                        "N": "25#31IK4G1IY5TNez6hwfTlfwTyYYHBg2ZO9V6_1yvM5Rg"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 6,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Appliquer une fonction statistique simple.",
+                        "N": "25#Uu7pllKkQA1q1v5vqLUv4Zf8IM8GOtWjBLCXQc_KicI"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 5,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es pour analyser une probl\u00E9matique.",
+                        "N": "25#j-APHB-azZg2Vycm1Mpf76NbxFbgGiWmGBsu0XFvS0E"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 4,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Appliquer une formule simple pour r\u00E9soudre un probl\u00E8me.",
+                        "N": "25#7hpWYllhsIZfdSnXpu4uR07fHk5h98kJrM_uHbjS47I"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise satisfaisante",
+                    "N": "93#cohR-LY9HUlOsXGWADL91k94KrnFcoeBq3N4pKaDUKU",
+                    "G": 2,
+                    "abbreviation": "A",
+                    "ordre": 3,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Saisir, organiser, trier et filtrer des donn\u00E9es dans une application.",
+                        "N": "25#ipToFgO5aleYwO4cXH-9VdPusFzvs45sDU_1sAou8Us"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 2,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Ins\u00E9rer, saisir, et trier des donn\u00E9es dans un tableur pour les exploiter.",
+                        "N": "25#99KRCkOdx8nFZINuydR16VvjXH-HXZ4HrC_7tq61_Kw"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Tr\u00E8s bonne ma\u00EEtrise",
+                    "N": "93#Wm4WLtcpKkorVXDSNAqSw1sVMH7gCuR1cg1Q4_LKNys",
+                    "G": 1,
+                    "abbreviation": "A+",
+                    "ordre": 1,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Traiter des donn\u00E9es",
+                        "N": "44#9wPibuT8PKyZ2YiESmqKKjO8Tva0omERqUXW7ECwIBg"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "S\u00E9lectionner et mettre en relation des informations issues de ressources num\u00E9riques.",
+                        "N": "25#uS3RuueZAZpLvJUr2-HLa1uKRA_dOib31YTC7aNEpA8"
+                      }
+                    }
+                  }
+                ]
+              },
+              "listePaliers": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Comp\u00E9tences num\u00E9riques",
+                    "N": "100#KsQF0m6bskjDi3LeFNnmBzpRtu1SmJIMMLxNr5FGvCg"
+                  }
+                ]
+              },
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "TECHNOLOGIE",
+                  "N": "79#Nbj0J5extgCi6b10ZNZ1bAagzcE6yOycvTKySHxQQj4",
+                  "G": 16,
+                  "couleur": "#E19C84",
+                  "ordre": 13,
+                  "serviceConcerne": {
+                    "_T": 24,
+                    "V": {
+                      "N": "131#NhlRh1CBuyBBMKjIJIPT3qNB0-CVYzPWwfXrCVSgatE",
+                      "G": 12
+                    }
+                  }
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] },
+              "individu": {
+                "_T": 24,
+                "V": {
+                  "L": "M. DEJEAN Y.",
+                  "N": "109#BlXOCLZ70J4vZp-r8noOEZujkyIDNWk_KcbNMGOH_FM"
+                }
+              },
+              "coefficient": 1,
+              "descriptif": "",
+              "date": { "_T": 7, "V": "18/07/2025" },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 1",
+                  "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+                }
+              }
+            },
+            {
+              "L": "\u00C9valuation continue",
+              "N": "52#NBK2AGJJ-fd0v7gWya5eM8jcIlO2dX99E64trxVTZvQ",
+              "G": 29,
+              "listeNiveauxDAcquisitions": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Tr\u00E8s bonne ma\u00EEtrise",
+                    "N": "93#Wm4WLtcpKkorVXDSNAqSw1sVMH7gCuR1cg1Q4_LKNys",
+                    "G": 1,
+                    "abbreviation": "A+",
+                    "ordre": 3,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "LANGUES VIVANTES (\u00C9TRANG\u00C8RES OU R\u00C9GIONALES)",
+                        "N": "86#wlZDnjnB1-cEeLA0ImPoHENZ1yVP_-6oRNDW6zGXMK4",
+                        "G": 1,
+                        "strPrefixes": "D1.2, D2, D3"
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Parler en continu",
+                        "N": "44#yIO9Ezw9H64sxPIqV01_xWM8VtI9EVhyc4CHVyixmqU"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Mobiliser \u00E0 bon escient ses connaissances lexicales, culturelles, grammaticales pour produire un texte oral sur des sujets vari\u00E9s.",
+                        "N": "25#bU2TfIShOTxQ_hXRpuJTVAYG_rX_rMsJAty1yXEincQ"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise satisfaisante",
+                    "N": "93#cohR-LY9HUlOsXGWADL91k94KrnFcoeBq3N4pKaDUKU",
+                    "G": 2,
+                    "abbreviation": "A",
+                    "ordre": 2,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "LANGUES VIVANTES (\u00C9TRANG\u00C8RES OU R\u00C9GIONALES)",
+                        "N": "86#wlZDnjnB1-cEeLA0ImPoHENZ1yVP_-6oRNDW6zGXMK4",
+                        "G": 1,
+                        "strPrefixes": "D1.2, D2, D3"
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Parler en continu",
+                        "N": "44#yIO9Ezw9H64sxPIqV01_xWM8VtI9EVhyc4CHVyixmqU"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Utiliser des expressions et des phrases simples pour parler de soi",
+                        "N": "25#BMDr8CUhIQ47K_SExfjjAGuAxs0i2RuxWhYJGkp7YHY"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise satisfaisante",
+                    "N": "93#cohR-LY9HUlOsXGWADL91k94KrnFcoeBq3N4pKaDUKU",
+                    "G": 2,
+                    "abbreviation": "A",
+                    "ordre": 1,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "LANGUES VIVANTES (\u00C9TRANG\u00C8RES OU R\u00C9GIONALES)",
+                        "N": "86#wlZDnjnB1-cEeLA0ImPoHENZ1yVP_-6oRNDW6zGXMK4",
+                        "G": 1,
+                        "strPrefixes": "D1.2, D2"
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "\u00C9couter et comprendre",
+                        "N": "44#-AsHHNdmoyfztkfqHTeEpbZX7YwkKXBmvT2IpB_iOCs"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Comprendre des mots familiers et des expressions tr\u00E8s courantes",
+                        "N": "25#DPg7e82l_3TodZEqkLXcaC6KkL_uuIFW5lPsReoyrY4"
+                      }
+                    }
+                  }
+                ]
+              },
+              "listePaliers": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Cycle 4",
+                    "N": "100#MqV-xIs4b_0MYMC6DqzENxRPbAbYXQK0e-LcUVYXsGY"
+                  }
+                ]
+              },
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "ANGLAIS LV1",
+                  "N": "79#MEOTYXY87H7RtQU6098csMapnMEiqqMDitstsYMXw7w",
+                  "G": 16,
+                  "couleur": "#E0E5A4",
+                  "ordre": 1,
+                  "serviceConcerne": {
+                    "_T": 24,
+                    "V": {
+                      "N": "131#jzcbV0BtjT8Hgr-GEsogWIFo22BWt6jE2YkhMRLHzA0",
+                      "G": 12
+                    }
+                  }
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] },
+              "individu": {
+                "_T": 24,
+                "V": {
+                  "L": "Mme BROWN J.",
+                  "N": "109#-Zvqw77RkmLVrrJ19k50sI2cqKEnsDsdKC2niOn2JqQ"
+                }
+              },
+              "coefficient": 1,
+              "descriptif": "",
+              "date": { "_T": 7, "V": "14/07/2025" },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 1",
+                  "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+                }
+              }
+            },
+            {
+              "L": "Comp\u00E9tences num\u00E9riques CN 1-2",
+              "N": "52#GHGBZpc9MdGqn4ukYIfy76wY-qwEdTvZBSg6jzGPIxI",
+              "G": 29,
+              "listeNiveauxDAcquisitions": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Tr\u00E8s bonne ma\u00EEtrise",
+                    "N": "93#Wm4WLtcpKkorVXDSNAqSw1sVMH7gCuR1cg1Q4_LKNys",
+                    "G": 1,
+                    "abbreviation": "A+",
+                    "ordre": 10,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Synchroniser des donn\u00E9es locales avec un espace de stockage en ligne.",
+                        "N": "25#XfrCKqVLLhkVyAPYls6iinrg-ii2XY81c6CYgohFvIQ"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 9,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Comprendre les m\u00E9tadonn\u00E9es et leur fonctionnement.",
+                        "N": "25#TdUts5nkoGk-bEs9TW5SWi8gYfRGSZqVehQ0bSyqBgs"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise fragile",
+                    "N": "93#3mbYKSiHb5OSfEhf7kEooZZHt4trjNE_GJZeoBKHDSA",
+                    "G": 4,
+                    "abbreviation": "C",
+                    "ordre": 8,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Sauvegarder un fichier sous diff\u00E9rents formats.",
+                        "N": "25#1pBGKuEfhokVBWHZRm_t_66mhFxKx5h6JWiYvhKSvzE"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise satisfaisante",
+                    "N": "93#cohR-LY9HUlOsXGWADL91k94KrnFcoeBq3N4pKaDUKU",
+                    "G": 2,
+                    "abbreviation": "A",
+                    "ordre": 7,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Concevoir une organisation efficace de rangement de dossiers en tenant compte des formats de fichiers.",
+                        "N": "25#53MzOkX0vRYM_QKbaJu_m6c4N_DJE4Af8MKZWNBshvw"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 6,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Partager des donn\u00E9es en ligne et attribuer les droits d'acc\u00E8s.",
+                        "N": "25#tpTRTpHP0OBZyOSm66DpG0MRK_rr7yJkTOcSH4M306o"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise satisfaisante",
+                    "N": "93#cohR-LY9HUlOsXGWADL91k94KrnFcoeBq3N4pKaDUKU",
+                    "G": 2,
+                    "abbreviation": "A",
+                    "ordre": 5,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Stocker et organiser les donn\u00E9es pour qu'elles soient accessibles dans des environnements num\u00E9riques locaux et distants.",
+                        "N": "25#-KRj2QOWDzOEgYA0SmOvLrdyfUbmnRrb0lvSgRpxOGg"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Tr\u00E8s bonne ma\u00EEtrise",
+                    "N": "93#Wm4WLtcpKkorVXDSNAqSw1sVMH7gCuR1cg1Q4_LKNys",
+                    "G": 1,
+                    "abbreviation": "A+",
+                    "ordre": 4,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Stocker et organiser les donn\u00E9es dans des environnements num\u00E9riques s\u00E9curis\u00E9s de sorte qu'elles soient facilement accessibles.",
+                        "N": "25#68smcdZ5BOQzTYrcUtfzsuNL78YZVAw7Twfaa1zHQyM"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Ma\u00EEtrise satisfaisante",
+                    "N": "93#cohR-LY9HUlOsXGWADL91k94KrnFcoeBq3N4pKaDUKU",
+                    "G": 2,
+                    "abbreviation": "A",
+                    "ordre": 3,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Savoir distinguer les diff\u00E9rents types d'espaces de stockage.",
+                        "N": "25#igTSD92WgJH99NqwrinEnZ1V0ztTKdsW1pBq57CbL_g"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 2,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Sauvegarder des fichiers dans l'ordinateur utilis\u00E9, et dans un espace de stockage partag\u00E9 et s\u00E9curis\u00E9, afin de pouvoir les r\u00E9utiliser.",
+                        "N": "25#cH2moI1Eo_pB9_6CzchdRHuAD0hRE5GN3urxKEsrDB4"
+                      }
+                    }
+                  },
+                  {
+                    "L": "Presque ma\u00EEtris\u00E9",
+                    "N": "93#syTsD-S2_aWimueN-N6rWlpG1FCpTfzpIEa2VeeNAbg",
+                    "G": 3,
+                    "abbreviation": "B",
+                    "ordre": 1,
+                    "pilier": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Information et donn\u00E9es",
+                        "N": "107#H1xPKYQ9GKki6ljZWOulvqwetlZSeXA0fHlhMTd9-_8",
+                        "G": 0,
+                        "ordre": 51,
+                        "strPrefixes": ""
+                      }
+                    },
+                    "coefficient": 1,
+                    "domaine": {
+                      "_T": 24,
+                      "V": {
+                        "L": "G\u00E9rer des donn\u00E9es",
+                        "N": "44#r0CvS96uoXxv4OD7op3OgbySX7ZvtBA_k0m872ewMKo"
+                      }
+                    },
+                    "item": {
+                      "_T": 24,
+                      "V": {
+                        "L": "Sauvegarder des fichiers dans l'ordinateur utilis\u00E9 et les retrouver.",
+                        "N": "25#6XdjFGmsgUcNsEvsa_PssAH10b1fRHf3Dqwov3t192A"
+                      }
+                    }
+                  }
+                ]
+              },
+              "listePaliers": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Comp\u00E9tences num\u00E9riques",
+                    "N": "100#KsQF0m6bskjDi3LeFNnmBzpRtu1SmJIMMLxNr5FGvCg"
+                  }
+                ]
+              },
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "TECHNOLOGIE",
+                  "N": "79#Nbj0J5extgCi6b10ZNZ1bAagzcE6yOycvTKySHxQQj4",
+                  "G": 16,
+                  "couleur": "#E19C84",
+                  "ordre": 13,
+                  "serviceConcerne": {
+                    "_T": 24,
+                    "V": {
+                      "N": "131#NhlRh1CBuyBBMKjIJIPT3qNB0-CVYzPWwfXrCVSgatE",
+                      "G": 12
+                    }
+                  }
+                }
+              },
+              "ListeThemes": { "_T": 24, "V": [] },
+              "individu": {
+                "_T": 24,
+                "V": {
+                  "L": "M. DEJEAN Y.",
+                  "N": "109#BlXOCLZ70J4vZp-r8noOEZujkyIDNWk_KcbNMGOH_FM"
+                }
+              },
+              "coefficient": 1,
+              "descriptif": "",
+              "date": { "_T": 7, "V": "11/07/2025" },
+              "periode": {
+                "_T": 24,
+                "V": {
+                  "L": "Trimestre 1",
+                  "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+                }
+              }
+            }
+          ]
+        },
+        "page": {
+          "periode": {
+            "_T": 24,
+            "V": {
+              "L": "Trimestre 1",
+              "N": "105#h9D8g5p9nXvXAs-igJ7amSJbOQUqciUWLEsVkx2gQBI"
+            }
+          }
+        }
+      },
+      "QCM": { "listeExecutionsQCM": [], "listeDevoirs": [] },
+      "devoirSurveille": {
+        "listeDS": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "DNB BLANC",
+              "N": "27#UJRP9ZyVLFs_oLAl1NegO9HAuj6U1Lx0l99Lw9c9Mas",
+              "G": 0,
+              "matiere": {
+                "_T": 24,
+                "V": {
+                  "L": "MUSIQUE",
+                  "N": "79#WCCrKzJxxrSfBeXhZyr_8Bpi2JW8TKh_ZN326dDo958"
+                }
+              },
+              "couleur": "#E55748",
+              "dateDebut": { "_T": 7, "V": "13/11/2025 11:00:00" },
+              "dateFin": { "_T": 7, "V": "13/11/2025 12:00:00" },
+              "listeSalles": {
+                "_T": 24,
+                "V": [
+                  {
+                    "L": "Salle de musique",
+                    "N": "129#BKtXlFYzpuDbqFjouSh2chiVeu1we7cClGF1WpfMMLs"
+                  }
+                ]
+              }
+            }
+          ]
+        }
+      },
+      "penseBete": {},
+      "enseignementADistance": {
+        "jours": {
+          "_T": 24,
+          "V": [
+            {
+              "G": 1,
+              "setOfDJCours": { "_T": 26, "V": "[0,1]" },
+              "date": { "_T": 7, "V": "21/07/2025" },
+              "enEtablissement": true,
+              "aDistance": false,
+              "jourEntier": true,
+              "setOfDJTravaille": { "_T": 26, "V": "[0,1]" },
+              "listeVisios": { "_T": 24, "V": [] }
+            },
+            {
+              "G": 2,
+              "setOfDJCours": { "_T": 26, "V": "[0,1]" },
+              "date": { "_T": 7, "V": "22/07/2025" },
+              "enEtablissement": true,
+              "aDistance": false,
+              "jourEntier": true,
+              "setOfDJTravaille": { "_T": 26, "V": "[0,1]" },
+              "listeVisios": { "_T": 24, "V": [] }
+            },
+            {
+              "G": 3,
+              "setOfDJCours": { "_T": 26, "V": "[0]" },
+              "date": { "_T": 7, "V": "23/07/2025" },
+              "enEtablissement": true,
+              "aDistance": false,
+              "jourEntier": false,
+              "setOfDJTravaille": { "_T": 26, "V": "[0]" },
+              "listeVisios": { "_T": 24, "V": [] }
+            },
+            {
+              "G": 4,
+              "setOfDJCours": { "_T": 26, "V": "[0,1]" },
+              "date": { "_T": 7, "V": "24/07/2025" },
+              "enEtablissement": true,
+              "aDistance": false,
+              "jourEntier": true,
+              "setOfDJTravaille": { "_T": 26, "V": "[0,1]" },
+              "listeVisios": { "_T": 24, "V": [] }
+            },
+            {
+              "G": 5,
+              "setOfDJCours": { "_T": 26, "V": "[0,1]" },
+              "date": { "_T": 7, "V": "25/07/2025" },
+              "enEtablissement": true,
+              "aDistance": false,
+              "jourEntier": true,
+              "setOfDJTravaille": { "_T": 26, "V": "[0,1]" },
+              "listeVisios": { "_T": 24, "V": [] }
+            }
+          ]
+        },
+        "actif": false
+      },
+      "kiosque": { "listeRessources": { "_T": 24, "V": [] } },
+      "lienUtile": {
+        "titre": "Liens et num\u00E9ros utiles",
+        "listeLiens": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "Installe l'App 3018 d\u00E9di\u00E9 au harc\u00E8lement pour tchatter avec un professionnel",
+              "commentaire": "",
+              "url": "https://e-enfance.org/app-3018/"
+            },
+            {
+              "L": "Protocole sanitaire",
+              "commentaire": "",
+              "url": "https://www.education.gouv.fr/annee-scolaire-2022-2023-protocole-sanitaire-342184"
+            },
+            {
+              "L": "Les \u00E9co-d\u00E9l\u00E9gu\u00E9s, c'est quoi ?",
+              "commentaire": "",
+              "url": "https://eduscol.education.fr/1121/les-eco-delegues"
+            },
+            {
+              "L": "Pass'Sport : 50 euros pour faire du sport",
+              "commentaire": "",
+              "url": "https://pass.sports.gouv.fr/"
+            },
+            {
+              "L": "All\u00F4 Enfance en danger",
+              "commentaire": "Num\u00E9ro d'aide \u00E0 l'enfance",
+              "url": "https://swie.index-education.com/redirect.php?produit=pn&page=contact-aideenfance&version=2026.2.6.0&distrib=FR&lg=fr&flag=Espace_Eleve",
+              "numeroTelFormate": "119",
+              "numeroTelBrut": "119"
+            }
+          ]
+        }
+      },
+      "partenaireCDI": {}
+    },
+    "nom": "PageAccueil"
+  }
+}
