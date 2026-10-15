@@ -100,6 +100,33 @@ pub struct Classroom {
     pub id: String,
 }
 
+// TODO: lesson content
+// {
+// 	"cahierDeTextes": {
+// 		"_T": 24,
+// 		"V": {
+// 			"N": "ID",
+// 			"estDevoir": true,
+// 			"estEval": true,
+// 			"originesCategorie": {
+// 				"_T": 24,
+// 				"V": [
+// 					{
+// 						"G": 3,
+// 						"L": "Devoir sur table",
+// 						"libelleIcone": "DS"
+// 					},
+// 					{
+//            "G": 7,
+//            "L": "Évaluation de compétences",
+//            "libelleIcone": "EVA"
+//          }
+// 				]
+// 			}
+// 		}
+// 	}
+// }
+
 #[derive(Default, Debug, Clone, Deserialize)]
 pub struct Lesson {
     #[serde(rename = "N")]
@@ -122,6 +149,8 @@ pub struct Lesson {
     pub color: String,
     #[serde(rename = "ListeContenus", deserialize_with = "de_lesson_content")]
     pub content: LessonContent,
+    #[serde(rename = "memo", default)]
+    pub note: String,
     // unused: G, P, AvecTafPublie, cahierDeTextes, avecCdT
 }
 
@@ -336,6 +365,7 @@ fn gap(id: &str, name: &str, index: u32, duration: u32, l: &Lesson, p: &Params) 
             classroom: Vec::new(),
             group: None,
         },
+        note: "".into()
     }
 }
 
