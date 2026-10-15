@@ -370,6 +370,17 @@ impl Client {
         Ok(data)
     }
 
+    pub async fn mock_documents(/* same args as homework */) -> Result<Resources, Error> {
+        let res = serde_json::Value::from_str(include_str!("../cont_ress.json"))
+            .unwrap()
+            .clone();
+        let mut data: Resources = serde_json::from_value(res["dataSec"]["data"].clone()).unwrap();
+        data.files =
+            serde_json::from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
+
+        Ok(data)
+    }
+
     pub async fn keep_alive(&mut self) -> () {
         loop {
             if Instant::now() - self.communication.last_ping > Duration::from_secs(110) {

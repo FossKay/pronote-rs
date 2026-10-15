@@ -23,6 +23,7 @@ async fn main() -> Result<(), Error> {
         })
         .await?
     );
+    println!("Lesson details & documents: {:?}", Client::mock_documents().await?);
 
     Ok(())
 }

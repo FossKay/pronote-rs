@@ -1,0 +1,1236 @@
+{
+  "id": "PageCahierDeTexte",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "ListeCahierDeTextes": {
+        "_T": 24,
+        "V": [
+          {
+            "N": "18#JRSmqgJQs8Ir5QrYMZ7HGU2rF0hgkUEgtngVKaK8igU",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#XW8uLPcGQc_Yu3T92UCeMKdG6DFkpEqcWPpulHSGZBs" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "79#ySsY-mqZ4wwaBnO9gj5DLzP4euODN7pyf7SXhQ-hg7c"
+              }
+            },
+            "CouleurFond": "#E0E5A4",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme BROWN J.",
+                  "N": "109#5cApEMU4FDOlf5U35PD66-sLJyTXzL_7rukQj8YlGig"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "13/10/2026 14:30:00" },
+            "DateFin": { "_T": 7, "V": "13/10/2026 15:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Comprendre un message oral en continu sur un point d\u2019int\u00E9r\u00EAt personnel",
+                  "N": "27#2m2yaka2I45Q2H2yzbtkG_r0pWT5H3jv8Z1aovH3O2Q",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#nM4H0-H2Rmtp8c--MXjHGaUXxNb39F7_6QwhligulDI",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#YqC4pIQy6G90HlnJAXp5213PsQ1Ry7q0lqfWVMmZ_HQ" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "79#ySsY-mqZ4wwaBnO9gj5DLzP4euODN7pyf7SXhQ-hg7c"
+              }
+            },
+            "CouleurFond": "#E0E5A4",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme BROWN J.",
+                  "N": "109#5cApEMU4FDOlf5U35PD66-sLJyTXzL_7rukQj8YlGig"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "16/10/2026 09:00:00" },
+            "DateFin": { "_T": 7, "V": "16/10/2026 10:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Courants et influences interculturelles",
+                  "N": "27#ROW718hZYON24Qw6xivQPfHCYbih6KLO3MwsVfG5hE8",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Courants et influences interculturelles <br/> Les langages artistiques <br/> Les \u0153uvres patrimoniales et contemporaines."
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#15faWwGONiLCcT--4z0Dxhnqjb_xz8HsSaGDkGxN_6U",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#Dq7WOQyiu4jBpPEnbm93qLdgbxWFLNIvII93iEzQxlI" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "ANGLAIS LV1",
+                "N": "79#ySsY-mqZ4wwaBnO9gj5DLzP4euODN7pyf7SXhQ-hg7c"
+              }
+            },
+            "CouleurFond": "#E0E5A4",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme BROWN J.",
+                  "N": "109#5cApEMU4FDOlf5U35PD66-sLJyTXzL_7rukQj8YlGig"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "12/10/2026 14:30:00" },
+            "DateFin": { "_T": 7, "V": "12/10/2026 15:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Comprendre un message oral en continu sur un point d\u2019int\u00E9r\u00EAt personnel",
+                  "N": "27#SXTgMwLYdrpRVJqJGGDR2BssVj6BIHKHxE8ksikR904",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#5UHGGrz3C0jjDeiuCXovoJadTEJ1stRbKehwveejyn0",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#QFzIHyCFd2CHGKqsw3CflmlKyH9eD1zUWoBBDMiYFVc" }
+            },
+            "verrouille": false,
+            "listeGroupes": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "3LATINGR.1",
+                  "N": "60#In3-42DDCLabIgD5DFi9hZVQtUZ7MNS1cSzS7_1wD0c"
+                }
+              ]
+            },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "LATIN",
+                "N": "79#ajPctYPXwoxB9lJQWXgyDLKb7R68zUxBSI7qrEgU7KU"
+              }
+            },
+            "CouleurFond": "#A202AC",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme DUPAS M.",
+                  "N": "109#WIg8oOu6Kyfw5oWtyroP7kSicBAAu6Bkl_W6BV4uE2I"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "16/10/2026 08:00:00" },
+            "DateFin": { "_T": 7, "V": "16/10/2026 09:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "\u00C9crire et r\u00E9agir \u00E0 l\u2019\u00E9crit Niveau B1 : Reformuler",
+                  "N": "27#xR5xZwIjWqM6Ay2arowcrD3KZMhSPokacircWWOVOwU",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#aOwXEr5HP57bFmU0TMCJ8sVu7-vchCDAO4wv81DDnaw",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#Wv4CTIB4vwE4WlMR-NW3Km2ZW95pIudz_F2dbqZhhRs" }
+            },
+            "verrouille": false,
+            "listeGroupes": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "3LATINGR.1",
+                  "N": "60#In3-42DDCLabIgD5DFi9hZVQtUZ7MNS1cSzS7_1wD0c"
+                }
+              ]
+            },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "LATIN",
+                "N": "79#ajPctYPXwoxB9lJQWXgyDLKb7R68zUxBSI7qrEgU7KU"
+              }
+            },
+            "CouleurFond": "#A202AC",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme DUPAS M.",
+                  "N": "109#WIg8oOu6Kyfw5oWtyroP7kSicBAAu6Bkl_W6BV4uE2I"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "13/10/2026 13:30:00" },
+            "DateFin": { "_T": 7, "V": "13/10/2026 14:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "\u00C9crire et r\u00E9agir \u00E0 l\u2019\u00E9crit Niveau B1 : Reformuler",
+                  "N": "27#GuZuTBz1NGWCwGYnl4-WwtQO9-GGZwHSV5CDm4LjkiA",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#94tgH9AWDvqMQm8tU7S1g4_8NA6Y8527vcNsIxNAoaI",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#GfhtNfnxJNZs-Dy40NFB58BZsTQPqWIWFmFtfjlJjpo" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "ARTS PLASTIQUES",
+                "N": "79#Cq1kRl3go4-f1QB1ZNER2jmGO9JjD_q7xQF0-eqCmMA"
+              }
+            },
+            "CouleurFond": "#173ED9",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme DIALO H.",
+                  "N": "109#2tH9wDAjDHm9Gtct9Z8lJQmdFm0e699mmabnSl7haMI"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "14/10/2026 09:00:00" },
+            "DateFin": { "_T": 7, "V": "14/10/2026 10:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Les diff\u00E9rences d\u2019intention entre expression artistique et communication visuelle, entre \u0153uvre et  image d\u2019\u0153uvre",
+                  "N": "27#sgclpPUR0HRFrh1RuL--iGrQK49a5lhbD4cu5gaf7Pw",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#LWiQtZ1Y0Fa_Y3XN0NdQQnWX9hoRpg6rkZ6w0I_L09w",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#6KrqacdQlWZ-mRX7h34fgG_qaN2mabbOsZR2arCBzAg" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MUSIQUE",
+                "N": "79#ccocgCakyfcldPa8TYLMEdNjiGHOVWfPF6IXvQwY93Y"
+              }
+            },
+            "CouleurFond": "#E55748",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme VERNET M.",
+                  "N": "109#g8L_uThB7RCOmHTS5G0HQZYWyYjsZhMz0FS3tBfaf-U"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "15/10/2026 11:00:00" },
+            "DateFin": { "_T": 7, "V": "15/10/2026 12:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Dans le domaine de la perception : Probl\u00E9matiser l\u2019\u00E9coute d\u2019une ou plusieurs \u0153uvres.",
+                  "N": "27#wh1P9N0xksAB-9k4lQl0bahe5SSFyTHQ-gaVuOGeH6I",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#35WKY6x9c6Luhpr4roVPEfOhG_mgjOQKbgMbq8OoLRk",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#fVAEM853v0uoUbWWdVZu7U_Q1O5kriI7nE4okYXrpWU" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "79#4yI1M_mB3KHXTGBtBjrBm052FUbce-9feA0lxCnCQW4"
+              }
+            },
+            "CouleurFond": "#2338BB",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "M. GALLET B.",
+                  "N": "109#00Sj3-q0_OoTiFPncmeay1boRuvrk8nuAQgR6mD78FQ"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "12/10/2026 09:00:00" },
+            "DateFin": { "_T": 7, "V": "12/10/2026 10:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Enrichir et structurer le lexique : Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique",
+                  "N": "27#oLZKjOZcVTedcIbf14wCSBX6lLawj7_oj5T-200uU1Q",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique, par l'\u00E9criture, par les diverses activit\u00E9s conduites dans toutes les disciplines ;"
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#x6zWxqDOqOfG1FSMBxgvUfsi0IyHk_UiiCOgOjRoxn8",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#wcWVek5DOMyrd6SipDvdLEt-Uqm0tFQtOuR2Sz6ogXs" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "79#4yI1M_mB3KHXTGBtBjrBm052FUbce-9feA0lxCnCQW4"
+              }
+            },
+            "CouleurFond": "#2338BB",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "M. GALLET B.",
+                  "N": "109#00Sj3-q0_OoTiFPncmeay1boRuvrk8nuAQgR6mD78FQ"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "14/10/2026 10:00:00" },
+            "DateFin": { "_T": 7, "V": "14/10/2026 11:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Enrichir et structurer le lexique : Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique",
+                  "N": "27#DQXoKUlrCXFL0o8nlcVeHuTw5ms8yqzfcnrSu0al6R8",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique, par l'\u00E9criture, par les diverses activit\u00E9s conduites dans toutes les disciplines ;"
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#7Ut3T8AV9II-1GB-KneBu0iPAHDPsKFFiPGkApa_mVk",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#FKepMu-P_0nkEaS5S21ogRBVsmG2jVHgtUe2lO3K4qA" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "79#4yI1M_mB3KHXTGBtBjrBm052FUbce-9feA0lxCnCQW4"
+              }
+            },
+            "CouleurFond": "#2338BB",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "M. GALLET B.",
+                  "N": "109#00Sj3-q0_OoTiFPncmeay1boRuvrk8nuAQgR6mD78FQ"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "15/10/2026 10:00:00" },
+            "DateFin": { "_T": 7, "V": "15/10/2026 11:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Enrichir et structurer le lexique : Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique",
+                  "N": "27#Fc4aRO07im91HwAgmEEQ_rNv05Jdq8Ayk0U80xKmxeA",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique, par l'\u00E9criture, par les diverses activit\u00E9s conduites dans toutes les disciplines ;"
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#WlesfZA_kwlsl9pObem5_wdCfoVvNIM22NUh17zQuOY",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#3zycpu1CF9alH9n7pttYOgRTaCEDVK7_9futhaZg3Aw" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                "N": "79#lLwTZrGz0otMh0F3Wvth65l8fIWOyXpncKUcXIFNSw0"
+              }
+            },
+            "CouleurFond": "#2BD5F3",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme MOREAU C.",
+                  "N": "109#sUZ7OGfjDD4SMvAEc-imt7MTb6zsjlLLnO7yQJONp10"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "13/10/2026 15:30:00" },
+            "DateFin": { "_T": 7, "V": "13/10/2026 17:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Th\u00E8me 1 L\u2019Europe, un th\u00E9\u00E2tre majeur des guerres totales (1914-1945) : Civils et militaires dans la Premi\u00E8re Guerre mondiale",
+                  "N": "27#sz-NfgD75_UyCCqTBofw0ZCmZDkW-risLIXloc3RTlc",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#dNV0YLsY00iif1IIr75BM5wO6Si6wYRQnI2HozXBe_A",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#TGU-4UUlVjmifQdMvyKL_yS3No30JKsr0Yf1kun7st8" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                "N": "79#lLwTZrGz0otMh0F3Wvth65l8fIWOyXpncKUcXIFNSw0"
+              }
+            },
+            "CouleurFond": "#2BD5F3",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme MOREAU C.",
+                  "N": "109#sUZ7OGfjDD4SMvAEc-imt7MTb6zsjlLLnO7yQJONp10"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "12/10/2026 10:00:00" },
+            "DateFin": { "_T": 7, "V": "12/10/2026 11:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Th\u00E8me 1 L\u2019Europe, un th\u00E9\u00E2tre majeur des guerres totales (1914-1945) : Civils et militaires dans la Premi\u00E8re Guerre mondiale",
+                  "N": "27#Kyhkpx_LnuikSEz0GBZtmrgt3_FXsMntcGSo3lUBY9g",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#76LOPv1Y5bbnc8_RepdUEa3eoKGXm-mTTOW5UG9zLWg",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#_RoUMhpj2a93woaOsdLcEdUcAS1IdAuC0s9_BP8EqJg" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "TECHNOLOGIE",
+                "N": "79#5EtvmlKmJXCWSq5Is7VoDzCfbMhhfXvXIhKHsQG_5mk"
+              }
+            },
+            "CouleurFond": "#E19C84",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "M. DEJEAN Y.",
+                  "N": "109#v8Io4B0LAQEgtoix52g1hqjAmda9XPRaLy_WGsz_qHQ"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "15/10/2026 13:30:00" },
+            "DateFin": { "_T": 7, "V": "15/10/2026 14:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Identifier le(s) mat\u00E9riau(x), les flux d\u2019\u00E9nergie et d\u2019information sur un objet et d\u00E9crire les transformations qui s\u2019op\u00E8rent",
+                  "N": "27#v-QfEpz03nBJHs9xFc7Hjx1IBLA7jGgyh3lXqw6QmCc",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Familles de mat\u00E9riaux avec leurs principales caract\u00E9ristiques<br/>Sources d\u2019\u00E9nergies<br/>Cha\u00EEne d\u2019\u00E9nergie<br/>Cha\u00EEne d\u2019information"
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#CxNV-yfGOxs8DqREJRunt6IskAIvEBVQeyq6XlpyVI0",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#Rr22BERLMh8EuTsbqzpiq7uiEhYNW7M1HzOoaFTCy8c" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "\u00C9DUCATION PHYSIQUE ET SPORTIVE",
+                "N": "79#ShOEdsAxYUF902sOLxDR81MeaQU0NF7S9eOC8oIWnCI"
+              }
+            },
+            "CouleurFond": "#80FF00",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme ROUX N.",
+                  "N": "109#JnUpympq0wx4cxMxDWaB_eyUGMMGXq2UdaMlTDcE6Ls"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "12/10/2026 15:30:00" },
+            "DateFin": { "_T": 7, "V": "12/10/2026 16:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Appliquer des principes simples pour am\u00E9liorer la performance dans des activit\u00E9s athl\u00E9tiques et/ ou nautiques",
+                  "N": "27#8JpVNiKR3tf17mQYZDCFaZG0LIHa2PotkU_X4SPIZE0",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#qjurrh9zquKSr-qkIVqO0Nv82uUev8O0si2T57rF6Mk",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#FEg00_n87eG3DO5kxFjkHL2WC0CctgPQdQNBH5PA5Uo" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "\u00C9DUCATION PHYSIQUE ET SPORTIVE",
+                "N": "79#ShOEdsAxYUF902sOLxDR81MeaQU0NF7S9eOC8oIWnCI"
+              }
+            },
+            "CouleurFond": "#80FF00",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme ROUX N.",
+                  "N": "109#JnUpympq0wx4cxMxDWaB_eyUGMMGXq2UdaMlTDcE6Ls"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "16/10/2026 10:00:00" },
+            "DateFin": { "_T": 7, "V": "16/10/2026 12:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Appliquer des principes simples pour am\u00E9liorer la performance dans des activit\u00E9s athl\u00E9tiques et/ ou nautiques",
+                  "N": "27#qudYofl5N4nZBffqmy9RgYc1Chw1F_FCLkS9Q9OaXBo",
+                  "descriptif": { "_T": 21, "V": "" },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#WPjed0HgNw4B3JxpL1zf1jnfKuns1kNNcjQKHxgAmKE",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#PHHW040bkBYj2sPVXExrjVCa5MCExn_n3ps818pq_EQ" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "EPI (big data)",
+                "N": "79#NmO_GFHTqTE0kzBOR28COZFWABZQW8pKyd_IgG5yUrs"
+              }
+            },
+            "CouleurFond": "#BC7B90",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme TESSIER A.",
+                  "N": "109#5mceOstgv5h0vDMTTKf-lSwldKoiUWXuVTc5Tz7vvN8"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "16/10/2026 13:30:00" },
+            "DateFin": { "_T": 7, "V": "16/10/2026 15:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Sciences, technologie et soci\u00E9t\u00E9 : Biotechnologies,",
+                  "N": "27#yQIxTryU1CbEFSFEBhEKVxjdu3zXXJirncl14G5BWxY",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Biotechnologies, bio mim\u00E9tisme et innovations technologiques  <br/> R\u00E9paration du vivant, l\u2019\u00EAtre humain  augment\u00E9  <br/> Handicap  <br/> Industrie du m\u00E9dicament  <br/> Industrie agro-alimentaire  <br/> Biotechnologies pour l\u2019environnement (eau, d\u00E9chets, carburants)."
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#I4hUZQ9-GjpNh9Hwe-Fzb51eADbU8Sgg6sO2Q81pj4Y",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#_YCECzAwNWM7gESw6EGt3CH4pYDAslQ2NBz4yDHZJdo" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                "N": "79#wjZDfLnHJAbbDHDD2mOiMbSaZUW3Eef9-dkm1Db_zhs"
+              }
+            },
+            "CouleurFond": "#050347",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Mme TESSIER A.",
+                  "N": "109#5mceOstgv5h0vDMTTKf-lSwldKoiUWXuVTc5Tz7vvN8"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "12/10/2026 13:30:00" },
+            "DateFin": { "_T": 7, "V": "12/10/2026 14:30:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Relier les besoins des cellules animales et le r\u00F4le des syst\u00E8mes de transport dans l\u2019organisme : Besoins des cellules animales et syst\u00E8mes de transport dans l\u2019organisme",
+                  "N": "27#ECMchdK7CDLVDODn0d4f5UXCXs0Z7_XjEOCqmCS82rQ",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Nutrition et organisation fonctionnelle \u00E0 l\u2019\u00E9chelle de l\u2019organisme, des organes, des tissus  et des cellules <br/> Nutrition et interactions avec des micro-organismes."
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#ZnR2cDnO3gB4KLZu6qrKnG5cizRGCIriJgVifZODwy8",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#GoBy0zg6e3qei_ziciUD-0cqfHM4a7wijEr7AI8u03s" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "FRANCAIS",
+                "N": "79#4yI1M_mB3KHXTGBtBjrBm052FUbce-9feA0lxCnCQW4"
+              }
+            },
+            "CouleurFond": "#2338BB",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "M. GALLET B.",
+                  "N": "109#00Sj3-q0_OoTiFPncmeay1boRuvrk8nuAQgR6mD78FQ"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "13/10/2026 11:00:00" },
+            "DateFin": { "_T": 7, "V": "13/10/2026 12:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Enrichir et structurer le lexique : Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique",
+                  "N": "27#Navy7PxYwnZd8U5KnnTKBOACMV5zkg1jN2-5RxS0wTY",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Enrichir son lexique par les lectures, en lien avec les entr\u00E9es du programme de culture litt\u00E9raire et artistique, par l'\u00E9criture, par les diverses activit\u00E9s conduites dans toutes les disciplines ;"
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": { "_T": 24, "V": [] }
+          },
+          {
+            "N": "18#2q-rpMcD5wyGkK2UrgMjBdB21uj9fHFo-f-tHktZkoc",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#sXt5NuFdosVzVl5BOIWfjneciIccOgpyLe4fY8NVKoc" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#aGYI_FMSY8s51rDfbt7xWO4-TPLyC41a2kQCqNSLK-E"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "M. PROFESSEUR M.",
+                  "N": "109#p3HJQrYnq-tjesSgOHmMtLLLr7WWxkz9XMaBMoe7cCs"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "13/10/2026 10:00:00" },
+            "DateFin": { "_T": 7, "V": "13/10/2026 11:00:00" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Utiliser les nombres pour comparer, calculer et r\u00E9soudre des probl\u00E8mes : Nombres - Comp\u00E9tences associ\u00E9es",
+                  "N": "27#KqTGzoNZ90qpPS5BPF9hEt_L6PxKBiu-gtiWK4Qk_BE",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "Utiliser diverses repr\u00E9sentations d'un m\u00EAme nombre (\u00E9criture d\u00E9cimale ou fractionnaire, notation scientifique, rep\u00E9rage sur une droite gradu\u00E9e) ;<br/>Passer d'une repr\u00E9sentation d'un nombre \u00E0 une autre."
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Comparer, calculer, r\u00E9soudre les probl\u00E8mes",
+                  "N": "45#fII8HdT5MsAy9BZuyoo8uOchg4yeFj8WP0v3AYMp-_c"
+                },
+                {
+                  "L": "Notions de divisibilit\u00E9 et de nombres premiers",
+                  "N": "45#TCVo5zqA1zBd_rGS-gTpvXuwe-sX6V4wqVbcLrhkIfw"
+                },
+                {
+                  "L": "Calcul litt\u00E9ral",
+                  "N": "45#kSXQrfY_5Cu5SShx3TOTFmnmbQ9-7KNvNBT5xJjWfdE"
+                }
+              ]
+            }
+          },
+          {
+            "N": "18#6ueQPsD2oOS42Ux1Gb6ZiMJDolMyu60W99_VN6LPhJo",
+            "cours": {
+              "_T": 24,
+              "V": { "N": "29#Yc9MVlH7N_HE3nTkm1I3xxcCsAc6C2aAhaDI6Hn7D_o" }
+            },
+            "verrouille": false,
+            "listeGroupes": { "_T": 24, "V": [] },
+            "Matiere": {
+              "_T": 24,
+              "V": {
+                "L": "MATH\u00C9MATIQUES",
+                "N": "79#aGYI_FMSY8s51rDfbt7xWO4-TPLyC41a2kQCqNSLK-E"
+              }
+            },
+            "CouleurFond": "#FF8040",
+            "listeProfesseurs": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "M. PROFESSEUR M.",
+                  "N": "109#p3HJQrYnq-tjesSgOHmMtLLLr7WWxkz9XMaBMoe7cCs"
+                }
+              ]
+            },
+            "Date": { "_T": 7, "V": "15/10/2026 08:00:00" },
+            "DateFin": { "_T": 7, "V": "15/10/2026 10:00:00" },
+            "dateTAF": { "_T": 7, "V": "19/10/2026" },
+            "listeContenus": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Utiliser les nombres pour comparer, calculer et r\u00E9soudre des probl\u00E8mes : Comparaisons de nombres - Connaissances",
+                  "N": "27#PpN4Lny36J1GC4lncTNvdtO_WdAgUGHlSkQL67wFBF8",
+                  "descriptif": {
+                    "_T": 21,
+                    "V": "\u00C9galit\u00E9 de fractions (d\u00E9monstration possible \u00E0 partir de la d\u00E9finition du quotient)<br/>Ordre sur les nombres rationnels en \u00E9criture d\u00E9cimale ou fractionnaire"
+                  },
+                  "categorie": {
+                    "_T": 24,
+                    "V": {
+                      "L": "Cours",
+                      "N": "19#u9ZNVdKfm7R4XvoxmX0KqAnpFMrmY21PFJfca-nvLS8",
+                      "G": 1,
+                      "libelleIcone": ""
+                    }
+                  },
+                  "ListeThemes": { "_T": 24, "V": [] },
+                  "libelleCBTheme": "Des mati\u00E8res du contenu",
+                  "parcoursEducatif": -1,
+                  "ListePieceJointe": { "_T": 24, "V": [] },
+                  "training": { "_T": 24, "V": { "ListeExecutionsQCM": [] } }
+                }
+              ]
+            },
+            "listeElementsProgrammeCDT": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "Comparer, calculer, r\u00E9soudre les probl\u00E8mes",
+                  "N": "45#fII8HdT5MsAy9BZuyoo8uOchg4yeFj8WP0v3AYMp-_c"
+                },
+                {
+                  "L": "Notions de divisibilit\u00E9 et de nombres premiers",
+                  "N": "45#TCVo5zqA1zBd_rGS-gTpvXuwe-sX6V4wqVbcLrhkIfw"
+                },
+                {
+                  "L": "Calcul litt\u00E9ral",
+                  "N": "45#kSXQrfY_5Cu5SShx3TOTFmnmbQ9-7KNvNBT5xJjWfdE"
+                }
+              ]
+            }
+          }
+        ]
+      },
+      "ListeRessourcesPedagogiques": {
+        "_T": 24,
+        "V": {
+          "listeRessources": {
+            "_T": 24,
+            "V": [
+              {
+                "estForumPeda": true,
+                "ressource": {
+                  "_T": 24,
+                  "V": {
+                    "L": "Suggestions Projet D\u00E9veloppement Durable",
+                    "N": "189#FmWILyCWR6fSpHXefkDpaLy4R8BwBZBntwAQhDOzu_k"
+                  }
+                },
+                "ListeThemes": {
+                  "_T": 24,
+                  "V": [
+                    {
+                      "L": "Eco-d\u00E9l\u00E9gu\u00E9s",
+                      "N": "187#7TQv-l7vZUtR1-mewI-zL6fOsq8lsvgdcbkHMKHWwHA",
+                      "Matiere": {
+                        "_T": 24,
+                        "V": {
+                          "L": "Mati\u00E8re non d\u00E9sign\u00E9e",
+                          "N": "79#b1Flh9cdXUeoHOB77RxTrsLxWgZV8BzkoBJ4K5d0r5M"
+                        }
+                      }
+                    }
+                  ]
+                },
+                "date": { "_T": 7, "V": "17/10/2022 15:57:42" },
+                "matiere": {
+                  "_T": 24,
+                  "V": { "N": "79#a3YegbdfH9lNL40CnX4AjeKfl1YDus3C4cAbe6-5ADs" }
+                }
+              }
+            ]
+          },
+          "listeMatieres": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "EPI (d\u00E9veloppement durable)",
+                "N": "79#a3YegbdfH9lNL40CnX4AjeKfl1YDus3C4cAbe6-5ADs",
+                "G": 16,
+                "couleur": "#FCF895"
+              }
+            ]
+          }
+        }
+      },
+      "ListeRessourcesNumeriques": {
+        "_T": 24,
+        "V": {
+          "listeRessources": {
+            "_T": 24,
+            "V": [
+              {
+                "N": "126#Kbo1r7zZnOHd3rM5IazVphdXQ7d7h-9fmNx3TZHG04c",
+                "titre": "42 outils interactifs pour l'\u00E9cole",
+                "editeur": "G\u00E9n\u00E9ration 5",
+                "description": {
+                  "_T": 21,
+                  "V": "Cette application propose 42 outils et activit\u00E9s interactives, utilisables dans toutes les disciplines avec un TBI, TNI, VPI, ENI ou simple vid\u00E9oprojecteur.\nCette application propose un panel complet d'outils ludiques, permettant d'aborder les notions du programme et d'acqu\u00E9rir des comp\u00E9tences avec une participation active des \u00E9l\u00E8ves. Il est con\u00E7u pour une utilisation en classe de primaire et pour l'enseignement sp\u00E9cialis\u00E9."
+                },
+                "logo": { "_T": 25, "V": 0 },
+                "avecLien": false,
+                "responsive": true,
+                "apiSupport": { "_T": 26, "V": "[0]" },
+                "listeRessourcesAtomiques": { "_T": 24, "V": [] },
+                "listeMatieres": { "_T": 24, "V": [] }
+              }
+            ]
+          }
+        }
+      }
+    },
+    "nom": "PageCahierDeTexte"
+  },
+  "dataNonSec": {
+    "fichiers": [
+      "iVBORw0KGgoAAAANSUhEUgAAAE4AAAASCAYAAAD15uiRAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyZpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTMyIDc5LjE1OTI4NCwgMjAxNi8wNC8xOS0xMzoxMzo0MCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtcE1NOkRvY3VtZW50SUQ9InhtcC5kaWQ6NDg0NENBRTE0RTU0MTFFNkFFMEI4NUEyRENDQjY4MUEiIHhtcE1NOkluc3RhbmNlSUQ9InhtcC5paWQ6NDg0NENBRTA0RTU0MTFFNkFFMEI4NUEyRENDQjY4MUEiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIDIwMTUgKFdpbmRvd3MpIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6QzA1ODJENzkyRTNEMTFFNjgyQjY5MkQ5RURGQTE3OUEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6QzA1ODJEN0EyRTNEMTFFNjgyQjY5MkQ5RURGQTE3OUEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6JOEEsAAAJCUlEQVR42uxYaVRU5xl+5s4uMIAsMyCbgiJYF4hCF9dUhaixiXUJpklMbJvTE4+mPW1/adqmp396kmhrl6QuaU+1oqLGJOJCG9SAeIwriDKDLMoyIDDMDDPMPrfv9w0Mg45G8y+efHPuuXe+/X2+533e916JKIoGABPxTXmsIqNrbLgGj38AHY4z9CTSzw+FEIVk9XxIIDxRAPh77HCeamQGAxLJUKUfEo0K6uU5gFx4IHDecA12nxGV3esJMi/8ohuxilysSPmc5lbwdrPZDJOpHzqdFmPGjBk1lrU1NjYiPz8fUqn0oRt3OByora1FXl4eFArFYxvOxstkMsjl8q8EnPNTPfo3HIY8O5EAE3md6PNCmhILVfEkSB4CXNgioZ9ciBgCTg6ZoA62Xb50Gfv2lUKpUsLj9uC1115F9uTswKKiiAP7DyBRq8XMmTO/dOPlx47DYrU8Ut/hcuzTY8jMysTkyZPxjw924Kmn8jF7zuyvBJz7Qis0mxci6ldzIQ4Bx+1n7CPQmmw3cKGvEiXpb4wa90C/kwh+Yq8teHn9gzSZFI5BJ/bs2YuVK3+ILVs2Y9q0qdi5cxex2x9cMI+Y9txzPwgsHuoWQ31Cy/gJGRz4e5kZ2tftdo9qq62rQ8/dHv68fPmzyJ2SG2zzer3hXTLM2rx/gwmK76YThQRIFNLgNeyiEVINdhn+iL3N28MzztTugsPiI8DYKgIUySqkRiwitvmIRV5EylOJg1LoDfVQqVUo/HYhH1f8TDG5iYJvbGBggLPNbh/EnTt3sGLF82htbcXVK9fgdDnQ0KDH/HnzsODpBXA6nSg7WIaenl7cuHETa9ashtViRVVVFR/v8/tQXFSEQ4cP83k1Gg3Wri1B/fV6dHZ2ovKzSowdOxZ3e3qQ4h3Hn08cP4Fr12pJOtR4ntZOSUnB0Y+O8gPU6w1Q075fKHkB8fHxATC7bBA9XsinJsHbZIK/wwppWgykGTFw+ZwwWOpwo/8yk3nsbnwHPq8fL0/aNJpxVz42ofzdDpzabkT5e22w307AQu1eLNaVoiipDN+L38r7GY2diImOCSIfFxeH1WtWcZ1hoDGys//na86TdtXBYrbg6NGPya1ysGDBfBw58hE8Hg9OnapAe1s7GbIGLc0tqKw8DRcxq6zsED+EObNn4wgZbbfZsW7dKxiwDuC/Ff8jho5HHIE0KXsSdEk6VJ39nPZk5OCzOUsImKSkZOzetZszlc1r7Orih9hG69VU14ywrcUE0eXBwO8q0L9uPywbj6F3yQ6c3PI2Xi1fhA1nVuD9hj9AUAiQqQR8aHgXH9ZvHc04QUp8GrpEuiQSMSy1XS4XZPLAsIqKCugbDNyAxYsX4datJqx9sQQxMTHIGJ+B+vp6rkM5Odkk/jMwODiIkydOwmazcebkkzZFR0cjm0C4Xned+uXwuRiY7CDmkm4lJSdBqVRCpVLx8VrSTjYmPT2dHxoLCqy90WDgYKalp/H/586dQ39/P6KiomhvizGe9jNxYhacbteI+xpJhq4aEbG+AFG/WQhBo8TFiyfx+7qfQEnuqo4dHXDkkVL8s+E99Fl7RoDzeUR43RSGCTR2DxXKUb5NBvl8Pv6clprGg0Pl6dMoLCjg+nL8+ElUV1XD3G/GlNxc+HnfgNYxpklICxgT2HNNTQ2ampq4izKjfTRerVKTNATWYqAdOHCQ6n2cVVptYlCvQrWMJUwMVAUBxopCqSACCBgklxcEIdjXTzaF6q5sqhYJn/0UijkZwbrdxl2Q6wROJLfFy/FggAVxcvlhtppHgItJVUHnAKQKCXxuEcqxyrDAsVO2keawwiIpd5fqar5BdjGtSiaD2WnLKb1gTLi3sH5+0rBnlizBjLzp5IZ08h43Ge8gTR0R8R07dnLGvPTKS1y/nJR6hM4RmgHIiHniUDs7WAY+r4P44CR2Yhyl/nGjA0/LFfjjvIi4FY1URQocGUo0ma8SHjLYO914OfNN/GzOr0eAm1Egx/QcMah6Ep8NvpbhI6V6hYxyGw2n+949JjQ3N2PChAmoOVfD87aY2BhERkagu8vI3aJ0335Mmz6Nu1VoRGNGMVeKi4tHR3s7CgsLUHbiEOfN3HlzeV9OClqzy9iFRYsWIoLyxNuttzkDhyOn0+kKso+BzQS/0dDI67pI01hwYQGFsTXITJpTFEeAdFXcguxbiZAmaYJ1/X0mrJ+yCSVH0zAmMwkDy3Kx9K/5UMTKsCn/bfzoO6+P1jjbz4/BWV5P1Awwjbnq8Bqi3wN5jhbx1a/zDT5NUXH7n/+CceOSCQQVJmZlcQawCLu/dD/pxCVKjk2YNWsmbt5s4G4zzA2edtDERcWL8fe/vU8u2IV2AnDTmxtJP92QCtKAcYTerIJZdEj/waWLl7l7G/R6DtqEzEyUlpYiShMJNUVQJheF1PfsmbPYtvVP6O7uRnFxMQEXdQ/T6b0nxFWtm09BtTQbUW99P1i3asY6/KLot7j7y22Qzp8Mu8MGqU2Ft5Zsw7P5q0ZYTpvsorvWtPTfcJRfI9Pud1ERBNykJCTUboREGfB3PaUWLHHNycnlbsaYxUBpogDR09uLXBJ6TbSGUgs7Tyd0Oh1nBwNKq0uETCqjKNfGQcvMzEJiYgIPPH19fZxZzP0YO+soaKiIoSyaMtZlEeNZvYEkgAUKNqdareYuzSLvjZs3KTixgBNIyDs6OvhhM5b30r6YRrPgxd+OPvgC1i0nkHhxI6Uh0bxu0GWH770vMLjrAhLOvYFWsRPN3Y1YOG3J6Dw3CNzyvXB8Uvtg4HJ1SLi8AVAK3Kj7+gzRM1R8Wd3w/9D2wKP4SH3DrfMo9feucf/8ZIVXRP+PD8JV3YIxL+ZBSIiE50Ib3OfbELt7JRSzMx76kj+MzkMLW5SJs97QDL/HF3bzX6fCwEvLSEP8v1bDTe+rg5/UwavvhXxGEqLfWQYhMeJLv44EJnJ7CTt3MHW4l3GgduYiLBA8KcBZa63QUlYwrigVkcuyH/ziHo5Iw67qrroNn9HCFDTMi54IabQKwvzxMA9YAFF8Yj4rMTIwbWYJNvvKIwjCIwNnpnv0N58mH6/8X4ABACnQJCpaFRnAAAAAAElFTkSuQmCC"
+    ]
+  }
+}

@@ -41,6 +41,14 @@ pub struct Class {
 }
 
 #[derive(Default, Debug, Clone, Serialize, Deserialize)]
+pub struct Teacher {
+    #[serde(rename = "L")]
+    pub name: String,
+    #[serde(rename = "N")]
+    pub id: String,
+}
+
+#[derive(Default, Debug, Clone, Serialize, Deserialize)]
 pub struct Subject {
     #[serde(rename = "L")]
     pub name: String,
@@ -105,7 +113,7 @@ pub struct Classroom {
 // 	"cahierDeTextes": {
 // 		"_T": 24,
 // 		"V": {
-// 			"N": "ID",
+// 			"N": "ID", refers to content & ressources
 // 			"estDevoir": true,
 // 			"estEval": true,
 // 			"originesCategorie": {
@@ -142,7 +150,7 @@ pub struct Lesson {
     #[serde(rename = "duree")]
     pub duration: u32,
     #[serde(rename = "DateDuCours", deserialize_with = "de_datetime")]
-    pub start: String, //NaiveDateTime
+    pub start: String,
     #[serde(rename = "DateDuCoursFin", default)]
     pub end: String,
     #[serde(rename = "CouleurFond")]
@@ -321,6 +329,7 @@ pub struct Grade {
 
 #[derive(Debug, Clone, Copy, Default, PartialEq)]
 pub enum GradeValue {
+    // got these from pronotepy
     Value(f32),
     Absent,
     Excused,
@@ -332,6 +341,44 @@ pub enum GradeValue {
     Congratulations,
     #[default]
     Empty,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Resources {
+    #[serde(rename = "ListeCahierDeTextes", deserialize_with = "de_lesson_details")]
+    pub lesson_details: Vec<LessonDetails>,
+    #[serde(skip)] // TODO: parse docs
+    pub documents: Vec<Document>,
+    /* + online docs */
+    #[serde(skip)]
+    pub files: Vec<String>, // b64
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Document {}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct LessonDetails {
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "cours", deserialize_with = "de_class_id")]
+    pub class: String,
+    #[serde(rename = "verrouille")]
+    pub locked: bool,
+    #[serde(rename = "listeGroupes", deserialize_with = "de_groups")]
+    pub groups: Vec<Class>,
+    #[serde(rename = "Matiere", deserialize_with = "de_subject")]
+    pub subject: Subject,
+    #[serde(rename = "CouleurFond")]
+    pub color: String,
+    #[serde(rename = "listeProfesseurs", deserialize_with = "de_teachers")]
+    pub teachers: Vec<Teacher>,
+    #[serde(rename = "Date", deserialize_with = "de_datetime")]
+    pub start: String,
+    #[serde(rename = "DateFin", deserialize_with = "de_datetime")]
+    pub end: String,
+    // TODO: parse content, etc (listeContenus)
+    // + listeElementsProgrammeCDT
 }
 
 pub fn pretty_end_time(end_time: u32, l: &Lesson, p: &Params) -> String {
@@ -365,7 +412,7 @@ fn gap(id: &str, name: &str, index: u32, duration: u32, l: &Lesson, p: &Params) 
             classroom: Vec::new(),
             group: None,
         },
-        note: "".into()
+        note: "".into(),
     }
 }
 
@@ -508,6 +555,26 @@ where
     Ok(res)
 }
 
+fn de_lesson_details<'de, D>(deserializer: D) -> Result<Vec<LessonDetails>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    let value = Value::deserialize(deserializer)?["V"].clone();
+    let res: Vec<LessonDetails> = serde_json::from_value(value).unwrap();
+
+    Ok(res)
+}
+
+fn de_teachers<'de, D>(deserializer: D) -> Result<Vec<Teacher>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    let value = Value::deserialize(deserializer)?["V"].clone();
+    let res: Vec<Teacher> = serde_json::from_value(value).unwrap();
+
+    Ok(res)
+}
+
 fn de_home_grades<'de, D>(deserializer: D) -> Result<HomeGrades, D::Error>
 where
     D: Deserializer<'de>,
@@ -526,6 +593,16 @@ where
 {
     let value = Value::deserialize(deserializer)?["V"].clone();
     let res: Period = serde_json::from_value(value).unwrap();
+
+    Ok(res)
+}
+
+fn de_groups<'de, D>(deserializer: D) -> Result<Vec<Class>, D::Error>
+where
+    D: serde::Deserializer<'de>,
+{
+    let value = Value::deserialize(deserializer)?["V"].clone();
+    let res: Vec<Class> = serde_json::from_value(value).unwrap();
 
     Ok(res)
 }
@@ -709,6 +786,15 @@ where
 
     // Ok(parse_datetime(value["V"].as_str().unwrap().into()).unwrap())
     Ok(value["V"].as_str().unwrap().into())
+}
+
+fn de_class_id<'de, D>(d: D) -> Result<String, D::Error>
+where
+    D: Deserializer<'de>,
+{
+    let value = Value::deserialize(d)?;
+
+    Ok(value["V"]["N"].as_str().unwrap().into())
 }
 
 fn de_subject<'de, D>(d: D) -> Result<Subject, D::Error>
