@@ -1,4 +1,4 @@
-use serde_json::{Value, json};
+use serde_json::{Value, json, from_value};
 use std::str::FromStr;
 use std::time::{Duration, Instant};
 
@@ -34,7 +34,7 @@ impl Client {
             .ok_or(Error::InvalidResponse)?
             .to_owned();
         let params: Params =
-            serde_json::from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
+            from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
         if params.first_week_day != 2 {
             // NOT MONDAY :(
             return Err(Error::InvalidStartPage);
@@ -55,12 +55,12 @@ impl Client {
 
     pub async fn mock_params() -> Result<Params, Error> {
         let params = Value::from_str(include_str!("../params.json")).unwrap();
-        Ok(serde_json::from_value(params["dataSec"]["data"]["General"].clone()).unwrap())
+        Ok(from_value(params["dataSec"]["data"]["General"].clone()).unwrap())
     }
 
     pub async fn mock_user_params() -> Result<UserParams, Error> {
         let params = Value::from_str(include_str!("../userparams.json")).unwrap();
-        Ok(serde_json::from_value(params["dataSec"]["data"].clone()).unwrap())
+        Ok(from_value(params["dataSec"]["data"].clone()).unwrap())
     }
 
     async fn login(&mut self) -> Result<(), Error> {
@@ -99,7 +99,7 @@ impl Client {
             .communication
             .post("ParametresUtilisateur", json!({}))
             .await?;
-        self.user_parameters = serde_json::from_value(res["dataSec"]["data"].clone()).unwrap();
+        self.user_parameters = from_value(res["dataSec"]["data"].clone()).unwrap();
         self.user_parameters.as_mut().unwrap().image = res["dataNonSec"]["fichiers"][0]
             .as_str()
             .unwrap()
@@ -177,7 +177,7 @@ impl Client {
         if first_week > last_week {
             return Err(Error::InvalidAction);
         }
-        let mut res: Vec<Homework> = serde_json::from_value(
+        let mut res: Vec<Homework> = from_value(
             self.post(
                 "PageCahierDeTexte",
                 88,
@@ -198,8 +198,8 @@ impl Client {
     }
 
     pub async fn mock_homework() -> Result<Vec<Homework>, Error> {
-        let mut res: Vec<Homework> = serde_json::from_value(
-            serde_json::Value::from_str(include_str!("../homework.json"))
+        let mut res: Vec<Homework> = from_value(
+            Value::from_str(include_str!("../homework.json"))
                 .unwrap()["dataSec"]["data"]["ListeTravauxAFaire"]["V"]
                 .clone(),
         )
@@ -213,7 +213,7 @@ impl Client {
 
     pub async fn timetable(&mut self, week: u8) -> Result<Vec<Vec<Lesson>>, Error> {
         let resource = self.user_parameters.clone().unwrap().resource.serialize();
-        let mut res: Vec<Lesson> = serde_json::from_value(
+        let mut res: Vec<Lesson> = from_value(
             self.post(
                 "PageEmploiDuTemps",
                 16,
@@ -246,10 +246,10 @@ impl Client {
     }
 
     pub async fn mock_timetable(p: &Params) -> Result<Vec<Vec<Lesson>>, Error> {
-        let res = serde_json::Value::from_str(include_str!("../edt.json"))
+        let res = Value::from_str(include_str!("../edt.json"))
             .unwrap()["dataSec"]["data"]["ListeCours"]
             .clone();
-        let mut res: Vec<Lesson> = serde_json::from_value(res).unwrap();
+        let mut res: Vec<Lesson> = from_value(res).unwrap();
         let mut days = vec![Vec::<Lesson>::new(); p.week_days as usize];
         for l in &mut res {
             days[l.index as usize / (p.end_times.len() - 1)].push(l.clone());
@@ -297,11 +297,11 @@ impl Client {
             )
             .await?;
         let data = &res["dataSec"]["data"];
-        let mut home: Home = serde_json::from_value(data.clone()).unwrap();
+        let mut home: Home = from_value(data.clone()).unwrap();
         home.attachments = parse_attachments(res["dataNonSec"].clone());
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
 
-        let raw_lessons: Vec<Lesson> = serde_json::from_value(data["ListeCours"].clone()).unwrap();
+        let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
 
         let day_len = (self.parameters.end_times.len() - 1) as u32;
         let today_index = home.first_index / day_len;
@@ -318,15 +318,15 @@ impl Client {
     }
 
     pub async fn mock_home(p: &Params) -> Result<Home, Error> {
-        let res = serde_json::Value::from_str(include_str!("../home.json"))
+        let res = Value::from_str(include_str!("../home.json"))
             .unwrap()
             .clone();
         let data = &res["dataSec"]["data"];
-        let mut home: Home = serde_json::from_value(data.clone()).unwrap();
+        let mut home: Home = from_value(data.clone()).unwrap();
         home.attachments = parse_attachments(res["dataNonSec"].clone());
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
 
-        let raw_lessons: Vec<Lesson> = serde_json::from_value(data["ListeCours"].clone()).unwrap();
+        let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
 
         let day_len = (p.end_times.len() - 1) as u32;
         let today_index = home.first_index / day_len;
@@ -353,7 +353,7 @@ impl Client {
                 }),
             )
             .await?;
-        let mut data: Grades = serde_json::from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut data: Grades = from_value(res["dataSec"]["data"].clone()).unwrap();
         data.grades.retain(|x| x.period.id == period_id);
         data.grades.sort_by_key(|x| date_int(&x.date));
 
@@ -361,10 +361,10 @@ impl Client {
     }
 
     pub async fn mock_grades(p: Period) -> Result<Grades, Error> {
-        let res = serde_json::Value::from_str(include_str!("../grades.json"))
+        let res = Value::from_str(include_str!("../grades.json"))
             .unwrap()
             .clone();
-        let mut data: Grades = serde_json::from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut data: Grades = from_value(res["dataSec"]["data"].clone()).unwrap();
         data.grades.retain(|x| x.period.id == p.id);
         data.grades.sort_by_key(|x| date_int(&x.date));
 
@@ -372,12 +372,12 @@ impl Client {
     }
 
     pub async fn mock_documents(/* same args as homework */) -> Result<Resources, Error> {
-        let res = serde_json::Value::from_str(include_str!("../cont_ress.json"))
+        let res = Value::from_str(include_str!("../cont_ress.json"))
             .unwrap()
             .clone();
-        let mut data: Resources = serde_json::from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
         data.files =
-            serde_json::from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
+            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
 
         Ok(data)
     }

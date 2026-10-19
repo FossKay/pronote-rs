@@ -1,5 +1,5 @@
-use serde::{Deserializer, Deserialize};
-use serde_json::Value;
+use serde::{Deserialize};
+use serde_json::{from_value, Value};
 use chrono::{NaiveDate, NaiveDateTime};
 use crate::data::*;
 
@@ -193,7 +193,7 @@ macro_rules! deser {
                 D: serde::Deserializer<'de>,
             {
                 let value = Value::deserialize(deserializer)?["V"].clone();
-                let res: $type = serde_json::from_value(value).unwrap();
+                let res: $type = from_value(value).unwrap();
                 Ok(res)
             }
         }
@@ -223,13 +223,13 @@ macro_rules! deser2 {
 }
 
 deser2!(HomeGrades, home_grades, |value: Value| {
-    let grades: Vec<Grade> = serde_json::from_value(value["listeDevoirs"]["V"].clone()).unwrap();
-    let period: Period = serde_json::from_value(value["page"]["periode"]["V"].clone()).unwrap();
+    let grades: Vec<Grade> = from_value(value["listeDevoirs"]["V"].clone()).unwrap();
+    let period: Period = from_value(value["page"]["periode"]["V"].clone()).unwrap();
 
     Ok(HomeGrades { grades, period })
 });
 deser2!(Vec<Homework>, homework, |value: Value| {
-    let mut res: Vec<Homework> = serde_json::from_value(value["listeTAF"]["V"].clone()).unwrap();
+    let mut res: Vec<Homework> = from_value(value["listeTAF"]["V"].clone()).unwrap();
     res.sort_by_key(|x| x.order);
 
     Ok(res)
@@ -262,10 +262,10 @@ deser2!(Periods, periods, |value: Value| {
     let periods: Vec<Period> = periods
         .into_iter()
         .filter(|entry| entry.get("N").is_some()) // Fake period
-        .map(|json| serde_json::from_value::<Period>(json).unwrap())
+        .map(|json| from_value::<Period>(json).unwrap())
         .collect();
     let default_period: Period =
-        serde_json::from_value(entries["periodeParDefaut"]["V"].clone()).unwrap();
+        from_value(entries["periodeParDefaut"]["V"].clone()).unwrap();
 
     Ok(Periods {
         periods: periods,
@@ -286,7 +286,7 @@ deser2!(LessonContent, lesson_content, |value: Value| {
     for value in values {
         match value["G"].as_u64() {
             Some(16) => {
-                subject = Some(serde_json::from_value(value).map_err(serde::de::Error::custom)?);
+                subject = Some(from_value(value).map_err(serde::de::Error::custom)?);
             }
             Some(3) => {
                 if let Some(t) = value["L"].as_str() {
@@ -297,7 +297,7 @@ deser2!(LessonContent, lesson_content, |value: Value| {
                 group = value["L"].as_str().map(String::from);
             }
             Some(17) => {
-                classroom.push(serde_json::from_value(value).map_err(serde::de::Error::custom)?);
+                classroom.push(from_value(value).map_err(serde::de::Error::custom)?);
             }
             _ => {}
         }
