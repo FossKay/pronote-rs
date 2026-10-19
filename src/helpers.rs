@@ -205,6 +205,9 @@ deser!(Vec<LessonDetails>, lesson_details);
 deser!(Vec<Teacher>, teachers);
 deser!(Period, period);
 deser!(Vec<Class>, groups);
+deser!(Vec<LessonDetailsItem>, lesson_details_items);
+deser!(Category, category);
+deser!(Vec<Attachment>, attachments);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {

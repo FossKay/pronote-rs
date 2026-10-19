@@ -26,6 +26,7 @@ pub struct Communication {
 impl Communication {
     pub fn new(url: &str) -> Result<Self, Error> {
         let (root_url, page) = split_url(url)?;
+        // root_url = https://example.com/pronote
 
         if page.trim_end_matches("?login=true") != "eleve.html" {
             return Err(Error::UnsupportedClient);

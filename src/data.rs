@@ -48,6 +48,45 @@ pub struct Teacher {
     pub id: String,
 }
 
+#[derive(Debug, Clone, Deserialize)]
+pub struct Attachment {
+    #[serde(rename = "L")]
+    pub file: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "estUnLienInterne", default)] // ?!
+    pub interal_link: String,
+}
+
+impl Attachment {
+    pub fn get_link(
+        &self,
+        encryption: &crate::encryption::Encryption,
+        session: u32,
+        root_url: &str, // no slash at end plz
+    ) -> String {
+        let json = format!(r#"{{"N":{},"Actif":true}}"#, serde_json::to_string(&self.id).unwrap());
+        let bytes = json.as_bytes();
+        let ciphertext = encryption.encrypt(bytes);
+        let hex: String = hex::encode(ciphertext);
+
+        let filename = self.file
+            .replace("&lt;", "<")
+            .replace("&gt;", ">")
+            .replace("&quot;", "\"")
+            .replace("&#039;", "'")
+            .replace("&amp;", "&"); // uri encode?
+
+        format!(
+            "{}/FichiersExternes/{}/{}?Session={}",
+            root_url,
+            hex,
+            filename,
+            session,
+        )
+    }
+}
+
 #[derive(Default, Debug, Clone, Serialize, Deserialize)]
 pub struct Subject {
     #[serde(rename = "L")]
@@ -83,13 +122,10 @@ pub struct Homework {
     #[serde(rename = "nomPublic", default)]
     pub group: Option<String>,
     /* #[serde(rename = "ListeThemes")]
-    pub themes: Value, // TODO: parse themes
-    #[serde(rename = "ListePieceJointe")]
-    pub attachments: Value,  // TODO: parse attachments
-    */
-    // unused: libelleCBTheme, avecMiseEnForme, genreRendu, peuRendre,
-    // avecRendu, avecRendu, cahierDeTextes, cours, avecMiseEnForme
-    // QCMFait, executionQCM
+    pub themes: Value, // TODO: parse themes */
+    #[serde(rename = "ListePieceJointe", alias = "listeDocumentJoint", deserialize_with = "de_attachments")]
+    pub attachments: Vec<Attachment>,
+    // TODO: peuRendre
 }
 
 #[derive(Default, Debug, Clone)]
@@ -135,6 +171,16 @@ pub struct Classroom {
 // 	}
 // }
 
+#[derive(Debug, Clone, Deserialize)]
+pub struct Category {
+    #[serde(rename = "L", default)]
+    pub name: String, // empty and N=0 if nothing
+    #[serde(rename = "N", default)]
+    pub id: String, // empty for timetable
+    #[serde(rename = "libelleIcone")]
+    pub label: String,
+}
+
 #[derive(Default, Debug, Clone, Deserialize)]
 pub struct Lesson {
     #[serde(rename = "N")]
@@ -159,7 +205,6 @@ pub struct Lesson {
     pub content: LessonContent,
     #[serde(rename = "memo", default)]
     pub note: String,
-    // unused: G, P, AvecTafPublie, cahierDeTextes, avecCdT
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -226,7 +271,7 @@ pub struct Resource {
     pub class: Class,
     #[serde(rename = "listeOngletsPourPeriodes", deserialize_with = "de_periods")]
     pub periods: Periods,
-    // listeGroupes
+    // TODO: parse listeGroupes
 }
 
 impl Resource {
@@ -377,6 +422,25 @@ pub struct LessonDetails {
     pub start: String,
     #[serde(rename = "DateFin", deserialize_with = "de_datetime")]
     pub end: String,
-    // TODO: parse content, etc (listeContenus)
+    #[serde(rename = "dateTAF", deserialize_with = "de_date_some", default)]
+    pub homework_date: Option<String>,
+    #[serde(rename = "listeContenus", deserialize_with = "de_lesson_details_items")]
+    pub items: Vec<LessonDetailsItem>
     // + listeElementsProgrammeCDT
+}
+
+// i really dont like this name but its hard
+// to find one that describes well this struct
+#[derive(Debug, Clone, Deserialize)]
+pub struct LessonDetailsItem {
+    #[serde(rename = "L")]
+    pub name: String,
+    #[serde(rename = "N")]
+    pub id: String, // what the lessons refer to
+    #[serde(rename = "descriptif", deserialize_with = "de_string")]
+    pub description: String,
+    #[serde(rename = "categorie", deserialize_with = "de_category")]
+    pub category: Category,
+    #[serde(rename = "ListePieceJointe", deserialize_with = "de_attachments")]
+    pub attachments: Vec<Attachment>,
 }
