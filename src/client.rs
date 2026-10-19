@@ -4,6 +4,7 @@ use std::time::{Duration, Instant};
 
 use crate::data::*;
 use crate::{communication::Communication, encryption::Encryption, error::Error};
+use crate::helpers::*;
 
 #[derive(Debug, Clone)]
 pub struct Client {

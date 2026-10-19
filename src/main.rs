@@ -18,8 +18,8 @@ async fn main() -> Result<(), Error> {
     println!(
         "Grades: {:?}",
         Client::mock_grades(Period {
-            id: "105#x8KmCqPkfy0upIPQ4OlBec-oQBVtwKvAVIbivyTMd7U".into(),
-            name: "Semestre 1".into(),
+            id: "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg".into(),
+            name: "Trimestre 1".into(),
         })
         .await?
     );
