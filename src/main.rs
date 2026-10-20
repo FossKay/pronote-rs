@@ -110,7 +110,24 @@ async fn main() -> Result<(), Error> {
             "documents" => {
                 println!("Usage: documents <first_week:u8> <last_week:u8>");
             }
+            "timetable" if c.is_none() || args.len() == 2 => {
+                let result = if c.is_none() {
+                    let params = Client::mock_params().await?;
+                    Client::mock_timetable(&params).await?
+                } else {
+                    let week: u8 = args[1].parse().unwrap();
 
+                    c.as_mut()
+                        .unwrap()
+                        .timetable(week)
+                        .await?
+                };
+
+                println!("{result:#?}");
+            }
+            "timetable" => {
+                println!("Usage: timetable <week:u8>");
+            }
             "home" if c.is_none() || args.len() == 2 => {
                 let result = if c.is_none() {
                     let params = Client::mock_params().await?;

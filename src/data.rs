@@ -175,6 +175,18 @@ pub struct Classroom {
 // }
 
 #[derive(Debug, Clone, Deserialize)]
+pub struct LessonDetailsLink {
+    #[serde(rename = "N")]
+    pub lesson_details_id: String,
+    #[serde(rename = "estDevoir", default)]
+    pub is_ds: bool,
+    #[serde(rename = "estEval", default)]
+    pub is_eva: bool,
+    #[serde(rename = "originesCategorie", deserialize_with = "de_categories")]
+    pub categories: Vec<Category>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
 pub struct Category {
     #[serde(rename = "L", default)]
     pub name: String, // empty and N=0 if nothing
@@ -208,6 +220,8 @@ pub struct Lesson {
     pub content: LessonContent,
     #[serde(rename = "memo", default)]
     pub note: String,
+    #[serde(rename = "cahierDeTextes", deserialize_with = "de_lesson_details_link", default)]
+    pub lesson_details_link: Option<LessonDetailsLink>,
 }
 
 #[derive(Debug, Clone, Deserialize)]

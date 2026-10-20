@@ -35,6 +35,7 @@ fn gap(id: &str, name: &str, index: u32, duration: u32, l: &Lesson, p: &Params) 
             group: None,
         },
         note: "".into(),
+        lesson_details_link: None,
     }
 }
 
@@ -207,6 +208,8 @@ deser!(Period, period);
 deser!(Vec<Class>, groups);
 deser!(Vec<LessonDetailsItem>, lesson_details_items);
 deser!(Category, category);
+deser!(Vec<Category>, categories);
+deser!(Option<LessonDetailsLink>, lesson_details_link);
 deser!(Vec<Attachment>, attachments);
 
 macro_rules! deser2 {
