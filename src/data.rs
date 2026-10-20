@@ -54,17 +54,23 @@ pub struct Attachment {
     pub file: String,
     #[serde(rename = "N")]
     pub id: String,
+    #[serde(rename = "url", default)]
+    pub link: String,
     #[serde(rename = "estUnLienInterne", default)] // ?!
-    pub interal_link: String,
+    pub interal_link: bool,
 }
 
 impl Attachment {
     pub fn get_link(
         &self,
         encryption: &crate::encryption::Encryption,
-        session: u32,
+        session: u64,
         root_url: &str, // no slash at end plz
     ) -> String {
+        if !self.link.is_empty() {
+            return self.link.clone()
+        }
+        // {{ escapes the "{" character (in format!)
         let json = format!(r#"{{"N":{},"Actif":true}}"#, serde_json::to_string(&self.id).unwrap());
         let bytes = json.as_bytes();
         let ciphertext = encryption.encrypt(bytes);
@@ -308,8 +314,9 @@ pub struct Home {
     pub homework: Vec<Homework>,
     #[serde(rename = "notes", deserialize_with = "de_home_grades")]
     pub grades: HomeGrades,
-    #[serde(skip)]
-    pub attachments: Vec<String>,
+    // TODO: parse digital textbooks
+    #[serde(skip)] // actually, the icons for the digital textbooks in b64
+    pub digital_textbook_icons: Vec<String>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -392,15 +399,16 @@ pub enum GradeValue {
 pub struct Resources {
     #[serde(rename = "ListeCahierDeTextes", deserialize_with = "de_lesson_details")]
     pub lesson_details: Vec<LessonDetails>,
-    #[serde(skip)] // TODO: parse docs
-    pub documents: Vec<Document>,
-    /* + online docs */
+    /* there is ListeRessourcesPedagogiques but idk seems unnecessary?! */
+    /* TODO: parse digital textbooks in ListeRessourcesNumeriques */
     #[serde(skip)]
-    pub files: Vec<String>, // b64
+    pub digital_textbooks: Vec<DigitalTextbook>,
+    #[serde(skip)]
+    pub digital_textbook_icons: Vec<String>, // b64
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct Document {}
+pub struct DigitalTextbook {}
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct LessonDetails {
@@ -433,7 +441,7 @@ pub struct LessonDetails {
 // to find one that describes well this struct
 #[derive(Debug, Clone, Deserialize)]
 pub struct LessonDetailsItem {
-    #[serde(rename = "L")]
+    #[serde(rename = "L", default)]
     pub name: String,
     #[serde(rename = "N")]
     pub id: String, // what the lessons refer to

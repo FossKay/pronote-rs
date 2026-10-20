@@ -174,7 +174,9 @@ impl Client {
         first_week: u8,
         last_week: u8,
     ) -> Result<Vec<Homework>, Error> {
-        if first_week > last_week {
+        if first_week > last_week ||
+            last_week > self.parameters.last_week ||
+            first_week < 1 {
             return Err(Error::InvalidAction);
         }
         let mut res: Vec<Homework> = from_value(
@@ -184,7 +186,7 @@ impl Client {
                 json!({
                     "domaine": {
                         "_T": 8,
-                        "V": format!("[{}..{}]", first_week.clamp(1, self.parameters.last_week), last_week.clamp(1, self.parameters.last_week))
+                        "V": format!("[{}..{}]", first_week, last_week)
                         // for one week, [{week}] works too apparently
                     }
                 }),
@@ -201,7 +203,7 @@ impl Client {
         let mut res: Vec<Homework> = from_value(
             Value::from_str(include_str!("../homework.json"))
                 .unwrap()["dataSec"]["data"]["ListeTravauxAFaire"]["V"]
-                .clone(),
+                .clone()
         )
         .unwrap();
         for h in &mut res {
@@ -298,7 +300,7 @@ impl Client {
             .await?;
         let data = &res["dataSec"]["data"];
         let mut home: Home = from_value(data.clone()).unwrap();
-        home.attachments = parse_attachments(res["dataNonSec"].clone());
+        home.digital_textbook_icons = parse_attachments(res["dataNonSec"].clone());
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
 
         let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
@@ -323,7 +325,7 @@ impl Client {
             .clone();
         let data = &res["dataSec"]["data"];
         let mut home: Home = from_value(data.clone()).unwrap();
-        home.attachments = parse_attachments(res["dataNonSec"].clone());
+        home.digital_textbook_icons = parse_attachments(res["dataNonSec"].clone());
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
 
         let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
@@ -371,15 +373,47 @@ impl Client {
         Ok(data)
     }
 
-    pub async fn mock_documents(/* same args as homework */) -> Result<Resources, Error> {
+    pub async fn documents(
+        &mut self,
+        first_week: u8,
+        last_week: u8,
+    ) -> Result<Resources, Error> {
+        if first_week > last_week ||
+            last_week > self.parameters.last_week ||
+            first_week < 1 {
+            return Err(Error::InvalidAction);
+        }
+        let res = self.post(
+                "PageCahierDeTexte",
+                88,
+                json!({
+                    "domaine": {
+                        "_T": 8,
+                        "V": format!("[{}..{}]", first_week, last_week)
+                        // for one week, [{week}] works too apparently
+                    }
+                }),
+            ).await?;
+        let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
+        data.digital_textbook_icons =
+            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
+
+        Ok(data)
+    }
+
+    pub async fn mock_documents() -> Result<Resources, Error> {
         let res = Value::from_str(include_str!("../cont_ress.json"))
             .unwrap()
             .clone();
         let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
-        data.files =
+        data.digital_textbook_icons =
             from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
 
         Ok(data)
+    }
+
+    pub fn get_attachment(&self, a: &Attachment) -> String {
+        a.get_link(&self.communication.encryption, self.communication.session_id, &self.communication.root_url)
     }
 
     pub async fn keep_alive(&mut self) -> () {

@@ -239,7 +239,6 @@ deser2!(Vec<Homework>, homework, |value: Value| {
 });
 deser2!(Vec<EndTime>, end_times, |value: Value| {
     let mut res = Vec::new();
-    println!("{:?}", value);
     for v in value["V"].clone().as_array().unwrap() {
         res.push(EndTime {
             time: v["L"].as_str().unwrap().into(),

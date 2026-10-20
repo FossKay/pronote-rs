@@ -1,29 +1,148 @@
+use std::io::Write;
+
 use pronote_rs::*;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
-    /* let mut c = Client::new(
-        "https://demo.index-education.net/pronote/eleve.html".into(),
-        "demonstration".into(),
-        "pronotevs".into(),
-    ).await?;
+    let mut line = String::new();
 
-    println!("{:?}", c.user_parameters.unwrap()); */
+    print!("Login method [MOCK/DEMO/REAL]: ");
+    std::io::stdout().flush().unwrap();
+    std::io::stdin().read_line(&mut line).unwrap();
 
-    let params = Client::mock_params().await?;
+    let mode = line.trim().to_uppercase();
 
-    println!("Timetable: {:?}", Client::mock_timetable(&params).await?);
-    println!("Home: {:?}", Client::mock_home(&params).await?);
-    println!("Homework: {:?}", Client::mock_homework().await?);
-    println!(
-        "Grades: {:?}",
-        Client::mock_grades(Period {
-            id: "105#NV-t6VP4ljPbJwpOw5CL-PQPtwZ5Mq_noj0oWMjgDmg".into(),
-            name: "Trimestre 1".into(),
-        })
-        .await?
-    );
-    println!("Lesson details & documents: {:?}", Client::mock_documents().await?);
+    let mut c = match mode.to_lowercase().as_str() {
+        "m" | "mock" => None,
+        "d" | "demo" => Some(
+            Client::new(
+                "https://demo.index-education.net/pronote/eleve.html".into(),
+                "demonstration".into(),
+                "pronotevs".into(),
+            )
+            .await?,
+        ),
+        "r" | "real" => {
+            let instance = read("Instance: ");
+            let user = read("User: ");
+            let password = read("Password: ");
 
+            Some(Client::new(instance, user, password).await?)
+        }
+        _ => {
+            eprintln!("Invalid login method");
+            return Ok(());
+        }
+    };
+
+    loop {
+        let command = read("[pronote-rs]$ ");
+        let args: Vec<&str> = command.split_whitespace().collect();
+
+        if args.is_empty() {
+            continue;
+        }
+
+        match args[0] {
+            "exit" => break,
+            "help" => {
+                println!("Available commands:");
+                println!("exit, help, clear, ls, params, userparams, homework, home, grades");
+            }
+            "clear" => {
+                print!("\x1B[2J\x1B[H");
+                std::io::stdout().flush().unwrap();
+            }
+            "ls" => {
+                let periods = match &c {
+                    Some(client) => client.user_parameters.clone().unwrap().resource.periods,
+                    None => Client::mock_user_params().await?.resource.periods,
+                };
+                println!("{periods:#?}");
+            }
+            "params" => {
+                let params = match &c {
+                    Some(client) => client.parameters.clone(),
+                    None => Client::mock_params().await?,
+                };
+                println!("{params:#?}");
+            }
+            "userparams" => {
+                let userparams = match &c {
+                    Some(client) => client.user_parameters.clone().unwrap(),
+                    None => Client::mock_user_params().await?,
+                };
+                println!("{userparams:#?}");
+            }
+            "homework" if c.is_none() || args.len() == 3 => {
+                let result = if c.is_none() {
+                    Client::mock_homework().await?
+                } else {
+                    let first_week: u8 = args[1].parse().unwrap();
+                    let last_week: u8 = args[2].parse().unwrap();
+
+                    c.as_mut()
+                        .unwrap()
+                        .homework(first_week, last_week)
+                        .await?
+                };
+
+                println!("{result:#?}");
+            }
+            "homework" => {
+                println!("Usage: homework <first_week:u8> <last_week:u8>");
+            }
+            "home" if c.is_none() || args.len() == 2 => {
+                let result = if c.is_none() {
+                    let params = Client::mock_params().await?;
+                    Client::mock_home(&params).await?
+                } else {
+                    c.as_mut().unwrap().home(args[1].into()).await?
+                };
+
+                println!("{result:#?}");
+            }
+            "home" => {
+                println!("Usage: home <date:String (dd/mm/yyyy)>");
+            }
+            "grades" if args.len() == 2 => {
+                let periods = match &c {
+                    Some(client) => client.user_parameters.clone().unwrap().resource.periods,
+                    None => Client::mock_user_params().await?.resource.periods,
+                };
+                let period = match periods.periods.iter().find(|x| x.name == args[1].replace("_", " ")) {
+                    None => {
+                        println!("No such period");
+                        println!("Use ls to view the periods");
+                        println!("(Tip: use underscores instead of spaces)");
+                        continue;
+                    }
+                    Some(s) => s,
+                }.clone();
+                let result = if c.is_none() {
+                    Client::mock_grades(period).await?
+                } else {
+                    c.as_mut().unwrap().grades(period).await?
+                };
+
+                println!("{result:#?}");
+            }
+            "grades" => {
+                println!("Usage: grades <period_name:String>");
+            }
+
+            _ => println!("Unknown command: {}", args[0]),
+        }
+    }
     Ok(())
+}
+
+fn read(prompt: &str) -> String {
+    print!("{prompt}");
+    std::io::stdout().flush().unwrap();
+
+    let mut input = String::new();
+    std::io::stdin().read_line(&mut input).unwrap();
+
+    input.trim().to_string()
 }
