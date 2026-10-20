@@ -193,7 +193,12 @@ impl Client {
             ).await?["dataSec"]["data"]["ListeTravauxAFaire"]["V"].clone()
         ).unwrap();
         for h in &mut res {
-            h.order = date_int(&h.due_date)
+            h.order = date_int(&h.due_date);
+            for a in &mut h.attachments {
+                if a.link.is_empty() {
+                    a.link = self.get_attachment(a);
+                }
+            }
         }
         res.sort_by_key(|x| x.order);
         Ok(res)
@@ -316,6 +321,14 @@ impl Client {
         home.lessons = today;
         home.next_lessons = next;
 
+        for h in &mut home.homework {
+            for a in &mut h.attachments {
+                if a.link.is_empty() {
+                    a.link = self.get_attachment(a);
+                }
+            }
+        }
+
         Ok(home)
     }
 
@@ -397,6 +410,16 @@ impl Client {
         let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
         data.digital_textbook_icons =
             from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
+        
+        for d in &mut data.lesson_details {
+            for i in &mut d.items {
+                for a in &mut i.attachments {
+                    if a.link.is_empty() {
+                        a.link = self.get_attachment(a);
+                    }
+                }
+            }
+        }
 
         Ok(data)
     }

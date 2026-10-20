@@ -67,9 +67,6 @@ impl Attachment {
         session: u64,
         root_url: &str, // no slash at end plz
     ) -> String {
-        if !self.link.is_empty() {
-            return self.link.clone()
-        }
         // {{ escapes the "{" character (in format!)
         let json = format!(r#"{{"N":{},"Actif":true}}"#, serde_json::to_string(&self.id).unwrap());
         let bytes = json.as_bytes();
@@ -277,7 +274,8 @@ pub struct Resource {
     pub class: Class,
     #[serde(rename = "listeOngletsPourPeriodes", deserialize_with = "de_periods")]
     pub periods: Periods,
-    // TODO: parse listeGroupes
+    #[serde(rename = "listeGroupes", deserialize_with = "de_groups")]
+    pub groups: Vec<Class>,
 }
 
 impl Resource {
