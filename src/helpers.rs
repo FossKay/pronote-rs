@@ -231,6 +231,16 @@ deser2!(HomeGrades, home_grades, |value: Value| {
 
     Ok(HomeGrades { grades, period })
 });
+deser2!(Vec<DigitalTextbook>, digital_textbooks, |value: Value| {
+    let textbooks: Vec<DigitalTextbook> = from_value(value["V"]["listeRessources"]["V"].clone()).unwrap();
+
+    Ok(textbooks)
+});
+deser2!(Vec<DigitalTextbook>, digital_textbooks2, |value: Value| {
+    let textbooks: Vec<DigitalTextbook> = from_value(value["listeRessources"]["V"].clone()).unwrap();
+
+    Ok(textbooks)
+});
 deser2!(Vec<Homework>, homework, |value: Value| {
     let mut res: Vec<Homework> = from_value(value["listeTAF"]["V"].clone()).unwrap();
     res.sort_by_key(|x| x.order);

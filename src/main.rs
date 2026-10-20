@@ -47,7 +47,7 @@ async fn main() -> Result<(), Error> {
             "exit" => break,
             "help" => {
                 println!("Available commands:");
-                println!("exit, help, clear, ls, params, userparams, homework, home, grades");
+                println!("exit, help, clear, ls, params, userparams, homework, documents, home, grades");
             }
             "clear" => {
                 print!("\x1B[2J\x1B[H");
@@ -92,6 +92,25 @@ async fn main() -> Result<(), Error> {
             "homework" => {
                 println!("Usage: homework <first_week:u8> <last_week:u8>");
             }
+            "documents" if c.is_none() || args.len() == 3 => {
+                let result = if c.is_none() {
+                    Client::mock_documents().await?
+                } else {
+                    let first_week: u8 = args[1].parse().unwrap();
+                    let last_week: u8 = args[2].parse().unwrap();
+
+                    c.as_mut()
+                        .unwrap()
+                        .documents(first_week, last_week)
+                        .await?
+                };
+
+                println!("{result:#?}");
+            }
+            "documents" => {
+                println!("Usage: documents <first_week:u8> <last_week:u8>");
+            }
+
             "home" if c.is_none() || args.len() == 2 => {
                 let result = if c.is_none() {
                     let params = Client::mock_params().await?;

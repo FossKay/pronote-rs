@@ -305,8 +305,12 @@ impl Client {
             .await?;
         let data = &res["dataSec"]["data"];
         let mut home: Home = from_value(data.clone()).unwrap();
-        home.digital_textbook_icons = parse_attachments(res["dataNonSec"].clone());
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
+
+        let textbook_icons: Vec<String> = parse_attachments(res["dataNonSec"].clone());
+        for (i, icon) in textbook_icons.into_iter().enumerate() {
+            home.digital_textbooks[i].icon = icon;
+        }
 
         let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
 
@@ -338,8 +342,12 @@ impl Client {
             .clone();
         let data = &res["dataSec"]["data"];
         let mut home: Home = from_value(data.clone()).unwrap();
-        home.digital_textbook_icons = parse_attachments(res["dataNonSec"].clone());
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
+
+        let textbook_icons: Vec<String> = parse_attachments(res["dataNonSec"].clone());
+        for (i, icon) in textbook_icons.into_iter().enumerate() {
+            home.digital_textbooks[i].icon = icon;
+        }
 
         let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
 
@@ -397,19 +405,22 @@ impl Client {
             return Err(Error::InvalidAction);
         }
         let res = self.post(
-                "PageCahierDeTexte",
-                88,
-                json!({
-                    "domaine": {
-                        "_T": 8,
-                        "V": format!("[{}..{}]", first_week, last_week)
-                        // for one week, [{week}] works too apparently
-                    }
-                }),
-            ).await?;
+            "PageCahierDeTexte",
+            88,
+            json!({
+                "domaine": {
+                    "_T": 8,
+                    "V": format!("[{}..{}]", first_week, last_week)
+                    // for one week, [{week}] works too apparently
+                }
+            }),
+        ).await?;
         let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
-        data.digital_textbook_icons =
-            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
+        let textbook_icons: Vec<String> =
+            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // TODO: could panic?
+        for (i, icon) in textbook_icons.into_iter().enumerate() {
+            data.digital_textbooks[i].icon = icon;
+        }
         
         for d in &mut data.lesson_details {
             for i in &mut d.items {
@@ -429,8 +440,11 @@ impl Client {
             .unwrap()
             .clone();
         let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
-        data.digital_textbook_icons =
-            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // could panic?
+        let textbook_icons: Vec<String> =
+            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // TODO: could panic?
+        for (i, icon) in textbook_icons.into_iter().enumerate() {
+            data.digital_textbooks[i].icon = icon;
+        }
 
         Ok(data)
     }

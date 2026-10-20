@@ -312,9 +312,8 @@ pub struct Home {
     pub homework: Vec<Homework>,
     #[serde(rename = "notes", deserialize_with = "de_home_grades")]
     pub grades: HomeGrades,
-    // TODO: parse digital textbooks
-    #[serde(skip)] // actually, the icons for the digital textbooks in b64
-    pub digital_textbook_icons: Vec<String>,
+    #[serde(rename = "kiosque", deserialize_with = "de_digital_textbooks2")]
+    pub digital_textbooks: Vec<DigitalTextbook>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -398,15 +397,23 @@ pub struct Resources {
     #[serde(rename = "ListeCahierDeTextes", deserialize_with = "de_lesson_details")]
     pub lesson_details: Vec<LessonDetails>,
     /* there is ListeRessourcesPedagogiques but idk seems unnecessary?! */
-    /* TODO: parse digital textbooks in ListeRessourcesNumeriques */
-    #[serde(skip)]
+    #[serde(rename = "ListeRessourcesNumeriques", deserialize_with = "de_digital_textbooks")]
     pub digital_textbooks: Vec<DigitalTextbook>,
-    #[serde(skip)]
-    pub digital_textbook_icons: Vec<String>, // b64
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct DigitalTextbook {}
+pub struct DigitalTextbook {
+    #[serde(rename = "titre")]
+    pub name: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "editeur")]
+    pub author: String,
+    #[serde(rename = "description", deserialize_with = "de_string")]
+    pub description: String, // rename not mandatory
+    #[serde(skip)]
+    pub icon: String, // base64 png
+}
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct LessonDetails {
