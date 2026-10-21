@@ -1,0 +1,73 @@
+{
+  "id": "ListeMessagerie",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "listeEtiquettes": {
+        "_T": 24,
+        "V": [
+          {
+            "L": "Brouillons",
+            "N": "51#9lar3onv-KN34yBRUjbciqFBXW5_nR1DdpYHhIrg6TI",
+            "G": 4
+          },
+          {
+            "L": "Corbeille",
+            "N": "51#TJILZ-jMSdjmwabd3J4d4OhMywADCDxGknykmnecdmM",
+            "G": 5
+          }
+        ]
+      },
+      "listeMessagerie": {
+        "_T": 24,
+        "V": [
+          {
+            "N": "0",
+            "estUneDiscussion": true,
+            "nombreMessages": 1,
+            "objet": "TITRE DISCUSSION",
+            "listePossessionsMessages": {
+              "_T": 24,
+              "V": [{ "N": "108#uVfIH-bYPyMRV9bzUCtX74SH4aI31uHCsD0e1Y8Wu7c" }]
+            },
+            "messagePourParticipants": {
+              "_T": 24,
+              "V": { "N": "85#Gf-MxhOtWOuGdaCkqUxuBhcrVe9kp5ERssh0UW4-iuU" }
+            },
+            "nbPublic": 25,
+            "initiateur": "AUTEUR",
+            "dernierPossessionMessage": {
+              "_T": 24,
+              "V": { "N": "108#uVfIH-bYPyMRV9bzUCtX74SH4aI31uHCsD0e1Y8Wu7c" }
+            },
+            "messageFenetre": {
+              "_T": 24,
+              "V": {
+                "N": "85#Gf-MxhOtWOuGdaCkqUxuBhcrVe9kp5ERssh0UW4-iuU",
+                "G": 0
+              }
+            },
+            "lu": true,
+            "documentsJoints": "PIECE JOINTE 1\nPIECE JOINTE 2\nPIECE JOINTE 3",
+            "libelleDate": "samedi 03/10",
+            "estNonPossede": false,
+            "profondeur": 0
+          },
+          {
+            "N": "85#Gf-MxhOtWOuGdaCkqUxuBhcrVe9kp5ERssh0UW4-iuU",
+            "listePossessionsMessages": {
+              "_T": 24,
+              "V": [{ "N": "108#uVfIH-bYPyMRV9bzUCtX74SH4aI31uHCsD0e1Y8Wu7c" }]
+            },
+            "estNonPossede": false,
+            "indicePere": 0,
+            "profondeur": 1
+          }
+        ]
+      },
+      "messagerieDesactivee": true
+    },
+    "nom": "ListeMessagerie"
+  }
+}

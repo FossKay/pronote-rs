@@ -1,0 +1,261 @@
+{
+  "id": "PageEquipePedagogique",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "liste": {
+        "_T": 24,
+        "V": [
+          {
+            "L": "Mme BROWN J.",
+            "N": "109#AMHXdzXIT9CRjFOsKi4BgwFdbBHzssG57MbVFJwlIZg",
+            "G": 3,
+            "P": 6,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "ANGLAIS LV1",
+                  "N": "131#8xn6gb7LkJ_g5b4u0ke2RaDXGYHT1MrJvxaW94OFf4o",
+                  "volumeHoraire": "3h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "M. DEJEAN Y.",
+            "N": "109#WmXq90FAM3PdicYMcdo51o1C2abXUFjFg7tNGEPqrNk",
+            "G": 3,
+            "P": 9,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "TECHNOLOGIE",
+                  "N": "131#Kb7qs6GcKNGwTCqJMWfXvcj6fCe0zKbMR6saonJrnic",
+                  "volumeHoraire": "1h30"
+                },
+                {
+                  "L": "EPI (big data)",
+                  "N": "131#SeoUpVkMpOI7elrfSp7oncNnJbeVA047H_6aqFqhYxQ",
+                  "volumeHoraire": "2h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "Mme DUPAS M.",
+            "N": "109#hPkBiHC5nuNxplKFM4rr8sneu_qKFc3lIKI_whoMUxo",
+            "G": 3,
+            "P": 12,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "LATIN",
+                  "N": "131#7LITt72hkmMCrG3ot1xPy753E9QY8VxLAQx8XBzpsUs",
+                  "volumeHoraire": "2h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "M. GALLET B.",
+            "N": "109#YP-XBLPX5PFEYWKwsKA3DPMVW1e0E0Ua3REPRlQZemw",
+            "G": 3,
+            "P": 14,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "FRANCAIS",
+                  "N": "131#LTU9OwjLBaMML5dMtU-K6tXdVkd3w43LGLcAs8NjSHs",
+                  "volumeHoraire": "4h00"
+                },
+                {
+                  "L": "EPI (danse)",
+                  "N": "131#OQioHP53Ug87VeCJicVco55XZB-q5w4yMoe-pNr0tjA",
+                  "volumeHoraire": "2h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "Mme MOREAU C.",
+            "N": "109#VfYZb6tV70mrFS3B717lz8wH-O9LK85MoqPQ2qZLUsw",
+            "G": 3,
+            "P": 23,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "HISTOIRE-G\u00C9OGRAPHIE",
+                  "N": "131#dIsP_9ze52LcTadrVWMCrAWaZwj-NnCTrQvmD17XPds",
+                  "volumeHoraire": "3h30"
+                }
+              ]
+            }
+          },
+          {
+            "L": "Mme DIALO H.",
+            "N": "109#UCd0JhI58NerltzCw6P5FDksk8mIlkLVOuHJjPKvidE",
+            "G": 3,
+            "P": 10,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "ARTS PLASTIQUES",
+                  "N": "131#X7loPvPC-HP8jd4gr9rBPJCF0ZSqFhAaQko4QcjExvQ",
+                  "volumeHoraire": "1h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "M. PROFESSEUR M.",
+            "N": "109#NYGQ7P5EJ6paJetI1FOt682TKLcbY_Ly7wRX1CiJB7M",
+            "G": 3,
+            "P": 24,
+            "estProfesseurPrincipal": true,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "MATH\u00C9MATIQUES",
+                  "N": "131#NTxNMHSSuyWRFLSzS_cpB2TDz7qmRZ99geZpLu0CpMk",
+                  "volumeHoraire": "3h30"
+                },
+                {
+                  "L": "\u00C9crit",
+                  "N": "131#TeuXBcWmqnERI29DwMs8g1KUKTACprJ4218Pqt9e7os",
+                  "servicePere": {
+                    "_T": 24,
+                    "V": {
+                      "L": "MATH\u00C9MATIQUES",
+                      "N": "131#NTxNMHSSuyWRFLSzS_cpB2TDz7qmRZ99geZpLu0CpMk"
+                    }
+                  },
+                  "estUneSousMatiere": true,
+                  "libelleMatiere": "MATH\u00C9MATIQUES",
+                  "volumeHoraire": ""
+                },
+                {
+                  "L": "Oral",
+                  "N": "131#iN1nRbZ4hvnpJ91Pmb-C0ims_FuBVzsbsVW83Y9utms",
+                  "servicePere": {
+                    "_T": 24,
+                    "V": {
+                      "L": "MATH\u00C9MATIQUES",
+                      "N": "131#NTxNMHSSuyWRFLSzS_cpB2TDz7qmRZ99geZpLu0CpMk"
+                    }
+                  },
+                  "estUneSousMatiere": true,
+                  "libelleMatiere": "MATH\u00C9MATIQUES",
+                  "volumeHoraire": ""
+                }
+              ]
+            }
+          },
+          {
+            "L": "M. SIMON T.",
+            "N": "109#81274y-s2fABNiqnJz7mV1BSL1KBj-rkAR45oZHPjDk",
+            "G": 3,
+            "P": 30,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "PHYSIQUE-CHIMIE",
+                  "N": "131#8h4MHZCFV6jLA5C9sy7BmSVs8UVRsm-nGuIS6XDxQhk",
+                  "volumeHoraire": "1h30"
+                }
+              ]
+            }
+          },
+          {
+            "L": "Mme TESSIER A.",
+            "N": "109#TN304uLZAPFrpLJsjMnLPl5nLeUctcd3ug2ggatyz8M",
+            "G": 3,
+            "P": 31,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "SCIENCES DE LA VIE ET DE LA TERRE",
+                  "N": "131#f1fCZxilG0eNH0IW0GVu_puOx_gAjUea3fVfQhVuNCk",
+                  "volumeHoraire": "1h30"
+                },
+                {
+                  "L": "VIE DE CLASSE",
+                  "N": "131#JSkKmqORoqnOf_dKodm-oC4Ttd_F8a96bnYsQo8zRfQ",
+                  "volumeHoraire": "0h30"
+                },
+                {
+                  "L": "EPI (big data)",
+                  "N": "131#SeoUpVkMpOI7elrfSp7oncNnJbeVA047H_6aqFqhYxQ",
+                  "volumeHoraire": "2h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "Mme ROUX N.",
+            "N": "109#DF693VW_Kw3Wd4XUTMAIdDUeGDOr_QiCpt7UxFVC4G8",
+            "G": 3,
+            "P": 28,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "\u00C9DUCATION PHYSIQUE ET SPORTIVE",
+                  "N": "131#R37Dl15y_v8AbavYHmGXJa_w372a75sEl_mxTK4MTpI",
+                  "volumeHoraire": "3h00"
+                },
+                {
+                  "L": "EPI (danse)",
+                  "N": "131#OQioHP53Ug87VeCJicVco55XZB-q5w4yMoe-pNr0tjA",
+                  "volumeHoraire": "2h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "Mme VERNET M.",
+            "N": "109#cJTcPUV2qBqFoqlJgmpPej6AIM2h0V177wFf871quAk",
+            "G": 3,
+            "P": 32,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "MUSIQUE",
+                  "N": "131#hTCg4GqPBzTt-wYzyVUk0mBO48znH3PRqdET7ZcLkus",
+                  "volumeHoraire": "1h00"
+                }
+              ]
+            }
+          },
+          {
+            "L": "Mme MARTINEZ L.",
+            "N": "109#Ygy7P4T3Le2wCPFvgMQyknoyglkUTItQOV9x_utimgE",
+            "G": 3,
+            "P": 21,
+            "matieres": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "ESPAGNOL LV2",
+                  "N": "131#27HbJjJhxE4KFVcVMV5JpLd2CSMRZzts41-lYhzsXtc",
+                  "volumeHoraire": "2h30"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "nom": "PageEquipePedagogique"
+  }
+}

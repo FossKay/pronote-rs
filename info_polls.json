@@ -1,0 +1,386 @@
+{
+  "id": "PageActualites",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "listeNatures": {
+        "_T": 24,
+        "V": [
+          {
+            "L": "Divers",
+            "N": "70#1rE4e38zW0nS6j_o2yJEiOpi4lzwBXJUcYaQvrYx08w",
+            "estDefaut": true
+          },
+          {
+            "L": "CATEGORIE 1",
+            "N": "70#1MaxzjO2_CwSLINc0DcmE5H6MoVix8GyNbLjt9XzOYo",
+            "estDefaut": false
+          },
+          {
+            "L": "CATEGORIE 2",
+            "N": "70#pNDMk9i9-7vSxpKNGlX7TO6L8Q1tdI-lUACQ1lBU7nI",
+            "estDefaut": false
+          }
+        ]
+      },
+      "listeModesAff": [
+        {
+          "G": 0,
+          "listeActualites": {
+            "_T": 24,
+            "V": [
+              {
+                "L": "ACTUALITE 1",
+                "N": "65#01llekiVS6FcLqEB2D-2sGlh-bheGUwwtCRhjgYknz4",
+                "reponseAnonyme": false,
+                "estInformation": true,
+                "estSondage": false,
+                "nature": {
+                  "_T": 24,
+                  "V": {
+                    "L": "CATEGORIE 1",
+                    "N": "70#aqwDor1zXUHVaesrQlF6uHegh9t7BYXIuTjoAsnwPY8"
+                  }
+                },
+                "lue": true,
+                "dateDebut": { "_T": 7, "V": "05/09/2026 08:00:00" },
+                "dateFin": { "_T": 7, "V": "02/07/2027 22:00:00" },
+                "estProlonge": false,
+                "dateCreation": { "_T": 7, "V": "05/09/2026 21:42:00" },
+                "auteur": "AUTEUR 1",
+                "estAuteur": false,
+                "elmauteur": {
+                  "_T": 24,
+                  "V": {
+                    "L": "AUTEUR 1 (FONCTION)",
+                    "N": "106#toCmZsR_sRTwSwcpWcqB9hRfdSUOOVOcjVqWw9i0IHg",
+                    "G": 34
+                  }
+                },
+                "prenom": "PRENOM ELEVE",
+                "public": {
+                  "_T": 24,
+                  "V": {
+                    "L": "NOM PRENOM ELEVE",
+                    "N": "46#MoGkuU3kxuEs88zyFFXIp4fJVX9cxhX-oBPKBehVdJ4",
+                    "G": 4
+                  }
+                },
+                "genrePublic": 4,
+                "estPublic": true,
+                "estPartage": false,
+                "informationListeContenu": {
+                  "avecPJ": true,
+                  "aToutRepondu": true,
+                  "estRepondant": true,
+                  "strRepondant": "NOM PRENOM ELEVE",
+                  "reponduLe": { "_T": 7, "V": "09/09/2026 08:15:00" },
+                  "avecCommandeVisuResultat": true
+                }
+              },
+              {
+                "L": "ACTUALITE 2",
+                "N": "65#o03ryEDgAqnaGnfe5MMc8AGHXT__VInVneJJn4SXXC8",
+                "reponseAnonyme": false,
+                "estInformation": true,
+                "estSondage": false,
+                "nature": {
+                  "_T": 24,
+                  "V": {
+                    "L": "Divers",
+                    "N": "70#1rE4e38zW0nS6j_o2yJEiOpi4lzwBXJUcYaQvrYx08w"
+                  }
+                },
+                "lue": true,
+                "dateDebut": { "_T": 7, "V": "09/09/2026 08:00:00" },
+                "dateFin": { "_T": 7, "V": "02/07/2027 22:00:00" },
+                "estProlonge": false,
+                "dateCreation": { "_T": 7, "V": "09/09/2026 15:32:00" },
+                "auteur": "AUTEUR 2",
+                "estAuteur": false,
+                "elmauteur": {
+                  "_T": 24,
+                  "V": {
+                    "L": "AUTEUR 2 (FONCTION)",
+                    "N": "106#toCmZsR_sRTwSwcpWcqB9hRfdSUOOVOcjVqWw9i0IHg",
+                    "G": 34
+                  }
+                },
+                "prenom": "PRENOM ELEVE",
+                "public": {
+                  "_T": 24,
+                  "V": {
+                    "L": "NOM PRENOM ELEVE",
+                    "N": "46#MoGkuU3kxuEs88zyFFXIp4fJVX9cxhX-oBPKBehVdJ4",
+                    "G": 4
+                  }
+                },
+                "genrePublic": 4,
+                "estPublic": true,
+                "estPartage": false,
+                "informationListeContenu": {
+                  "avecPJ": false,
+                  "aToutRepondu": true,
+                  "estRepondant": true,
+                  "strRepondant": "NOM PRENOM ELEVE",
+                  "reponduLe": { "_T": 7, "V": "10/09/2026 08:00:00" },
+                  "avecCommandeVisuResultat": true
+                }
+              },
+              {
+                "L": "ACTUALITE 3",
+                "N": "65#AuBQBO_YIHlpjMEOr_XHzBw-0ztLgYMRvFzeJRA60Is",
+                "reponseAnonyme": false,
+                "estInformation": true,
+                "estSondage": false,
+                "nature": {
+                  "_T": 24,
+                  "V": {
+                    "L": "Divers",
+                    "N": "70#1rE4e38zW0nS6j_o2yJEiOpi4lzwBXJUcYaQvrYx08w"
+                  }
+                },
+                "lue": true,
+                "dateDebut": { "_T": 7, "V": "17/09/2026 08:00:00" },
+                "dateFin": { "_T": 7, "V": "02/07/2027 22:00:00" },
+                "estProlonge": false,
+                "dateCreation": { "_T": 7, "V": "17/09/2026 16:48:00" },
+                "auteur": "AUTEUR 3",
+                "estAuteur": false,
+                "elmauteur": {
+                  "_T": 24,
+                  "V": {
+                    "L": "AUTEUR 3",
+                    "N": "109#yZgXwIDuJ-uwQAbxywfKhbL83rWA9egeoeI4G8Yo74g",
+                    "G": 3,
+                    "avecDiscussion": true
+                  }
+                },
+                "prenom": "PRENOM ELEVE",
+                "public": {
+                  "_T": 24,
+                  "V": {
+                    "L": "NOM PRENOM ELEVE",
+                    "N": "46#MoGkuU3kxuEs88zyFFXIp4fJVX9cxhX-oBPKBehVdJ4",
+                    "G": 4
+                  }
+                },
+                "genrePublic": 4,
+                "estPublic": true,
+                "estPartage": false,
+                "informationListeContenu": {
+                  "avecPJ": true,
+                  "aToutRepondu": true,
+                  "estRepondant": true,
+                  "strRepondant": "NOM PRENOM ELEVE",
+                  "reponduLe": { "_T": 7, "V": "18/09/2026 08:30:00" },
+                  "avecCommandeVisuResultat": true
+                }
+              },
+              {
+                "L": "ACTUALITE 4",
+                "N": "65#mrM9R1pLxtJBH1HxJlLM_tRaQFr-ZafGPbNMkWRBERk",
+                "reponseAnonyme": false,
+                "estInformation": true,
+                "estSondage": false,
+                "nature": {
+                  "_T": 24,
+                  "V": {
+                    "L": "Divers",
+                    "N": "70#1rE4e38zW0nS6j_o2yJEiOpi4lzwBXJUcYaQvrYx08w"
+                  }
+                },
+                "lue": true,
+                "dateDebut": { "_T": 7, "V": "18/09/2026 08:00:00" },
+                "dateFin": { "_T": 7, "V": "02/07/2027 22:00:00" },
+                "estProlonge": false,
+                "dateCreation": { "_T": 7, "V": "18/09/2026 09:15:00" },
+                "auteur": "AUTEUR 4",
+                "estAuteur": false,
+                "elmauteur": {
+                  "_T": 24,
+                  "V": {
+                    "L": "AUTEUR 4",
+                    "N": "109#mbK4gOu8JpGYzmNThDYSADmDHF8NK7qC8O4qqWfxRHY",
+                    "G": 3,
+                    "avecDiscussion": true
+                  }
+                },
+                "prenom": "PRENOM ELEVE",
+                "public": {
+                  "_T": 24,
+                  "V": {
+                    "L": "NOM PRENOM ELEVE",
+                    "N": "46#MoGkuU3kxuEs88zyFFXIp4fJVX9cxhX-oBPKBehVdJ4",
+                    "G": 4
+                  }
+                },
+                "genrePublic": 4,
+                "estPublic": true,
+                "estPartage": false,
+                "informationListeContenu": {
+                  "avecPJ": false,
+                  "aToutRepondu": true,
+                  "estRepondant": true,
+                  "strRepondant": "NOM PRENOM ELEVE",
+                  "reponduLe": { "_T": 7, "V": "18/09/2026 19:00:00" },
+                  "avecCommandeVisuResultat": true
+                }
+              },
+              {
+                "L": "ACTUALITE 5",
+                "N": "65#BvnP4dPzbTgS3O1z26YOF8_bNYUuMYWfiG4bY5ERWjY",
+                "reponseAnonyme": false,
+                "estInformation": true,
+                "estSondage": false,
+                "nature": {
+                  "_T": 24,
+                  "V": {
+                    "L": "Divers",
+                    "N": "70#1rE4e38zW0nS6j_o2yJEiOpi4lzwBXJUcYaQvrYx08w"
+                  }
+                },
+                "lue": true,
+                "dateDebut": { "_T": 7, "V": "19/09/2026 08:00:00" },
+                "dateFin": { "_T": 7, "V": "02/07/2027 22:00:00" },
+                "estProlonge": false,
+                "dateCreation": { "_T": 7, "V": "19/09/2026 12:30:00" },
+                "auteur": "AUTEUR 5",
+                "estAuteur": false,
+                "elmauteur": {
+                  "_T": 24,
+                  "V": {
+                    "L": "AUTEUR 5",
+                    "N": "109#mbK4gOu8JpGYzmNThDYSADmDHF8NK7qC8O4qqWfxRHY",
+                    "G": 3,
+                    "avecDiscussion": true
+                  }
+                },
+                "prenom": "PRENOM ELEVE",
+                "public": {
+                  "_T": 24,
+                  "V": {
+                    "L": "NOM PRENOM ELEVE",
+                    "N": "46#MoGkuU3kxuEs88zyFFXIp4fJVX9cxhX-oBPKBehVdJ4",
+                    "G": 4
+                  }
+                },
+                "genrePublic": 4,
+                "estPublic": true,
+                "estPartage": false,
+                "informationListeContenu": {
+                  "avecPJ": false,
+                  "aToutRepondu": true,
+                  "estRepondant": true,
+                  "strRepondant": "NOM PRENOM ELEVE",
+                  "reponduLe": { "_T": 7, "V": "19/09/2026 17:45:00" },
+                  "avecCommandeVisuResultat": true
+                }
+              },
+              {
+                "L": "ACTUALITE 6",
+                "N": "65#GvzTUEd2ogQsve-ch1WkhjSKJiv_Das8w6bT6Pe1AWc",
+                "reponseAnonyme": false,
+                "estInformation": true,
+                "estSondage": false,
+                "nature": {
+                  "_T": 24,
+                  "V": {
+                    "L": "CATEGORIE 2",
+                    "N": "70#pNDMk9i9-7vSxpKNGlX7TO6L8Q1tdI-lUACQ1lBU7nI"
+                  }
+                },
+                "lue": true,
+                "dateDebut": { "_T": 7, "V": "22/09/2026 08:00:00" },
+                "dateFin": { "_T": 7, "V": "02/07/2027 22:00:00" },
+                "estProlonge": false,
+                "dateCreation": { "_T": 7, "V": "22/09/2026 14:35:00" },
+                "auteur": "AUTEUR 6",
+                "estAuteur": false,
+                "elmauteur": {
+                  "_T": 24,
+                  "V": {
+                    "L": "AUTEUR 6 (FONCTION)",
+                    "N": "106#toCmZsR_sRTwSwcpWcqB9hRfdSUOOVOcjVqWw9i0IHg",
+                    "G": 34
+                  }
+                },
+                "prenom": "PRENOM ELEVE",
+                "public": {
+                  "_T": 24,
+                  "V": {
+                    "L": "NOM PRENOM ELEVE",
+                    "N": "46#MoGkuU3kxuEs88zyFFXIp4fJVX9cxhX-oBPKBehVdJ4",
+                    "G": 4
+                  }
+                },
+                "genrePublic": 4,
+                "estPublic": true,
+                "estPartage": false,
+                "informationListeContenu": {
+                  "avecPJ": true,
+                  "aToutRepondu": true,
+                  "estRepondant": true,
+                  "strRepondant": "NOM PRENOM ELEVE",
+                  "reponduLe": { "_T": 7, "V": "22/09/2026 17:15:00" },
+                  "avecCommandeVisuResultat": true
+                }
+              },
+              {
+                "L": "ACTUALITE 7",
+                "N": "65#L2xr2uQYmxuWvolAh-iqWWiaIGigeaXsmV4RvcETD4o",
+                "reponseAnonyme": false,
+                "estInformation": true,
+                "estSondage": false,
+                "nature": {
+                  "_T": 24,
+                  "V": {
+                    "L": "Divers",
+                    "N": "70#1rE4e38zW0nS6j_o2yJEiOpi4lzwBXJUcYaQvrYx08w"
+                  }
+                },
+                "lue": false,
+                "dateDebut": { "_T": 7, "V": "17/10/2026 08:00:00" },
+                "dateFin": { "_T": 7, "V": "02/07/2027 22:00:00" },
+                "estProlonge": false,
+                "dateCreation": { "_T": 7, "V": "17/10/2026 18:25:00" },
+                "auteur": "AUTEUR 7",
+                "estAuteur": false,
+                "elmauteur": {
+                  "_T": 24,
+                  "V": {
+                    "L": "AUTEUR 7",
+                    "N": "109#acN_Qlfyr37nimFt8Qf2BGs9SVeVULF3kmnzqDYkDb4",
+                    "G": 3,
+                    "avecDiscussion": true
+                  }
+                },
+                "prenom": "PRENOM ELEVE",
+                "public": {
+                  "_T": 24,
+                  "V": {
+                    "L": "NOM PRENOM ELEVE",
+                    "N": "46#MoGkuU3kxuEs88zyFFXIp4fJVX9cxhX-oBPKBehVdJ4",
+                    "G": 4
+                  }
+                },
+                "genrePublic": 4,
+                "estPublic": true,
+                "estPartage": false,
+                "informationListeContenu": {
+                  "avecPJ": false,
+                  "aToutRepondu": true,
+                  "avecCommandeVisuResultat": false
+                }
+              }
+            ]
+          }
+        }
+      ],
+      "messagerieDesactivee": true,
+      "genreRequeteActualite": 0
+    },
+    "nom": "PageActualites"
+  }
+}

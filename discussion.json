@@ -1,0 +1,66 @@
+{
+  "id": "ListeMessages",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "listeMessages": {
+        "_T": 24,
+        "V": [
+          {
+            "N": "85#Gf-MxhOtWOuGdaCkqUxuBhcrVe9kp5ERssh0UW4-iuU",
+            "messageSource": { "_T": 24, "V": { "N": "0" } },
+            "possessionMessage": {
+              "_T": 24,
+              "V": { "N": "108#uVfIH-bYPyMRV9bzUCtX74SH4aI31uHCsD0e1Y8Wu7c" }
+            },
+            "estNonPossede": false,
+            "contenu": {
+              "_T": 21,
+              "V": "MESSAGE (HTML)"
+            },
+            "estHTML": true,
+            "libelleDate": "sam. 03/10/26 20h30",
+            "date": { "_T": 7, "V": "03/10/2026 20:30:07" },
+            "estUnAparte": false,
+            "listeDocumentsJoints": {
+              "_T": 24,
+              "V": [
+                {
+                  "L": "PIECE JOINTE 1",
+                  "N": "36#V7z1XrUJ3wwflMT62Vs00BVdIRLHxP6EZKEKU9Deryo",
+                  "G": 1
+                },
+                {
+                  "L": "PIECE JOINTE 2",
+                  "N": "36#4iTtQ9VsAINVXxPEJPjV3yQjkGRqfohOfSNv5ItNFFA",
+                  "G": 1
+                },
+                {
+                  "L": "PIECE JOINTE 3",
+                  "N": "36#5W5aCWmAjVmz-6ucT12BWMV5bC1cSnuTUac50etNz24",
+                  "G": 1
+                }
+              ]
+            },
+            "emetteur": false,
+            "public_gauche": "PROFESSEUR",
+            "hint_gauche": "Professeur",
+            "nbPublic": 24
+          }
+        ]
+      },
+      "messagePourReponse": {
+        "_T": 24,
+        "V": {
+          "N": "85#Gf-MxhOtWOuGdaCkqUxuBhcrVe9kp5ERssh0UW4-iuU",
+          "G": 0,
+          "nbDestinataires": 24
+        }
+      },
+      "listeBoutons": { "_T": 24, "V": [{ "G": 3, "L": "Envoyer" }] },
+      "nbPossessionsMessage": 1
+    },
+    "nom": "ListeMessages"
+  }
+}

@@ -1,0 +1,310 @@
+{
+  "id": "PageAgenda",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "ListeEvenements": [
+        {
+          "L": "Commission \u00E9ducative",
+          "N": "196#yE57OAz7WBldldp14QPl4Gp2jCSVgSYFT6znWuTMCrw",
+          "G": 12,
+          "DateDebut": { "_T": 7, "V": "09/09/2026 08:00:00" },
+          "DateFin": { "_T": 7, "V": "09/09/2026 09:00:00" },
+          "Commentaire": "Pr\u00E9sid\u00E9 par : Index Index\n\u00C9l\u00E8ve concern\u00E9 : BERNARD Fanny\nMotif : Dissipation\nCirconstances : Fanny a un comportement inadapt\u00E9",
+          "estConseilClasse": false,
+          "CouleurCellule": "#DC143C",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "Conseil de discipline",
+          "N": "196#rlaKBlTczBwf6aiHu1DwRsI7Fz6A0BkzTnzD65mn5Ic",
+          "G": 16,
+          "DateDebut": { "_T": 7, "V": "09/09/2026 08:00:00" },
+          "DateFin": { "_T": 7, "V": "09/09/2026 09:00:00" },
+          "Commentaire": "Pr\u00E9sid\u00E9 par : Index Index\n\u00C9l\u00E8ve concern\u00E9 : PARENT Fanny\nMotif : Dissipation",
+          "estConseilClasse": false,
+          "CouleurCellule": "#DC143C",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "Inscription au groupe d'activit\u00E9",
+          "N": "71#XoVujDWlW_lnzKCiLV_jDU9eDKsAw63A-KNMoIKfOzY",
+          "G": 0,
+          "DateDebut": { "_T": 7, "V": "17/09/2026 14:00:00" },
+          "DateFin": { "_T": 7, "V": "24/09/2026 17:00:00" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Petit journal,\nClub d'\u00E9chec,\nUNSS,\n...\nLes inscriptions aux activit\u00E9s hors enseignement sont ouvertes.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "\u00C9lection des d\u00E9l\u00E9gu\u00E9s de classe",
+          "N": "71#HPht6YkwMdBlBnM15MGNQ2QJ5CWFMacixfYkUdyt35k",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "28/09/2026" },
+          "DateFin": { "_T": 7, "V": "28/09/2026" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "\u00C0 convenir avec les professeurs principaux.\nHoraires variables.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "Chorale Gospel",
+          "N": "71#Kpd4ccz69peW7T0YmicNCMc_LVklZJh5CKnQERjceuU",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "05/10/2026" },
+          "DateFin": { "_T": 7, "V": "05/10/2026" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "D\u00E9but des s\u00E9lection pour les nouveaux arrivants.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "Voyage scolaire des 3\u00E8me \u00E0 Provins",
+          "N": "71#764AJnh4vyoIPEOiRfqzU0GXEzPwen6gO0rwTWmhB94",
+          "G": 0,
+          "DateDebut": { "_T": 7, "V": "15/10/2026 08:00:00" },
+          "DateFin": { "_T": 7, "V": "15/10/2026 20:00:00" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "",
+          "estConseilClasse": false,
+          "CouleurCellule": "#A6CAF0",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "Info TABAC - 3\u00E8me",
+          "N": "71#HKWpDILjwWHYe6Bd-HAe6-eFPcaAL3FFgxl6fx9cytA",
+          "G": 0,
+          "DateDebut": { "_T": 7, "V": "16/11/2026 09:00:00" },
+          "DateFin": { "_T": 7, "V": "16/11/2026 11:00:00" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "S\u00C9CURIT\u00C9 ROUTI\u00C8RE - 3D",
+          "N": "71#BGPHTl9qA3Nm4iA2hKx4_uFUI_fC-fR58OUo0KSijCE",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "23/11/2026" },
+          "DateFin": { "_T": 7, "V": "23/11/2026" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "4 stages de 1 journ\u00E9e concernant les \u00E9l\u00E8ves de 3\u00E8me sur la sensibilisation \u00E0 la vitesse en scooter.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "R\u00E9union Intranet",
+          "N": "71#0yRdbYGIr7SK0Eaq4a2nmmi2SdZp12yGP-KYRD84rHg",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "21/01/2027" },
+          "DateFin": { "_T": 7, "V": "21/01/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "De 13h \u00E0 13h50 en salle 20.\nInscriptions \u00E0 la VISCO (2 \u00E9l\u00E8ves du CESC par classe).",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "SVT - VISITES PARC \u00C9OLIENNES",
+          "N": "71#JeZktAyLvuGQjWVt7wYCUFwU3RcNtgoKRSdwjtWcnKI",
+          "G": 0,
+          "DateDebut": { "_T": 7, "V": "28/01/2027 08:30:00" },
+          "DateFin": { "_T": 7, "V": "28/01/2027 17:30:00" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Les \u00E9l\u00E8ves de 3\u00B0 seront absents pour la journ\u00E9e.\nAccompagnateurs \u00E0 d\u00E9signer.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#A6CAF0",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "BREVET BLANC",
+          "N": "71#ZSNmuJ0NvNH3UUw_ZRn3APrisKaINldNqrH5vyZI894",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "01/02/2027" },
+          "DateFin": { "_T": 7, "V": "08/02/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Le but du Brevet Blanc est de mettre les \u00E9l\u00E8ves en conditions r\u00E9elles d\u2019examen. L\u2019objectif de cette mise en situation \u00E9tant de leur faire appr\u00E9hender les probl\u00E9matiques d\u2019organisation des r\u00E9visions, de m\u00E9thodologie et de gestion du temps pendant les \u00E9preuves. Le Brevet Blanc est un bon moyen pour les \u00E9l\u00E8ves de se faire une id\u00E9e de ce qui les attend le jour des vraies \u00E9preuves et ainsi de se poser moins de questions, d\u2019\u00EAtre moins angoiss\u00E9s.\nQue vous soyez dans la s\u00E9rie coll\u00E8ges du Brevet ou dans la s\u00E9rie Professionnelle ou Technologique, vous aurez le Brevet des coll\u00E8ges \u00E0 passer en fin d\u2019ann\u00E9e de troisi\u00E8me. Les sujets du Brevet diff\u00E8rent selon les s\u00E9ries, ils sont adapt\u00E9s aux programmes enseign\u00E9s dans chacune.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "Chandeleur",
+          "N": "71#h77Qose5H7Gb4eSv77xthcbiIJa06vOnLc1fsUiCkXE",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "01/02/2027" },
+          "DateFin": { "_T": 7, "V": "01/02/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Repas sp\u00E9cial \"Chandeleur\" au r\u00E9fectoire.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#A6CAF0",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "T\u00E9moignage - ",
+          "N": "71#VeHlw0Yyms6pVLzEfte8uVM2q9-Z2zttRODQosX0wMk",
+          "G": 0,
+          "DateDebut": { "_T": 7, "V": "15/02/2027 11:00:00" },
+          "DateFin": { "_T": 7, "V": "15/02/2027 16:00:00" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Mme DUPONT, ancienne d\u00E9port\u00E9e sera pr\u00E9sente en S1 et S2 pour t\u00E9moigner devant tous les \u00E9l\u00E8ves de 3\u00B0.\nLes professeurs des classes concern\u00E9es encadreront leurs \u00E9l\u00E8ves au self.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "LV2 - Voyage en Espagne - 3\u00E8me",
+          "N": "71#FiK8okPM7tgWTDprjuRHkMTT9vRpnwNa_sNMKt87P1g",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "05/04/2027" },
+          "DateFin": { "_T": 7, "V": "12/04/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Pr\u00E9cisions \u00E0 venir.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "LV2 - Voyage en Allemagne - 3\u00E8me",
+          "N": "71#s9tJHqIGD1bRJkERPXvKcJDR_Xddqr4WGv9S8gbe3SA",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "05/04/2027" },
+          "DateFin": { "_T": 7, "V": "12/04/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Pr\u00E9cisions \u00E0 venir.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "LV2 - Voyage en Italie - 3\u00E8me",
+          "N": "71#_vNSsTwxqz0uyI4zbeO82GGgpKjkBXaYOpxSoK1Aia4",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "05/04/2027" },
+          "DateFin": { "_T": 7, "V": "12/04/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Pr\u00E9cisions \u00E0 venir.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "CHORALE GOSPEL",
+          "N": "71#5Lr-TMYrM0UoVcEp99Shjg0Q9Dduxoob5Ixi63SV_1U",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "03/05/2027" },
+          "DateFin": { "_T": 7, "V": "03/05/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "Rencontre chorale Gospel de 9h \u00E0 16h;",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "DIPL\u00D4ME NATIONAL DU BREVET 2018",
+          "N": "71#qyvUi0Iv22WwxjmiEbfYi9TiO2_DPHoX2EveJKk36eE",
+          "G": 0,
+          "DateDebut": { "_T": 7, "V": "24/06/2027 13:30:00" },
+          "DateFin": { "_T": 7, "V": "01/07/2027 17:00:00" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "A noter : les horaires de l'\u00E9preuve de fran\u00E7ais ont \u00E9t\u00E9 modifi\u00E9s dans une note de service du 12 mars 2018.\nCe calendrier tient compte de ces modifications officielles.",
+          "estConseilClasse": false,
+          "CouleurCellule": "#FFED00",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        },
+        {
+          "L": "Fin des cours - Ann\u00E9e 2018.",
+          "N": "71#b63RhFmvRCGCkQSHDGRlvnWHr9XClTKQzlrnKOBPBQk",
+          "G": 0,
+          "journeeEntiere": true,
+          "DateDebut": { "_T": 7, "V": "05/07/2027" },
+          "DateFin": { "_T": 7, "V": "05/07/2027" },
+          "datePublication": { "_T": 7, "V": "21/06/2025" },
+          "Commentaire": "",
+          "estConseilClasse": false,
+          "CouleurCellule": "#A6CAF0",
+          "listeFichiers": { "_T": 24, "V": [] },
+          "estPeriodique": false
+        }
+      ],
+      "listeFamilles": {
+        "_T": 24,
+        "V": [
+          {
+            "L": "Etablissement",
+            "N": "57#HgRJyKE3em8GoB-OYtrE-oVfv7HzvQubiUWpCeJxbxY",
+            "couleur": "#A6CAF0"
+          },
+          {
+            "L": "\u00C9tablissement & Parents",
+            "N": "57#zbACIjHD-oeDl9W-sSqvEOsO6ab7V6fUJWWvgVn9iOY",
+            "couleur": "#FFED00"
+          },
+          {
+            "L": "Surveillants",
+            "N": "57#uVQMBjpnfTyjnuGbj4dSkOf5AsdqA0q9h0eu0Y_SySk",
+            "couleur": "#7CB927"
+          },
+          {
+            "L": "Retenue",
+            "N": "57#MP9aI12eG7SLMu2ETkyiN0KSnQc5x5MreH_qS6rsjyQ",
+            "couleur": "#E73A1F"
+          },
+          {
+            "L": "Orientation",
+            "N": "57#2vRda2IdQgVIeyKGfAA18fv_6qP7gMmfQSOxl0HOvHA",
+            "couleur": "#FF8C00"
+          }
+        ]
+      },
+      "listeJourDansMois": {
+        "_T": 24,
+        "V": [
+          { "L": "premier", "P": 1 },
+          { "L": "Deuxi\u00E8me", "P": 2 },
+          { "L": "troisi\u00E8me", "P": 3 },
+          { "L": "quatri\u00E8me", "P": 4 },
+          { "L": "dernier", "P": 5 }
+        ]
+      },
+      "dateDebutPrevisionnel": { "_T": 7, "V": "21/08/2026" },
+      "dateFinPrevisionnel": { "_T": 7, "V": "15/10/2027" }
+    },
+    "nom": "PageAgenda"
+  }
+}
