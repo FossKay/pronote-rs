@@ -471,3 +471,28 @@ pub struct LessonDetailsItem {
     #[serde(rename = "ListePieceJointe", deserialize_with = "de_attachments")]
     pub attachments: Vec<Attachment>,
 }
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Event {
+    #[serde(rename = "L")]
+    pub title: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "DateDebut", deserialize_with = "de_datetime")]
+    pub start: String,
+    #[serde(rename = "DateFin", deserialize_with = "de_datetime")]
+    pub end: String,
+    #[serde(rename = "datePublication", deserialize_with = "de_date")]
+    pub date_published: String,
+    #[serde(rename = "Commentaire")]
+    pub description: String,
+    #[serde(rename = "estConseilClasse")]
+    pub is_class_council: bool,
+    #[serde(rename = "CouleurCellule")]
+    pub color: String,
+    #[serde(rename = "estPeriodique")]
+    pub is_periodic: String,
+    #[serde(rename = "PiecesJointes", default)]
+    pub attachments: Vec<Attachment>,
+    // listeFichiers = ???
+}

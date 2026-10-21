@@ -3,7 +3,7 @@ use std::str::FromStr;
 use std::time::{Duration, Instant};
 
 use crate::data::*;
-use crate::{communication::Communication, encryption::Encryption, error::Error};
+use crate::{communication::Communication, encryption::Encryption, Error};
 use crate::helpers::*;
 
 #[derive(Debug, Clone)]

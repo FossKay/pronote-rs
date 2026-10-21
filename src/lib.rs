@@ -2,9 +2,20 @@ mod client;
 mod communication;
 mod data;
 mod encryption;
-mod error;
 mod helpers;
 
 pub use client::Client;
 pub use data::*;
-pub use error::Error;
+
+#[derive(Debug)]
+pub enum Error {
+    InvalidCredentials,
+    InvalidStartPage,
+    Expired,
+    UnsupportedClient,
+    UnauthorizedTab(u64),
+    InvalidAction,
+    ConnectionFailed,
+    Pronote { code: i64, details: String },
+    InvalidResponse,
+}

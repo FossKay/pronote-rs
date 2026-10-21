@@ -6,7 +6,7 @@ use cbc::{
 use md5::{Digest, Md5};
 use sha2::Sha256;
 
-use crate::error::Error;
+use crate::Error;
 
 #[derive(Debug, Clone)]
 pub struct Encryption {

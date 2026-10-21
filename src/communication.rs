@@ -5,7 +5,7 @@ use rand::RngCore;
 use reqwest::Client as HttpClient;
 use serde_json::{Value, json};
 
-use crate::{encryption::Encryption, error::Error};
+use crate::{encryption::Encryption, Error};
 
 const USER_AGENT: &str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36";
 
