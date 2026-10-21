@@ -1,0 +1,11 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "SaisieTAFFaitEleve",
+  "dataSec": {
+    "Signature": { "onglet": 7 },
+    "data": {
+      "listeTAF": [{ "N": "HOMEWORK ID", "G": 0, "E": 2, "TAFFait": true }]
+    }
+  }
+}

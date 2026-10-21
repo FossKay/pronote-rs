@@ -1,0 +1,31 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "PageEmploiDuTemps",
+  "dataSec": {
+    "Signature": { "onglet": 16 },
+    "data": {
+      "ressource": {
+        "N": "46#Ko0Bue9xG4ONwa2zbez26QStqr8Pk-mpzYtYnNMOtf8",
+        "G": 4,
+        "L": "PARENT Fanny"
+      },
+      "numeroSemaine": 8,
+      "avecAbsencesEleve": false,
+      "avecConseilDeClasse": true,
+      "avecRetenuesEleve": true,
+      "estEDTPermanence": false,
+      "avecAbsencesRessource": true,
+      "avecCoursSortiePeda": true,
+      "avecDisponibilites": true,
+      "avecRessourcesLibrePiedHoraire": false,
+      "avecInfosPrefsGrille": true,
+      "Ressource": {
+        "N": "46#Ko0Bue9xG4ONwa2zbez26QStqr8Pk-mpzYtYnNMOtf8",
+        "G": 4,
+        "L": "PARENT Fanny"
+      },
+      "NumeroSemaine": 8
+    }
+  }
+}

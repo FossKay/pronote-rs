@@ -1,0 +1,15 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "DernieresNotes",
+  "dataSec": {
+    "Signature": { "onglet": 198 },
+    "data": {
+      "Periode": {
+        "N": "105#SOmvZtOAccKGXaFIPEHysm3NHsH24STBCvYxpVWUGJI",
+        "G": 2,
+        "L": "Trimestre 1"
+      }
+    }
+  }
+}

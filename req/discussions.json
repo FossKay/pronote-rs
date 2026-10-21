@@ -1,0 +1,9 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "ListeMessagerie",
+  "dataSec": {
+    "Signature": { "onglet": 131 },
+    "data": { "avecMessage": true, "avecLu": true }
+  }
+}

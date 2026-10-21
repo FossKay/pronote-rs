@@ -1,0 +1,30 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "PageAccueil",
+  "dataSec": {
+    "Signature": { "onglet": 7 },
+    "data": {
+      "avecConseilDeClasse": true,
+      "dateGrille": { "_T": 7, "V": "2/11/2026 0:0:0" },
+      "numeroSemaine": 10,
+      "coursNonAssures": { "numeroSemaine": 10 },
+      "personnelsAbsents": { "numeroSemaine": 10 },
+      "incidents": { "numeroSemaine": 10 },
+      "exclusions": { "numeroSemaine": 10 },
+      "donneesVS": { "numeroSemaine": 10 },
+      "registreAppel": { "date": { "_T": 7, "V": "2/11/2026 0:0:0" } },
+      "previsionnelAbsServiceAnnexe": {
+        "date": { "_T": 7, "V": "2/11/2026 0:0:0" }
+      },
+      "donneesProfs": { "numeroSemaine": 10 },
+      "EDT": { "numeroSemaine": 10 },
+      "menuDeLaCantine": { "date": { "_T": 7, "V": "2/11/2026 0:0:0" } },
+      "TAFARendre": { "date": { "_T": 7, "V": "2/11/2026 0:0:0" } },
+      "TAFEtActivites": { "date": { "_T": 7, "V": "2/11/2026 0:0:0" } },
+      "partenaireCDI": { "CDI": {} },
+      "tableauDeBord": { "date": { "_T": 7, "V": "2/11/2026 0:0:0" } },
+      "modificationsEDT": { "date": { "_T": 7, "V": "2/11/2026 0:0:0" } }
+    }
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "PageCahierDeTexte",
+  "dataSec": {
+    "Signature": { "onglet": 88 },
+    "data": { "domaine": { "_T": 8, "V": "[1..62]" } }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "PageAgenda",
+  "dataSec": {
+    "Signature": { "onglet": 9 },
+    "data": {
+      "avecEventsPasses": false,
+      "listeFamillesFiltre": null,
+      "uniquementMesEvenements": false,
+      "avecRdvPartages": true,
+      "AvecListeClasses": true
+    }
+  }
+}

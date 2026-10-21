@@ -1,0 +1,12 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "PageActualites",
+  "dataSec": {
+    "Signature": { "onglet": 8 },
+    "data": {
+      "genreRequeteActualite": 0,
+      "modesAffActus": { "_T": 26, "V": "[0]" }
+    }
+  }
+}

@@ -54,12 +54,12 @@ impl Client {
     }
 
     pub async fn mock_params() -> Result<Params, Error> {
-        let params = Value::from_str(include_str!("../params.json")).unwrap();
+        let params = Value::from_str(include_str!("../resp/params.json")).unwrap();
         Ok(from_value(params["dataSec"]["data"]["General"].clone()).unwrap())
     }
 
     pub async fn mock_user_params() -> Result<UserParams, Error> {
-        let params = Value::from_str(include_str!("../userparams.json")).unwrap();
+        let params = Value::from_str(include_str!("../resp/userparams.json")).unwrap();
         Ok(from_value(params["dataSec"]["data"].clone()).unwrap())
     }
 
@@ -206,7 +206,7 @@ impl Client {
 
     pub async fn mock_homework() -> Result<Vec<Homework>, Error> {
         let mut res: Vec<Homework> = from_value(
-            Value::from_str(include_str!("../homework.json"))
+            Value::from_str(include_str!("../resp/homework.json"))
                 .unwrap()["dataSec"]["data"]["ListeTravauxAFaire"]["V"]
                 .clone()
         )
@@ -253,7 +253,7 @@ impl Client {
     }
 
     pub async fn mock_timetable(p: &Params) -> Result<Vec<Vec<Lesson>>, Error> {
-        let res = Value::from_str(include_str!("../edt.json"))
+        let res = Value::from_str(include_str!("../resp/edt.json"))
             .unwrap()["dataSec"]["data"]["ListeCours"]
             .clone();
         let mut res: Vec<Lesson> = from_value(res).unwrap();
@@ -337,7 +337,7 @@ impl Client {
     }
 
     pub async fn mock_home(p: &Params) -> Result<Home, Error> {
-        let res = Value::from_str(include_str!("../home.json"))
+        let res = Value::from_str(include_str!("../resp/home.json"))
             .unwrap()
             .clone();
         let data = &res["dataSec"]["data"];
@@ -384,7 +384,7 @@ impl Client {
     }
 
     pub async fn mock_grades(p: Period) -> Result<Grades, Error> {
-        let res = Value::from_str(include_str!("../grades.json"))
+        let res = Value::from_str(include_str!("../resp/grades.json"))
             .unwrap()
             .clone();
         let mut data: Grades = from_value(res["dataSec"]["data"].clone()).unwrap();
@@ -436,7 +436,7 @@ impl Client {
     }
 
     pub async fn mock_documents() -> Result<Resources, Error> {
-        let res = Value::from_str(include_str!("../cont_ress.json"))
+        let res = Value::from_str(include_str!("../resp/cont_ress.json"))
             .unwrap()
             .clone();
         let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();

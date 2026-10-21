@@ -1,0 +1,21 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "Identification",
+  "dataSec": {
+    "data": {
+      "genreConnexion": 0,
+      "genreEspace": 3,
+      "identifiant": "demonstration",
+      "pourENT": false,
+      "enConnexionAuto": false,
+      "demandeConnexionAuto": false,
+      "enConnexionAppliMobile": false,
+      "demandeConnexionAppliMobile": false,
+      "demandeConnexionAppliMobileJeton": false,
+      "loginTokenSAV": "",
+      "uuidAppMobile": "",
+      "informationsAppareil": null
+    }
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "ListeMessages",
+  "dataSec": {
+    "Signature": { "onglet": 131 },
+    "data": {
+      "marquerCommeLu": true,
+      "nbMessagesVus": 20,
+      "message": { "N": 0 },
+      "estNonPossede": false,
+      "listePossessionsMessages": [
+        { "N": "108#uVfIH-bYPyMRV9bzUCtX74SH4aI31uHCsD0e1Y8Wu7c" }
+      ]
+    }
+  }
+}

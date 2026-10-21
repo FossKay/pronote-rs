@@ -1,0 +1,14 @@
+{
+  "id": "Identification",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "alea": "{XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX}",
+      "modeCompMdp": 0,
+      "modeCompLog": 1,
+      "challenge": "CHALLENGE"
+    },
+    "nom": "Identification"
+  }
+}
