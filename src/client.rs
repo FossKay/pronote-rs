@@ -11,16 +11,10 @@ pub struct Client {
     pub username: String,
     pub password: String,
     pub communication: Communication,
-
     pub parameters: Params,                  // pronote instance parameters
     pub user_parameters: Option<UserParams>, // user parameters, late initialized
     pub nav_identifier: String,              // unused for now, keep for QR code identification, etc
 }
-
-/*
-{"session":1234,"no":"REDACTED","id":"SaisieTAFFaitEleve","dataSec":{"Signature":{"onglet":7},"data":{"listeTAF":[{"N":"HOMEWORK_ID","G":0,"E":2,"TAFFait":true}]}}}
-// TAF FAIT
-*/
 
 impl Client {
     pub async fn new(url: String, username: String, password: String) -> Result<Client, Error> {
@@ -31,7 +25,7 @@ impl Client {
         let params = communication.initialise().await?;
         let nav_id = params["dataSec"]["data"]["identifiantNav"]
             .as_str()
-            .ok_or(Error::InvalidResponse)?
+            .unwrap()
             .to_owned();
         let params: Params =
             from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
@@ -105,6 +99,7 @@ impl Client {
             .unwrap()
             .replace("\r\n", ""); // windows :(
         self.parameters.last_week = self.get_week(self.parameters.last_day.clone());
+        // first week returned by server but seems to always be 1
 
         Ok(())
     }
@@ -447,6 +442,21 @@ impl Client {
         }
 
         Ok(data)
+    }
+
+    pub async fn set_done(&mut self, homework_id: &str, done: bool) -> Result<(), Error> {
+        self.post(
+            "SaisieTAFFaitEleve",
+            7,
+            json!({
+                "listeTAF": [{
+                    "N": homework_id,
+                    "G": 0,
+                    "E": 2,
+                    "TAFFait": done
+                }]
+            })
+        ).await.map(|_| ())
     }
 
     pub fn get_attachment(&self, a: &Attachment) -> String {

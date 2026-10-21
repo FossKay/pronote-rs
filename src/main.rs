@@ -47,7 +47,7 @@ async fn main() -> Result<(), Error> {
             "exit" => break,
             "help" => {
                 println!("Available commands:");
-                println!("exit, help, clear, ls, params, userparams, homework, documents, home, grades");
+                println!("exit, help, clear, ls, params, userparams, homework, done, documents, home, grades");
             }
             "clear" => {
                 print!("\x1B[2J\x1B[H");
@@ -91,6 +91,20 @@ async fn main() -> Result<(), Error> {
             }
             "homework" => {
                 println!("Usage: homework <first_week:u8> <last_week:u8>");
+            }
+            "done" if c.is_none() => {
+                println!("Cant set homework done in mock env")
+            }
+            "done" if args.len() == 3 => {
+                let done: bool = args[1].to_lowercase() == "y";
+
+                c.as_mut()
+                    .unwrap()
+                    .set_done(&args[2], done)
+                    .await?;
+            }
+            "done" => {
+                println!("Usage: done [Y/n] <homeork_id:String>");
             }
             "documents" if c.is_none() || args.len() == 3 => {
                 let result = if c.is_none() {
