@@ -1,5 +1,3 @@
-use std::default;
-
 use crate::data::*;
 use chrono::{NaiveDate, NaiveDateTime};
 use serde::Deserialize;
@@ -187,6 +185,7 @@ pub fn parse_attachments(res: Value) -> Vec<String> {
     return Vec::new();
 }
 
+// unwraps {"_T": XX, "V": ...}
 macro_rules! deser {
     ($type:ty, $name:ident) => {
         paste::paste! {
@@ -202,6 +201,10 @@ macro_rules! deser {
     };
 }
 
+deser!(String, string);
+deser!(String, date); //parse_date(...)
+deser!(String, datetime); //parse_datetime(...)
+deser!(Option<String>, date_some);
 deser!(Vec<Grade>, grades);
 deser!(Vec<LessonDetails>, lesson_details);
 deser!(Vec<Teacher>, teachers);
@@ -216,6 +219,7 @@ deser!(Vec<Attachment>, attachments);
 deser!(Subject, subject);
 deser!(Vec<Subject>, subjects);
 deser!(Vec<Holiday>, holidays);
+deser!(Vec<EventType>, event_types);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {
@@ -344,23 +348,11 @@ deser2!(GradeValue, grade, |value: Value| {
         _ => s.replace(',', ".").parse().map(GradeValue::Value).unwrap(),
     })
 });
-deser2!(String, string, |value: Value| {
-    Ok(value["V"].as_str().unwrap().into())
-});
-deser2!(String, date, |value: Value| {
-    Ok(value["V"].as_str().unwrap().into()) //parse_date(...)
-});
-deser2!(String, datetime, |value: Value| {
-    Ok(value["V"].as_str().unwrap().into()) //parse_datetime(...)
-});
 deser2!(u32, bareme, |value: Value| {
     Ok(value["V"].as_str().unwrap().parse().unwrap())
 });
 deser2!(Option<String>, color, |value: Value| {
     Ok(value["ligne"].as_str().map(String::from))
-});
-deser2!(Option<String>, date_some, |value: Value| {
-    Ok(value["V"].as_str().map(String::from))
 });
 deser2!(String, class_id, |value: Value| {
     Ok(value["V"]["N"].as_str().unwrap().into())

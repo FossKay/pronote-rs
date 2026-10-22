@@ -48,7 +48,7 @@ async fn main() -> Result<(), Error> {
             "help" => {
                 println!("Available commands:");
                 println!(
-                    "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades"
+                    "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades, agenda"
                 );
             }
             "clear" => {
@@ -174,6 +174,13 @@ async fn main() -> Result<(), Error> {
             }
             "grades" => {
                 println!("Usage: grades <period_name:String>");
+            }
+            "agenda" => {
+                let result = match &mut c {
+                    Some(client) => client.agenda().await?,
+                    None => Client::mock_agenda().await?,
+                };
+                println!("{result:#?}");
             }
 
             _ => println!("Unknown command: {}", args[0]),

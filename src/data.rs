@@ -493,6 +493,15 @@ pub struct LessonDetailsItem {
 }
 
 #[derive(Debug, Clone, Deserialize)]
+pub struct Agenda {
+    #[serde(rename = "ListeEvenements")]
+    pub events: Vec<Event>,
+    #[serde(rename = "listeFamilles", deserialize_with = "de_event_types")]
+    pub event_types: Vec<EventType>,
+    // dateDebutPrevisionnel, dateFinPrevisionnel = ???
+}
+
+#[derive(Debug, Clone, Deserialize)]
 pub struct Event {
     #[serde(rename = "L")]
     pub title: String,
@@ -502,8 +511,8 @@ pub struct Event {
     pub start: String,
     #[serde(rename = "DateFin", deserialize_with = "de_datetime")]
     pub end: String,
-    #[serde(rename = "datePublication", deserialize_with = "de_date")]
-    pub date_published: String,
+    #[serde(rename = "datePublication", deserialize_with = "de_date_some", default)]
+    pub date_published: Option<String>,
     #[serde(rename = "Commentaire")]
     pub description: String,
     #[serde(rename = "estConseilClasse")]
@@ -511,8 +520,18 @@ pub struct Event {
     #[serde(rename = "CouleurCellule")]
     pub color: String,
     #[serde(rename = "estPeriodique")]
-    pub is_periodic: String,
+    pub is_periodic: bool,
     #[serde(rename = "PiecesJointes", default)]
     pub attachments: Vec<Attachment>,
     // listeFichiers = ???
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct EventType {
+    #[serde(rename = "L")]
+    pub title: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "couleur")]
+    pub color: String,
 }

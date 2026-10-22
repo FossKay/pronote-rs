@@ -441,6 +441,28 @@ impl Client {
         Ok(data)
     }
 
+    pub async fn agenda(&mut self) -> Result<Agenda, Error> {
+        let res = self.post("PageAgenda", 9, json!({
+          "avecEventsPasses": true,
+          "listeFamillesFiltre": null,
+          "uniquementMesEvenements": false,
+          "avecRdvPartages": true,
+          "AvecListeClasses": true
+        })).await?; // filter old events client-side
+        let data: Agenda = from_value(res["dataSec"]["data"].clone()).unwrap();
+
+        Ok(data)
+    }
+
+    pub async fn mock_agenda() -> Result<Agenda, Error> {
+        let res = Value::from_str(include_str!("../resp/agenda.json"))
+            .unwrap()
+            .clone();
+        let data: Agenda = from_value(res["dataSec"]["data"].clone()).unwrap();
+
+        Ok(data)
+    }
+
     pub async fn set_done(&mut self, homework_id: &str, done: bool) -> Result<(), Error> {
         self.post(
             "SaisieTAFFaitEleve",
