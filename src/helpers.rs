@@ -215,6 +215,7 @@ deser!(Option<Attachment>, attachment);
 deser!(Vec<Attachment>, attachments);
 deser!(Subject, subject);
 deser!(Vec<Subject>, subjects);
+deser!(Vec<Holiday>, holidays);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {

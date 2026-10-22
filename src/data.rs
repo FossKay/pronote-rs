@@ -260,12 +260,26 @@ pub struct Params {
     pub end_times: Vec<EndTime>,
     #[serde(rename = "Collectivite")]
     pub collectivity: Collectivity,
+    #[serde(rename = "listeJoursFeries", deserialize_with = "de_holidays")]
+    pub holidays: Vec<Holiday>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct EndTime {
     pub time: String,
     pub show: bool,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Holiday {
+    #[serde(rename = "L")]
+    pub name: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "dateDebut", deserialize_with = "de_date")]
+    pub start: String,
+    #[serde(rename = "dateFin", deserialize_with = "de_date")]
+    pub end: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]
