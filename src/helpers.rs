@@ -261,6 +261,12 @@ deser2!(Vec<Homework>, homework, |value: Value| {
 
     Ok(res)
 });
+deser2!(Vec<Event>, home_agenda, |value: Value| {
+    let events: Vec<Event> =
+        from_value(value["listeEvenements"].clone()).unwrap();
+
+    Ok(events)
+});
 deser2!(Vec<EndTime>, end_times, |value: Value| {
     let mut res = Vec::new();
     for v in value["V"].clone().as_array().unwrap() {

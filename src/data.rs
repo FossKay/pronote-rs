@@ -342,6 +342,8 @@ pub struct Home {
     pub grades: HomeGrades,
     #[serde(rename = "kiosque", deserialize_with = "de_digital_textbooks2")]
     pub digital_textbooks: Vec<DigitalTextbook>,
+    #[serde(rename = "agenda", deserialize_with = "de_home_agenda")]
+    pub events: Vec<Event>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
