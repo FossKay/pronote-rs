@@ -1,10 +1,10 @@
-use serde_json::{Value, json, from_value};
+use serde_json::{Value, from_value, json};
 use std::str::FromStr;
 use std::time::{Duration, Instant};
 
 use crate::data::*;
-use crate::{communication::Communication, encryption::Encryption, Error};
 use crate::helpers::*;
+use crate::{Error, communication::Communication, encryption::Encryption};
 
 #[derive(Debug, Clone)]
 pub struct Client {
@@ -27,8 +27,7 @@ impl Client {
             .as_str()
             .unwrap()
             .to_owned();
-        let params: Params =
-            from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
+        let params: Params = from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
         if params.first_week_day != 2 {
             // NOT MONDAY :(
             return Err(Error::InvalidStartPage);
@@ -169,9 +168,7 @@ impl Client {
         first_week: u8,
         last_week: u8,
     ) -> Result<Vec<Homework>, Error> {
-        if first_week > last_week ||
-            last_week > self.parameters.last_week ||
-            first_week < 1 {
+        if first_week > last_week || last_week > self.parameters.last_week || first_week < 1 {
             return Err(Error::InvalidAction);
         }
         let mut res: Vec<Homework> = from_value(
@@ -185,8 +182,11 @@ impl Client {
                         // for one week, [{week}] works too apparently
                     }
                 }),
-            ).await?["dataSec"]["data"]["ListeTravauxAFaire"]["V"].clone()
-        ).unwrap();
+            )
+            .await?["dataSec"]["data"]["ListeTravauxAFaire"]["V"]
+                .clone(),
+        )
+        .unwrap();
         for h in &mut res {
             h.order = date_int(&h.due_date);
             for a in &mut h.attachments {
@@ -200,12 +200,13 @@ impl Client {
     }
 
     pub async fn mock_homework() -> Result<Vec<Homework>, Error> {
-        let mut res: Vec<Homework> = from_value(
-            Value::from_str(include_str!("../resp/homework.json"))
-                .unwrap()["dataSec"]["data"]["ListeTravauxAFaire"]["V"]
-                .clone()
-        )
-        .unwrap();
+        let mut res: Vec<Homework> =
+            from_value(
+                Value::from_str(include_str!("../resp/homework.json")).unwrap()["dataSec"]["data"]
+                    ["ListeTravauxAFaire"]["V"]
+                    .clone(),
+            )
+            .unwrap();
         for h in &mut res {
             h.order = date_int(&h.due_date)
         }
@@ -389,34 +390,30 @@ impl Client {
         Ok(data)
     }
 
-    pub async fn documents(
-        &mut self,
-        first_week: u8,
-        last_week: u8,
-    ) -> Result<Resources, Error> {
-        if first_week > last_week ||
-            last_week > self.parameters.last_week ||
-            first_week < 1 {
+    pub async fn documents(&mut self, first_week: u8, last_week: u8) -> Result<Resources, Error> {
+        if first_week > last_week || last_week > self.parameters.last_week || first_week < 1 {
             return Err(Error::InvalidAction);
         }
-        let res = self.post(
-            "PageCahierDeTexte",
-            88,
-            json!({
-                "domaine": {
-                    "_T": 8,
-                    "V": format!("[{}..{}]", first_week, last_week)
-                    // for one week, [{week}] works too apparently
-                }
-            }),
-        ).await?;
+        let res = self
+            .post(
+                "PageCahierDeTexte",
+                88,
+                json!({
+                    "domaine": {
+                        "_T": 8,
+                        "V": format!("[{}..{}]", first_week, last_week)
+                        // for one week, [{week}] works too apparently
+                    }
+                }),
+            )
+            .await?;
         let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
         let textbook_icons: Vec<String> =
             from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // TODO: could panic?
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             data.digital_textbooks[i].icon = icon;
         }
-        
+
         for d in &mut data.lesson_details {
             for i in &mut d.items {
                 for a in &mut i.attachments {
@@ -455,12 +452,18 @@ impl Client {
                     "E": 2,
                     "TAFFait": done
                 }]
-            })
-        ).await.map(|_| ())
+            }),
+        )
+        .await
+        .map(|_| ())
     }
 
     pub fn get_attachment(&self, a: &Attachment) -> String {
-        a.get_link(&self.communication.encryption, self.communication.session_id, &self.communication.root_url)
+        a.get_link(
+            &self.communication.encryption,
+            self.communication.session_id,
+            &self.communication.root_url,
+        )
     }
 
     pub async fn keep_alive(&mut self) -> () {

@@ -1,5 +1,5 @@
-use serde::{Deserialize, Serialize};
 use crate::helpers::*;
+use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
 
 #[derive(Debug, Clone, Serialize, Deserialize)]
@@ -68,12 +68,16 @@ impl Attachment {
         root_url: &str, // no slash at end plz
     ) -> String {
         // {{ escapes the "{" character (in format!)
-        let json = format!(r#"{{"N":{},"Actif":true}}"#, serde_json::to_string(&self.id).unwrap());
+        let json = format!(
+            r#"{{"N":{},"Actif":true}}"#,
+            serde_json::to_string(&self.id).unwrap()
+        );
         let bytes = json.as_bytes();
         let ciphertext = encryption.encrypt(bytes);
         let hex: String = hex::encode(ciphertext);
 
-        let filename = self.file
+        let filename = self
+            .file
             .replace("&lt;", "<")
             .replace("&gt;", ">")
             .replace("&quot;", "\"")
@@ -82,22 +86,37 @@ impl Attachment {
 
         format!(
             "{}/FichiersExternes/{}/{}?Session={}",
-            root_url,
-            hex,
-            filename,
-            session,
+            root_url, hex, filename, session,
         )
     }
 }
 
-#[derive(Default, Debug, Clone, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, Deserialize)]
 pub struct Subject {
     #[serde(rename = "L")]
     pub name: String,
     #[serde(rename = "N")]
     pub id: String,
     #[serde(rename = "couleur", default)]
-    pub color: Option<String>,
+    pub color: String, // empty in most cases
+    #[serde(rename = "ordre", default)]
+    pub order: u32, // empty in most cases
+    #[serde(rename = "moyEleve", deserialize_with = "de_grade", default)]
+    pub average: GradeValue,
+    #[serde(rename = "moyClasse", deserialize_with = "de_grade", default)]
+    pub class_average: GradeValue,
+    #[serde(rename = "moyMin", deserialize_with = "de_grade", default)]
+    pub min_average: GradeValue,
+    #[serde(rename = "moyMax", deserialize_with = "de_grade", default)]
+    pub max_average: GradeValue,
+    #[serde(rename = "baremeMoyEleve", deserialize_with = "de_bareme", default)]
+    pub average_scale: u32,
+    #[serde(
+        rename = "baremeMoyEleveParDefaut",
+        deserialize_with = "de_bareme",
+        default
+    )]
+    pub default_average_scale: u32,
 }
 
 #[derive(Default, Debug, Clone, Deserialize)]
@@ -126,7 +145,11 @@ pub struct Homework {
     pub group: Option<String>,
     /* #[serde(rename = "ListeThemes")]
     pub themes: Value, // TODO: parse themes */
-    #[serde(rename = "ListePieceJointe", alias = "listeDocumentJoint", deserialize_with = "de_attachments")]
+    #[serde(
+        rename = "ListePieceJointe",
+        alias = "listeDocumentJoint",
+        deserialize_with = "de_attachments"
+    )]
     pub attachments: Vec<Attachment>,
     // TODO: peuRendre
 }
@@ -146,33 +169,6 @@ pub struct Classroom {
     #[serde(rename = "N")]
     pub id: String,
 }
-
-// TODO: lesson content
-// {
-// 	"cahierDeTextes": {
-// 		"_T": 24,
-// 		"V": {
-// 			"N": "ID", refers to content & ressources
-// 			"estDevoir": true,
-// 			"estEval": true,
-// 			"originesCategorie": {
-// 				"_T": 24,
-// 				"V": [
-// 					{
-// 						"G": 3,
-// 						"L": "Devoir sur table",
-// 						"libelleIcone": "DS"
-// 					},
-// 					{
-//            "G": 7,
-//            "L": "Évaluation de compétences",
-//            "libelleIcone": "EVA"
-//          }
-// 				]
-// 			}
-// 		}
-// 	}
-// }
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct LessonDetailsLink {
@@ -220,7 +216,11 @@ pub struct Lesson {
     pub content: LessonContent,
     #[serde(rename = "memo", default)]
     pub note: String,
-    #[serde(rename = "cahierDeTextes", deserialize_with = "de_lesson_details_link", default)]
+    #[serde(
+        rename = "cahierDeTextes",
+        deserialize_with = "de_lesson_details_link",
+        default
+    )]
     pub lesson_details_link: Option<LessonDetailsLink>,
 }
 
@@ -338,13 +338,9 @@ pub struct HomeGrades {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Grades {
-    #[serde(rename = "moyGenerale", deserialize_with = "de_your_grade", default)]
+    #[serde(rename = "moyGenerale", deserialize_with = "de_grade", default)]
     pub average: GradeValue,
-    #[serde(
-        rename = "moyGeneraleClasse",
-        deserialize_with = "de_your_grade",
-        default
-    )]
+    #[serde(rename = "moyGeneraleClasse", deserialize_with = "de_grade", default)]
     pub class_average: GradeValue,
     #[serde(rename = "baremeMoyGenerale", deserialize_with = "de_bareme", default)]
     pub average_scale: u32, // can be zero if empty average
@@ -354,19 +350,25 @@ pub struct Grades {
         default
     )]
     pub average_default_scale: u32, // can be zero if empty average
+    #[serde(rename = "avecDetailService")]
+    pub subject_averages: bool,
+    #[serde(rename = "avecDetailDevoir")]
+    pub grade_averages: bool,
+    #[serde(rename = "listeServices", deserialize_with = "de_subjects")]
+    pub subjects: Vec<Subject>,
     #[serde(rename = "listeDevoirs", deserialize_with = "de_grades")]
     pub grades: Vec<Grade>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Grade {
-    #[serde(rename = "note", deserialize_with = "de_your_grade")]
+    #[serde(rename = "note", deserialize_with = "de_grade")]
     pub grade: GradeValue,
-    #[serde(rename = "noteMin", deserialize_with = "de_your_grade", default)]
+    #[serde(rename = "noteMin", deserialize_with = "de_grade", default)]
     pub min_grade: GradeValue,
-    #[serde(rename = "noteMax", deserialize_with = "de_your_grade", default)]
+    #[serde(rename = "noteMax", deserialize_with = "de_grade", default)]
     pub max_grade: GradeValue,
-    #[serde(rename = "moyenne", deserialize_with = "de_your_grade", default)]
+    #[serde(rename = "moyenne", deserialize_with = "de_grade", default)]
     pub average: GradeValue,
     #[serde(rename = "bareme", deserialize_with = "de_bareme")]
     pub scale: u32,
@@ -388,6 +390,8 @@ pub struct Grade {
     pub is_group_work: bool,
     #[serde(rename = "periode", deserialize_with = "de_period")]
     pub period: Period,
+    #[serde(rename = "elmCorrige", deserialize_with = "de_attachment", default)]
+    pub solution: Option<Attachment>, // there is also libelleCorrige
 }
 
 #[derive(Debug, Clone, Copy, Default, PartialEq)]
@@ -411,7 +415,10 @@ pub struct Resources {
     #[serde(rename = "ListeCahierDeTextes", deserialize_with = "de_lesson_details")]
     pub lesson_details: Vec<LessonDetails>,
     /* there is ListeRessourcesPedagogiques but idk seems unnecessary?! */
-    #[serde(rename = "ListeRessourcesNumeriques", deserialize_with = "de_digital_textbooks")]
+    #[serde(
+        rename = "ListeRessourcesNumeriques",
+        deserialize_with = "de_digital_textbooks"
+    )]
     pub digital_textbooks: Vec<DigitalTextbook>,
 }
 
@@ -452,8 +459,7 @@ pub struct LessonDetails {
     #[serde(rename = "dateTAF", deserialize_with = "de_date_some", default)]
     pub homework_date: Option<String>,
     #[serde(rename = "listeContenus", deserialize_with = "de_lesson_details_items")]
-    pub items: Vec<LessonDetailsItem>
-    // + listeElementsProgrammeCDT
+    pub items: Vec<LessonDetailsItem>, // + listeElementsProgrammeCDT
 }
 
 // i really dont like this name but its hard

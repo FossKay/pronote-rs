@@ -47,7 +47,9 @@ async fn main() -> Result<(), Error> {
             "exit" => break,
             "help" => {
                 println!("Available commands:");
-                println!("exit, help, clear, ls, params, userparams, homework, done, documents, home, grades");
+                println!(
+                    "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades"
+                );
             }
             "clear" => {
                 print!("\x1B[2J\x1B[H");
@@ -81,10 +83,7 @@ async fn main() -> Result<(), Error> {
                     let first_week: u8 = args[1].parse().unwrap();
                     let last_week: u8 = args[2].parse().unwrap();
 
-                    c.as_mut()
-                        .unwrap()
-                        .homework(first_week, last_week)
-                        .await?
+                    c.as_mut().unwrap().homework(first_week, last_week).await?
                 };
 
                 println!("{result:#?}");
@@ -98,10 +97,7 @@ async fn main() -> Result<(), Error> {
             "done" if args.len() == 3 => {
                 let done: bool = args[1].to_lowercase() == "y";
 
-                c.as_mut()
-                    .unwrap()
-                    .set_done(&args[2], done)
-                    .await?;
+                c.as_mut().unwrap().set_done(&args[2], done).await?;
             }
             "done" => {
                 println!("Usage: done [Y/n] <homeork_id:String>");
@@ -113,10 +109,7 @@ async fn main() -> Result<(), Error> {
                     let first_week: u8 = args[1].parse().unwrap();
                     let last_week: u8 = args[2].parse().unwrap();
 
-                    c.as_mut()
-                        .unwrap()
-                        .documents(first_week, last_week)
-                        .await?
+                    c.as_mut().unwrap().documents(first_week, last_week).await?
                 };
 
                 println!("{result:#?}");
@@ -131,10 +124,7 @@ async fn main() -> Result<(), Error> {
                 } else {
                     let week: u8 = args[1].parse().unwrap();
 
-                    c.as_mut()
-                        .unwrap()
-                        .timetable(week)
-                        .await?
+                    c.as_mut().unwrap().timetable(week).await?
                 };
 
                 println!("{result:#?}");
@@ -160,7 +150,11 @@ async fn main() -> Result<(), Error> {
                     Some(client) => client.user_parameters.clone().unwrap().resource.periods,
                     None => Client::mock_user_params().await?.resource.periods,
                 };
-                let period = match periods.periods.iter().find(|x| x.name == args[1].replace("_", " ")) {
+                let period = match periods
+                    .periods
+                    .iter()
+                    .find(|x| x.name == args[1].replace("_", " "))
+                {
                     None => {
                         println!("No such period");
                         println!("Use ls to view the periods");
@@ -168,7 +162,8 @@ async fn main() -> Result<(), Error> {
                         continue;
                     }
                     Some(s) => s,
-                }.clone();
+                }
+                .clone();
                 let result = if c.is_none() {
                     Client::mock_grades(period).await?
                 } else {

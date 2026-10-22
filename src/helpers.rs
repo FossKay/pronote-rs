@@ -1,7 +1,9 @@
-use serde::{Deserialize};
-use serde_json::{from_value, Value};
-use chrono::{NaiveDate, NaiveDateTime};
+use std::default;
+
 use crate::data::*;
+use chrono::{NaiveDate, NaiveDateTime};
+use serde::Deserialize;
+use serde_json::{Value, from_value};
 
 pub fn pretty_end_time(end_time: u32, l: &Lesson, p: &Params) -> String {
     l.start.split_once(" ").unwrap().0.to_owned()
@@ -26,9 +28,8 @@ fn gap(id: &str, name: &str, index: u32, duration: u32, l: &Lesson, p: &Params) 
         color: "".into(),
         content: LessonContent {
             subject: Subject {
-                name: name.into(),
-                id: id.into(),
-                color: None,
+                name: name.to_owned(),
+                ..Default::default()
             },
             teacher: Vec::new(),
             classroom: Vec::new(),
@@ -210,7 +211,10 @@ deser!(Vec<LessonDetailsItem>, lesson_details_items);
 deser!(Category, category);
 deser!(Vec<Category>, categories);
 deser!(Option<LessonDetailsLink>, lesson_details_link);
+deser!(Option<Attachment>, attachment);
 deser!(Vec<Attachment>, attachments);
+deser!(Subject, subject);
+deser!(Vec<Subject>, subjects);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {
@@ -235,12 +239,14 @@ deser2!(HomeGrades, home_grades, |value: Value| {
     Ok(HomeGrades { grades, period })
 });
 deser2!(Vec<DigitalTextbook>, digital_textbooks, |value: Value| {
-    let textbooks: Vec<DigitalTextbook> = from_value(value["V"]["listeRessources"]["V"].clone()).unwrap();
+    let textbooks: Vec<DigitalTextbook> =
+        from_value(value["V"]["listeRessources"]["V"].clone()).unwrap();
 
     Ok(textbooks)
 });
 deser2!(Vec<DigitalTextbook>, digital_textbooks2, |value: Value| {
-    let textbooks: Vec<DigitalTextbook> = from_value(value["listeRessources"]["V"].clone()).unwrap();
+    let textbooks: Vec<DigitalTextbook> =
+        from_value(value["listeRessources"]["V"].clone()).unwrap();
 
     Ok(textbooks)
 });
@@ -279,8 +285,7 @@ deser2!(Periods, periods, |value: Value| {
         .filter(|entry| entry.get("N").is_some()) // Fake period
         .map(|json| from_value::<Period>(json).unwrap())
         .collect();
-    let default_period: Period =
-        from_value(entries["periodeParDefaut"]["V"].clone()).unwrap();
+    let default_period: Period = from_value(entries["periodeParDefaut"]["V"].clone()).unwrap();
 
     Ok(Periods {
         periods: periods,
@@ -288,10 +293,7 @@ deser2!(Periods, periods, |value: Value| {
     })
 });
 deser2!(LessonContent, lesson_content, |value: Value| {
-    let values: Vec<Value> = value["V"]
-        .as_array()
-        .cloned()
-        .unwrap_or_default();
+    let values: Vec<Value> = value["V"].as_array().cloned().unwrap_or_default();
 
     let mut subject: Option<Subject> = None;
     let mut teacher: Vec<String> = Vec::new();
@@ -325,7 +327,7 @@ deser2!(LessonContent, lesson_content, |value: Value| {
         group,
     })
 });
-deser2!(GradeValue, your_grade, |value: Value| {
+deser2!(GradeValue, grade, |value: Value| {
     let s = value["V"].as_str().unwrap();
 
     Ok(match s {
@@ -361,14 +363,4 @@ deser2!(Option<String>, date_some, |value: Value| {
 });
 deser2!(String, class_id, |value: Value| {
     Ok(value["V"]["N"].as_str().unwrap().into())
-});
-deser2!(Subject, subject, |value: Value| {
-    Ok(Subject {
-        name: value["V"]["L"].as_str().unwrap().into(),
-        id: value["V"]["N"].as_str().unwrap().into(),
-        color: value["V"]
-            .get("couleur")
-            .and_then(Value::as_str)
-            .map(str::to_owned),
-    })
 });
