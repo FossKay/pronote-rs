@@ -394,7 +394,7 @@ pub struct HomeGrades {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Exam {
-    #[serde(rename = "L")]
+    #[serde(rename = "L", default)]
     pub title: String,
     #[serde(rename = "N")]
     pub id: String,
