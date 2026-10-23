@@ -16,7 +16,7 @@ async fn main() -> Result<(), Error> {
         "m" | "mock" => None,
         "d" | "demo" => Some(
             Client::new(
-                "https://demo.index-education.net/pronote/eleve.html".into(),
+                "https://demo.index-education.net/pronote".into(),
                 "demonstration".into(),
                 "pronotevs".into(),
             )

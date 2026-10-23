@@ -17,11 +17,11 @@ pub struct Client {
 }
 
 impl Client {
-    pub async fn new(url: String, username: String, password: String) -> Result<Client, Error> {
+    pub async fn new(root_url: String, username: String, password: String) -> Result<Client, Error> {
         if username.is_empty() || password.is_empty() {
             return Err(Error::InvalidCredentials);
         }
-        let mut communication = Communication::new(&url)?;
+        let mut communication = Communication::new(&root_url)?;
         let params = communication.initialise().await?;
         let nav_id = params["dataSec"]["data"]["identifiantNav"]
             .as_str()

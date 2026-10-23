@@ -11,12 +11,10 @@ const USER_AGENT: &str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/
 
 #[derive(Debug, Clone)]
 pub struct Communication {
-    pub root_url: String,
-    pub page: String,
-
     http: HttpClient,
     request_number: u32,
 
+    pub root_url: String,
     pub session_id: u64,
     pub space_id: u8,
     pub encryption: Encryption,
@@ -24,13 +22,8 @@ pub struct Communication {
 }
 
 impl Communication {
-    pub fn new(url: &str) -> Result<Self, Error> {
-        let (root_url, page) = split_url(url)?;
+    pub fn new(root_url: &str) -> Result<Self, Error> {
         // root_url = https://example.com/pronote
-
-        if page.trim_end_matches("?login=true") != "eleve.html" {
-            return Err(Error::UnsupportedClient);
-        }
 
         let http = HttpClient::builder()
             .cookie_store(true) // CASTGC cookie
@@ -39,23 +32,19 @@ impl Communication {
             .map_err(|_| Error::ConnectionFailed)?;
 
         Ok(Self {
-            root_url,
-            page,
             http,
+            request_number: 1,
+            root_url: root_url.to_owned(),
             session_id: 0,
             space_id: 0,
             encryption: Encryption::new(),
-            request_number: 1,
             last_ping: Instant::now(),
         })
     }
 
     pub fn mock() -> Self {
-        let (root_url, page) = ("".into(), "".into());
-
         Self {
-            root_url,
-            page,
+            root_url: String::new(),
             http: HttpClient::new(),
             session_id: 0,
             space_id: 0,
@@ -66,7 +55,7 @@ impl Communication {
     }
 
     pub async fn initialise(&mut self) -> Result<Value, Error> {
-        let url = format!("{}/{}", self.root_url, self.page);
+        let url = format!("{}/eleve.html?login=true", self.root_url);
         let response = self
             .http
             .get(url)
@@ -188,13 +177,6 @@ impl Communication {
         }
 
         Ok(())
-    }
-}
-
-fn split_url(url: &str) -> Result<(String, String), Error> {
-    match url.rfind('/') {
-        Some(index) => Ok((url[..index].to_owned(), url[index + 1..].to_owned())),
-        None => Err(Error::InvalidStartPage),
     }
 }
 
