@@ -346,6 +346,10 @@ pub struct Home {
     pub events: Vec<Event>,
     #[serde(rename = "ressourcePedagogique")]
     pub attachments: HomeAttachments,
+    #[serde(rename = "penseBete", deserialize_with = "de_sticky_note")]
+    pub sticky_note: String,
+    #[serde(rename = "devoirSurveille", deserialize_with = "de_exams")]
+    pub exams: Vec<Exam>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -370,6 +374,24 @@ pub struct HomeAttachment {
 pub struct HomeGrades {
     pub grades: Vec<Grade>,
     pub period: Period,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Exam {
+    #[serde(rename = "L")]
+    pub title: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "matiere", deserialize_with = "de_subject")]
+    pub subject: Subject,
+    #[serde(rename = "couleur")]
+    pub color: String,
+    #[serde(rename = "dateDebut", deserialize_with = "de_datetime")]
+    pub start: String,
+    #[serde(rename = "dateFin", deserialize_with = "de_datetime")]
+    pub end: String,
+    #[serde(rename = "listeSalles", deserialize_with = "de_classrooms")]
+    pub classrooms: Vec<Classroom>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
