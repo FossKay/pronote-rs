@@ -29,7 +29,7 @@ fn gap(id: &str, name: &str, index: u32, duration: u32, l: &Lesson, p: &Params) 
                 name: name.to_owned(),
                 ..Default::default()
             },
-            teacher: Vec::new(),
+            teachers: Vec::new(),
             classroom: Vec::new(),
             group: None,
         },
@@ -207,7 +207,8 @@ deser!(String, datetime); //parse_datetime(...)
 deser!(Option<String>, date_some);
 deser!(Vec<Grade>, grades);
 deser!(Vec<LessonDetails>, lesson_details);
-deser!(Vec<Teacher>, teachers);
+deser!(Person, person);
+deser!(Vec<Person>, persons);
 deser!(Period, period);
 deser!(Vec<Class>, groups);
 deser!(Vec<LessonDetailsItem>, lesson_details_items);
@@ -223,6 +224,8 @@ deser!(Vec<Subject>, subjects);
 deser!(Vec<Holiday>, holidays);
 deser!(Vec<EventType>, event_types);
 deser!(Vec<Classroom>, classrooms);
+deser!(NewsCategory, news_category);
+deser!(Vec<NewsCategory>, news_categories);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {
@@ -274,6 +277,11 @@ deser2!(Vec<Exam>, exams, |value: Value| {
 
     Ok(events)
 });
+deser2!(Vec<NewsItem>, home_news, |value: Value| {
+    let events: Vec<NewsItem> = from_value(value["listeModesAff"][0]["listeActualites"]["V"].clone()).unwrap();
+
+    Ok(events)
+});
 deser2!(Vec<EndTime>, end_times, |value: Value| {
     let mut res = Vec::new();
     for v in value["V"].clone().as_array().unwrap() {
@@ -314,7 +322,7 @@ deser2!(LessonContent, lesson_content, |value: Value| {
     let values: Vec<Value> = value["V"].as_array().cloned().unwrap_or_default();
 
     let mut subject: Option<Subject> = None;
-    let mut teacher: Vec<String> = Vec::new();
+    let mut teachers: Vec<String> = Vec::new();
     let mut classroom: Vec<Classroom> = Vec::new();
     let mut group = None;
 
@@ -325,7 +333,7 @@ deser2!(LessonContent, lesson_content, |value: Value| {
             }
             Some(3) => {
                 if let Some(t) = value["L"].as_str() {
-                    teacher.push(t.to_owned());
+                    teachers.push(t.to_owned());
                 }
             }
             Some(2) => {
@@ -340,7 +348,7 @@ deser2!(LessonContent, lesson_content, |value: Value| {
 
     Ok(LessonContent {
         subject: subject.unwrap(),
-        teacher,
+        teachers,
         classroom,
         group,
     })

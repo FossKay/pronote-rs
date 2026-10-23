@@ -57,11 +57,14 @@ pub struct Class {
 }
 
 #[derive(Default, Debug, Clone, Serialize, Deserialize)]
-pub struct Teacher {
+pub struct Person {
     #[serde(rename = "L")]
     pub name: String,
     #[serde(rename = "N")]
     pub id: String,
+    #[serde(rename = "G")]
+    pub group: u32,
+    // student = 4, ...
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -173,7 +176,7 @@ pub struct Homework {
 #[derive(Default, Debug, Clone)]
 pub struct LessonContent {
     pub subject: Subject,
-    pub teacher: Vec<String>,
+    pub teachers: Vec<String>,
     pub classroom: Vec<Classroom>,
     pub group: Option<String>,
 }
@@ -366,6 +369,8 @@ pub struct Home {
     pub sticky_note: String,
     #[serde(rename = "devoirSurveille", deserialize_with = "de_exams")]
     pub exams: Vec<Exam>,
+    #[serde(rename = "actualites", deserialize_with = "de_home_news")]
+    pub news: Vec<NewsItem>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -528,8 +533,8 @@ pub struct LessonDetails {
     pub subject: Subject,
     #[serde(rename = "CouleurFond")]
     pub color: String,
-    #[serde(rename = "listeProfesseurs", deserialize_with = "de_teachers")]
-    pub teachers: Vec<Teacher>,
+    #[serde(rename = "listeProfesseurs", deserialize_with = "de_persons")]
+    pub teachers: Vec<Person>,
     #[serde(rename = "Date", deserialize_with = "de_datetime")]
     pub start: String,
     #[serde(rename = "DateFin", deserialize_with = "de_datetime")]
@@ -613,3 +618,55 @@ pub struct School {
     #[serde(rename = "cp")]
     pub city_code: String,
 }
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct NewsCategory {
+    #[serde(rename = "L")]
+    pub name: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "estDefaut", default)]
+    pub is_default: bool,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct NewsItem {
+    #[serde(rename = "L")]
+    pub title: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "reponseAnonyme")]
+    pub anonymous_response: bool,
+    #[serde(rename = "estInformation")]
+    pub is_information: bool,
+    #[serde(rename = "estSondage")]
+    pub is_poll: bool,
+    #[serde(rename = "nature", deserialize_with = "de_news_category")]
+    pub category: NewsCategory,
+    #[serde(rename = "lue")]
+    pub viewed: bool,
+    #[serde(rename = "dateDebut", deserialize_with = "de_datetime")]
+    pub start: String,
+    #[serde(rename = "dateFin", deserialize_with = "de_datetime")]
+    pub end: String,
+    #[serde(rename = "estProlonge")]
+    pub is_extended: bool,
+    #[serde(rename = "dateCreation", deserialize_with = "de_datetime")]
+    pub creation_date: String,
+    #[serde(rename = "auteur")]
+    pub author_name: String,
+    #[serde(rename = "estAuteur")]
+    pub is_author: bool, // should be false for students ig
+    #[serde(rename = "elmauteur", deserialize_with = "de_person")]
+    pub author: Person,
+    #[serde(rename = "prenom")]
+    pub student_name: String,
+    #[serde(rename = "public", deserialize_with = "de_person")]
+    pub student: Person,
+    #[serde(rename = "estPublic", default)]
+    pub is_public: bool,
+    #[serde(rename = "estPartage", default)]
+    pub is_shared: bool,
+    // TODO: informationListeContenu
+}
+
