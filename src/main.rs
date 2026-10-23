@@ -48,7 +48,7 @@ async fn main() -> Result<(), Error> {
             "help" => {
                 println!("Available commands:");
                 println!(
-                    "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades, agenda"
+                    "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades, agenda, geolocation"
                 );
             }
             "clear" => {
@@ -181,6 +181,21 @@ async fn main() -> Result<(), Error> {
                     None => Client::mock_agenda().await?,
                 };
                 println!("{result:#?}");
+            }
+            "geolocation" if c.is_none() || args.len() == 3 => {
+                let result = if c.is_none() {
+                    Client::mock_geolocation().await?
+                } else {
+                    let lat: f64 = args[1].parse().unwrap();
+                    let long: f64 = args[2].parse().unwrap();
+
+                    Client::geolocation(lat, long).await?
+                };
+
+                println!("{result:#?}");
+            }
+            "geolocation" => {
+                println!("Usage: geolocation <latitude:f64> <longitude:f64>");
             }
 
             _ => println!("Unknown command: {}", args[0]),

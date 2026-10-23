@@ -537,3 +537,18 @@ pub struct EventType {
     #[serde(rename = "couleur")]
     pub color: String,
 }
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct School {
+    #[serde(rename = "url")] // unnecessary
+    pub url: String,
+    #[serde(rename = "nomEtab")]
+    pub name: String,
+    #[serde(rename = "lat", deserialize_with = "de_f64")]
+    pub latitude: f64,
+    #[serde(rename = "long", deserialize_with = "de_f64")]
+    pub longitude: f64,
+    #[serde(rename = "cp")]
+    pub city_code: String,
+}
+

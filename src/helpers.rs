@@ -357,6 +357,9 @@ deser2!(GradeValue, grade, |value: Value| {
 deser2!(u32, bareme, |value: Value| {
     Ok(value["V"].as_str().unwrap().parse().unwrap())
 });
+deser2!(f64, f64, |value: Value| {
+    Ok(value.as_str().unwrap().parse().unwrap())
+});
 deser2!(Option<String>, color, |value: Value| {
     Ok(value["ligne"].as_str().map(String::from))
 });

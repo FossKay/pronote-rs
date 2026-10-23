@@ -463,6 +463,45 @@ impl Client {
         Ok(data)
     }
 
+    pub async fn geolocation(
+        lat: f64,
+        long: f64,
+    ) -> Result<Vec<School>, Error> {
+        let data = json!({
+            "nomFonction": "geoLoc",
+            "lat": lat.to_string(),
+            "long": long.to_string(),
+        });
+
+        let response = reqwest::Client::new()
+            .post("https://www.index-education.com/swie/geoloc.php")
+            .form(&[("data", data.to_string())])
+            .send()
+            .await
+            .map_err(|_| Error::ConnectionFailed)?
+            .error_for_status()
+            .map_err(|_| Error::ConnectionFailed)?;
+
+        let body = response.text().await.map_err(|_| Error::ConnectionFailed)?;
+        let res = Value::from_str(&body)
+            .unwrap()
+            .clone();
+        let mut data: Vec<School> = from_value(res).unwrap();
+        data.retain(|x| !x.url.contains("pronoteprimaire"));
+
+        Ok(data)
+    }
+
+    pub async fn mock_geolocation() -> Result<Vec<School>, Error> {
+        let res = Value::from_str(include_str!("../resp/geolocation.json"))
+            .unwrap()
+            .clone();
+        let mut data: Vec<School> = from_value(res).unwrap();
+        data.retain(|x| !x.url.contains("pronoteprimaire"));
+
+        Ok(data)
+    }
+
     pub async fn set_done(&mut self, homework_id: &str, done: bool) -> Result<(), Error> {
         self.post(
             "SaisieTAFFaitEleve",

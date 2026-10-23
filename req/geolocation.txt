@@ -1,0 +1,5 @@
+POST /swie/geoloc.php HTTP/1.1
+Host: www.index-education.com
+Content-Type: application/x-www-form-urlencoded;charset=UTF-8
+
+data={"nomFonction":"geoLoc","lat":"43.1242","long":"5.9280"}
