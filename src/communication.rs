@@ -5,9 +5,10 @@ use rand::RngCore;
 use reqwest::Client as HttpClient;
 use serde_json::{Value, json};
 
-use crate::{Error, encryption::Encryption};
+use crate::{Error, LoginMode, encryption::Encryption};
 
 const USER_AGENT: &str = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/153.0.0.0 Safari/537.36";
+// const USER_AGENT_MOBILE: &str = "Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/155.0.0.0 Mobile Safari/537.36";
 
 #[derive(Debug, Clone)]
 pub struct Communication {
@@ -54,8 +55,19 @@ impl Communication {
         }
     }
 
-    pub async fn initialise(&mut self) -> Result<Value, Error> {
-        let url = format!("{}/eleve.html?login=true", self.root_url);
+    pub async fn initialise(
+        &mut self,
+        login_mode: LoginMode,
+        nav_identifier: Option<&str>,
+    ) -> Result<Value, Error> {
+        let url = match login_mode {
+            LoginMode::Password => format!("{}/eleve.html?login=true", self.root_url),
+            LoginMode::Token => format!("{}/mobile.eleve.html?login=true", self.root_url),
+            LoginMode::QrCode => format!(
+                "{}/mobile.eleve.html?fd=1&bydlg=A6ABB224-12DD-4E31-AD3E-8A39A1C2C335&login=true",
+                self.root_url
+            ), // idk why but it's like that in pronotepy so...
+        };
         let response = self
             .http
             .get(url)
@@ -78,7 +90,9 @@ impl Communication {
             .map_err(|_| Error::InvalidStartPage)?;
 
         // space 3 = students
-        if self.space_id != 3 {
+        // space 6 = students (mobile) ig
+        if self.space_id != 3 && self.space_id != 6
+        {
             return Err(Error::UnsupportedClient);
         }
 
@@ -92,7 +106,7 @@ impl Communication {
                 "FonctionParametres",
                 json!({
                     "data": {
-                        "identifiantNav": null,
+                        "identifiantNav": nav_identifier,
                         "Uuid": uuid,
                     }
                 }),
@@ -115,8 +129,10 @@ impl Communication {
 
         let url = format!(
             "{}/appelfonction/{}/{}/{}",
-            self.root_url, self.space_id, self.session_id, self.request_number,
+            self.root_url, self.space_id, self.session_id, encrypted_no,
         );
+        // should've sent encrypted no in url did only send plaintext number
+        // apparently pronote's servers don't bother checking that...
 
         let response = self
             .http

@@ -2,6 +2,22 @@ use crate::helpers::*;
 use serde::{Deserialize, Serialize};
 use serde_json::{Value, json};
 
+#[derive(Debug, Clone, Copy, PartialEq, Eq)]
+pub enum LoginMode {
+    Password,
+    QrCode,
+    Token,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct QrCode {
+    #[serde(rename = "login")]
+    pub username: String,
+    #[serde(rename = "jeton")]
+    pub token: String,
+    pub url: String,
+}
+
 #[derive(Debug, Clone, Serialize, Deserialize)]
 pub struct Period {
     #[serde(rename = "L")]
@@ -448,7 +464,11 @@ pub struct Grade {
     pub is_group_work: bool,
     #[serde(rename = "periode", deserialize_with = "de_period")]
     pub period: Period,
-    #[serde(rename = "elmCorrige", deserialize_with = "de_attachment_some", default)]
+    #[serde(
+        rename = "elmCorrige",
+        deserialize_with = "de_attachment_some",
+        default
+    )]
     pub solution: Option<Attachment>, // there is also libelleCorrige
 }
 
@@ -593,4 +613,3 @@ pub struct School {
     #[serde(rename = "cp")]
     pub city_code: String,
 }
-

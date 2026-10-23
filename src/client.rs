@@ -1,6 +1,7 @@
+use core::str;
+use rand::RngCore;
 use serde_json::{Value, from_value, json};
 use std::str::FromStr;
-use std::time::{Duration, Instant};
 
 use crate::data::*;
 use crate::helpers::*;
@@ -13,20 +14,90 @@ pub struct Client {
     pub communication: Communication,
     pub parameters: Params,                  // pronote instance parameters
     pub user_parameters: Option<UserParams>, // user parameters, late initialized
-    pub nav_identifier: String,              // unused for now, keep for QR code identification, etc
+    pub nav_identifier: String,              // save for token login
+    pub next_token: String,                  // save for token login
+    pub login_mode: LoginMode,
+    pub uuid: String,
 }
 
 impl Client {
-    pub async fn new(root_url: String, username: String, password: String) -> Result<Client, Error> {
+    pub async fn password_login(
+        root_url: &str,
+        username: &str,
+        password: &str,
+    ) -> Result<Client, Error> {
+        Self::new(root_url, username, password, LoginMode::Password, "", None).await
+    }
+
+    pub async fn token_login(
+        root_url: &str,
+        username: &str,
+        token: &str,
+        uuid: &str,
+        nav_identifier: &str,
+    ) -> Result<Client, Error> {
+        Self::new(
+            root_url,
+            username,
+            token,
+            LoginMode::Token,
+            uuid,
+            Some(nav_identifier),
+        )
+        .await
+    }
+
+    pub async fn qr_login(
+        qr_code: &str,
+        pin: &str,
+        uuid: &str,
+    ) -> Result<Client, Error> {
+        let qr: QrCode = from_value(serde_json::from_str(qr_code).unwrap()).unwrap();
+        let mut encryption = Encryption::new();
+
+        encryption.set_key(pin.as_bytes());
+        // actually VERY WEAK security
+        // i mean one could easily bruteforce 10000 pins and check which
+        // one produce valid lowercase alphanumeric & uppercase hex utf8
+
+        let encrypted_login = hex::decode(&qr.username).unwrap();
+        let encrypted_token = hex::decode(&qr.token).unwrap();
+
+        let username_bytes = encryption.decrypt(&encrypted_login)?;
+        let token_bytes = encryption.decrypt(&encrypted_token)?;
+
+        let username = str::from_utf8(&username_bytes).unwrap();
+        let token = str::from_utf8(&token_bytes).unwrap();
+
+        let root_url = qr.url.strip_suffix("/mobile.eleve.html").unwrap();
+
+        Self::new(
+            root_url,
+            username,
+            token,
+            LoginMode::QrCode,
+            uuid,
+            None,
+        )
+        .await
+    }
+
+    async fn new(
+        root_url: &str,
+        username: &str,
+        password: &str,
+        login_mode: LoginMode,
+        uuid: &str,
+        nav_identifier: Option<&str>,
+    ) -> Result<Client, Error> {
         if username.is_empty() || password.is_empty() {
             return Err(Error::InvalidCredentials);
         }
         let mut communication = Communication::new(&root_url)?;
-        let params = communication.initialise().await?;
-        let nav_id = params["dataSec"]["data"]["identifiantNav"]
+        let params = communication.initialise(login_mode, nav_identifier).await?;
+        let nav_id = nav_identifier.unwrap_or_else(|| params["dataSec"]["data"]["identifiantNav"]
             .as_str()
-            .unwrap()
-            .to_owned();
+            .unwrap());
         let params: Params = from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
         if params.first_week_day != 2 {
             // NOT MONDAY :(
@@ -34,12 +105,15 @@ impl Client {
         }
 
         let mut c = Client {
-            username: username.to_lowercase(),
-            password,
+            username: username.to_owned(),
+            password: password.to_owned(),
             communication,
             parameters: params,
             user_parameters: None,
-            nav_identifier: nav_id,
+            nav_identifier: nav_id.to_owned(),
+            next_token: String::new(), // temp, initialized in login
+            login_mode,
+            uuid: uuid.to_owned(),
         };
         c.login().await?;
 
@@ -64,7 +138,18 @@ impl Client {
             .and_then(Value::as_str)
             .unwrap_or("".into());
         let challenge = data["challenge"].as_str().unwrap();
-        let auth_key = Encryption::authentication_key(&self.username, &self.password, nonce);
+        let mut auth_username = self.username.clone();
+        let mut auth_password = self.password.clone();
+
+        if data["modeCompLog"].as_i64() == Some(1) {
+            auth_username = auth_username.to_lowercase();
+        }
+
+        if data["modeCompMdp"].as_i64() == Some(1) {
+            auth_password = auth_password.to_lowercase();
+        }
+
+        let auth_key = Encryption::authentication_key(&auth_username, &auth_password, nonce);
         let mut crypto = self.communication.encryption.clone(); // temporary change key
         crypto.key = auth_key;
         let challenge = crypto.encrypt(challenge.as_bytes());
@@ -87,6 +172,10 @@ impl Client {
             return Err(Error::InvalidCredentials);
         }
 
+        if self.login_mode != LoginMode::Password {
+            self.next_token = authentication["dataSec"]["data"]["jetonConnexionAppliMobile"].as_str().unwrap().to_owned();
+        }
+
         self.finish_authentication(&authentication, auth_key)?;
         let res = self
             .communication
@@ -104,23 +193,25 @@ impl Client {
     }
 
     async fn identification(&mut self) -> Result<Value, Error> {
+        let is_qr = self.login_mode == LoginMode::QrCode;
+        let is_token = self.login_mode == LoginMode::Token;
+
         self.communication
             .post(
                 "Identification",
                 json!({
                     "data": {
                         "genreConnexion": 0,
-                        "genreEspace": 3,
+                        "genreEspace": self.communication.space_id,
                         "identifiant": self.username,
                         "pourENT": false,
                         "enConnexionAuto": false,
                         "demandeConnexionAuto": false,
-                        "enConnexionAppliMobile": false,
-                        "demandeConnexionAppliMobile": false,
-                        "demandeConnexionAppliMobileJeton": false,
-                        "informationsAppareil": null,
-                        "uuidAppliMobile": "",
-                        "loginTokenSAV": "",
+                        "demandeConnexionAppliMobile": is_qr,
+                        "demandeConnexionAppliMobileJeton": is_qr,
+                        "enConnexionAppliMobile": is_token,
+                        "uuidAppliMobile": self.uuid,
+                        "loginTokenSAV": ""
                     }
                 }),
             )
@@ -448,13 +539,19 @@ impl Client {
     }
 
     pub async fn agenda(&mut self) -> Result<Agenda, Error> {
-        let res = self.post("PageAgenda", 9, json!({
-          "avecEventsPasses": true,
-          "listeFamillesFiltre": null,
-          "uniquementMesEvenements": false,
-          "avecRdvPartages": true,
-          "AvecListeClasses": true
-        })).await?; // filter old events client-side
+        let res = self
+            .post(
+                "PageAgenda",
+                9,
+                json!({
+                  "avecEventsPasses": true,
+                  "listeFamillesFiltre": null,
+                  "uniquementMesEvenements": false,
+                  "avecRdvPartages": true,
+                  "AvecListeClasses": true
+                }),
+            )
+            .await?; // filter old events client-side
         let data: Agenda = from_value(res["dataSec"]["data"].clone()).unwrap();
 
         Ok(data)
@@ -469,16 +566,14 @@ impl Client {
         Ok(data)
     }
 
-    pub async fn geolocation(
-        lat: f64,
-        long: f64,
-    ) -> Result<Vec<School>, Error> {
+    pub async fn geolocation(lat: f64, long: f64) -> Result<Vec<School>, Error> {
         let data = json!({
             "nomFonction": "geoLoc",
             "lat": lat.to_string(),
             "long": long.to_string(),
         });
 
+        // got this from pawnote
         let response = reqwest::Client::new()
             .post("https://www.index-education.com/swie/geoloc.php")
             .form(&[("data", data.to_string())])
@@ -489,9 +584,7 @@ impl Client {
             .map_err(|_| Error::ConnectionFailed)?;
 
         let body = response.text().await.map_err(|_| Error::ConnectionFailed)?;
-        let res = Value::from_str(&body)
-            .unwrap()
-            .clone();
+        let res = Value::from_str(&body).unwrap().clone();
         let mut data: Vec<School> = from_value(res).unwrap();
         data.retain(|x| !x.url.contains("pronoteprimaire"));
 
@@ -533,14 +626,14 @@ impl Client {
         )
     }
 
-    pub async fn keep_alive(&mut self) -> () {
+    /* pub async fn keep_alive(&mut self) -> () {
         loop {
             if Instant::now() - self.communication.last_ping > Duration::from_secs(110) {
                 let _ = self.post("Navigation", 7, json!({"onglet": 7, "ongletPrec": 7}));
                 tokio::time::sleep(Duration::from_secs(1)).await;
             }
         }
-    }
+    } */
 
     pub fn get_week(&self, date: String) -> u8 {
         // follows pronotepy behaviour
@@ -548,6 +641,15 @@ impl Client {
             .num_days()
             / 7
             + 1) as u8
+    }
+
+    pub fn rand_uuid() -> String {
+        // actually pronote doesnt seem to be checking uuids
+        // so we can basically hardcode a uuid...
+        let mut bytes = [0u8; 8];
+        rand::thread_rng().try_fill_bytes(&mut bytes).unwrap();
+
+        hex::encode(bytes)
     }
 }
 

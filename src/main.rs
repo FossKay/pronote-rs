@@ -15,20 +15,60 @@ async fn main() -> Result<(), Error> {
     let mut c = match mode.to_lowercase().as_str() {
         "m" | "mock" => None,
         "d" | "demo" => Some(
-            Client::new(
+            Client::password_login(
                 "https://demo.index-education.net/pronote".into(),
                 "demonstration".into(),
                 "pronotevs".into(),
             )
             .await?,
         ),
-        "r" | "real" => {
-            let instance = read("Instance: ");
-            let user = read("User: ");
-            let password = read("Password: ");
+        "r" | "real" => match read("Login mode [QR/TOKEN/PWD]: ").to_lowercase().as_str() {
+            "q" | "qr" => {
+                let qr = read("Qr code data: ");
+                let pin = read("Pin code: ");
+                let uuid = &Client::rand_uuid();
 
-            Some(Client::new(instance, user, password).await?)
-        }
+                let c = Client::qr_login(&qr, &pin, uuid).await?;
+                
+                println!("Credentials to save:");
+                println!("Root url: {}", c.communication.root_url);
+                println!("Nav identifier: {}", c.nav_identifier);
+                println!("Username: {}", c.username);
+                println!("Next token: {}", c.next_token);
+                println!("Uuid: {}", c.uuid);
+
+                Some(c)
+            }
+            "t" | "token" => {
+                let root = read("Root url: ");
+                let nav_identifier = read("Nav identifier: ");
+                let user = read("Username: ");
+                let token = read("Token: ");
+                let uuid = read("Uuid: ");
+
+                let c = Client::token_login(&root, &user, &token, &uuid, &nav_identifier).await?;
+
+                println!("Credentials to save:");
+                println!("Root url: {}", c.communication.root_url);
+                println!("Nav identifier: {}", c.nav_identifier);
+                println!("Username: {}", c.username);
+                println!("Next token: {}", c.next_token);
+                println!("Uuid: {}", c.uuid);
+
+                Some(c)
+            }
+            "p" | "pwd" => {
+                let root = read("Root url: ");
+                let user = read("Username: ");
+                let pwd = read("Password: ");
+
+                Some(Client::password_login(&root, &user, &pwd).await?)
+            }
+            _ => {
+                eprintln!("Invalid login mode");
+                return Ok(());
+            }
+        },
         _ => {
             eprintln!("Invalid login method");
             return Ok(());

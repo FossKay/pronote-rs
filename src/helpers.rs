@@ -265,14 +265,12 @@ deser2!(Vec<Homework>, homework, |value: Value| {
     Ok(res)
 });
 deser2!(Vec<Event>, home_agenda, |value: Value| {
-    let events: Vec<Event> =
-        from_value(value["listeEvenements"].clone()).unwrap();
+    let events: Vec<Event> = from_value(value["listeEvenements"].clone()).unwrap();
 
     Ok(events)
 });
 deser2!(Vec<Exam>, exams, |value: Value| {
-    let events: Vec<Exam> =
-        from_value(value["listeDS"]["V"].clone()).unwrap();
+    let events: Vec<Exam> = from_value(value["listeDS"]["V"].clone()).unwrap();
 
     Ok(events)
 });
@@ -373,7 +371,10 @@ deser2!(Option<String>, color, |value: Value| {
     Ok(value["ligne"].as_str().map(String::from))
 });
 deser2!(String, sticky_note, |value: Value| {
-    Ok(value["libelle"].as_str().map(String::from).unwrap_or_default())
+    Ok(value["libelle"]
+        .as_str()
+        .map(String::from)
+        .unwrap_or_default())
 });
 deser2!(String, reference_id, |value: Value| {
     Ok(value["V"]["N"].as_str().unwrap().into())
