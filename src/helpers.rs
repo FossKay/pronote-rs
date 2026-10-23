@@ -214,8 +214,10 @@ deser!(Vec<LessonDetailsItem>, lesson_details_items);
 deser!(Category, category);
 deser!(Vec<Category>, categories);
 deser!(Option<LessonDetailsLink>, lesson_details_link);
-deser!(Option<Attachment>, attachment);
+deser!(Attachment, attachment);
+deser!(Option<Attachment>, attachment_some);
 deser!(Vec<Attachment>, attachments);
+deser!(Vec<HomeAttachment>, home_attachments);
 deser!(Subject, subject);
 deser!(Vec<Subject>, subjects);
 deser!(Vec<Holiday>, holidays);
@@ -363,6 +365,6 @@ deser2!(f64, f64, |value: Value| {
 deser2!(Option<String>, color, |value: Value| {
     Ok(value["ligne"].as_str().map(String::from))
 });
-deser2!(String, class_id, |value: Value| {
+deser2!(String, reference_id, |value: Value| {
     Ok(value["V"]["N"].as_str().unwrap().into())
 });

@@ -344,6 +344,26 @@ pub struct Home {
     pub digital_textbooks: Vec<DigitalTextbook>,
     #[serde(rename = "agenda", deserialize_with = "de_home_agenda")]
     pub events: Vec<Event>,
+    #[serde(rename = "ressourcePedagogique")]
+    pub attachments: HomeAttachments,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct HomeAttachments {
+    #[serde(rename = "listeRessources", deserialize_with = "de_home_attachments")]
+    pub attachments: Vec<HomeAttachment>,
+    #[serde(rename = "listeMatieres", deserialize_with = "de_subjects")]
+    pub subjects: Vec<Subject>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct HomeAttachment {
+    #[serde(rename = "ressource", deserialize_with = "de_attachment")]
+    pub attachment: Attachment,
+    #[serde(rename = "date", deserialize_with = "de_date")]
+    pub date: String,
+    #[serde(rename = "matiere", deserialize_with = "de_reference_id")]
+    pub subject_id: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -406,7 +426,7 @@ pub struct Grade {
     pub is_group_work: bool,
     #[serde(rename = "periode", deserialize_with = "de_period")]
     pub period: Period,
-    #[serde(rename = "elmCorrige", deserialize_with = "de_attachment", default)]
+    #[serde(rename = "elmCorrige", deserialize_with = "de_attachment_some", default)]
     pub solution: Option<Attachment>, // there is also libelleCorrige
 }
 
@@ -456,7 +476,7 @@ pub struct DigitalTextbook {
 pub struct LessonDetails {
     #[serde(rename = "N")]
     pub id: String,
-    #[serde(rename = "cours", deserialize_with = "de_class_id")]
+    #[serde(rename = "cours", deserialize_with = "de_reference_id")]
     pub class: String,
     #[serde(rename = "verrouille")]
     pub locked: bool,

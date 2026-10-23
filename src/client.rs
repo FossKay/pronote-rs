@@ -329,6 +329,12 @@ impl Client {
             }
         }
 
+        for i in &mut home.attachments.attachments {
+            if i.attachment.link.is_empty() {
+                i.attachment.link = self.get_attachment(&mut i.attachment);
+            }
+        }
+
         Ok(home)
     }
 
