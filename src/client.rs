@@ -621,8 +621,7 @@ impl Client {
         Ok(data)
     }
 
-    pub async fn messages(&mut self, discussion_id: String, possessions: Vec<Possession>) -> Result<Messages, Error> {
-        let message_id: u32 = discussion_id.parse().unwrap();
+    pub async fn messages(&mut self, possessions: Vec<Possession>) -> Result<Messages, Error> {
         let res = self
             .post(
                 "ListeMessages",
@@ -630,9 +629,6 @@ impl Client {
                 json!({
                     "marquerCommeLu": true,
                     "nbMessagesVus": 20,
-                    "message": {
-                        "N": message_id,
-                    },
                     "estNonPossede": false,
                     "listePossessionsMessages": possessions,
                 }),
