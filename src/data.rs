@@ -314,7 +314,7 @@ pub struct UserParams {
     #[serde(rename = "autorisations")]
     pub autorisations: Permissions,
     #[serde(rename = "infosDroitDeconnexion")]
-    pub deconnection: DeconnectionInfos,
+    pub disconnection: DisconnectionInfos,
     #[serde(skip)]
     pub image: String,
 }
@@ -388,17 +388,17 @@ pub struct AccountPermissions {
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct DeconnectionInfos {
+pub struct DisconnectionInfos {
     #[serde(rename = "notes")]
-    pub grades: GradesDeconnection,
+    pub grades: GradesDisconnection,
     #[serde(rename = "taf")]
-    pub homework: HomeworkDeconnection,
+    pub homework: HomeworkDisconnection,
     #[serde(rename = "messagerie")]
-    pub deconnection: ChatsDeconnection,
+    pub deconnection: ChatsDisconnection,
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct GradesDeconnection {
+pub struct GradesDisconnection {
     #[serde(rename = "heurePublicationNote")]
     pub publication_time: u8,
     #[serde(rename = "nombreJoursDecalagePublicationNote")]
@@ -406,7 +406,7 @@ pub struct GradesDeconnection {
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct HomeworkDeconnection {
+pub struct HomeworkDisconnection {
     #[serde(rename = "heureDebutDesactivationPublication")]
     pub start_time: u8,
     #[serde(rename = "heureFinDesactivationPublication")]
@@ -414,7 +414,7 @@ pub struct HomeworkDeconnection {
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct ChatsDeconnection {
+pub struct ChatsDisconnection {
     #[serde(rename = "listeJoursOuvresDeconnexion")]
     pub restricted_days: Vec<String>,
     #[serde(rename = "listeJoursNonOuvresDeconnexion")]
@@ -436,7 +436,9 @@ pub struct Periods {
 #[derive(Debug, Clone, Deserialize)]
 pub struct Home {
     #[serde(rename = "estDansUnePeriodeDeDeconnexion")]
-    pub disconnection: bool,
+    pub is_disconnection: bool,
+    #[serde(rename = "infosDroitDeconnexion")]
+    pub disconnection: DisconnectionInfos,
     #[serde(rename = "dateSelectionnee", deserialize_with = "de_date")]
     pub date: String,
     #[serde(rename = "prochaineDate", deserialize_with = "de_date_some", default)]
@@ -735,13 +737,13 @@ pub struct NewsDetails {
     pub with_attachment: bool,
     #[serde(rename = "aToutRepondu")]
     pub replied_to_everything: bool,
-    #[serde(rename = "estRepondant")]
+    #[serde(rename = "estRepondant", default)]
     pub is_replier: bool,
     #[serde(rename = "strRepondant", default)]
     pub replier_name: Option<String>,
     #[serde(rename = "reponduLe", deserialize_with = "de_datetime_some", default)]
     pub reply_date: Option<String>,
-    #[serde(rename = "avecCommandeVisuResultat", default)]
+    #[serde(rename = "avecCommandeVisuResultat")]
     pub show_results: bool, // ??? ig
 }
 
@@ -783,7 +785,9 @@ pub struct NewsItem {
     pub is_public: bool,
     #[serde(rename = "estPartage", default)]
     pub is_shared: bool,
-    #[serde(rename = "informationListeContenu")]
-    pub details: NewsDetails,
+    #[serde(rename = "genrePublic")]
+    pub receiver_group: u32, // refer to Person struct
+    #[serde(rename = "informationListeContenu", default)]
+    pub details: Option<NewsDetails>,
 }
 
