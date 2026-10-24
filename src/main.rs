@@ -88,7 +88,7 @@ async fn main() -> Result<(), Error> {
             "help" => {
                 println!("Available commands:");
                 println!(
-                    "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades, agenda, news, geolocation"
+                    "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades, agenda, news, discussions, geolocation"
                 );
             }
             "clear" => {
@@ -226,6 +226,13 @@ async fn main() -> Result<(), Error> {
                 let result = match &mut c {
                     Some(client) => client.news().await?,
                     None => Client::mock_news().await?,
+                };
+                println!("{result:#?}");
+            }
+            "discussions" => {
+                let result = match &mut c {
+                    Some(client) => client.discussions().await?,
+                    None => Client::mock_discussions().await?,
                 };
                 println!("{result:#?}");
             }

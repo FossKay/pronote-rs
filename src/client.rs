@@ -592,6 +592,35 @@ impl Client {
         Ok(data)
     }
 
+    pub async fn discussions(&mut self) -> Result<Discussions, Error> {
+        let res = self
+            .post(
+                "ListeMessagerie",
+                131,
+                json!({
+                    "avecMessage": true,
+                    "avecLu": true
+                }),
+            )
+            .await?;
+        let mut data: Discussions = from_value(res["dataSec"]["data"].clone()).unwrap();
+        data.discussions.retain(|d| d.is_discussion && d.depth == 0);
+        // maybe one day we'll parse the threads stuff
+
+        Ok(data)
+    }
+
+    pub async fn mock_discussions() -> Result<Discussions, Error> {
+        let res = Value::from_str(include_str!("../resp/discussions.json"))
+            .unwrap()
+            .clone();
+        let mut data: Discussions = from_value(res["dataSec"]["data"].clone()).unwrap();
+        data.discussions.retain(|d| d.is_discussion && d.depth == 0);
+        // maybe one day we'll parse the threads stuff
+
+        Ok(data)
+    }
+
     pub async fn geolocation(lat: f64, long: f64) -> Result<Vec<School>, Error> {
         let data = json!({
             "nomFonction": "geoLoc",

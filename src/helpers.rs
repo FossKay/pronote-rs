@@ -252,6 +252,10 @@ deser!(Vec<EventType>, event_types);
 deser!(Vec<Classroom>, classrooms);
 deser!(NewsCategory, news_category);
 deser!(Vec<NewsCategory>, news_categories);
+deser!(Possession, possession);
+deser!(Vec<Possession>, possessions);
+deser!(Vec<Discussion>, discussions);
+deser!(Vec<DiscussionLabel>, discussion_labels);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {

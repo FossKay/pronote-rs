@@ -803,3 +803,65 @@ pub struct NewsItem {
     #[serde(rename = "informationListeContenu", default)]
     pub details: Option<NewsDetails>,
 }
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct DiscussionLabel {
+    #[serde(rename = "L")]
+    pub name: String,
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "G")]
+    pub numeric_id: u32,
+}
+
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+pub struct Possession {
+    #[serde(rename = "N")]
+    pub id: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Discussion {
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "estUneDiscussion", default)]
+    pub is_discussion: bool, // because the discussions json is a mess :(
+    #[serde(rename = "nombreMessages", default)]
+    pub message_count: u32,
+    #[serde(rename = "objet", default)]
+    pub title: String,
+    #[serde(rename = "listePossessionsMessages", deserialize_with = "de_possessions", default)]
+    pub possessions: Vec<Possession>,
+    #[serde(rename = "messagePourParticipants", deserialize_with = "de_reference_id", default)]
+    pub participants_message_id: String,
+    #[serde(rename = "nbPublic", default)]
+    pub participants_count: u32,
+    #[serde(rename = "initiateur", default)]
+    pub author: String,
+    #[serde(rename = "dernierPossessionMessage", deserialize_with = "de_possession", default)]
+    pub last_possession: Possession,
+    #[serde(rename = "messageFenetre", deserialize_with = "de_reference_id", default)]
+    pub message_window_id: String,
+    #[serde(rename = "lu", default)]
+    pub viewed: bool,
+    #[serde(rename = "documentsJoints", default)]
+    pub attachments: String, // separated by \n
+    #[serde(rename = "libelleDate", default)]
+    pub date: String,
+    #[serde(rename = "estNonPossede")]
+    pub is_not_possessed: bool, // ?????
+    #[serde(rename = "indicePere", default)]
+    pub parent_id: u32, // find parent_id: 0 => id: "0"
+    #[serde(rename = "profondeur")]
+    pub depth: u32,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Discussions {
+    #[serde(rename = "listeEtiquettes", deserialize_with = "de_discussion_labels")]
+    pub labels: Vec<DiscussionLabel>,
+    #[serde(rename = "listeMessagerie", deserialize_with = "de_discussions")]
+    pub discussions: Vec<Discussion>,
+    #[serde(rename = "messagerieDesactivee")]
+    pub is_disconnection: bool,
+}
