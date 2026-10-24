@@ -91,8 +91,7 @@ impl Communication {
 
         // space 3 = students
         // space 6 = students (mobile) ig
-        if self.space_id != 3 && self.space_id != 6
-        {
+        if self.space_id != 3 && self.space_id != 6 {
             return Err(Error::UnsupportedClient);
         }
 

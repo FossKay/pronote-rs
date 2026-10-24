@@ -156,6 +156,31 @@ pub fn parse_lessons(d: &mut Vec<Lesson>, p: &Params) {
     d.sort_by_key(|x| x.index);
 }
 
+pub fn parse_notifications(res: &Value) -> Notifications {
+    let mut n = Notifications {
+        global: res["notifications"]["compteurCentraleNotif"].as_u64().unwrap() as u32,
+        discussions: 0,
+        digital_locker: 0,
+        informations: 0,
+        skills_tracking: 0,
+        media_library_blog: 0,
+        refresh_message: res["actualisationMessage"].as_bool().unwrap(),
+    };
+    for i in res["notificationsCommunication"].as_array().unwrap() {
+        let number = i["nb"].as_u64().unwrap() as u32;
+        match i["onglet"].as_u64().unwrap() {
+            131 => n.discussions = number,
+            148 => n.digital_locker = number,
+            8 => n.informations = number,
+            275 => n.skills_tracking = number,
+            253 => n.media_library_blog = number,
+            _ => unreachable!(),
+        }
+    }
+
+    n
+}
+
 pub fn parse_date(date: String) -> Result<NaiveDate, crate::Error> {
     NaiveDate::parse_from_str(&date, "%d/%m/%Y").map_err(|_| crate::Error::InvalidResponse)
 }
@@ -279,7 +304,8 @@ deser2!(Vec<Exam>, exams, |value: Value| {
     Ok(events)
 });
 deser2!(Vec<NewsItem>, home_news, |value: Value| {
-    let events: Vec<NewsItem> = from_value(value["listeModesAff"][0]["listeActualites"]["V"].clone()).unwrap();
+    let events: Vec<NewsItem> =
+        from_value(value["listeModesAff"][0]["listeActualites"]["V"].clone()).unwrap();
 
     Ok(events)
 });

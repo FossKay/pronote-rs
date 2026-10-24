@@ -47,11 +47,7 @@ impl Client {
         .await
     }
 
-    pub async fn qr_login(
-        qr_code: &str,
-        pin: &str,
-        uuid: &str,
-    ) -> Result<Client, Error> {
+    pub async fn qr_login(qr_code: &str, pin: &str, uuid: &str) -> Result<Client, Error> {
         let qr: QrCode = from_value(serde_json::from_str(qr_code).unwrap()).unwrap();
         let mut encryption = Encryption::new();
 
@@ -71,15 +67,7 @@ impl Client {
 
         let root_url = qr.url.strip_suffix("/mobile.eleve.html").unwrap();
 
-        Self::new(
-            root_url,
-            username,
-            token,
-            LoginMode::QrCode,
-            uuid,
-            None,
-        )
-        .await
+        Self::new(root_url, username, token, LoginMode::QrCode, uuid, None).await
     }
 
     async fn new(
@@ -95,9 +83,11 @@ impl Client {
         }
         let mut communication = Communication::new(&root_url)?;
         let params = communication.initialise(login_mode, nav_identifier).await?;
-        let nav_id = nav_identifier.unwrap_or_else(|| params["dataSec"]["data"]["identifiantNav"]
-            .as_str()
-            .unwrap());
+        let nav_id = nav_identifier.unwrap_or_else(|| {
+            params["dataSec"]["data"]["identifiantNav"]
+                .as_str()
+                .unwrap()
+        });
         let params: Params = from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
         if params.first_week_day != 2 {
             // NOT MONDAY :(
@@ -126,8 +116,15 @@ impl Client {
     }
 
     pub async fn mock_user_params() -> Result<UserParams, Error> {
-        let params = Value::from_str(include_str!("../resp/userparams.json")).unwrap();
-        Ok(from_value(params["dataSec"]["data"].clone()).unwrap())
+        let res = Value::from_str(include_str!("../resp/userparams.json")).unwrap();
+        let mut user_parameters: UserParams = from_value(res["dataSec"]["data"].clone()).unwrap();
+        user_parameters.notifications = parse_notifications(&res["dataSec"]["Signature"]);
+        user_parameters.image = res["dataNonSec"]["fichiers"][0]
+            .as_str()
+            .unwrap()
+            .replace("\r\n", ""); // windows :(
+
+        Ok(user_parameters)
     }
 
     async fn login(&mut self) -> Result<(), Error> {
@@ -173,7 +170,10 @@ impl Client {
         }
 
         if self.login_mode != LoginMode::Password {
-            self.next_token = authentication["dataSec"]["data"]["jetonConnexionAppliMobile"].as_str().unwrap().to_owned();
+            self.next_token = authentication["dataSec"]["data"]["jetonConnexionAppliMobile"]
+                .as_str()
+                .unwrap()
+                .to_owned();
         }
 
         self.finish_authentication(&authentication, auth_key)?;
@@ -182,6 +182,7 @@ impl Client {
             .post("ParametresUtilisateur", json!({}))
             .await?;
         self.user_parameters = from_value(res["dataSec"]["data"].clone()).unwrap();
+        self.user_parameters.as_mut().unwrap().notifications = parse_notifications(&res["dataSec"]["Signature"]);
         self.user_parameters.as_mut().unwrap().image = res["dataNonSec"]["fichiers"][0]
             .as_str()
             .unwrap()

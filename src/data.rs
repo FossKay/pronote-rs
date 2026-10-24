@@ -316,7 +316,20 @@ pub struct UserParams {
     #[serde(rename = "infosDroitDeconnexion")]
     pub disconnection: DisconnectionInfos,
     #[serde(skip)]
+    pub notifications: Notifications,
+    #[serde(skip)]
     pub image: String,
+}
+
+#[derive(Debug, Clone, Default, Deserialize)]
+pub struct Notifications {
+    pub global: u32,
+    pub discussions: u32,
+    pub digital_locker: u32,
+    pub informations: u32,
+    pub skills_tracking: u32,
+    pub media_library_blog: u32,
+    pub refresh_message: bool, // polling ig
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -374,7 +387,6 @@ pub struct Permissions {
     pub account: AccountPermissions,
     #[serde(rename = "autoriserImpressionBulletinReleveBrevet", default)]
     pub can_print_brevet_report: bool,
-
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -714,7 +726,8 @@ pub struct School {
 }
 
 #[derive(Debug, Clone, Deserialize)]
-pub struct News { // infos + polls
+pub struct News {
+    // infos + polls
     #[serde(rename = "listeNatures", deserialize_with = "de_news_categories")]
     pub categories: Vec<NewsCategory>,
     #[serde(rename = "listeModesAff", deserialize_with = "de_news")]
@@ -790,4 +803,3 @@ pub struct NewsItem {
     #[serde(rename = "informationListeContenu", default)]
     pub details: Option<NewsDetails>,
 }
-

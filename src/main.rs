@@ -29,7 +29,7 @@ async fn main() -> Result<(), Error> {
                 let uuid = &Client::rand_uuid();
 
                 let c = Client::qr_login(&qr, &pin, uuid).await?;
-                
+
                 println!("Credentials to save:");
                 println!("Root url: {}", c.communication.root_url);
                 println!("Nav identifier: {}", c.nav_identifier);
