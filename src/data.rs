@@ -64,6 +64,8 @@ pub struct Person {
     pub id: String,
     #[serde(rename = "G")]
     pub group: u32,
+    #[serde(rename = "avecDiscussion", default)]
+    pub with_discussion: bool,
     // student = 4, ...
 }
 
@@ -638,6 +640,22 @@ pub struct NewsCategory {
 }
 
 #[derive(Debug, Clone, Deserialize)]
+pub struct NewsDetails {
+    #[serde(rename = "avecPJ")]
+    pub with_attachment: bool,
+    #[serde(rename = "aToutRepondu")]
+    pub replied_to_everything: bool,
+    #[serde(rename = "estRepondant")]
+    pub is_replier: bool,
+    #[serde(rename = "strRepondant", default)]
+    pub replier_name: Option<String>,
+    #[serde(rename = "reponduLe", deserialize_with = "de_datetime_some", default)]
+    pub reply_date: Option<String>,
+    #[serde(rename = "avecCommandeVisuResultat", default)]
+    pub show_results: bool, // ??? ig
+}
+
+#[derive(Debug, Clone, Deserialize)]
 pub struct NewsItem {
     #[serde(rename = "L")]
     pub title: String,
@@ -675,6 +693,7 @@ pub struct NewsItem {
     pub is_public: bool,
     #[serde(rename = "estPartage", default)]
     pub is_shared: bool,
-    // TODO: informationListeContenu
+    #[serde(rename = "informationListeContenu")]
+    pub details: NewsDetails,
 }
 

@@ -205,6 +205,7 @@ deser!(String, string);
 deser!(String, date); //parse_date(...)
 deser!(String, datetime); //parse_datetime(...)
 deser!(Option<String>, date_some);
+deser!(Option<String>, datetime_some);
 deser!(Vec<Grade>, grades);
 deser!(Vec<LessonDetails>, lesson_details);
 deser!(Person, person);
