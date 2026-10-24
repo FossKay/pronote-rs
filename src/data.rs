@@ -847,7 +847,7 @@ pub struct Discussion {
     #[serde(rename = "documentsJoints", default)]
     pub attachments: String, // separated by \n
     #[serde(rename = "libelleDate", default)]
-    pub date: String,
+    pub pretty_date: String,
     #[serde(rename = "estNonPossede")]
     pub is_not_possessed: bool, // ?????
     #[serde(rename = "indicePere", default)]
@@ -865,3 +865,58 @@ pub struct Discussions {
     #[serde(rename = "messagerieDesactivee")]
     pub is_disconnection: bool,
 }
+
+#[derive(Debug, Clone, Default, Deserialize, Serialize)]
+pub struct Button {
+    #[serde(rename = "L")]
+    pub id: String,
+    #[serde(rename = "G")]
+    pub group: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Messages {
+    #[serde(rename = "listeMessages", deserialize_with = "de_messages")]
+    pub messages: Vec<Message>,
+    #[serde(rename = "messagePourReponse", deserialize_with = "de_reference_id")]
+    pub reply_message_id: String, // should also store nbDestinataires but it's
+                                  // like the receivers_count of the last message?
+    #[serde(rename = "listeBoutons", deserialize_with = "de_buttons")]
+    pub buttons: Vec<Button>,
+    #[serde(rename = "nbPossessionsMessage")]
+    pub possessions_count: u32,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Message {
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "messageSource", deserialize_with = "de_reference_id")]
+    pub discussion_id: String,
+    #[serde(rename = "possessionMessage", deserialize_with = "de_possession")]
+    pub possession: Possession,
+    #[serde(rename = "estNonPossede")]
+    pub is_not_possessed: bool, // ???
+    #[serde(rename = "contenu", deserialize_with = "de_string")]
+    pub content: String,
+    #[serde(rename = "estHTML")]
+    pub is_html: bool,
+    #[serde(rename = "libelleDate")]
+    pub pretty_date: String,
+    #[serde(rename = "date", deserialize_with = "de_datetime")]
+    pub date: String,
+    #[serde(rename = "estUnAparte")]
+    pub is_aparte: bool, // ???
+    #[serde(rename = "listeDocumentsJoints", deserialize_with = "de_attachments", default)] // maybe no default?
+    pub attachments: Vec<Attachment>,
+    #[serde(rename = "emetteur")]
+    pub is_sender: bool,
+    #[serde(rename = "public_gauche")]
+    pub sender_name: String,
+    #[serde(rename = "hint_gauche")]
+    pub sender_role: String, // eg. Professeur
+    #[serde(rename = "nbPublic")]
+    pub receivers_count: u32,
+}
+
+

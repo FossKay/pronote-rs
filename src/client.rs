@@ -621,6 +621,40 @@ impl Client {
         Ok(data)
     }
 
+    pub async fn messages(&mut self, discussion_id: String, possessions: Vec<Possession>) -> Result<Messages, Error> {
+        let message_id: u32 = discussion_id.parse().unwrap();
+        let res = self
+            .post(
+                "ListeMessages",
+                131,
+                json!({
+                    "marquerCommeLu": true,
+                    "nbMessagesVus": 20,
+                    "message": {
+                        "N": message_id,
+                    },
+                    "estNonPossede": false,
+                    "listePossessionsMessages": possessions,
+                }),
+            )
+            .await?;
+        // actually, idk if nbMessagesVus is always 20
+        // also, ["message"]["N"] might always be 0
+        // pronotepy simply only sends listePossessionsMessages and it seems to work
+        let data: Messages = from_value(res["dataSec"]["data"].clone()).unwrap();
+
+        Ok(data)
+    }
+
+    pub async fn mock_messages() -> Result<Messages, Error> {
+        let res = Value::from_str(include_str!("../resp/discussion.json"))
+            .unwrap()
+            .clone();
+        let data: Messages = from_value(res["dataSec"]["data"].clone()).unwrap();
+
+        Ok(data)
+    }
+
     pub async fn geolocation(lat: f64, long: f64) -> Result<Vec<School>, Error> {
         let data = json!({
             "nomFonction": "geoLoc",

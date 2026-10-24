@@ -256,6 +256,8 @@ deser!(Possession, possession);
 deser!(Vec<Possession>, possessions);
 deser!(Vec<Discussion>, discussions);
 deser!(Vec<DiscussionLabel>, discussion_labels);
+deser!(Vec<Message>, messages);
+deser!(Vec<Button>, buttons);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {

@@ -90,6 +90,7 @@ async fn main() -> Result<(), Error> {
                 println!(
                     "exit, help, clear, ls, params, userparams, homework, done, documents, home, grades, agenda, news, discussions, geolocation"
                 );
+                // TODO: messages
             }
             "clear" => {
                 print!("\x1B[2J\x1B[H");
