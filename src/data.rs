@@ -66,7 +66,9 @@ pub struct Person {
     pub group: u32,
     #[serde(rename = "avecDiscussion", default)]
     pub with_discussion: bool,
-    // student = 4, ...
+    // teacher = 3
+    // student = 4
+    // director/school administration = 34
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -309,12 +311,17 @@ pub struct UserParams {
     pub resource: Resource,
     #[serde(rename = "listeOnglets", deserialize_with = "de_tabs")]
     pub allowed_tabs: Vec<u64>,
+    #[serde(rename = "autorisations")]
+    pub autorisations: Permissions,
+    #[serde(rename = "infosDroitDeconnexion")]
+    pub deconnection: DeconnectionInfos,
     #[serde(skip)]
     pub image: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Resource {
+    // G = 4 (extended Person struct)
     #[serde(rename = "L")]
     pub name: String,
     #[serde(rename = "N")]
@@ -335,6 +342,89 @@ impl Resource {
             "N": self.id,
         })
     }
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Permissions {
+    #[serde(rename = "AvecDiscussion")]
+    pub discussions: bool,
+    #[serde(rename = "AvecDiscussionPersonnels")]
+    pub student_discussions: bool,
+    #[serde(rename = "AvecDiscussionProfesseurs")]
+    pub teacher_discussions: bool,
+    #[serde(rename = "avecJustificationAbsence")]
+    pub justify_absence: bool,
+    #[serde(rename = "avecJustificationRetard")]
+    pub justify_late: bool,
+    #[serde(rename = "avecDroitDeconnexionMessagerie")]
+    pub discussions_deconnection: bool,
+    #[serde(rename = "tailleMaxDocJointEtablissement")]
+    pub teacher_attachment_max_size: f32, // bytes, eg. 5242880 = 5MiB
+    #[serde(rename = "tailleMaxRenduTafEleve")]
+    pub student_attachment_max_size: f32,
+    #[serde(rename = "tailleTravailAFaire")]
+    pub homework_size: u32, // not max apparently
+    #[serde(rename = "tailleCirconstance")]
+    pub circumstance_size: u32,
+    #[serde(rename = "tailleCommentaire")]
+    pub note_size: u32,
+    #[serde(rename = "consulterDonneesAdministrativesAutresEleves")]
+    pub view_others_administrative_data: bool, // true???
+    #[serde(rename = "compte")]
+    pub account: AccountPermissions,
+    #[serde(rename = "autoriserImpressionBulletinReleveBrevet", default)]
+    pub can_print_brevet_report: bool,
+
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct AccountPermissions {
+    #[serde(rename = "avecSaisieMotDePasse", default)]
+    pub password: bool,
+    #[serde(rename = "avecInformationsPersonnelles", default)]
+    pub personal_informations: bool,
+    #[serde(rename = "avecSaisieInfosPersoCoordonnees", default)]
+    pub personal_informations_entry: bool,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct DeconnectionInfos {
+    #[serde(rename = "notes")]
+    pub grades: GradesDeconnection,
+    #[serde(rename = "taf")]
+    pub homework: HomeworkDeconnection,
+    #[serde(rename = "messagerie")]
+    pub deconnection: ChatsDeconnection,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct GradesDeconnection {
+    #[serde(rename = "heurePublicationNote")]
+    pub publication_time: u8,
+    #[serde(rename = "nombreJoursDecalagePublicationNote")]
+    pub publication_delay: u8,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct HomeworkDeconnection {
+    #[serde(rename = "heureDebutDesactivationPublication")]
+    pub start_time: u8,
+    #[serde(rename = "heureFinDesactivationPublication")]
+    pub end_time: u8,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct ChatsDeconnection {
+    #[serde(rename = "listeJoursOuvresDeconnexion")]
+    pub restricted_days: Vec<String>,
+    #[serde(rename = "listeJoursNonOuvresDeconnexion")]
+    pub blocked_days: Vec<String>, // non ouvrés???
+    #[serde(rename = "avecJourFerieDeconnexion")]
+    pub holidays_blocked: bool,
+    #[serde(rename = "heureAvantDeconnexion")]
+    pub start_time: u8,
+    #[serde(rename = "heureApresDeconnexion")]
+    pub end_time: u8,
 }
 
 #[derive(Debug, Clone)]
