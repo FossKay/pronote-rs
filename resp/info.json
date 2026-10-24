@@ -1,0 +1,43 @@
+{
+  "id": "PageActualites",
+  "session": 1234,
+  "no": "REDACTED",
+  "dataSec": {
+    "data": {
+      "detailsActualite": {
+        "listeQuestions": {
+          "_T": 24,
+          "V": [
+            {
+              "L": "Question 1",
+              "N": "67#6PcDPSXOQbzYpxt6poVuptzimJAdjCjnJhY_NYZkRAg",
+              "P": 1,
+              "rang": 1,
+              "genreReponse": 4,
+              "titre": "",
+              "texte": {
+                "_T": 21,
+                "V": "HTML CONTENT"
+              },
+              "tailleReponse": 200,
+              "avecMaximum": false,
+              "nombreReponsesMax": 0,
+              "listePiecesJointes": { "_T": 24, "V": [] },
+              "listeChoix": { "_T": 24, "V": [] },
+              "reponse": {
+                "_T": 24,
+                "V": {
+                  "N": "0",
+                  "avecReponse": false,
+                  "estReponseAttendue": false
+                }
+              }
+            }
+          ]
+        }
+      },
+      "genreRequeteActualite": 1
+    },
+    "nom": "PageActualites"
+  }
+}

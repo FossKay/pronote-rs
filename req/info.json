@@ -1,0 +1,54 @@
+{
+  "session": 1234,
+  "no": "REDACTED",
+  "id": "PageActualites",
+  "dataSec": {
+    "Signature": { "onglet": 8 },
+    "data": {
+      "genreRequeteActualite": 1,
+      "modeAffActu": 0,
+      "actualite": {
+        "N": "65#x2JGxwOrALnAJSJn2Pay5S4fTUNK7e-8PR0sTLFWbJQ",
+        "L": "TITRE ACTUALITE",
+        "Actif": true,
+        "reponseAnonyme": false,
+        "estInformation": true,
+        "estSondage": false,
+        "nature": {
+          "N": "70#Bxib0ZndvG-1FOVtLlQsPXSNsxdrB2eT2GkWGSfrRlE",
+          "L": "Divers"
+        },
+        "lue": true,
+        "dateDebut": { "_T": 7, "V": "10/10/2026 7:0:0" },
+        "dateFin": { "_T": 7, "V": "10/10/2027 7:0:0" },
+        "estProlonge": false,
+        "dateCreation": { "_T": 7, "V": "10/10/2026 15:7:09" },
+        "auteur": "AUTEUR",
+        "estAuteur": false,
+        "elmauteur": {
+          "N": "106#VxmsZ6RL0zUhWGWE-AETmhCYy0R5ptrSRK7s27rH_Sg",
+          "G": 34,
+          "L": "AUTEUR (FONCTION)"
+        },
+        "prenom": "PRENOM ELEVE",
+        "public": {
+          "N": "46#Se1Vhseoc0o40s8ImStkv1b-vcXICCXIleNoTO1Cv-U",
+          "G": 4,
+          "L": "NOM PRENOM ELEVE"
+        },
+        "genrePublic": 4,
+        "estPublic": true,
+        "estPartage": false,
+        "informationListeContenu": {
+          "avecPJ": true,
+          "aToutRepondu": false,
+          "avecCommandeVisuResultat": true
+        },
+        "listeCategories": [],
+        "DateDebut": { "_T": 7, "V": "10/10/2026 7:0:0" },
+        "estSelectionne": true,
+        "listeQuestions": []
+      }
+    }
+  }
+}
