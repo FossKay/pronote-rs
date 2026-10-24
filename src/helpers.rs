@@ -282,6 +282,11 @@ deser2!(Vec<NewsItem>, home_news, |value: Value| {
 
     Ok(events)
 });
+deser2!(Vec<NewsItem>, news, |value: Value| {
+    let events: Vec<NewsItem> = from_value(value[0]["listeActualites"]["V"].clone()).unwrap();
+
+    Ok(events)
+});
 deser2!(Vec<EndTime>, end_times, |value: Value| {
     let mut res = Vec::new();
     for v in value["V"].clone().as_array().unwrap() {

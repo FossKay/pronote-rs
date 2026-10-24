@@ -566,6 +566,31 @@ impl Client {
         Ok(data)
     }
 
+    pub async fn news(&mut self) -> Result<News, Error> {
+        let res = self
+            .post(
+                "PageActualites",
+                8,
+                json!({
+                    "genreRequeteActualite": 0,
+                    "modesAffActus": { "_T": 26, "V": "[0]" }
+                }),
+            )
+            .await?;
+        let data: News = from_value(res["dataSec"]["data"].clone()).unwrap();
+
+        Ok(data)
+    }
+
+    pub async fn mock_news() -> Result<News, Error> {
+        let res = Value::from_str(include_str!("../resp/info_polls.json"))
+            .unwrap()
+            .clone();
+        let data: News = from_value(res["dataSec"]["data"].clone()).unwrap();
+
+        Ok(data)
+    }
+
     pub async fn geolocation(lat: f64, long: f64) -> Result<Vec<School>, Error> {
         let data = json!({
             "nomFonction": "geoLoc",

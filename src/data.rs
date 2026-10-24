@@ -620,6 +620,14 @@ pub struct School {
 }
 
 #[derive(Debug, Clone, Deserialize)]
+pub struct News { // infos + polls
+    #[serde(rename = "listeNatures", deserialize_with = "de_news_categories")]
+    pub categories: Vec<NewsCategory>,
+    #[serde(rename = "listeModesAff", deserialize_with = "de_news")]
+    pub news: Vec<NewsItem>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
 pub struct NewsCategory {
     #[serde(rename = "L")]
     pub name: String,
