@@ -760,6 +760,43 @@ pub struct NewsDetails {
     pub show_results: bool, // ??? ig
 }
 
+// serialize for get content request:
+// - nature, elmauteur, public no longer {"_T": ..., V": ...}
+// - new fields:
+// {
+//   "Actif": true,
+//   "listeCategories": [],
+//   "DateDebut": ... same as dateDebut ...,
+//   "estSelectionne": true,
+//   "listeQuestions": []
+// }
+
+// unnecessary:
+// - L
+// - reponseAnonyme
+// - estInformation
+// - estSondage
+// - lue
+// - nature
+// - dateDebut
+// - dateFin
+// - estProlonge
+// - dateCreation
+// - auteur
+// - estAuteur
+// - elmauteur
+// - prenom
+// - estPublic
+// - estPartage
+// - informationListeContenu
+// - DateDebut
+// - Actif
+// - estSelectionne
+// - listeQuestions
+
+// keep:
+// N, public, genrePublic, listeCategories
+
 #[derive(Debug, Clone, Deserialize)]
 pub struct NewsItem {
     #[serde(rename = "L")]
@@ -802,6 +839,17 @@ pub struct NewsItem {
     pub receiver_group: u32, // refer to Person struct
     #[serde(rename = "informationListeContenu", default)]
     pub details: Option<NewsDetails>,
+}
+
+impl NewsItem {
+    pub fn serialize(&self) -> Value {
+        json!({
+            "N": self.id,
+            "public": self.student,
+            "genrePublic": self.receiver_group,
+            "listeCategories": [],
+        })
+    }
 }
 
 #[derive(Debug, Clone, Deserialize)]
