@@ -651,6 +651,44 @@ impl Client {
         Ok(data)
     }
 
+    pub async fn news_item_content(&mut self, news_item_id: &str) -> Result<Vec<Question>, Error> {
+        let person = &self.user_parameters.as_ref().unwrap().resource;
+        let res = self
+            .post(
+                "PageActualites",
+                8,
+                json!({
+                    "genreRequeteActualite": 1,
+                    "modeAffActu": 0,
+                    "actualite": {
+                        "N": news_item_id,
+                        "public": {
+                            "N": person.id,
+                            "G": person.group,
+                            "L": person.name,
+                        },
+                        "genrePublic": person.group,
+                        "listeCategories": [],
+                    }
+                }),
+            )
+            .await?;
+        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].clone()).unwrap();
+        // + "genreRequeteActualite": 1 (like in request)
+
+        Ok(data)
+    }
+    
+    pub async fn mock_news_item_content() -> Result<Vec<Question>, Error> {
+        let res = Value::from_str(include_str!("../resp/info.json"))
+            .unwrap()
+            .clone();
+        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].clone()).unwrap();
+        // + "genreRequeteActualite": 1
+
+        Ok(data)
+    }
+
     pub async fn geolocation(lat: f64, long: f64) -> Result<Vec<School>, Error> {
         let data = json!({
             "nomFonction": "geoLoc",

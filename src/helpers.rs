@@ -226,38 +226,44 @@ macro_rules! deser {
     };
 }
 
-deser!(String, string);
+// T
+deser!(Attachment, attachment);
+deser!(Category, category);
+deser!(NewsCategory, news_category);
+deser!(Person, person);
+deser!(Period, period);
+deser!(Possession, possession);
+deser!(Response, response);
 deser!(String, date); //parse_date(...)
 deser!(String, datetime); //parse_datetime(...)
-deser!(Option<String>, date_some);
-deser!(Option<String>, datetime_some);
-deser!(Vec<Grade>, grades);
-deser!(Vec<LessonDetails>, lesson_details);
-deser!(Person, person);
-deser!(Vec<Person>, persons);
-deser!(Period, period);
-deser!(Vec<Class>, groups);
-deser!(Vec<LessonDetailsItem>, lesson_details_items);
-deser!(Category, category);
-deser!(Vec<Category>, categories);
-deser!(Option<LessonDetailsLink>, lesson_details_link);
-deser!(Attachment, attachment);
-deser!(Option<Attachment>, attachment_some);
-deser!(Vec<Attachment>, attachments);
-deser!(Vec<HomeAttachment>, home_attachments);
+deser!(String, string);
 deser!(Subject, subject);
-deser!(Vec<Subject>, subjects);
-deser!(Vec<Holiday>, holidays);
-deser!(Vec<EventType>, event_types);
+
+// Vec<T>
+deser!(Vec<Attachment>, attachments);
+deser!(Vec<Button>, buttons);
+deser!(Vec<Category>, categories);
+deser!(Vec<Class>, groups);
 deser!(Vec<Classroom>, classrooms);
-deser!(NewsCategory, news_category);
-deser!(Vec<NewsCategory>, news_categories);
-deser!(Possession, possession);
-deser!(Vec<Possession>, possessions);
 deser!(Vec<Discussion>, discussions);
 deser!(Vec<DiscussionLabel>, discussion_labels);
+deser!(Vec<EventType>, event_types);
+deser!(Vec<Grade>, grades);
+deser!(Vec<Holiday>, holidays);
+deser!(Vec<HomeAttachment>, home_attachments);
+deser!(Vec<LessonDetails>, lesson_details);
+deser!(Vec<LessonDetailsItem>, lesson_details_items);
 deser!(Vec<Message>, messages);
-deser!(Vec<Button>, buttons);
+deser!(Vec<NewsCategory>, news_categories);
+deser!(Vec<Person>, persons);
+deser!(Vec<Possession>, possessions);
+deser!(Vec<Subject>, subjects);
+
+// Option<T>
+deser!(Option<Attachment>, attachment_some);
+deser!(Option<LessonDetailsLink>, lesson_details_link);
+deser!(Option<String>, date_some);
+deser!(Option<String>, datetime_some);
 
 macro_rules! deser2 {
     ($type:ty, $name:ident, $body:expr) => {
@@ -404,6 +410,7 @@ deser2!(GradeValue, grade, |value: Value| {
         "|6" => GradeValue::AbsentZero,
         "|7" => GradeValue::NotHandedInZero,
         "|8" => GradeValue::Congratulations,
+        "|-1" => GradeValue::Error,
         _ => s.replace(',', ".").parse().map(GradeValue::Value).unwrap(),
     })
 });

@@ -66,9 +66,9 @@ pub struct Person {
     pub group: u32,
     #[serde(rename = "avecDiscussion", default)]
     pub with_discussion: bool,
-    // teacher = 3
-    // student = 4
-    // director/school administration = 34
+    // teacher (Enseignant) = 3
+    // student (Eleve) = 4
+    // director/school administration (Personnel) = 34
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -334,7 +334,8 @@ pub struct Notifications {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Resource {
-    // G = 4 (extended Person struct)
+    #[serde(rename = "G")]
+    pub group: u32, // 4 for student, refer to Person struct
     #[serde(rename = "L")]
     pub name: String,
     #[serde(rename = "N")]
@@ -350,7 +351,7 @@ pub struct Resource {
 impl Resource {
     pub fn serialize(self) -> Value {
         json!({
-            "G": 4,
+            "G": self.group,
             "L": self.name,
             "N": self.id,
         })
@@ -585,7 +586,6 @@ pub struct Grade {
 
 #[derive(Debug, Clone, Copy, Default, PartialEq)]
 pub enum GradeValue {
-    // got these from pronotepy
     Value(f32),
     Absent,
     Excused,
@@ -597,6 +597,7 @@ pub enum GradeValue {
     Congratulations,
     #[default]
     Empty,
+    Error,
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -850,6 +851,46 @@ impl NewsItem {
             "listeCategories": [],
         })
     }
+}
+
+// when fetching news item content, it is named "question", probably for polls
+#[derive(Debug, Clone, Deserialize)]
+pub struct Question {
+    #[serde(rename = "L")]
+    pub name: String, // Question 1???
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "P")]
+    pub p: u32, // idk maybe place
+    #[serde(rename = "rang")]
+    pub rank: u32,
+    #[serde(rename = "genreReponse")]
+    pub response_type: u32,
+    #[serde(rename = "titre")]
+    pub title: String,
+    #[serde(rename = "texte", deserialize_with = "de_string")]
+    pub content: String,
+    #[serde(rename = "tailleReponse")]
+    pub response_size: u32,
+    #[serde(rename = "avecMaximum")]
+    pub is_maximum: bool, // maybe refers to response_size?
+    #[serde(rename = "nombreReponsesMax")]
+    pub max_responses: u32,
+    #[serde(rename = "listePiecesJointes", deserialize_with = "de_attachments")]
+    pub attachments: Vec<Attachment>,
+    // listeChoix: {"_T": 24, "V": []}
+    #[serde(rename = "reponse", deserialize_with = "de_response")]
+    pub response: Response,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Response {
+    #[serde(rename = "N")]
+    pub id: String,
+    #[serde(rename = "avecReponse")]
+    pub with_response: bool,
+    #[serde(rename = "estReponseAttendue")]
+    pub response_needed: bool,
 }
 
 #[derive(Debug, Clone, Deserialize)]
