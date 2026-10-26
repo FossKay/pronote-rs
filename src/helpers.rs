@@ -4,26 +4,25 @@ use serde::Deserialize;
 use serde_json::{Value, from_value};
 
 pub fn pretty_end_time(end_time: u32, l: &Lesson, p: &Params) -> String {
-    l.start.split_once(" ").unwrap().0.to_owned()
-        + " "
-        + &p.end_times[(end_time - 1) as usize]
-            .time
-            .clone()
-            .replace("h", ":")
-        + ":00"
+    format!(
+        "{} {}:00",
+        l.start.split_once(' ').unwrap().0,
+        p.end_times[(end_time - 1) as usize].time.replace('h', ":")
+        // use char when matching single character
+    )
 }
 
 fn gap(id: &str, name: &str, index: u32, duration: u32, l: &Lesson, p: &Params) -> Lesson {
     Lesson {
         id: id.into(),
         order: 1000,
-        status: "".into(),
+        status: String::new(),
         cancelled: false,
         index,
         duration,
         start: pretty_end_time(index, l, p),
         end: pretty_end_time(index + duration, l, p),
-        color: "".into(),
+        color: String::new(),
         content: LessonContent {
             subject: Subject {
                 name: name.to_owned(),
@@ -181,25 +180,25 @@ pub fn parse_notifications(res: &Value) -> Notifications {
     n
 }
 
-pub fn parse_date(date: String) -> Result<NaiveDate, crate::Error> {
-    NaiveDate::parse_from_str(&date, "%d/%m/%Y").map_err(|_| crate::Error::InvalidResponse)
+pub fn parse_date(date: &str) -> Result<NaiveDate, crate::Error> {
+    NaiveDate::parse_from_str(date, "%d/%m/%Y").map_err(|_| crate::Error::InvalidResponse)
 }
 
-pub fn parse_datetime(date: String) -> Result<NaiveDateTime, crate::Error> {
-    NaiveDateTime::parse_from_str(&date, "%d/%m/%Y %H:%M:%S")
+pub fn parse_datetime(date: &str) -> Result<NaiveDateTime, crate::Error> {
+    NaiveDateTime::parse_from_str(date, "%d/%m/%Y %H:%M:%S")
         .map_err(|_| crate::Error::InvalidResponse)
 }
 
-fn extract_onglets(value: Value) -> Vec<u64> {
-    match value {
-        Value::Array(values) => values.into_iter().flat_map(extract_onglets).collect(),
-        Value::Object(values) => values.into_values().flat_map(extract_onglets).collect(),
-        Value::Number(number) => number.as_u64().into_iter().collect(),
-        _ => Vec::new(),
+fn extract_tabs(v: &Value, res: &mut Vec<u64>) {
+    res.push(v["G"].as_u64().unwrap());
+    if let Some(more_tabs) = v["Onglet"].as_array() {
+        for tab in more_tabs {
+            extract_tabs(tab, res);
+        }
     }
 }
 
-pub fn parse_attachments(res: Value) -> Vec<String> {
+pub fn parse_attachments(res: &Value) -> Vec<String> {
     if let Some(files) = res.get("fichiers") {
         let mut a = Vec::new();
         for r in files.as_array().unwrap() {
@@ -338,7 +337,9 @@ deser2!(Vec<EndTime>, end_times, |value: Value| {
     Ok(res)
 });
 deser2!(Vec<u64>, tabs, |value: Value| {
-    Ok(extract_onglets(value))
+    let mut tabs = Vec::new();
+    extract_tabs(&value, &mut tabs);
+    Ok(tabs)
 });
 deser2!(Periods, periods, |value: Value| {
     let tabs = value["V"].as_array().unwrap();

@@ -161,7 +161,7 @@ impl Communication {
 
     fn check_error(&self, response: &Value) -> Result<(), Error> {
         if let Some(error) = response.get("Erreur") {
-            let code = error.get("G").and_then(Value::as_i64).unwrap_or(-1);
+            let code = error.get("G").and_then(Value::as_i64).unwrap();
             let message = error
                 .get("Titre")
                 .and_then(Value::as_str)

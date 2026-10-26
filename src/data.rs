@@ -27,7 +27,7 @@ pub struct Period {
 }
 
 impl Period {
-    pub fn serialize(self) -> Value {
+    pub fn serialize(&self) -> Value {
         json!({
             "G": 2,
             "L": self.name,
@@ -319,6 +319,9 @@ pub struct UserParams {
     pub notifications: Notifications,
     #[serde(skip)]
     pub image: String,
+    // TODO: really parse listeOnglets:
+    // hierarchical structure like in website -> fetch traductions.js / keep local of tab names
+    // (for eventual desktop app)
 }
 
 #[derive(Debug, Clone, Default, Deserialize)]
@@ -349,7 +352,7 @@ pub struct Resource {
 }
 
 impl Resource {
-    pub fn serialize(self) -> Value {
+    pub fn serialize(&self) -> Value {
         json!({
             "G": self.group,
             "L": self.name,

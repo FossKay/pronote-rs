@@ -82,13 +82,16 @@ impl Client {
             return Err(Error::InvalidCredentials);
         }
         let mut communication = Communication::new(&root_url)?;
-        let params = communication.initialise(login_mode, nav_identifier).await?;
-        let nav_id = nav_identifier.unwrap_or_else(|| {
-            params["dataSec"]["data"]["identifiantNav"]
-                .as_str()
-                .unwrap()
-        });
-        let params: Params = from_value(params["dataSec"]["data"]["General"].clone()).unwrap();
+        let mut params = communication.initialise(login_mode, nav_identifier).await?;
+        let nav_id = nav_identifier
+            .map(str::to_owned)
+            .unwrap_or_else(|| {
+                params["dataSec"]["data"]["identifiantNav"]
+                    .as_str()
+                    .unwrap()
+                    .to_owned()
+            });
+        let params: Params = from_value(params["dataSec"]["data"]["General"].take()).unwrap();
         if params.first_week_day != 2 {
             // NOT MONDAY :(
             return Err(Error::InvalidStartPage);
@@ -100,7 +103,7 @@ impl Client {
             communication,
             parameters: params,
             user_parameters: None,
-            nav_identifier: nav_id.to_owned(),
+            nav_identifier: nav_id,
             next_token: String::new(), // temp, initialized in login
             login_mode,
             uuid: uuid.to_owned(),
@@ -111,13 +114,13 @@ impl Client {
     }
 
     pub async fn mock_params() -> Result<Params, Error> {
-        let params = Value::from_str(include_str!("../resp/params.json")).unwrap();
-        Ok(from_value(params["dataSec"]["data"]["General"].clone()).unwrap())
+        let mut params = Value::from_str(include_str!("../resp/params.json")).unwrap();
+        Ok(from_value(params["dataSec"]["data"]["General"].take()).unwrap())
     }
 
     pub async fn mock_user_params() -> Result<UserParams, Error> {
-        let res = Value::from_str(include_str!("../resp/userparams.json")).unwrap();
-        let mut user_parameters: UserParams = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/userparams.json")).unwrap();
+        let mut user_parameters: UserParams = from_value(res["dataSec"]["data"].take()).unwrap();
         user_parameters.notifications = parse_notifications(&res["dataSec"]["Signature"]);
         user_parameters.image = res["dataNonSec"]["fichiers"][0]
             .as_str()
@@ -128,8 +131,8 @@ impl Client {
     }
 
     async fn login(&mut self) -> Result<(), Error> {
-        let identification = self.identification().await?; // request challenge
-        let data = identification["dataSec"]["data"].clone();
+        let mut identification = self.identification().await?; // request challenge
+        let data = identification["dataSec"]["data"].take();
         let nonce = data
             .get("alea")
             .and_then(Value::as_str)
@@ -176,18 +179,18 @@ impl Client {
                 .to_owned();
         }
 
-        self.finish_authentication(&authentication, auth_key)?;
-        let res = self
+        self.finish_authentication(authentication, auth_key)?;
+        let mut res = self
             .communication
             .post("ParametresUtilisateur", json!({}))
             .await?;
-        self.user_parameters = from_value(res["dataSec"]["data"].clone()).unwrap();
+        self.user_parameters = from_value(res["dataSec"]["data"].take()).unwrap();
         self.user_parameters.as_mut().unwrap().notifications = parse_notifications(&res["dataSec"]["Signature"]);
         self.user_parameters.as_mut().unwrap().image = res["dataNonSec"]["fichiers"][0]
             .as_str()
             .unwrap()
             .replace("\r\n", ""); // windows :(
-        self.parameters.last_week = self.get_week(self.parameters.last_day.clone());
+        self.parameters.last_week = self.get_week(&self.parameters.last_day);
         // first week returned by server but seems to always be 1
 
         Ok(())
@@ -219,8 +222,8 @@ impl Client {
             .await
     }
 
-    fn finish_authentication(&mut self, response: &Value, auth_key: [u8; 16]) -> Result<(), Error> {
-        let data = response["dataSec"]["data"].clone();
+    fn finish_authentication(&mut self, mut response: Value, auth_key: [u8; 16]) -> Result<(), Error> {
+        let data = response["dataSec"]["data"].take();
         let key = data["cle"].as_str().unwrap();
         let mut crypto = self.communication.encryption.clone();
         crypto.key = auth_key;
@@ -235,7 +238,7 @@ impl Client {
     pub async fn post(&mut self, function: &str, tab: u64, data: Value) -> Result<Value, Error> {
         if !self
             .user_parameters
-            .clone()
+            .as_ref()
             .unwrap()
             .allowed_tabs
             .contains(&tab)
@@ -276,7 +279,7 @@ impl Client {
                 }),
             )
             .await?["dataSec"]["data"]["ListeTravauxAFaire"]["V"]
-                .clone(),
+                .take(),
         )
         .unwrap();
         for h in &mut res {
@@ -296,7 +299,7 @@ impl Client {
             from_value(
                 Value::from_str(include_str!("../resp/homework.json")).unwrap()["dataSec"]["data"]
                     ["ListeTravauxAFaire"]["V"]
-                    .clone(),
+                    .take(),
             )
             .unwrap();
         for h in &mut res {
@@ -307,8 +310,8 @@ impl Client {
     }
 
     pub async fn timetable(&mut self, week: u8) -> Result<Vec<Vec<Lesson>>, Error> {
-        let resource = self.user_parameters.clone().unwrap().resource.serialize();
-        let mut res: Vec<Lesson> = from_value(
+        let resource = self.user_parameters.as_ref().unwrap().resource.serialize();
+        let res: Vec<Lesson> = from_value(
             self.post(
                 "PageEmploiDuTemps",
                 16,
@@ -325,13 +328,12 @@ impl Client {
                     "avecInfosPrefsGrille": true
                 }),
             )
-            .await?["dataSec"]["data"]["ListeCours"]
-                .clone(),
+            .await?["dataSec"]["data"]["ListeCours"].take(),
         )
         .unwrap();
         let mut days = vec![Vec::<Lesson>::new(); self.parameters.week_days as usize];
-        for l in &mut res {
-            days[l.index as usize / (self.parameters.end_times.len() - 1)].push(l.clone());
+        for l in res {
+            days[l.index as usize / (self.parameters.end_times.len() - 1)].push(l);
         }
         for d in &mut days {
             parse_lessons(d, &self.parameters);
@@ -342,12 +344,11 @@ impl Client {
 
     pub async fn mock_timetable(p: &Params) -> Result<Vec<Vec<Lesson>>, Error> {
         let res = Value::from_str(include_str!("../resp/edt.json"))
-            .unwrap()["dataSec"]["data"]["ListeCours"]
-            .clone();
-        let mut res: Vec<Lesson> = from_value(res).unwrap();
+            .unwrap()["dataSec"]["data"]["ListeCours"].take();
+        let res: Vec<Lesson> = from_value(res).unwrap();
         let mut days = vec![Vec::<Lesson>::new(); p.week_days as usize];
-        for l in &mut res {
-            days[l.index as usize / (p.end_times.len() - 1)].push(l.clone());
+        for l in res {
+            days[l.index as usize / (p.end_times.len() - 1)].push(l);
         }
         for d in &mut days {
             parse_lessons(d, p);
@@ -356,16 +357,16 @@ impl Client {
         Ok(days)
     }
 
-    pub async fn home(&mut self, date: String) -> Result<Home, Error> {
+    pub async fn home(&mut self, date: &str) -> Result<Home, Error> {
         let day = json!({
             "_T": 7,
-            "V": date.clone() + " 0:0:0",
+            "V": date.to_owned() + " 0:0:0",
         });
         let full_day = json!({ "date": day });
         let week = self.get_week(date);
         let full_week = json!({ "numeroSemaine": week });
 
-        let res = self
+        let mut res = self
             .post(
                 "PageAccueil",
                 7,
@@ -391,16 +392,18 @@ impl Client {
                 }),
             )
             .await?;
-        let data = &res["dataSec"]["data"];
-        let mut home: Home = from_value(data.clone()).unwrap();
+        let mut data = res["dataSec"]["data"].take();
+
+        let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].take()).unwrap();
+        // before from_value takes ownership of data (serde doesn't parse ListeCours)
+
+        let mut home: Home = from_value(data).unwrap();
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
 
-        let textbook_icons: Vec<String> = parse_attachments(res["dataNonSec"].clone());
+        let textbook_icons: Vec<String> = parse_attachments(&res["dataNonSec"]);
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             home.digital_textbooks[i].icon = icon;
         }
-
-        let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
 
         let day_len = (self.parameters.end_times.len() - 1) as u32;
         let today_index = home.first_index / day_len;
@@ -431,19 +434,20 @@ impl Client {
     }
 
     pub async fn mock_home(p: &Params) -> Result<Home, Error> {
-        let res = Value::from_str(include_str!("../resp/home.json"))
-            .unwrap()
-            .clone();
-        let data = &res["dataSec"]["data"];
-        let mut home: Home = from_value(data.clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/home.json"))
+            .unwrap();
+        let mut data = res["dataSec"]["data"].take();
+
+        let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].take()).unwrap();
+        // before from_value takes ownership of data (serde doesn't parse ListeCours)
+
+        let mut home: Home = from_value(data).unwrap();
         home.grades.grades.sort_by_key(|x| date_int(&x.date));
 
-        let textbook_icons: Vec<String> = parse_attachments(res["dataNonSec"].clone());
+        let textbook_icons: Vec<String> = parse_attachments(&res["dataNonSec"]);
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             home.digital_textbooks[i].icon = icon;
         }
-
-        let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].clone()).unwrap();
 
         let day_len = (p.end_times.len() - 1) as u32;
         let today_index = home.first_index / day_len;
@@ -459,9 +463,9 @@ impl Client {
         Ok(home)
     }
 
-    pub async fn grades(&mut self, p: Period) -> Result<Grades, Error> {
-        let period_id = p.id.clone();
-        let res = self
+    pub async fn grades(&mut self, p: &Period) -> Result<Grades, Error> {
+        let period_id = &p.id;
+        let mut res = self
             .post(
                 "DernieresNotes",
                 198,
@@ -470,18 +474,17 @@ impl Client {
                 }),
             )
             .await?;
-        let mut data: Grades = from_value(res["dataSec"]["data"].clone()).unwrap();
-        data.grades.retain(|x| x.period.id == period_id);
+        let mut data: Grades = from_value(res["dataSec"]["data"].take()).unwrap();
+        data.grades.retain(|x| &x.period.id == period_id);
         data.grades.sort_by_key(|x| date_int(&x.date));
 
         Ok(data)
     }
 
-    pub async fn mock_grades(p: Period) -> Result<Grades, Error> {
-        let res = Value::from_str(include_str!("../resp/grades.json"))
-            .unwrap()
-            .clone();
-        let mut data: Grades = from_value(res["dataSec"]["data"].clone()).unwrap();
+    pub async fn mock_grades(p: &Period) -> Result<Grades, Error> {
+        let mut res = Value::from_str(include_str!("../resp/grades.json"))
+            .unwrap();
+        let mut data: Grades = from_value(res["dataSec"]["data"].take()).unwrap();
         data.grades.retain(|x| x.period.id == p.id);
         data.grades.sort_by_key(|x| date_int(&x.date));
 
@@ -492,7 +495,7 @@ impl Client {
         if first_week > last_week || last_week > self.parameters.last_week || first_week < 1 {
             return Err(Error::InvalidAction);
         }
-        let res = self
+        let mut res = self
             .post(
                 "PageCahierDeTexte",
                 88,
@@ -505,9 +508,9 @@ impl Client {
                 }),
             )
             .await?;
-        let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut data: Resources = from_value(res["dataSec"]["data"].take()).unwrap();
         let textbook_icons: Vec<String> =
-            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // TODO: could panic?
+            from_value(res["dataNonSec"]["fichiers"].take()).unwrap(); // TODO: could panic?
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             data.digital_textbooks[i].icon = icon;
         }
@@ -526,12 +529,11 @@ impl Client {
     }
 
     pub async fn mock_documents() -> Result<Resources, Error> {
-        let res = Value::from_str(include_str!("../resp/cont_ress.json"))
-            .unwrap()
-            .clone();
-        let mut data: Resources = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/cont_ress.json"))
+            .unwrap();
+        let mut data: Resources = from_value(res["dataSec"]["data"].take()).unwrap();
         let textbook_icons: Vec<String> =
-            from_value(res["dataNonSec"]["fichiers"].clone()).unwrap(); // TODO: could panic?
+            from_value(res["dataNonSec"]["fichiers"].take()).unwrap(); // TODO: could panic?
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             data.digital_textbooks[i].icon = icon;
         }
@@ -540,7 +542,7 @@ impl Client {
     }
 
     pub async fn agenda(&mut self) -> Result<Agenda, Error> {
-        let res = self
+        let mut res = self
             .post(
                 "PageAgenda",
                 9,
@@ -553,22 +555,21 @@ impl Client {
                 }),
             )
             .await?; // filter old events client-side
-        let data: Agenda = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let data: Agenda = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
     }
 
     pub async fn mock_agenda() -> Result<Agenda, Error> {
-        let res = Value::from_str(include_str!("../resp/agenda.json"))
-            .unwrap()
-            .clone();
-        let data: Agenda = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/agenda.json"))
+            .unwrap();
+        let data: Agenda = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
     }
 
     pub async fn news(&mut self) -> Result<News, Error> {
-        let res = self
+        let mut res = self
             .post(
                 "PageActualites",
                 8,
@@ -578,22 +579,21 @@ impl Client {
                 }),
             )
             .await?;
-        let data: News = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let data: News = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
     }
 
     pub async fn mock_news() -> Result<News, Error> {
-        let res = Value::from_str(include_str!("../resp/info_polls.json"))
-            .unwrap()
-            .clone();
-        let data: News = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/info_polls.json"))
+            .unwrap();
+        let data: News = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
     }
 
     pub async fn discussions(&mut self) -> Result<Discussions, Error> {
-        let res = self
+        let mut res = self
             .post(
                 "ListeMessagerie",
                 131,
@@ -603,7 +603,7 @@ impl Client {
                 }),
             )
             .await?;
-        let mut data: Discussions = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut data: Discussions = from_value(res["dataSec"]["data"].take()).unwrap();
         data.discussions.retain(|d| d.is_discussion && d.depth == 0);
         // maybe one day we'll parse the threads stuff
 
@@ -611,18 +611,17 @@ impl Client {
     }
 
     pub async fn mock_discussions() -> Result<Discussions, Error> {
-        let res = Value::from_str(include_str!("../resp/discussions.json"))
-            .unwrap()
-            .clone();
-        let mut data: Discussions = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/discussions.json"))
+            .unwrap();
+        let mut data: Discussions = from_value(res["dataSec"]["data"].take()).unwrap();
         data.discussions.retain(|d| d.is_discussion && d.depth == 0);
         // maybe one day we'll parse the threads stuff
 
         Ok(data)
     }
 
-    pub async fn messages(&mut self, possessions: Vec<Possession>) -> Result<Messages, Error> {
-        let res = self
+    pub async fn messages(&mut self, possessions: &[Possession]) -> Result<Messages, Error> {
+        let mut res = self
             .post(
                 "ListeMessages",
                 131,
@@ -637,23 +636,22 @@ impl Client {
         // actually, idk if nbMessagesVus is always 20
         // also, ["message"]["N"] might always be 0
         // pronotepy simply only sends listePossessionsMessages and it seems to work
-        let data: Messages = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let data: Messages = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
     }
 
     pub async fn mock_messages() -> Result<Messages, Error> {
-        let res = Value::from_str(include_str!("../resp/discussion.json"))
-            .unwrap()
-            .clone();
-        let data: Messages = from_value(res["dataSec"]["data"].clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/discussion.json"))
+            .unwrap();
+        let data: Messages = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
     }
 
     pub async fn news_item_content(&mut self, news_item_id: &str) -> Result<Vec<Question>, Error> {
         let person = &self.user_parameters.as_ref().unwrap().resource;
-        let res = self
+        let mut res = self
             .post(
                 "PageActualites",
                 8,
@@ -673,17 +671,16 @@ impl Client {
                 }),
             )
             .await?;
-        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].clone()).unwrap();
+        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].take()).unwrap();
         // + "genreRequeteActualite": 1 (like in request)
 
         Ok(data)
     }
     
     pub async fn mock_news_item_content() -> Result<Vec<Question>, Error> {
-        let res = Value::from_str(include_str!("../resp/info.json"))
-            .unwrap()
-            .clone();
-        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].clone()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/info.json"))
+            .unwrap();
+        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].take()).unwrap();
         // + "genreRequeteActualite": 1
 
         Ok(data)
@@ -707,7 +704,7 @@ impl Client {
             .map_err(|_| Error::ConnectionFailed)?;
 
         let body = response.text().await.map_err(|_| Error::ConnectionFailed)?;
-        let res = Value::from_str(&body).unwrap().clone();
+        let res = Value::from_str(&body).unwrap();
         let mut data: Vec<School> = from_value(res).unwrap();
         data.retain(|x| !x.url.contains("pronoteprimaire"));
 
@@ -716,8 +713,7 @@ impl Client {
 
     pub async fn mock_geolocation() -> Result<Vec<School>, Error> {
         let res = Value::from_str(include_str!("../resp/geolocation.json"))
-            .unwrap()
-            .clone();
+            .unwrap();
         let mut data: Vec<School> = from_value(res).unwrap();
         data.retain(|x| !x.url.contains("pronoteprimaire"));
 
@@ -758,9 +754,9 @@ impl Client {
         }
     } */
 
-    pub fn get_week(&self, date: String) -> u8 {
+    pub fn get_week(&self, date: &str) -> u8 {
         // follows pronotepy behaviour
-        ((parse_date(date).unwrap() - parse_date(self.parameters.first_day.clone()).unwrap())
+        ((parse_date(date).unwrap() - parse_date(&self.parameters.first_day).unwrap())
             .num_days()
             / 7
             + 1) as u8

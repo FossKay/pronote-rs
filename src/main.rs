@@ -206,9 +206,9 @@ async fn main() -> Result<(), Error> {
                 }
                 .clone();
                 let result = if c.is_none() {
-                    Client::mock_grades(period).await?
+                    Client::mock_grades(&period).await?
                 } else {
-                    c.as_mut().unwrap().grades(period).await?
+                    c.as_mut().unwrap().grades(&period).await?
                 };
 
                 println!("{result:#?}");
