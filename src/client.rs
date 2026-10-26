@@ -671,7 +671,7 @@ impl Client {
                 }),
             )
             .await?;
-        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].take()).unwrap();
+        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"]["V"].take()).unwrap();
         // + "genreRequeteActualite": 1 (like in request)
 
         Ok(data)
@@ -680,7 +680,7 @@ impl Client {
     pub async fn mock_news_item_content() -> Result<Vec<Question>, Error> {
         let mut res = Value::from_str(include_str!("../resp/info.json"))
             .unwrap();
-        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"].take()).unwrap();
+        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"]["V"].take()).unwrap();
         // + "genreRequeteActualite": 1
 
         Ok(data)

@@ -190,9 +190,10 @@ pub fn parse_datetime(date: &str) -> Result<NaiveDateTime, crate::Error> {
 }
 
 fn extract_tabs(v: &Value, res: &mut Vec<u64>) {
+    println!("{v}");
     res.push(v["G"].as_u64().unwrap());
-    if let Some(more_tabs) = v["Onglet"].as_array() {
-        for tab in more_tabs {
+    if let Some(more_tabs) = v.get("Onglet") {
+        for tab in more_tabs.as_array().unwrap() {
             extract_tabs(tab, res);
         }
     }
@@ -338,7 +339,9 @@ deser2!(Vec<EndTime>, end_times, |value: Value| {
 });
 deser2!(Vec<u64>, tabs, |value: Value| {
     let mut tabs = Vec::new();
-    extract_tabs(&value, &mut tabs);
+    for i in value.as_array().unwrap() {
+        extract_tabs(i, &mut tabs);
+    }
     Ok(tabs)
 });
 deser2!(Periods, periods, |value: Value| {

@@ -963,7 +963,7 @@ pub struct Button {
     #[serde(rename = "L")]
     pub id: String,
     #[serde(rename = "G")]
-    pub group: String,
+    pub group: u32,
 }
 
 #[derive(Debug, Clone, Deserialize)]
