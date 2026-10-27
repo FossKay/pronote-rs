@@ -285,6 +285,8 @@ pub struct Params {
     pub collectivity: Collectivity,
     #[serde(rename = "listeJoursFeries", deserialize_with = "de_holidays")]
     pub holidays: Vec<Holiday>,
+    #[serde(rename = "NomEtablissement")]
+    pub school_name: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]
