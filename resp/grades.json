@@ -1743,7 +1743,7 @@
             "N": "33#FATt9YtEEG-6vw5a2zxhzK9xfyHG7h45Q1fws3QFlsE",
             "G": 59,
             "note": { "_T": 10, "V": "15" },
-            "bareme": { "_T": 10, "V": "20" },
+            "bareme": { "_T": 10, "V": "16" },
             "baremeParDefaut": { "_T": 10, "V": "20" },
             "date": { "_T": 7, "V": "20/01/2027" },
             "service": {
@@ -1776,8 +1776,8 @@
           {
             "N": "33#ERVo3_G1paI0uSSh_G_UYamuu0ZMiszTwdCB5SG_bW0",
             "G": 59,
-            "note": { "_T": 10, "V": "17" },
-            "bareme": { "_T": 10, "V": "20" },
+            "note": { "_T": 10, "V": "7" },
+            "bareme": { "_T": 10, "V": "10" },
             "baremeParDefaut": { "_T": 10, "V": "20" },
             "date": { "_T": 7, "V": "20/01/2027" },
             "service": {
@@ -1811,7 +1811,7 @@
             "N": "33#J1AirgfArHtmIpn_rjU_1UdE6kw_6g4chulUa47-YTo",
             "G": 59,
             "note": { "_T": 10, "V": "12" },
-            "bareme": { "_T": 10, "V": "20" },
+            "bareme": { "_T": 10, "V": "15" },
             "baremeParDefaut": { "_T": 10, "V": "20" },
             "date": { "_T": 7, "V": "20/01/2027" },
             "service": {
