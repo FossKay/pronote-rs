@@ -97,8 +97,8 @@ async fn main() -> Result<(), Error> {
             }
             "ls" => {
                 let periods = match &c {
-                    Some(client) => client.user_parameters.clone().unwrap().resource.periods,
-                    None => Client::mock_user_params().await?.resource.periods,
+                    Some(client) => client.user_parameters.clone().unwrap().student.periods,
+                    None => Client::mock_user_params().await?.student.periods,
                 };
                 println!("{periods:#?}");
             }
@@ -188,8 +188,8 @@ async fn main() -> Result<(), Error> {
             }
             "grades" if args.len() == 2 => {
                 let periods = match &c {
-                    Some(client) => client.user_parameters.clone().unwrap().resource.periods,
-                    None => Client::mock_user_params().await?.resource.periods,
+                    Some(client) => client.user_parameters.clone().unwrap().student.periods,
+                    None => Client::mock_user_params().await?.student.periods,
                 };
 
                 let period = match periods

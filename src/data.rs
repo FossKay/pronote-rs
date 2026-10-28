@@ -18,7 +18,7 @@ pub struct QrCode {
     pub url: String,
 }
 
-#[derive(Debug, Clone, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, Serialize, Deserialize)]
 pub struct Period {
     #[serde(rename = "L")]
     pub name: String,
@@ -56,7 +56,7 @@ pub struct Class {
     pub id: String,
 }
 
-#[derive(Default, Debug, Clone, Serialize, Deserialize)]
+#[derive(Default, Debug, Clone, Deserialize)]
 pub struct Person {
     #[serde(rename = "L")]
     pub name: String,
@@ -64,11 +64,34 @@ pub struct Person {
     pub id: String,
     #[serde(rename = "G")]
     pub group: u32,
+    
+    // discussion author
     #[serde(rename = "avecDiscussion", default)]
     pub with_discussion: bool,
-    // teacher (Enseignant) = 3
-    // student (Eleve) = 4
-    // director/school administration (Personnel) = 34
+
+    // student in user params
+    #[serde(rename = "classeDEleve", default)]
+    pub class: Class,
+    #[serde(rename = "listeOngletsPourPeriodes", deserialize_with = "de_periods", default)]
+    pub periods: Periods,
+    #[serde(rename = "listeGroupes", deserialize_with = "de_groups", default)]
+    pub groups: Vec<Class>,
+ 
+    // teacher in teacher list
+    #[serde(rename = "estProfesseurPrincipal", default)]
+    pub is_primary_teacher: bool,
+    #[serde(rename = "matieres", deserialize_with = "de_subjects", default)]
+    pub subjects: Vec<Subject>,
+}
+
+impl Person {
+    pub fn serialize(&self) -> Value {
+        json!({
+            "G": self.group,
+            "L": self.name,
+            "N": self.id,
+        })
+    }
 }
 
 #[derive(Debug, Clone, Deserialize)]
@@ -120,10 +143,12 @@ pub struct Subject {
     pub name: String,
     #[serde(rename = "N")]
     pub id: String,
+
+    // in grade subjects list
     #[serde(rename = "couleur", default)]
-    pub color: String, // empty in most cases
+    pub color: String,
     #[serde(rename = "ordre", default)]
-    pub order: u32, // empty in most cases
+    pub order: u32,
     #[serde(rename = "moyEleve", deserialize_with = "de_grade", default)]
     pub average: GradeValue,
     #[serde(rename = "moyClasse", deserialize_with = "de_grade", default)]
@@ -140,6 +165,10 @@ pub struct Subject {
         default
     )]
     pub default_average_scale: u32,
+
+    // in teachers list
+    #[serde(rename = "volumeHoraire", default)]
+    pub time_per_week: String, // eg. 1h00
 }
 
 #[derive(Default, Debug, Clone, Deserialize)]
@@ -310,7 +339,7 @@ pub struct Holiday {
 #[derive(Debug, Clone, Deserialize)]
 pub struct UserParams {
     #[serde(rename = "ressource")]
-    pub resource: Resource,
+    pub student: Person,
     #[serde(rename = "listeOnglets", deserialize_with = "de_tabs")]
     pub allowed_tabs: Vec<u64>,
     #[serde(rename = "autorisations")]
@@ -337,31 +366,6 @@ pub struct Notifications {
     pub refresh_message: bool, // polling ig
 }
 
-#[derive(Debug, Clone, Deserialize)]
-pub struct Resource {
-    #[serde(rename = "G")]
-    pub group: u32, // 4 for student, refer to Person struct
-    #[serde(rename = "L")]
-    pub name: String,
-    #[serde(rename = "N")]
-    pub id: String,
-    #[serde(rename = "classeDEleve")]
-    pub class: Class,
-    #[serde(rename = "listeOngletsPourPeriodes", deserialize_with = "de_periods")]
-    pub periods: Periods,
-    #[serde(rename = "listeGroupes", deserialize_with = "de_groups")]
-    pub groups: Vec<Class>,
-}
-
-impl Resource {
-    pub fn serialize(&self) -> Value {
-        json!({
-            "G": self.group,
-            "L": self.name,
-            "N": self.id,
-        })
-    }
-}
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Permissions {
@@ -445,7 +449,7 @@ pub struct ChatsDisconnection {
     pub end_time: u8,
 }
 
-#[derive(Debug, Clone)]
+#[derive(Default, Debug, Clone)]
 pub struct Periods {
     pub periods: Vec<Period>,
     pub default: Period,
@@ -851,7 +855,7 @@ impl NewsItem {
     pub fn serialize(&self) -> Value {
         json!({
             "N": self.id,
-            "public": self.student,
+            "public": self.student.clone().serialize(),
             "genrePublic": self.receiver_group,
             "listeCategories": [],
         })

@@ -310,7 +310,7 @@ impl Client {
     }
 
     pub async fn timetable(&mut self, week: u8) -> Result<Vec<Vec<Lesson>>, Error> {
-        let resource = self.user_parameters.as_ref().unwrap().resource.serialize();
+        let resource = self.user_parameters.as_ref().unwrap().student.serialize();
         let res: Vec<Lesson> = from_value(
             self.post(
                 "PageEmploiDuTemps",
@@ -650,7 +650,7 @@ impl Client {
     }
 
     pub async fn news_item_content(&mut self, news_item_id: &str) -> Result<Vec<Question>, Error> {
-        let person = &self.user_parameters.as_ref().unwrap().resource;
+        let person = &self.user_parameters.as_ref().unwrap().student;
         let mut res = self
             .post(
                 "PageActualites",
@@ -682,6 +682,28 @@ impl Client {
             .unwrap();
         let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"]["V"].take()).unwrap();
         // + "genreRequeteActualite": 1
+
+        Ok(data)
+    }
+
+    pub async fn staff(&mut self) -> Result<Vec<Person>, Error> {
+        let mut res = self
+            .post(
+                "PageEquipePedagogique",
+                37,
+                json!({}),
+            )
+            .await?;
+        let data: Vec<Person> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
+
+        Ok(data)
+    }
+
+    pub async fn mock_staff() -> Result<Vec<Person>, Error> {
+        let mut res = Value::from_str(include_str!("../resp/staff.json"))
+            .unwrap()
+            .clone();
+        let data: Vec<Person> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
 
         Ok(data)
     }
