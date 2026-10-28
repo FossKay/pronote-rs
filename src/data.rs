@@ -42,9 +42,9 @@ pub struct FullPeriod {
     pub name: String,
     #[serde(rename = "N")]
     pub id: String,
-    #[serde(rename = "dateDebut", deserialize_with = "de_string")]
+    #[serde(rename = "dateDebut", deserialize_with = "unwrap_v")]
     pub first_day: String,
-    #[serde(rename = "dateFin", deserialize_with = "de_string")]
+    #[serde(rename = "dateFin", deserialize_with = "unwrap_v")]
     pub last_day: String,
 }
 
@@ -56,38 +56,50 @@ pub struct Class {
     pub id: String,
 }
 
-#[derive(Default, Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Person {
     #[serde(rename = "L")]
     pub name: String,
     #[serde(rename = "N")]
     pub id: String,
     #[serde(rename = "G")]
-    pub group: u32,
-    
-    // discussion author
-    #[serde(rename = "avecDiscussion", default)]
-    pub with_discussion: bool,
+    pub group: Option<u32>,
+}
 
-    // student in user params
-    #[serde(rename = "classeDEleve", default)]
-    pub class: Class,
-    #[serde(rename = "listeOngletsPourPeriodes", deserialize_with = "de_periods", default)]
-    pub periods: Periods,
-    #[serde(rename = "listeGroupes", deserialize_with = "de_groups", default)]
-    pub groups: Vec<Class>,
- 
-    // teacher in teacher list
+#[derive(Debug, Clone, Deserialize)]
+pub struct StaffTeacher {
+    #[serde(flatten)]
+    pub person: Person,
     #[serde(rename = "estProfesseurPrincipal", default)]
     pub is_primary_teacher: bool,
-    #[serde(rename = "matieres", deserialize_with = "de_subjects", default)]
-    pub subjects: Vec<Subject>,
+    #[serde(rename = "matieres", deserialize_with = "unwrap_v")]
+    pub subjects: Vec<StaffSubject>,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct NewsAuthor {
+    #[serde(flatten)]
+    pub person: Person,
+    #[serde(rename = "avecDiscussion", default)]
+    pub with_discussion: bool,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct Student {
+    #[serde(flatten)]
+    pub person: Person,    
+    #[serde(rename = "classeDEleve")]
+    pub class: Class,
+    #[serde(rename = "listeOngletsPourPeriodes", deserialize_with = "de_periods")]
+    pub periods: Periods,
+    #[serde(rename = "listeGroupes", deserialize_with = "unwrap_v")]
+    pub groups: Vec<Class>,
 }
 
 impl Person {
     pub fn serialize(&self) -> Value {
         json!({
-            "G": self.group,
+            "G": self.group.unwrap(),
             "L": self.name,
             "N": self.id,
         })
@@ -149,6 +161,40 @@ pub struct Subject {
     pub color: String,
     #[serde(rename = "ordre", default)]
     pub order: u32,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct StaffSubject {
+    #[serde(flatten)]
+    pub subject: Subject,
+    #[serde(rename = "volumeHoraire")]
+    pub color: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct GradeSubject {
+    #[serde(flatten)]
+    pub subject: Subject,
+    #[serde(rename = "couleur")]
+    pub color: String,
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct GradesSubject {
+    #[serde(flatten)]
+    pub subject: Subject,
+    #[serde(rename = "couleur")]
+    pub color: String,
+    #[serde(rename = "ordre")]
+    pub order: u32,
+    #[serde(flatten)]
+    pub details: GradesSubjectDetails,
+    // theoritically, we would need a custom deserializer so that the
+    // type is Option<...> and the fields in the struct aren't default
+}
+
+#[derive(Debug, Clone, Deserialize)]
+pub struct GradesSubjectDetails {
     #[serde(rename = "moyEleve", deserialize_with = "de_grade", default)]
     pub average: GradeValue,
     #[serde(rename = "moyClasse", deserialize_with = "de_grade", default)]
@@ -165,19 +211,15 @@ pub struct Subject {
         default
     )]
     pub default_average_scale: u32,
-
-    // in teachers list
-    #[serde(rename = "volumeHoraire", default)]
-    pub time_per_week: String, // eg. 1h00
 }
 
-#[derive(Default, Debug, Clone, Deserialize)]
+#[derive(Debug, Clone, Deserialize)]
 pub struct Homework {
     #[serde(rename = "N")]
     pub id: String,
     #[serde(rename = "ordre", default)]
     pub order: u32,
-    #[serde(rename = "descriptif", deserialize_with = "de_string")]
+    #[serde(rename = "descriptif", deserialize_with = "unwrap_v")]
     pub description: String,
     #[serde(rename = "TAFFait")]
     pub done: bool,
@@ -185,11 +227,11 @@ pub struct Homework {
     pub difficulty: u32,
     #[serde(rename = "duree")]
     pub duration: f32, // minutes
-    #[serde(rename = "DonneLe", alias = "donneLe", deserialize_with = "de_date")]
+    #[serde(rename = "DonneLe", alias = "donneLe", deserialize_with = "unwrap_v")]
     pub creation_date: String, //NaiveDate,
-    #[serde(rename = "PourLe", alias = "pourLe", deserialize_with = "de_date")]
+    #[serde(rename = "PourLe", alias = "pourLe", deserialize_with = "unwrap_v")]
     pub due_date: String, //NaiveDate,
-    #[serde(rename = "Matiere", alias = "matiere", deserialize_with = "de_subject")]
+    #[serde(rename = "Matiere", alias = "matiere", deserialize_with = "unwrap_v")]
     pub subject: Subject,
     #[serde(rename = "CouleurFond")]
     pub color: String, // #XXXXXX format
@@ -200,7 +242,7 @@ pub struct Homework {
     #[serde(
         rename = "ListePieceJointe",
         alias = "listeDocumentJoint",
-        deserialize_with = "de_attachments"
+        deserialize_with = "unwrap_v"
     )]
     pub attachments: Vec<Attachment>,
     // TODO: peuRendre
@@ -230,7 +272,7 @@ pub struct LessonDetailsLink {
     pub is_ds: bool,
     #[serde(rename = "estEval", default)]
     pub is_eva: bool,
-    #[serde(rename = "originesCategorie", deserialize_with = "de_categories")]
+    #[serde(rename = "originesCategorie", deserialize_with = "unwrap_v")]
     pub categories: Vec<Category>,
 }
 
@@ -258,7 +300,7 @@ pub struct Lesson {
     pub index: u32,
     #[serde(rename = "duree")]
     pub duration: u32,
-    #[serde(rename = "DateDuCours", deserialize_with = "de_datetime")]
+    #[serde(rename = "DateDuCours", deserialize_with = "unwrap_v")]
     pub start: String,
     #[serde(rename = "DateDuCoursFin", default)]
     pub end: String,
@@ -270,7 +312,7 @@ pub struct Lesson {
     pub note: String,
     #[serde(
         rename = "cahierDeTextes",
-        deserialize_with = "de_lesson_details_link",
+        deserialize_with = "unwrap_v",
         default
     )]
     pub lesson_details_link: Option<LessonDetailsLink>,
@@ -288,9 +330,9 @@ pub struct Collectivity {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Params {
-    #[serde(rename = "PremierLundi", deserialize_with = "de_date")]
+    #[serde(rename = "PremierLundi", deserialize_with = "unwrap_v")]
     pub first_day: String,
-    #[serde(rename = "DerniereDate", deserialize_with = "de_date")]
+    #[serde(rename = "DerniereDate", deserialize_with = "unwrap_v")]
     pub last_day: String,
     #[serde(rename = "premierJourSemaine")]
     pub first_week_day: u8, // 1 - sunday, 2 - monday, ..., 7 - saturday (???)
@@ -312,7 +354,7 @@ pub struct Params {
     pub end_times: Vec<EndTime>,
     #[serde(rename = "Collectivite")]
     pub collectivity: Collectivity,
-    #[serde(rename = "listeJoursFeries", deserialize_with = "de_holidays")]
+    #[serde(rename = "listeJoursFeries", deserialize_with = "unwrap_v")]
     pub holidays: Vec<Holiday>,
     #[serde(rename = "NomEtablissement")]
     pub school_name: String,
@@ -330,16 +372,16 @@ pub struct Holiday {
     pub name: String,
     #[serde(rename = "N")]
     pub id: String,
-    #[serde(rename = "dateDebut", deserialize_with = "de_date")]
+    #[serde(rename = "dateDebut", deserialize_with = "unwrap_v")]
     pub start: String,
-    #[serde(rename = "dateFin", deserialize_with = "de_date")]
+    #[serde(rename = "dateFin", deserialize_with = "unwrap_v")]
     pub end: String,
 }
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct UserParams {
     #[serde(rename = "ressource")]
-    pub student: Person,
+    pub student: Student,
     #[serde(rename = "listeOnglets", deserialize_with = "de_tabs")]
     pub allowed_tabs: Vec<u64>,
     #[serde(rename = "autorisations")]
@@ -461,9 +503,9 @@ pub struct Home {
     pub is_disconnection: bool,
     #[serde(rename = "infosDroitDeconnexion")]
     pub disconnection: DisconnectionInfos,
-    #[serde(rename = "dateSelectionnee", deserialize_with = "de_date")]
+    #[serde(rename = "dateSelectionnee", deserialize_with = "unwrap_v")]
     pub date: String,
-    #[serde(rename = "prochaineDate", deserialize_with = "de_date_some", default)]
+    #[serde(rename = "prochaineDate", deserialize_with = "unwrap_v", default)]
     pub next_date: Option<String>,
     #[serde(rename = "premierePlaceHebdoDuJour")]
     pub first_index: u32,
@@ -491,17 +533,17 @@ pub struct Home {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct HomeAttachments {
-    #[serde(rename = "listeRessources", deserialize_with = "de_home_attachments")]
+    #[serde(rename = "listeRessources", deserialize_with = "unwrap_v")]
     pub attachments: Vec<HomeAttachment>,
-    #[serde(rename = "listeMatieres", deserialize_with = "de_subjects")]
+    #[serde(rename = "listeMatieres", deserialize_with = "unwrap_v")]
     pub subjects: Vec<Subject>,
 }
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct HomeAttachment {
-    #[serde(rename = "ressource", deserialize_with = "de_attachment")]
+    #[serde(rename = "ressource", deserialize_with = "unwrap_v")]
     pub attachment: Attachment,
-    #[serde(rename = "date", deserialize_with = "de_date")]
+    #[serde(rename = "date", deserialize_with = "unwrap_v")]
     pub date: String,
     #[serde(rename = "matiere", deserialize_with = "de_reference_id")]
     pub subject_id: String,
@@ -519,15 +561,15 @@ pub struct Exam {
     pub title: String,
     #[serde(rename = "N")]
     pub id: String,
-    #[serde(rename = "matiere", deserialize_with = "de_subject")]
+    #[serde(rename = "matiere", deserialize_with = "unwrap_v")]
     pub subject: Subject,
     #[serde(rename = "couleur")]
     pub color: String,
-    #[serde(rename = "dateDebut", deserialize_with = "de_datetime")]
+    #[serde(rename = "dateDebut", deserialize_with = "unwrap_v")]
     pub start: String,
-    #[serde(rename = "dateFin", deserialize_with = "de_datetime")]
+    #[serde(rename = "dateFin", deserialize_with = "unwrap_v")]
     pub end: String,
-    #[serde(rename = "listeSalles", deserialize_with = "de_classrooms")]
+    #[serde(rename = "listeSalles", deserialize_with = "unwrap_v")]
     pub classrooms: Vec<Classroom>,
 }
 
@@ -549,9 +591,9 @@ pub struct Grades {
     pub subject_averages: bool,
     #[serde(rename = "avecDetailDevoir")]
     pub grade_averages: bool,
-    #[serde(rename = "listeServices", deserialize_with = "de_subjects")]
-    pub subjects: Vec<Subject>,
-    #[serde(rename = "listeDevoirs", deserialize_with = "de_grades")]
+    #[serde(rename = "listeServices", deserialize_with = "unwrap_v")]
+    pub subjects: Vec<GradesSubject>,
+    #[serde(rename = "listeDevoirs", deserialize_with = "unwrap_v")]
     pub grades: Vec<Grade>,
 }
 
@@ -569,10 +611,10 @@ pub struct Grade {
     pub scale: u32,
     #[serde(rename = "baremeParDefaut", deserialize_with = "de_bareme")]
     pub default_scale: u32,
-    #[serde(rename = "date", deserialize_with = "de_date")]
+    #[serde(rename = "date", deserialize_with = "unwrap_v")]
     pub date: String,
-    #[serde(rename = "service", deserialize_with = "de_subject")]
-    pub subject: Subject,
+    #[serde(rename = "service", deserialize_with = "unwrap_v")]
+    pub subject: GradeSubject,
     #[serde(rename = "commentaire", default)]
     pub description: String,
     #[serde(rename = "coefficient", default)]
@@ -583,11 +625,11 @@ pub struct Grade {
     pub is_bonus: bool,
     #[serde(rename = "estEnGroupe", default)]
     pub is_group_work: bool,
-    #[serde(rename = "periode", deserialize_with = "de_period")]
+    #[serde(rename = "periode", deserialize_with = "unwrap_v")]
     pub period: Period,
     #[serde(
         rename = "elmCorrige",
-        deserialize_with = "de_attachment_some",
+        deserialize_with = "unwrap_v",
         default
     )]
     pub solution: Option<Attachment>, // there is also libelleCorrige
@@ -611,7 +653,7 @@ pub enum GradeValue {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Resources {
-    #[serde(rename = "ListeCahierDeTextes", deserialize_with = "de_lesson_details")]
+    #[serde(rename = "ListeCahierDeTextes", deserialize_with = "unwrap_v")]
     pub lesson_details: Vec<LessonDetails>,
     /* there is ListeRessourcesPedagogiques but idk seems unnecessary?! */
     #[serde(
@@ -629,7 +671,7 @@ pub struct DigitalTextbook {
     pub id: String,
     #[serde(rename = "editeur")]
     pub author: String,
-    #[serde(rename = "description", deserialize_with = "de_string")]
+    #[serde(rename = "description", deserialize_with = "unwrap_v")]
     pub description: String, // rename not mandatory
     #[serde(skip)]
     pub icon: String, // base64 png
@@ -643,21 +685,21 @@ pub struct LessonDetails {
     pub class: String,
     #[serde(rename = "verrouille")]
     pub locked: bool,
-    #[serde(rename = "listeGroupes", deserialize_with = "de_groups")]
+    #[serde(rename = "listeGroupes", deserialize_with = "unwrap_v")]
     pub groups: Vec<Class>,
-    #[serde(rename = "Matiere", deserialize_with = "de_subject")]
+    #[serde(rename = "Matiere", deserialize_with = "unwrap_v")]
     pub subject: Subject,
     #[serde(rename = "CouleurFond")]
     pub color: String,
-    #[serde(rename = "listeProfesseurs", deserialize_with = "de_persons")]
+    #[serde(rename = "listeProfesseurs", deserialize_with = "unwrap_v")]
     pub teachers: Vec<Person>,
-    #[serde(rename = "Date", deserialize_with = "de_datetime")]
+    #[serde(rename = "Date", deserialize_with = "unwrap_v")]
     pub start: String,
-    #[serde(rename = "DateFin", deserialize_with = "de_datetime")]
+    #[serde(rename = "DateFin", deserialize_with = "unwrap_v")]
     pub end: String,
-    #[serde(rename = "dateTAF", deserialize_with = "de_date_some", default)]
+    #[serde(rename = "dateTAF", deserialize_with = "unwrap_v", default)]
     pub homework_date: Option<String>,
-    #[serde(rename = "listeContenus", deserialize_with = "de_lesson_details_items")]
+    #[serde(rename = "listeContenus", deserialize_with = "unwrap_v")]
     pub items: Vec<LessonDetailsItem>, // + listeElementsProgrammeCDT
 }
 
@@ -669,11 +711,11 @@ pub struct LessonDetailsItem {
     pub name: String,
     #[serde(rename = "N")]
     pub id: String, // what the lessons refer to
-    #[serde(rename = "descriptif", deserialize_with = "de_string")]
+    #[serde(rename = "descriptif", deserialize_with = "unwrap_v")]
     pub description: String,
-    #[serde(rename = "categorie", deserialize_with = "de_category")]
+    #[serde(rename = "categorie", deserialize_with = "unwrap_v")]
     pub category: Category,
-    #[serde(rename = "ListePieceJointe", deserialize_with = "de_attachments")]
+    #[serde(rename = "ListePieceJointe", deserialize_with = "unwrap_v")]
     pub attachments: Vec<Attachment>,
 }
 
@@ -681,7 +723,7 @@ pub struct LessonDetailsItem {
 pub struct Agenda {
     #[serde(rename = "ListeEvenements")]
     pub events: Vec<Event>,
-    #[serde(rename = "listeFamilles", deserialize_with = "de_event_types")]
+    #[serde(rename = "listeFamilles", deserialize_with = "unwrap_v")]
     pub event_types: Vec<EventType>,
     // dateDebutPrevisionnel, dateFinPrevisionnel = ???
 }
@@ -692,11 +734,11 @@ pub struct Event {
     pub title: String,
     #[serde(rename = "N")]
     pub id: String,
-    #[serde(rename = "DateDebut", deserialize_with = "de_datetime")]
+    #[serde(rename = "DateDebut", deserialize_with = "unwrap_v")]
     pub start: String,
-    #[serde(rename = "DateFin", deserialize_with = "de_datetime")]
+    #[serde(rename = "DateFin", deserialize_with = "unwrap_v")]
     pub end: String,
-    #[serde(rename = "datePublication", deserialize_with = "de_date_some", default)]
+    #[serde(rename = "datePublication", deserialize_with = "unwrap_v", default)]
     pub date_published: Option<String>,
     #[serde(rename = "Commentaire")]
     pub description: String,
@@ -738,7 +780,7 @@ pub struct School {
 #[derive(Debug, Clone, Deserialize)]
 pub struct News {
     // infos + polls
-    #[serde(rename = "listeNatures", deserialize_with = "de_news_categories")]
+    #[serde(rename = "listeNatures", deserialize_with = "unwrap_v")]
     pub categories: Vec<NewsCategory>,
     #[serde(rename = "listeModesAff", deserialize_with = "de_news")]
     pub news: Vec<NewsItem>,
@@ -764,7 +806,7 @@ pub struct NewsDetails {
     pub is_replier: bool,
     #[serde(rename = "strRepondant", default)]
     pub replier_name: Option<String>,
-    #[serde(rename = "reponduLe", deserialize_with = "de_datetime_some", default)]
+    #[serde(rename = "reponduLe", deserialize_with = "unwrap_v", default)]
     pub reply_date: Option<String>,
     #[serde(rename = "avecCommandeVisuResultat")]
     pub show_results: bool, // ??? ig
@@ -819,27 +861,27 @@ pub struct NewsItem {
     pub is_information: bool,
     #[serde(rename = "estSondage")]
     pub is_poll: bool,
-    #[serde(rename = "nature", deserialize_with = "de_news_category")]
+    #[serde(rename = "nature", deserialize_with = "unwrap_v")]
     pub category: NewsCategory,
     #[serde(rename = "lue")]
     pub viewed: bool,
-    #[serde(rename = "dateDebut", deserialize_with = "de_datetime")]
+    #[serde(rename = "dateDebut", deserialize_with = "unwrap_v")]
     pub start: String,
-    #[serde(rename = "dateFin", deserialize_with = "de_datetime")]
+    #[serde(rename = "dateFin", deserialize_with = "unwrap_v")]
     pub end: String,
     #[serde(rename = "estProlonge")]
     pub is_extended: bool,
-    #[serde(rename = "dateCreation", deserialize_with = "de_datetime")]
+    #[serde(rename = "dateCreation", deserialize_with = "unwrap_v")]
     pub creation_date: String,
     #[serde(rename = "auteur")]
     pub author_name: String,
     #[serde(rename = "estAuteur")]
     pub is_author: bool, // should be false for students ig
-    #[serde(rename = "elmauteur", deserialize_with = "de_person")]
-    pub author: Person,
+    #[serde(rename = "elmauteur", deserialize_with = "unwrap_v")]
+    pub author: NewsAuthor,
     #[serde(rename = "prenom")]
     pub student_name: String,
-    #[serde(rename = "public", deserialize_with = "de_person")]
+    #[serde(rename = "public", deserialize_with = "unwrap_v")]
     pub student: Person,
     #[serde(rename = "estPublic", default)]
     pub is_public: bool,
@@ -877,7 +919,7 @@ pub struct Question {
     pub response_type: u32,
     #[serde(rename = "titre")]
     pub title: String,
-    #[serde(rename = "texte", deserialize_with = "de_string")]
+    #[serde(rename = "texte", deserialize_with = "unwrap_v")]
     pub content: String,
     #[serde(rename = "tailleReponse")]
     pub response_size: u32,
@@ -885,10 +927,10 @@ pub struct Question {
     pub is_maximum: bool, // maybe refers to response_size?
     #[serde(rename = "nombreReponsesMax")]
     pub max_responses: u32,
-    #[serde(rename = "listePiecesJointes", deserialize_with = "de_attachments")]
+    #[serde(rename = "listePiecesJointes", deserialize_with = "unwrap_v")]
     pub attachments: Vec<Attachment>,
     // listeChoix: {"_T": 24, "V": []}
-    #[serde(rename = "reponse", deserialize_with = "de_response")]
+    #[serde(rename = "reponse", deserialize_with = "unwrap_v")]
     pub response: Response,
 }
 
@@ -928,7 +970,7 @@ pub struct Discussion {
     pub message_count: u32,
     #[serde(rename = "objet", default)]
     pub title: String,
-    #[serde(rename = "listePossessionsMessages", deserialize_with = "de_possessions", default)]
+    #[serde(rename = "listePossessionsMessages", deserialize_with = "unwrap_v", default)]
     pub possessions: Vec<Possession>,
     #[serde(rename = "messagePourParticipants", deserialize_with = "de_reference_id", default)]
     pub participants_message_id: String,
@@ -936,7 +978,7 @@ pub struct Discussion {
     pub participants_count: u32,
     #[serde(rename = "initiateur", default)]
     pub author: String,
-    #[serde(rename = "dernierPossessionMessage", deserialize_with = "de_possession", default)]
+    #[serde(rename = "dernierPossessionMessage", deserialize_with = "unwrap_v", default)]
     pub last_possession: Possession,
     #[serde(rename = "messageFenetre", deserialize_with = "de_reference_id", default)]
     pub message_window_id: String,
@@ -956,9 +998,9 @@ pub struct Discussion {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Discussions {
-    #[serde(rename = "listeEtiquettes", deserialize_with = "de_discussion_labels")]
+    #[serde(rename = "listeEtiquettes", deserialize_with = "unwrap_v")]
     pub labels: Vec<DiscussionLabel>,
-    #[serde(rename = "listeMessagerie", deserialize_with = "de_discussions")]
+    #[serde(rename = "listeMessagerie", deserialize_with = "unwrap_v")]
     pub discussions: Vec<Discussion>,
     #[serde(rename = "messagerieDesactivee")]
     pub is_disconnection: bool,
@@ -974,12 +1016,12 @@ pub struct Button {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Messages {
-    #[serde(rename = "listeMessages", deserialize_with = "de_messages")]
+    #[serde(rename = "listeMessages", deserialize_with = "unwrap_v")]
     pub messages: Vec<Message>,
     #[serde(rename = "messagePourReponse", deserialize_with = "de_reference_id")]
     pub reply_message_id: String, // should also store nbDestinataires but it's
                                   // like the receivers_count of the last message?
-    #[serde(rename = "listeBoutons", deserialize_with = "de_buttons")]
+    #[serde(rename = "listeBoutons", deserialize_with = "unwrap_v")]
     pub buttons: Vec<Button>,
     #[serde(rename = "nbPossessionsMessage")]
     pub possessions_count: u32,
@@ -991,21 +1033,21 @@ pub struct Message {
     pub id: String,
     #[serde(rename = "messageSource", deserialize_with = "de_reference_id")]
     pub discussion_id: String,
-    #[serde(rename = "possessionMessage", deserialize_with = "de_possession")]
+    #[serde(rename = "possessionMessage", deserialize_with = "unwrap_v")]
     pub possession: Possession,
     #[serde(rename = "estNonPossede")]
     pub is_not_possessed: bool, // ???
-    #[serde(rename = "contenu", deserialize_with = "de_string")]
+    #[serde(rename = "contenu", deserialize_with = "unwrap_v")]
     pub content: String,
     #[serde(rename = "estHTML")]
     pub is_html: bool,
     #[serde(rename = "libelleDate")]
     pub pretty_date: String,
-    #[serde(rename = "date", deserialize_with = "de_datetime")]
+    #[serde(rename = "date", deserialize_with = "unwrap_v")]
     pub date: String,
     #[serde(rename = "estUnAparte")]
     pub is_aparte: bool, // ???
-    #[serde(rename = "listeDocumentsJoints", deserialize_with = "de_attachments", default)] // maybe no default?
+    #[serde(rename = "listeDocumentsJoints", deserialize_with = "unwrap_v", default)] // maybe no default?
     pub attachments: Vec<Attachment>,
     #[serde(rename = "emetteur")]
     pub is_sender: bool,

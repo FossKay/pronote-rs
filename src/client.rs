@@ -310,7 +310,7 @@ impl Client {
     }
 
     pub async fn timetable(&mut self, week: u8) -> Result<Vec<Vec<Lesson>>, Error> {
-        let resource = self.user_parameters.as_ref().unwrap().student.serialize();
+        let resource = self.user_parameters.as_ref().unwrap().student.person.serialize();
         let res: Vec<Lesson> = from_value(
             self.post(
                 "PageEmploiDuTemps",
@@ -650,7 +650,7 @@ impl Client {
     }
 
     pub async fn news_item_content(&mut self, news_item_id: &str) -> Result<Vec<Question>, Error> {
-        let person = &self.user_parameters.as_ref().unwrap().student;
+        let person = &self.user_parameters.as_ref().unwrap().student.person;
         let mut res = self
             .post(
                 "PageActualites",
@@ -660,11 +660,7 @@ impl Client {
                     "modeAffActu": 0,
                     "actualite": {
                         "N": news_item_id,
-                        "public": {
-                            "N": person.id,
-                            "G": person.group,
-                            "L": person.name,
-                        },
+                        "public": person.serialize(),
                         "genrePublic": person.group,
                         "listeCategories": [],
                     }
@@ -686,7 +682,7 @@ impl Client {
         Ok(data)
     }
 
-    pub async fn staff(&mut self) -> Result<Vec<Person>, Error> {
+    pub async fn staff(&mut self) -> Result<Vec<StaffTeacher>, Error> {
         let mut res = self
             .post(
                 "PageEquipePedagogique",
@@ -694,16 +690,16 @@ impl Client {
                 json!({}),
             )
             .await?;
-        let data: Vec<Person> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
+        let data: Vec<StaffTeacher> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
 
         Ok(data)
     }
 
-    pub async fn mock_staff() -> Result<Vec<Person>, Error> {
+    pub async fn mock_staff() -> Result<Vec<StaffTeacher>, Error> {
         let mut res = Value::from_str(include_str!("../resp/staff.json"))
             .unwrap()
             .clone();
-        let data: Vec<Person> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
+        let data: Vec<StaffTeacher> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
 
         Ok(data)
     }

@@ -1,6 +1,6 @@
 use crate::data::*;
 use chrono::{NaiveDate, NaiveDateTime};
-use serde::Deserialize;
+use serde::{Deserialize, Deserializer, de::DeserializeOwned};
 use serde_json::{Value, from_value};
 
 pub fn pretty_end_time(end_time: u32, l: &Lesson, p: &Params) -> String {
@@ -190,7 +190,6 @@ pub fn parse_datetime(date: &str) -> Result<NaiveDateTime, crate::Error> {
 }
 
 fn extract_tabs(v: &Value, res: &mut Vec<u64>) {
-    println!("{v}");
     res.push(v["G"].as_u64().unwrap());
     if let Some(more_tabs) = v.get("Onglet") {
         for tab in more_tabs.as_array().unwrap() {
@@ -210,62 +209,19 @@ pub fn parse_attachments(res: &Value) -> Vec<String> {
     return Vec::new();
 }
 
-// unwraps {"_T": XX, "V": ...}
-macro_rules! deser {
-    ($type:ty, $name:ident) => {
-        paste::paste! {
-            pub fn [<de_ $name>]<'de, D>(deserializer: D) -> Result<$type, D::Error>
-            where
-                D: serde::Deserializer<'de>,
-            {
-                let value = Value::deserialize(deserializer)?["V"].clone();
-                let res: $type = from_value(value).unwrap();
-                Ok(res)
-            }
-        }
-    };
+pub fn unwrap_v<'de, D, T>(deserializer: D) -> Result<T, D::Error>
+where
+    D: Deserializer<'de>,
+    T: DeserializeOwned,
+{
+    let mut value = Value::deserialize(deserializer)?;
+    println!("{value:#?}");
+    let inner = value["V"].take();
+
+    Ok(serde_json::from_value(inner).unwrap())
 }
 
-// T
-deser!(Attachment, attachment);
-deser!(Category, category);
-deser!(NewsCategory, news_category);
-deser!(Person, person);
-deser!(Period, period);
-deser!(Possession, possession);
-deser!(Response, response);
-deser!(String, date); //parse_date(...)
-deser!(String, datetime); //parse_datetime(...)
-deser!(String, string);
-deser!(Subject, subject);
-
-// Vec<T>
-deser!(Vec<Attachment>, attachments);
-deser!(Vec<Button>, buttons);
-deser!(Vec<Category>, categories);
-deser!(Vec<Class>, groups);
-deser!(Vec<Classroom>, classrooms);
-deser!(Vec<Discussion>, discussions);
-deser!(Vec<DiscussionLabel>, discussion_labels);
-deser!(Vec<EventType>, event_types);
-deser!(Vec<Grade>, grades);
-deser!(Vec<Holiday>, holidays);
-deser!(Vec<HomeAttachment>, home_attachments);
-deser!(Vec<LessonDetails>, lesson_details);
-deser!(Vec<LessonDetailsItem>, lesson_details_items);
-deser!(Vec<Message>, messages);
-deser!(Vec<NewsCategory>, news_categories);
-deser!(Vec<Person>, persons);
-deser!(Vec<Possession>, possessions);
-deser!(Vec<Subject>, subjects);
-
-// Option<T>
-deser!(Option<Attachment>, attachment_some);
-deser!(Option<LessonDetailsLink>, lesson_details_link);
-deser!(Option<String>, date_some);
-deser!(Option<String>, datetime_some);
-
-macro_rules! deser2 {
+macro_rules! deser {
     ($type:ty, $name:ident, $body:expr) => {
         paste::paste! {
             pub fn [<de_ $name>]<'de, D>(
@@ -281,52 +237,52 @@ macro_rules! deser2 {
     };
 }
 
-deser2!(HomeGrades, home_grades, |value: Value| {
+deser!(HomeGrades, home_grades, |value: Value| {
     let grades: Vec<Grade> = from_value(value["listeDevoirs"]["V"].clone()).unwrap();
     let period: Period = from_value(value["page"]["periode"]["V"].clone()).unwrap();
 
     Ok(HomeGrades { grades, period })
 });
-deser2!(Vec<DigitalTextbook>, digital_textbooks, |value: Value| {
+deser!(Vec<DigitalTextbook>, digital_textbooks, |value: Value| {
     let textbooks: Vec<DigitalTextbook> =
         from_value(value["V"]["listeRessources"]["V"].clone()).unwrap();
 
     Ok(textbooks)
 });
-deser2!(Vec<DigitalTextbook>, digital_textbooks2, |value: Value| {
+deser!(Vec<DigitalTextbook>, digital_textbooks2, |value: Value| {
     let textbooks: Vec<DigitalTextbook> =
         from_value(value["listeRessources"]["V"].clone()).unwrap();
 
     Ok(textbooks)
 });
-deser2!(Vec<Homework>, homework, |value: Value| {
+deser!(Vec<Homework>, homework, |value: Value| {
     let mut res: Vec<Homework> = from_value(value["listeTAF"]["V"].clone()).unwrap();
     res.sort_by_key(|x| x.order);
 
     Ok(res)
 });
-deser2!(Vec<Event>, home_agenda, |value: Value| {
+deser!(Vec<Event>, home_agenda, |value: Value| {
     let events: Vec<Event> = from_value(value["listeEvenements"].clone()).unwrap();
 
     Ok(events)
 });
-deser2!(Vec<Exam>, exams, |value: Value| {
+deser!(Vec<Exam>, exams, |value: Value| {
     let events: Vec<Exam> = from_value(value["listeDS"]["V"].clone()).unwrap();
 
     Ok(events)
 });
-deser2!(Vec<NewsItem>, home_news, |value: Value| {
+deser!(Vec<NewsItem>, home_news, |value: Value| {
     let events: Vec<NewsItem> =
         from_value(value["listeModesAff"][0]["listeActualites"]["V"].clone()).unwrap();
 
     Ok(events)
 });
-deser2!(Vec<NewsItem>, news, |value: Value| {
+deser!(Vec<NewsItem>, news, |value: Value| {
     let events: Vec<NewsItem> = from_value(value[0]["listeActualites"]["V"].clone()).unwrap();
 
     Ok(events)
 });
-deser2!(Vec<EndTime>, end_times, |value: Value| {
+deser!(Vec<EndTime>, end_times, |value: Value| {
     let mut res = Vec::new();
     for v in value["V"].clone().as_array().unwrap() {
         res.push(EndTime {
@@ -337,14 +293,14 @@ deser2!(Vec<EndTime>, end_times, |value: Value| {
 
     Ok(res)
 });
-deser2!(Vec<u64>, tabs, |value: Value| {
+deser!(Vec<u64>, tabs, |value: Value| {
     let mut tabs = Vec::new();
     for i in value.as_array().unwrap() {
         extract_tabs(i, &mut tabs);
     }
     Ok(tabs)
 });
-deser2!(Periods, periods, |value: Value| {
+deser!(Periods, periods, |value: Value| {
     let tabs = value["V"].as_array().unwrap();
     let entries = tabs
         .iter()
@@ -366,7 +322,7 @@ deser2!(Periods, periods, |value: Value| {
         default: default_period,
     })
 });
-deser2!(LessonContent, lesson_content, |value: Value| {
+deser!(LessonContent, lesson_content, |value: Value| {
     let values: Vec<Value> = value["V"].as_array().cloned().unwrap_or_default();
 
     let mut subject: Option<Subject> = None;
@@ -401,7 +357,7 @@ deser2!(LessonContent, lesson_content, |value: Value| {
         group,
     })
 });
-deser2!(GradeValue, grade, |value: Value| {
+deser!(GradeValue, grade, |value: Value| {
     let s = value["V"].as_str().unwrap();
 
     Ok(match s {
@@ -418,21 +374,21 @@ deser2!(GradeValue, grade, |value: Value| {
         _ => s.replace(',', ".").parse().map(GradeValue::Value).unwrap(),
     })
 });
-deser2!(u32, bareme, |value: Value| {
+deser!(u32, bareme, |value: Value| {
     Ok(value["V"].as_str().unwrap().parse().unwrap())
 });
-deser2!(f64, f64, |value: Value| {
+deser!(f64, f64, |value: Value| {
     Ok(value.as_str().unwrap().parse().unwrap())
 });
-deser2!(Option<String>, color, |value: Value| {
+deser!(Option<String>, color, |value: Value| {
     Ok(value["ligne"].as_str().map(String::from))
 });
-deser2!(String, sticky_note, |value: Value| {
+deser!(String, sticky_note, |value: Value| {
     Ok(value["libelle"]
         .as_str()
         .map(String::from)
         .unwrap_or_default())
 });
-deser2!(String, reference_id, |value: Value| {
+deser!(String, reference_id, |value: Value| {
     Ok(value["V"]["N"].as_str().unwrap().into())
 });
