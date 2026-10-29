@@ -1401,7 +1401,13 @@
               "couleurTexte": "#000000",
               "niveauDifficulte": 0,
               "duree": 0.0,
-              "listeDocumentJoint": { "_T": 24, "V": [] },
+              "listeDocumentJoint": { "_T": 24, "V": [
+                {
+                  "L": "Biographie.pdf",
+                  "N": "37#wycv5v_bsQpkV6RRp_yoEJulgKS4-jl7t_5OcgNtnTs",
+                  "G": 1
+                }
+              ] },
               "TAFFait": false
             },
             {
@@ -2786,3 +2792,4 @@
     "nom": "PageAccueil"
   }
 }
+

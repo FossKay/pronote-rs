@@ -303,7 +303,12 @@ impl Client {
             )
             .unwrap();
         for h in &mut res {
-            h.order = date_int(&h.due_date)
+            h.order = date_int(&h.due_date);
+            for a in &mut h.attachments {
+                if a.link.is_empty() {
+                    a.link = "https://example.com/".to_owned()
+                }
+            }
         }
         res.sort_by_key(|x| x.order);
         Ok(res)
@@ -460,6 +465,20 @@ impl Client {
         home.lessons = today;
         home.next_lessons = next;
 
+        for h in &mut home.homework {
+            for a in &mut h.attachments {
+                if a.link.is_empty() {
+                    a.link = "https://example.com/".to_owned()
+                }
+            }
+        }
+
+        for i in &mut home.attachments.attachments {
+            if i.attachment.link.is_empty() {
+                i.attachment.link = "https://example.com/".to_owned()
+            }
+        }
+
         Ok(home)
     }
 
@@ -495,6 +514,14 @@ impl Client {
         let mut data: Grades = from_value(res["dataSec"]["data"].take()).unwrap();
         data.grades.retain(|x| x.period.id == p.id);
         data.grades.sort_by_key(|x| date_int(&x.date));
+
+        for g in &mut data.grades {
+            if let Some(s) = &mut g.solution {
+                if s.link.is_empty() {
+                    s.link = "https://example.com/".to_owned()
+                }
+            }
+        }
 
         Ok(data)
     }
@@ -544,6 +571,16 @@ impl Client {
             from_value(res["dataNonSec"]["fichiers"].take()).unwrap(); // TODO: could panic?
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             data.digital_textbooks[i].icon = icon;
+        }
+
+        for d in &mut data.lesson_details {
+            for i in &mut d.items {
+                for a in &mut i.attachments {
+                    if a.link.is_empty() {
+                        a.link = "https://example.com/".to_owned()
+                    }
+                }
+            }
         }
 
         Ok(data)
@@ -820,3 +857,5 @@ fn parse_key(data: &[u8]) -> Result<Vec<u8>, Error> {
         })
         .collect()
 }
+
+

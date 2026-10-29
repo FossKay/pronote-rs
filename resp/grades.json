@@ -1204,7 +1204,17 @@
             "coefficient": 1.0,
             "estFacultatif": false,
             "estBonus": false,
-            "estRamenerSur20": false
+            "estRamenerSur20": false,
+            "libelleCorrige": "Corrig\u00E9.pdf",
+            "elmCorrige": {
+              "_T": 24,
+              "V": {
+                "L": "Corrig\u00E9.pdf",
+                "N": "33#3zr-hfyEzSDcGExmrvJxLTdt89PCLF0NQ0utIf_4NTU",
+                "G": 59,
+                "genreDocument": 1
+              }
+            }
           },
           {
             "N": "33#lcVnm7QHh8DCF4ruAvZJIhSjVJXWkqWJarTtFiSW8lc",
@@ -1881,3 +1891,4 @@
     "nom": "DernieresNotes"
   }
 }
+
