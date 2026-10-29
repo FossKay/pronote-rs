@@ -136,7 +136,7 @@ impl Client {
         let nonce = data
             .get("alea")
             .and_then(Value::as_str)
-            .unwrap_or("".into());
+            .unwrap_or("");
         let challenge = data["challenge"].as_str().unwrap();
         let mut auth_username = self.username.clone();
         let mut auth_password = self.password.clone();
@@ -151,7 +151,7 @@ impl Client {
 
         let auth_key = Encryption::authentication_key(&auth_username, &auth_password, nonce);
         let mut crypto = self.communication.encryption.clone(); // temporary change key
-        crypto.key = auth_key;
+        crypto.set_key(&auth_key);
         let challenge = crypto.encrypt(challenge.as_bytes());
 
         let authentication = self
@@ -179,7 +179,7 @@ impl Client {
                 .to_owned();
         }
 
-        self.finish_authentication(authentication, auth_key)?;
+        self.finish_authentication(authentication, &auth_key)?;
         let mut res = self
             .communication
             .post("ParametresUtilisateur", json!({}))
@@ -222,11 +222,11 @@ impl Client {
             .await
     }
 
-    fn finish_authentication(&mut self, mut response: Value, auth_key: [u8; 16]) -> Result<(), Error> {
+    fn finish_authentication(&mut self, mut response: Value, auth_key: &[u8]) -> Result<(), Error> {
         let data = response["dataSec"]["data"].take();
         let key = data["cle"].as_str().unwrap();
         let mut crypto = self.communication.encryption.clone();
-        crypto.key = auth_key;
+        crypto.set_key(auth_key);
         // "5B3235..." (hex) -> "[255, 0, 1, 2]" (string) -> 0xDEADBEEF (bytes)
         let key = hex::decode(key).map_err(|_| Error::InvalidResponse)?;
         let key = crypto.decrypt(&key)?;
@@ -286,7 +286,7 @@ impl Client {
             h.order = date_int(&h.due_date);
             for a in &mut h.attachments {
                 if a.link.is_empty() {
-                    a.link = self.get_attachment(a);
+                    a.link = self.get_attachment(a, false);
                 }
             }
         }
@@ -424,14 +424,14 @@ impl Client {
         for h in &mut home.homework {
             for a in &mut h.attachments {
                 if a.link.is_empty() {
-                    a.link = self.get_attachment(a);
+                    a.link = self.get_attachment(a, false);
                 }
             }
         }
 
         for i in &mut home.attachments.attachments {
             if i.attachment.link.is_empty() {
-                i.attachment.link = self.get_attachment(&mut i.attachment);
+                i.attachment.link = self.get_attachment(&mut i.attachment, false);
             }
         }
 
@@ -500,7 +500,7 @@ impl Client {
         for g in &mut data.grades {
             if let Some(s) = &mut g.solution {
                 if s.link.is_empty() {
-                    s.link = self.get_attachment(&s);
+                    s.link = self.get_attachment(&s, true);
                 }
             }
         }
@@ -554,7 +554,7 @@ impl Client {
             for i in &mut d.items {
                 for a in &mut i.attachments {
                     if a.link.is_empty() {
-                        a.link = self.get_attachment(a);
+                        a.link = self.get_attachment(a, false);
                     }
                 }
             }
@@ -800,11 +800,12 @@ impl Client {
         .map(|_| ())
     }
 
-    pub fn get_attachment(&self, a: &Attachment) -> String {
+    pub fn get_attachment(&self, a: &Attachment, is_solution: bool) -> String {
         a.get_link(
             &self.communication.encryption,
             self.communication.session_id,
             &self.communication.root_url,
+            is_solution,
         )
     }
 
@@ -846,7 +847,7 @@ fn date_int(data: &str) -> u32 {
     .unwrap()
 }
 
-fn parse_key(data: &[u8]) -> Result<Vec<u8>, Error> {
+pub fn parse_key(data: &[u8]) -> Result<Vec<u8>, Error> {
     let text = std::str::from_utf8(data).map_err(|_| Error::InvalidResponse)?;
     text.split(',')
         .map(|value| {

@@ -10,8 +10,8 @@ use crate::Error;
 
 #[derive(Debug, Clone)]
 pub struct Encryption {
-    pub key: [u8; 16],
-    pub iv: [u8; 16],
+    key: [u8; 16],
+    iv: [u8; 16],
 }
 
 impl Encryption {
@@ -55,7 +55,7 @@ impl Encryption {
         self.key = md5(key); // every new key is md5'd
     }
 
-    pub fn authentication_key(username: &str, password: &str, nonce: &str) -> [u8; 16] {
+    pub fn authentication_key(username: &str, password: &str, nonce: &str) -> Vec<u8> {
         // md5(username + upper(hex(sha256(nonce + password))))
         let mut sha = Sha256::new();
         sha.update(nonce.as_bytes());
@@ -63,7 +63,7 @@ impl Encryption {
 
         let hash = hex::encode_upper(sha.finalize());
 
-        md5(format!("{username}{hash}").as_bytes())
+        format!("{username}{hash}").as_bytes().to_owned()
     }
 
     /* no longer used, behaviour changed in september 2026

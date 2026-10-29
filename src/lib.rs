@@ -4,8 +4,9 @@ mod data;
 mod encryption;
 mod helpers;
 
-pub use client::Client;
+pub use client::{parse_key, Client};
 pub use data::*;
+pub use encryption::Encryption;
 
 #[derive(Debug)]
 pub enum Error {

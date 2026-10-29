@@ -87,7 +87,7 @@ pub struct NewsAuthor {
 #[derive(Debug, Clone, Deserialize)]
 pub struct Student {
     #[serde(flatten)]
-    pub person: Person,    
+    pub person: Person,
     #[serde(rename = "classeDEleve")]
     pub class: Class,
     #[serde(rename = "listeOngletsPourPeriodes", deserialize_with = "de_periods")]
@@ -119,18 +119,20 @@ pub struct Attachment {
 }
 
 impl Attachment {
-    // TODO: struggles with non-ASCII chars?
     pub fn get_link(
         &self,
         encryption: &crate::encryption::Encryption,
         session: u64,
-        root_url: &str, // no slash at end plz
+        root_url: &str,
+        is_solution: bool,
     ) -> String {
         // {{ escapes the "{" character (in format!)
-        let json = format!(
-            r#"{{"N":{},"Actif":true}}"#,
-            serde_json::to_string(&self.id).unwrap()
-        );
+        let json = if !is_solution {
+            format!(r#"{{"N":"{}","Actif":true}}"#, self.id)
+        } else {
+            // decrypted the payload of a solution url
+            format!(r#"{{"N":"{}","G":"DevoirCorrige","Actif":true}}"#, self.id)
+        };
         let bytes = json.as_bytes();
         let ciphertext = encryption.encrypt(bytes);
         let hex: String = hex::encode(ciphertext);
@@ -305,11 +307,7 @@ pub struct Lesson {
     pub content: LessonContent,
     #[serde(rename = "memo", default)]
     pub note: String,
-    #[serde(
-        rename = "cahierDeTextes",
-        deserialize_with = "unwrap_v",
-        default
-    )]
+    #[serde(rename = "cahierDeTextes", deserialize_with = "unwrap_v", default)]
     pub lesson_details_link: Option<LessonDetailsLink>,
 }
 
@@ -402,7 +400,6 @@ pub struct Notifications {
     pub media_library_blog: u32,
     pub refresh_message: bool, // polling ig
 }
-
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Permissions {
@@ -622,11 +619,7 @@ pub struct Grade {
     pub is_group_work: bool,
     #[serde(rename = "periode", deserialize_with = "unwrap_v")]
     pub period: Period,
-    #[serde(
-        rename = "elmCorrige",
-        deserialize_with = "unwrap_v",
-        default
-    )]
+    #[serde(rename = "elmCorrige", deserialize_with = "unwrap_v", default)]
     pub solution: Option<Attachment>, // there is also libelleCorrige
 }
 
@@ -965,17 +958,33 @@ pub struct Discussion {
     pub message_count: u32,
     #[serde(rename = "objet", default)]
     pub title: String,
-    #[serde(rename = "listePossessionsMessages", deserialize_with = "unwrap_v", default)]
+    #[serde(
+        rename = "listePossessionsMessages",
+        deserialize_with = "unwrap_v",
+        default
+    )]
     pub possessions: Vec<Possession>,
-    #[serde(rename = "messagePourParticipants", deserialize_with = "de_reference_id", default)]
+    #[serde(
+        rename = "messagePourParticipants",
+        deserialize_with = "de_reference_id",
+        default
+    )]
     pub participants_message_id: String,
     #[serde(rename = "nbPublic", default)]
     pub participants_count: u32,
     #[serde(rename = "initiateur", default)]
     pub author: String,
-    #[serde(rename = "dernierPossessionMessage", deserialize_with = "unwrap_v", default)]
+    #[serde(
+        rename = "dernierPossessionMessage",
+        deserialize_with = "unwrap_v",
+        default
+    )]
     pub last_possession: Possession,
-    #[serde(rename = "messageFenetre", deserialize_with = "de_reference_id", default)]
+    #[serde(
+        rename = "messageFenetre",
+        deserialize_with = "de_reference_id",
+        default
+    )]
     pub message_window_id: String,
     #[serde(rename = "lu", default)]
     pub viewed: bool,
@@ -1015,7 +1024,7 @@ pub struct Messages {
     pub messages: Vec<Message>,
     #[serde(rename = "messagePourReponse", deserialize_with = "de_reference_id")]
     pub reply_message_id: String, // should also store nbDestinataires but it's
-                                  // like the receivers_count of the last message?
+    // like the receivers_count of the last message?
     #[serde(rename = "listeBoutons", deserialize_with = "unwrap_v")]
     pub buttons: Vec<Button>,
     #[serde(rename = "nbPossessionsMessage")]
@@ -1042,7 +1051,11 @@ pub struct Message {
     pub date: String,
     #[serde(rename = "estUnAparte")]
     pub is_aparte: bool, // ???
-    #[serde(rename = "listeDocumentsJoints", deserialize_with = "unwrap_v", default)] // maybe no default?
+    #[serde(
+        rename = "listeDocumentsJoints",
+        deserialize_with = "unwrap_v",
+        default
+    )] // maybe no default?
     pub attachments: Vec<Attachment>,
     #[serde(rename = "emetteur")]
     pub is_sender: bool,
@@ -1053,5 +1066,3 @@ pub struct Message {
     #[serde(rename = "nbPublic")]
     pub receivers_count: u32,
 }
-
-

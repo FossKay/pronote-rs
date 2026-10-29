@@ -1,12 +1,14 @@
 use std::io::Write;
 
+use base64::prelude::*;
+
 use pronote_rs::*;
 
 #[tokio::main]
 async fn main() -> Result<(), Error> {
     let mut line = String::new();
 
-    print!("Login method [MOCK/DEMO/REAL]: ");
+    print!("Login method [MOCK/DEMO/REAL/ENCR]: ");
     std::io::stdout().flush().unwrap();
     std::io::stdin().read_line(&mut line).unwrap();
 
@@ -69,6 +71,15 @@ async fn main() -> Result<(), Error> {
                 return Ok(());
             }
         },
+        "e" | "encr" | "encryption" => {
+            let iv_base64 = read("Base64 IV: ");
+            let auth_key = read("Auth key: ");
+            let nonce = read("Nonce: ");
+            let username = read("Username: ");
+            let pwd = read("Password: ");
+
+            encryption_test(iv_base64, auth_key, username, pwd, nonce)
+        }
         _ => {
             eprintln!("Invalid login method");
             return Ok(());
@@ -282,6 +293,31 @@ async fn main() -> Result<(), Error> {
         }
     }
     Ok(())
+}
+
+fn encryption_test(
+    iv_b64: String,
+    key: String,
+    username: String,
+    pwd: String,
+    nonce: String,
+) -> ! {
+    let iv = BASE64_STANDARD.decode(&iv_b64).unwrap();
+    let first_key = Encryption::authentication_key(&username, &pwd, &nonce);
+
+    let mut encr = Encryption::new();
+    encr.set_iv(&iv);
+    encr.set_key(&first_key);
+
+    let decrypted = encr.decrypt(&hex::decode(key).unwrap()).unwrap();
+    let auth_key = parse_key(&decrypted).unwrap();
+
+    encr.set_key(&auth_key);
+
+    loop {
+        let hex = read("Encrypted hex: ");
+        println!("{}", str::from_utf8(&encr.decrypt(&hex::decode(hex).unwrap()).unwrap()).unwrap())
+    }
 }
 
 fn read(prompt: &str) -> String {
