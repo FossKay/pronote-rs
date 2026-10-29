@@ -52,6 +52,7 @@
           "duree": 2,
           "DateDuCours": { "_T": 7, "V": "17/11/2025 13:30:00" },
           "CouleurFond": "#050347",
+          "memo": "Ceci est une très longue note... Lorem ipsum dolor sit amet... Encore plus de texte...",
           "ListeContenus": {
             "_T": 24,
             "V": [

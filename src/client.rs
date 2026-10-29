@@ -17,7 +17,7 @@ pub struct Client {
     pub nav_identifier: String,              // save for token login
     pub next_token: String,                  // save for token login
     pub login_mode: LoginMode,
-    pub uuid: String,
+    pub uuid: String,                        // save for token login
 }
 
 impl Client {
@@ -477,6 +477,14 @@ impl Client {
         let mut data: Grades = from_value(res["dataSec"]["data"].take()).unwrap();
         data.grades.retain(|x| &x.period.id == period_id);
         data.grades.sort_by_key(|x| date_int(&x.date));
+
+        for g in &mut data.grades {
+            if let Some(s) = &mut g.solution {
+                if s.link.is_empty() {
+                    s.link = self.get_attachment(&s);
+                }
+            }
+        }
 
         Ok(data)
     }
