@@ -7,12 +7,12 @@ pub fn pretty_end_time(end_time: u32, l: &Lesson, p: &Params) -> String {
     format!(
         "{} {}:00",
         l.start.split_once(' ').unwrap().0,
-        p.end_times[(end_time - 1) as usize].time.replace('h', ":")
-        // use char when matching single character
+        p.end_times[(end_time - 1) as usize].time.replace('h', ":") // use char when matching single character
     )
 }
 
 fn gap(id: &str, name: &str, index: u32, duration: u32, l: &Lesson, p: &Params) -> Lesson {
+    // TODO: actually make an enum
     Lesson {
         id: id.into(),
         order: 1000,
@@ -157,7 +157,9 @@ pub fn parse_lessons(d: &mut Vec<Lesson>, p: &Params) {
 
 pub fn parse_notifications(res: &Value) -> Notifications {
     let mut n = Notifications {
-        global: res["notifications"]["compteurCentraleNotif"].as_u64().unwrap() as u32,
+        global: res["notifications"]["compteurCentraleNotif"]
+            .as_u64()
+            .unwrap() as u32,
         discussions: 0,
         digital_locker: 0,
         informations: 0,
@@ -180,13 +182,12 @@ pub fn parse_notifications(res: &Value) -> Notifications {
     n
 }
 
-pub fn parse_date(date: &str) -> Result<NaiveDate, crate::Error> {
-    NaiveDate::parse_from_str(date, "%d/%m/%Y").map_err(|_| crate::Error::InvalidResponse)
+pub fn parse_date(date: &str) -> NaiveDate {
+    NaiveDate::parse_from_str(date, "%d/%m/%Y").unwrap()
 }
 
-pub fn parse_datetime(date: &str) -> Result<NaiveDateTime, crate::Error> {
-    NaiveDateTime::parse_from_str(date, "%d/%m/%Y %H:%M:%S")
-        .map_err(|_| crate::Error::InvalidResponse)
+pub fn parse_datetime(date: &str) -> NaiveDateTime {
+    NaiveDateTime::parse_from_str(date, "%d/%m/%Y %H:%M:%S").unwrap()
 }
 
 fn extract_tabs(v: &Value, res: &mut Vec<u64>) {

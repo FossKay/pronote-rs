@@ -10,8 +10,8 @@ use crate::Error;
 
 #[derive(Debug, Clone)]
 pub struct Encryption {
-    key: [u8; 16],
-    iv: [u8; 16],
+    key: [u8; 16], // AES-128
+    iv: [u8; 16],  // in CBC mode
 }
 
 impl Encryption {
@@ -36,7 +36,7 @@ impl Encryption {
             .unwrap()
     }
 
-    pub fn decrypt(&self, data: &[u8]) -> Result<Vec<u8>, Error> {
+    pub fn decrypt(&self, data: &[u8]) -> Vec<u8> {
         // classic AES-128-CBC decryption
         let cipher = Decryptor::<Aes128>::new(&self.key.into(), &self.iv.into());
         let mut buffer = data.to_vec();
@@ -44,7 +44,18 @@ impl Encryption {
         cipher
             .decrypt_padded_mut::<Pkcs7>(&mut buffer)
             .map(|x| x.to_vec())
-            .map_err(|_| Error::InvalidResponse)
+            .unwrap()
+    }
+
+    pub fn try_decrypt(&self, data: &[u8]) -> Result<Vec<u8>, Error> {
+        // classic AES-128-CBC decryption
+        let cipher = Decryptor::<Aes128>::new(&self.key.into(), &self.iv.into());
+        let mut buffer = data.to_vec();
+
+        cipher
+            .decrypt_padded_mut::<Pkcs7>(&mut buffer)
+            .map(|x| x.to_vec())
+            .map_err(|_| Error::InvalidCredentials)
     }
 
     pub fn set_iv(&mut self, iv: &[u8]) {
@@ -56,7 +67,8 @@ impl Encryption {
     }
 
     pub fn authentication_key(username: &str, password: &str, nonce: &str) -> Vec<u8> {
-        // md5(username + upper(hex(sha256(nonce + password))))
+        // the key is md5(username + upper(hex(sha256(nonce + password))))
+        // Self::set_key already handles md5'ing each new key
         let mut sha = Sha256::new();
         sha.update(nonce.as_bytes());
         sha.update(password.trim().as_bytes());

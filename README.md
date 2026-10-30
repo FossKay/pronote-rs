@@ -22,6 +22,15 @@ Only student profiles are supported for now.
 - Disconnection
 - School list based on geolocation
 
+## Contributing
+Every unexcepted fail (such as serde parsing error, etc) should panic.
+Excepted fails like invalid credentials, etc shouldn't.
+
+The `req/` and `resp/` contain sample data from the network communications between the website and the server.
+
+- `cargo run (-r)` runs a CLI that can use mock data, connect to the demo pronote server or use real credentials. For a list of available commands, type `help`.
+- `cargo test (-r)` check if all the client methods work on the sample data without panicking.
+
 ## Legal notice
 Index Education [said](https://www.index-education.com/fr/article-1760-recommandations-relatives-a-l-application-papillon.php) that if an unofficial app doesn't steal credentials and isn't commercial, it is permitted.
 > Cette pratique n'est pas illégale en soi, car justifiée par le fait que l'utilisateur renseigne volontairement ses informations de connexion et aussi par le fait que \[l'application] n'a pas de finalité commerciale.

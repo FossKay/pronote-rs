@@ -1,3 +1,4 @@
+use rand::RngCore;
 use std::io::Write;
 
 use base64::prelude::*;
@@ -28,9 +29,15 @@ async fn main() -> Result<(), Error> {
             "q" | "qr" => {
                 let qr = read("Qr code data: ");
                 let pin = read("Pin code: ");
-                let uuid = &Client::rand_uuid();
 
-                let c = Client::qr_login(&qr, &pin, uuid).await?;
+                // actually pronote doesnt seem to be checking uuids
+                // so we can basically hardcode a uuid...
+                let mut bytes = [0u8; 8];
+                rand::thread_rng().try_fill_bytes(&mut bytes).unwrap();
+
+                let uuid = hex::encode(bytes);
+
+                let c = Client::qr_login(&qr, &pin, &uuid).await?;
 
                 println!("Credentials to save:");
                 println!("Root url: {}", c.communication.root_url);
@@ -295,13 +302,7 @@ async fn main() -> Result<(), Error> {
     Ok(())
 }
 
-fn encryption_test(
-    iv_b64: String,
-    key: String,
-    username: String,
-    pwd: String,
-    nonce: String,
-) -> ! {
+fn encryption_test(iv_b64: String, key: String, username: String, pwd: String, nonce: String) -> ! {
     let iv = BASE64_STANDARD.decode(&iv_b64).unwrap();
     let first_key = Encryption::authentication_key(&username, &pwd, &nonce);
 
@@ -309,14 +310,17 @@ fn encryption_test(
     encr.set_iv(&iv);
     encr.set_key(&first_key);
 
-    let decrypted = encr.decrypt(&hex::decode(key).unwrap()).unwrap();
-    let auth_key = parse_key(&decrypted).unwrap();
+    let decrypted = encr.decrypt(&hex::decode(key).unwrap());
+    let auth_key = parse_key(&decrypted);
 
     encr.set_key(&auth_key);
 
     loop {
         let hex = read("Encrypted hex: ");
-        println!("{}", str::from_utf8(&encr.decrypt(&hex::decode(hex).unwrap()).unwrap()).unwrap())
+        println!(
+            "{}",
+            str::from_utf8(&encr.decrypt(&hex::decode(hex).unwrap())).unwrap()
+        )
     }
 }
 

@@ -1,5 +1,4 @@
 use core::str;
-use rand::RngCore;
 use serde_json::{Value, from_value, json};
 use std::str::FromStr;
 
@@ -16,8 +15,8 @@ pub struct Client {
     pub user_parameters: Option<UserParams>, // user parameters, late initialized
     pub nav_identifier: String,              // save for token login
     pub next_token: String,                  // save for token login
-    pub login_mode: LoginMode,
     pub uuid: String,                        // save for token login
+    pub login_mode: LoginMode,
 }
 
 impl Client {
@@ -59,8 +58,8 @@ impl Client {
         let encrypted_login = hex::decode(&qr.username).unwrap();
         let encrypted_token = hex::decode(&qr.token).unwrap();
 
-        let username_bytes = encryption.decrypt(&encrypted_login)?;
-        let token_bytes = encryption.decrypt(&encrypted_token)?;
+        let username_bytes = encryption.try_decrypt(&encrypted_login)?;
+        let token_bytes = encryption.try_decrypt(&encrypted_token)?;
 
         let username = str::from_utf8(&username_bytes).unwrap();
         let token = str::from_utf8(&token_bytes).unwrap();
@@ -82,18 +81,21 @@ impl Client {
             return Err(Error::InvalidCredentials);
         }
         let mut communication = Communication::new(&root_url)?;
+        // send first request to initialise session and get
+        // instance-specific parameters (Params)
         let mut params = communication.initialise(login_mode, nav_identifier).await?;
-        let nav_id = nav_identifier
-            .map(str::to_owned)
-            .unwrap_or_else(|| {
-                params["dataSec"]["data"]["identifiantNav"]
-                    .as_str()
-                    .unwrap()
-                    .to_owned()
-            });
+        // if sent a request with identifiantNav: null, the
+        // server returns a new one (fingerprint) to store
+        let nav_id = nav_identifier.map(str::to_owned).unwrap_or_else(|| {
+            params["dataSec"]["data"]["identifiantNav"]
+                .as_str()
+                .unwrap()
+                .to_owned()
+        });
         let params: Params = from_value(params["dataSec"]["data"]["General"].take()).unwrap();
         if params.first_week_day != 2 {
-            // NOT MONDAY :(
+            // 1 - sunday, 2 - monday
+            // didn't test on first week day monday so better fail early
             return Err(Error::InvalidStartPage);
         }
 
@@ -131,76 +133,12 @@ impl Client {
     }
 
     async fn login(&mut self) -> Result<(), Error> {
-        let mut identification = self.identification().await?; // request challenge
-        let data = identification["dataSec"]["data"].take();
-        let nonce = data
-            .get("alea")
-            .and_then(Value::as_str)
-            .unwrap_or("");
-        let challenge = data["challenge"].as_str().unwrap();
-        let mut auth_username = self.username.clone();
-        let mut auth_password = self.password.clone();
-
-        if data["modeCompLog"].as_i64() == Some(1) {
-            auth_username = auth_username.to_lowercase();
-        }
-
-        if data["modeCompMdp"].as_i64() == Some(1) {
-            auth_password = auth_password.to_lowercase();
-        }
-
-        let auth_key = Encryption::authentication_key(&auth_username, &auth_password, nonce);
-        let mut crypto = self.communication.encryption.clone(); // temporary change key
-        crypto.set_key(&auth_key);
-        let challenge = crypto.encrypt(challenge.as_bytes());
-
-        let authentication = self
-            .communication
-            .post(
-                "Authentification",
-                json!({
-                    "data": {
-                        "connexion": 0,
-                        "challenge": hex::encode(challenge),
-                        "espace": self.communication.space_id,
-                    }
-                }),
-            )
-            .await?;
-
-        if let Some(_) = authentication.pointer("/dataSec/data/Acces") {
-            return Err(Error::InvalidCredentials);
-        }
-
-        if self.login_mode != LoginMode::Password {
-            self.next_token = authentication["dataSec"]["data"]["jetonConnexionAppliMobile"]
-                .as_str()
-                .unwrap()
-                .to_owned();
-        }
-
-        self.finish_authentication(authentication, &auth_key)?;
-        let mut res = self
-            .communication
-            .post("ParametresUtilisateur", json!({}))
-            .await?;
-        self.user_parameters = from_value(res["dataSec"]["data"].take()).unwrap();
-        self.user_parameters.as_mut().unwrap().notifications = parse_notifications(&res["dataSec"]["Signature"]);
-        self.user_parameters.as_mut().unwrap().image = res["dataNonSec"]["fichiers"][0]
-            .as_str()
-            .unwrap()
-            .replace("\r\n", ""); // windows :(
-        self.parameters.last_week = self.get_week(&self.parameters.last_day);
-        // first week returned by server but seems to always be 1
-
-        Ok(())
-    }
-
-    async fn identification(&mut self) -> Result<Value, Error> {
         let is_qr = self.login_mode == LoginMode::QrCode;
         let is_token = self.login_mode == LoginMode::Token;
 
-        self.communication
+        // specify login mode, etc and request challenge
+        let mut identification = self
+            .communication
             .post(
                 "Identification",
                 json!({
@@ -219,19 +157,83 @@ impl Client {
                     }
                 }),
             )
-            .await
-    }
+            .await?;
+        let data = identification["dataSec"]["data"].take();
+        let nonce = data.get("alea").and_then(Value::as_str).unwrap_or(""); // usually "{...}", random
+        let challenge = data["challenge"].as_str().unwrap();
+        let mut auth_username = self.username.clone();
+        let mut auth_password = self.password.clone();
 
-    fn finish_authentication(&mut self, mut response: Value, auth_key: &[u8]) -> Result<(), Error> {
-        let data = response["dataSec"]["data"].take();
+        if data["modeCompLog"].as_i64() == Some(1) {
+            auth_username = auth_username.to_lowercase();
+        } // usually 1 (the username can be uppercase, doesn't matter)
+        if data["modeCompMdp"].as_i64() == Some(1) {
+            auth_password = auth_password.to_lowercase();
+        } // usually 0 (the password should respect upper/lowercase)
+
+        // derive a password by hashing the username, password and nonce
+        let auth_key = Encryption::authentication_key(&auth_username, &auth_password, nonce);
+        // clone the crypto object (we need to keep the iv)
+        // change the key to the one derived from password, etc
+        let mut auth_crypto = self.communication.encryption.clone();
+        auth_crypto.set_key(&auth_key);
+        // re-encrypt the challenge (do not decode hex)
+        let challenge = auth_crypto.encrypt(challenge.as_bytes());
+
+        // connexion: 0 = classic mode (there are other ones, eg. from classroom)
+        // send the encrypted challenge to the server
+        let mut authentication = self
+            .communication
+            .post(
+                "Authentification",
+                json!({
+                    "data": {
+                        "connexion": 0,
+                        "challenge": hex::encode(challenge),
+                        "espace": self.communication.space_id,
+                    }
+                }),
+            )
+            .await?;
+
+        // Acces: 1 = invalid credentials
+        // there are also other ones like account banned, etc
+        if let Some(_) = authentication.pointer("/dataSec/data/Acces") {
+            return Err(Error::InvalidCredentials);
+        }
+
+        // each time we log in, save the next token for token login
+        if self.login_mode != LoginMode::Password {
+            self.next_token = authentication["dataSec"]["data"]["jetonConnexionAppliMobile"]
+                .as_str()
+                .unwrap()
+                .to_owned();
+        }
+
+        // update the key used for signing the request numbers
+        let data = authentication["dataSec"]["data"].take();
         let key = data["cle"].as_str().unwrap();
-        let mut crypto = self.communication.encryption.clone();
-        crypto.set_key(auth_key);
         // "5B3235..." (hex) -> "[255, 0, 1, 2]" (string) -> 0xDEADBEEF (bytes)
-        let key = hex::decode(key).map_err(|_| Error::InvalidResponse)?;
-        let key = crypto.decrypt(&key)?;
-        let key = parse_key(&key)?;
+        let key = hex::decode(key).unwrap();
+        let key = auth_crypto.decrypt(&key);
+        let key = parse_key(&key);
         self.communication.encryption.set_key(&key);
+
+        // get user-specific parameters (UserParams)
+        let mut res = self
+            .communication
+            .post("ParametresUtilisateur", json!({}))
+            .await?;
+        self.user_parameters = from_value(res["dataSec"]["data"].take()).unwrap();
+        self.user_parameters.as_mut().unwrap().notifications =
+            parse_notifications(&res["dataSec"]["Signature"]);
+        self.user_parameters.as_mut().unwrap().image = res["dataNonSec"]["fichiers"][0]
+            .as_str()
+            .unwrap()
+            .replace("\r\n", ""); // windows :(
+        self.parameters.last_week = self.get_week(&self.parameters.last_day);
+        // first week returned by server but seems to always be 1
+
         Ok(())
     }
 
@@ -245,6 +247,8 @@ impl Client {
         {
             return Err(Error::UnauthorizedTab(tab));
         }
+        // to match the website's behaviour, we should send a "Navigation" request
+        // each time the tab changes but it just adds unnecessary latency ig
         self.communication
             .post(
                 function,
@@ -315,7 +319,13 @@ impl Client {
     }
 
     pub async fn timetable(&mut self, week: u8) -> Result<Vec<Vec<Lesson>>, Error> {
-        let resource = self.user_parameters.as_ref().unwrap().student.person.serialize();
+        let resource = self
+            .user_parameters
+            .as_ref()
+            .unwrap()
+            .student
+            .person
+            .serialize();
         let res: Vec<Lesson> = from_value(
             self.post(
                 "PageEmploiDuTemps",
@@ -333,7 +343,8 @@ impl Client {
                     "avecInfosPrefsGrille": true
                 }),
             )
-            .await?["dataSec"]["data"]["ListeCours"].take(),
+            .await?["dataSec"]["data"]["ListeCours"]
+                .take(),
         )
         .unwrap();
         let mut days = vec![Vec::<Lesson>::new(); self.parameters.week_days as usize];
@@ -439,8 +450,7 @@ impl Client {
     }
 
     pub async fn mock_home(p: &Params) -> Result<Home, Error> {
-        let mut res = Value::from_str(include_str!("../resp/home.json"))
-            .unwrap();
+        let mut res = Value::from_str(include_str!("../resp/home.json")).unwrap();
         let mut data = res["dataSec"]["data"].take();
 
         let raw_lessons: Vec<Lesson> = from_value(data["ListeCours"].take()).unwrap();
@@ -509,8 +519,7 @@ impl Client {
     }
 
     pub async fn mock_grades(p: &Period) -> Result<Grades, Error> {
-        let mut res = Value::from_str(include_str!("../resp/grades.json"))
-            .unwrap();
+        let mut res = Value::from_str(include_str!("../resp/grades.json")).unwrap();
         let mut data: Grades = from_value(res["dataSec"]["data"].take()).unwrap();
         data.grades.retain(|x| x.period.id == p.id);
         data.grades.sort_by_key(|x| date_int(&x.date));
@@ -544,8 +553,7 @@ impl Client {
             )
             .await?;
         let mut data: Resources = from_value(res["dataSec"]["data"].take()).unwrap();
-        let textbook_icons: Vec<String> =
-            from_value(res["dataNonSec"]["fichiers"].take()).unwrap(); // TODO: could panic?
+        let textbook_icons: Vec<String> = from_value(res["dataNonSec"]["fichiers"].take()).unwrap(); // TODO: could panic?
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             data.digital_textbooks[i].icon = icon;
         }
@@ -564,11 +572,9 @@ impl Client {
     }
 
     pub async fn mock_documents() -> Result<Resources, Error> {
-        let mut res = Value::from_str(include_str!("../resp/cont_ress.json"))
-            .unwrap();
+        let mut res = Value::from_str(include_str!("../resp/cont_ress.json")).unwrap();
         let mut data: Resources = from_value(res["dataSec"]["data"].take()).unwrap();
-        let textbook_icons: Vec<String> =
-            from_value(res["dataNonSec"]["fichiers"].take()).unwrap(); // TODO: could panic?
+        let textbook_icons: Vec<String> = from_value(res["dataNonSec"]["fichiers"].take()).unwrap(); // TODO: could panic?
         for (i, icon) in textbook_icons.into_iter().enumerate() {
             data.digital_textbooks[i].icon = icon;
         }
@@ -606,8 +612,7 @@ impl Client {
     }
 
     pub async fn mock_agenda() -> Result<Agenda, Error> {
-        let mut res = Value::from_str(include_str!("../resp/agenda.json"))
-            .unwrap();
+        let mut res = Value::from_str(include_str!("../resp/agenda.json")).unwrap();
         let data: Agenda = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
@@ -630,8 +635,7 @@ impl Client {
     }
 
     pub async fn mock_news() -> Result<News, Error> {
-        let mut res = Value::from_str(include_str!("../resp/info_polls.json"))
-            .unwrap();
+        let mut res = Value::from_str(include_str!("../resp/info_polls.json")).unwrap();
         let data: News = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
@@ -656,8 +660,7 @@ impl Client {
     }
 
     pub async fn mock_discussions() -> Result<Discussions, Error> {
-        let mut res = Value::from_str(include_str!("../resp/discussions.json"))
-            .unwrap();
+        let mut res = Value::from_str(include_str!("../resp/discussions.json")).unwrap();
         let mut data: Discussions = from_value(res["dataSec"]["data"].take()).unwrap();
         data.discussions.retain(|d| d.is_discussion && d.depth == 0);
         // maybe one day we'll parse the threads stuff
@@ -687,8 +690,7 @@ impl Client {
     }
 
     pub async fn mock_messages() -> Result<Messages, Error> {
-        let mut res = Value::from_str(include_str!("../resp/discussion.json"))
-            .unwrap();
+        let mut res = Value::from_str(include_str!("../resp/discussion.json")).unwrap();
         let data: Messages = from_value(res["dataSec"]["data"].take()).unwrap();
 
         Ok(data)
@@ -712,30 +714,28 @@ impl Client {
                 }),
             )
             .await?;
-        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"]["V"].take()).unwrap();
+        let data: Vec<Question> =
+            from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"]["V"].take())
+                .unwrap();
         // + "genreRequeteActualite": 1 (like in request)
 
         Ok(data)
     }
-    
+
     pub async fn mock_news_item_content() -> Result<Vec<Question>, Error> {
-        let mut res = Value::from_str(include_str!("../resp/info.json"))
-            .unwrap();
-        let data: Vec<Question> = from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"]["V"].take()).unwrap();
+        let mut res = Value::from_str(include_str!("../resp/info.json")).unwrap();
+        let data: Vec<Question> =
+            from_value(res["dataSec"]["data"]["detailsActualite"]["listeQuestions"]["V"].take())
+                .unwrap();
         // + "genreRequeteActualite": 1
 
         Ok(data)
     }
 
     pub async fn staff(&mut self) -> Result<Vec<StaffTeacher>, Error> {
-        let mut res = self
-            .post(
-                "PageEquipePedagogique",
-                37,
-                json!({}),
-            )
-            .await?;
-        let data: Vec<StaffTeacher> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
+        let mut res = self.post("PageEquipePedagogique", 37, json!({})).await?;
+        let data: Vec<StaffTeacher> =
+            from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
 
         Ok(data)
     }
@@ -744,7 +744,8 @@ impl Client {
         let mut res = Value::from_str(include_str!("../resp/staff.json"))
             .unwrap()
             .clone();
-        let data: Vec<StaffTeacher> = from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
+        let data: Vec<StaffTeacher> =
+            from_value(res["dataSec"]["data"]["liste"]["V"].take()).unwrap();
 
         Ok(data)
     }
@@ -775,8 +776,7 @@ impl Client {
     }
 
     pub async fn mock_geolocation() -> Result<Vec<School>, Error> {
-        let res = Value::from_str(include_str!("../resp/geolocation.json"))
-            .unwrap();
+        let res = Value::from_str(include_str!("../resp/geolocation.json")).unwrap();
         let mut data: Vec<School> = from_value(res).unwrap();
         data.retain(|x| !x.url.contains("pronoteprimaire"));
 
@@ -809,30 +809,9 @@ impl Client {
         )
     }
 
-    /* pub async fn keep_alive(&mut self) -> () {
-        loop {
-            if Instant::now() - self.communication.last_ping > Duration::from_secs(110) {
-                let _ = self.post("Navigation", 7, json!({"onglet": 7, "ongletPrec": 7}));
-                tokio::time::sleep(Duration::from_secs(1)).await;
-            }
-        }
-    } */
-
     pub fn get_week(&self, date: &str) -> u8 {
         // follows pronotepy behaviour
-        ((parse_date(date).unwrap() - parse_date(&self.parameters.first_day).unwrap())
-            .num_days()
-            / 7
-            + 1) as u8
-    }
-
-    pub fn rand_uuid() -> String {
-        // actually pronote doesnt seem to be checking uuids
-        // so we can basically hardcode a uuid...
-        let mut bytes = [0u8; 8];
-        rand::thread_rng().try_fill_bytes(&mut bytes).unwrap();
-
-        hex::encode(bytes)
+        ((parse_date(date) - parse_date(&self.parameters.first_day)).num_days() / 7 + 1) as u8
     }
 }
 
@@ -847,16 +826,9 @@ fn date_int(data: &str) -> u32 {
     .unwrap()
 }
 
-pub fn parse_key(data: &[u8]) -> Result<Vec<u8>, Error> {
-    let text = std::str::from_utf8(data).map_err(|_| Error::InvalidResponse)?;
+pub fn parse_key(data: &[u8]) -> Vec<u8> {
+    let text = std::str::from_utf8(data).unwrap();
     text.split(',')
-        .map(|value| {
-            value
-                .trim()
-                .parse::<u8>()
-                .map_err(|_| Error::InvalidResponse)
-        })
+        .map(|value| value.trim().parse::<u8>().unwrap())
         .collect()
 }
-
-

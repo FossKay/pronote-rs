@@ -1,5 +1,3 @@
-use std::{collections::HashMap, time::Instant};
-
 use base64::prelude::*;
 use rand::RngCore;
 use reqwest::Client as HttpClient;
@@ -19,7 +17,6 @@ pub struct Communication {
     pub session_id: u64,
     pub space_id: u8,
     pub encryption: Encryption,
-    pub last_ping: Instant,
 }
 
 impl Communication {
@@ -39,7 +36,6 @@ impl Communication {
             session_id: 0,
             space_id: 0,
             encryption: Encryption::new(),
-            last_ping: Instant::now(),
         })
     }
 
@@ -51,7 +47,6 @@ impl Communication {
             space_id: 0,
             encryption: Encryption::new(),
             request_number: 1,
-            last_ping: Instant::now(),
         }
     }
 
@@ -75,30 +70,23 @@ impl Communication {
             .await
             .map_err(|_| Error::ConnectionFailed)?;
         let html = response.text().await.map_err(|_| Error::ConnectionFailed)?;
-        let attributes = parse_start(&html)?;
-
-        // there is a javascript with a json like this
-        self.session_id = attributes
-            .get("h")
-            .ok_or(Error::InvalidStartPage)?
-            .parse()
-            .map_err(|_| Error::InvalidStartPage)?;
-        self.space_id = attributes
-            .get("a")
-            .ok_or(Error::InvalidStartPage)?
-            .parse()
-            .map_err(|_| Error::InvalidStartPage)?;
+        let (session, space) = parse_session(&html)?;
 
         // space 3 = students
-        // space 6 = students (mobile) ig
-        if self.space_id != 3 && self.space_id != 6 {
+        // space 6 = students (mobile)
+        if space != 3 && space != 6 {
             return Err(Error::UnsupportedClient);
         }
 
-        // random iv -> send its base64 to server
+        // there is a javascript with a json like this
+        self.session_id = session;
+        self.space_id = space;
+
+        // create a random iv, then send its base64 to server
         let mut new_iv = [0u8; 16];
         rand::thread_rng().fill_bytes(&mut new_iv);
 
+        // i don't know why it's Uuid, it's just NOT that
         let uuid = BASE64_STANDARD.encode(new_iv);
         let res = self
             .post(
@@ -112,12 +100,17 @@ impl Communication {
             )
             .await;
 
+        // AFTER that the request is sent, change the IV used
+        // to encrypt request numbers to the new one
         self.encryption.set_iv(&new_iv);
 
         res
     }
 
     pub async fn post(&mut self, function: &str, data: Value) -> Result<Value, Error> {
+        // every request should have the encrypted request number that
+        // prevents replay attacks and authenticates every request,
+        // otherwise you could steal the "session" of someone
         let encrypted_no = self.encrypted_request_number()?;
         let body = json!({
             "session": self.session_id,
@@ -144,9 +137,8 @@ impl Communication {
             .await
             .map_err(|_| Error::ConnectionFailed)?;
 
-        self.request_number += 2; // the server one counts too!
-        self.last_ping = Instant::now();
-
+        // count the website request and the server response
+        self.request_number += 2;
         self.check_error(&response)?;
 
         Ok(response)
@@ -156,6 +148,8 @@ impl Communication {
         let number = self.request_number.to_string();
         let encrypted = self.encryption.encrypt(number.as_bytes());
 
+        // website sends lowercase hex
+        // server returns uppercase hex
         Ok(hex::encode(encrypted))
     }
 
@@ -168,6 +162,7 @@ impl Communication {
                 .unwrap_or("unknown error");
 
             return match code {
+                // TODO: stop guessing
                 8 | 10 | 13 | 22 => Err(Error::Expired),
                 _ => Err(Error::Pronote {
                     code,
@@ -195,25 +190,19 @@ impl Communication {
     }
 }
 
-fn parse_start(html: &str) -> Result<HashMap<String, String>, Error> {
-    let start = html.find("Start").ok_or(Error::InvalidStartPage)?;
-    let html = &html[start..];
-    let open = html.find('{').ok_or(Error::InvalidStartPage)?;
-    let close = html.find('}').ok_or(Error::InvalidStartPage)?;
-    let object = &html[open + 1..close];
+fn parse_session(s: &str) -> Result<(u64, u8), Error> {
+    // in html: ...Start ({"h":<session>,"a":<space>})...
+    let (h, a) = s
+        .split_once(r#"Start ({"h":"#)
+        .and_then(|(_, s)| s.split_once(r#","a":"#))
+        .ok_or(Error::InvalidStartPage)?;
 
-    let mut result = HashMap::new();
-
-    for item in object.split(',') {
-        let Some((key, value)) = item.split_once(':') else {
-            continue;
-        };
-
-        result.insert(
-            key.trim().trim_matches(['"', '\'']).to_owned(),
-            value.trim().trim_matches(['"', '\'']).to_owned(),
-        );
-    }
-
-    Ok(result)
+    Ok((
+        h.parse().map_err(|_| Error::InvalidStartPage)?,
+        a.split_once("})")
+            .ok_or(Error::InvalidStartPage)?
+            .0
+            .parse()
+            .map_err(|_| Error::InvalidStartPage)?,
+    ))
 }

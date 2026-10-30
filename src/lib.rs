@@ -4,7 +4,7 @@ mod data;
 mod encryption;
 mod helpers;
 
-pub use client::{parse_key, Client};
+pub use client::{Client, parse_key};
 pub use data::*;
 pub use encryption::Encryption;
 
@@ -18,5 +18,4 @@ pub enum Error {
     InvalidAction,
     ConnectionFailed,
     Pronote { code: i64, details: String },
-    InvalidResponse,
 }
