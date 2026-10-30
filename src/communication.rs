@@ -192,7 +192,8 @@ impl Communication {
 
 fn parse_session(s: &str) -> Result<(u64, u8), Error> {
     // in html: ...Start ({"h":<session>,"a":<space>})...
-    let (h, a) = s
+    let no_demo = s.replace(r#","d":true"#, ""); // only in demo server
+    let (h, a) = no_demo
         .split_once(r#"Start ({"h":"#)
         .and_then(|(_, s)| s.split_once(r#","a":"#))
         .ok_or(Error::InvalidStartPage)?;
