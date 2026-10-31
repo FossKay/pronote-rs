@@ -213,7 +213,7 @@ impl Client {
         // update the key used for signing the request numbers
         let data = authentication["dataSec"]["data"].take();
         let key = data["cle"].as_str().unwrap();
-        // "5B3235..." (hex) -> "[255, 0, 1, 2]" (string) -> 0xDEADBEEF (bytes)
+        // "5B3235..." (hex) -> "255,0,1,2,..." (32 values) (string) -> 0xDEADBEEF (bytes)
         let key = hex::decode(key).unwrap();
         let key = auth_crypto.decrypt(&key);
         let key = parse_key(&key);
@@ -829,6 +829,6 @@ fn date_int(data: &str) -> u32 {
 pub fn parse_key(data: &[u8]) -> Vec<u8> {
     let text = std::str::from_utf8(data).unwrap();
     text.split(',')
-        .map(|value| value.trim().parse::<u8>().unwrap())
+        .map(|value| value.parse::<u8>().unwrap())
         .collect()
 }
