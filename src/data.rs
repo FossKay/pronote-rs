@@ -544,7 +544,7 @@ pub struct HomeAttachment {
 #[derive(Debug, Clone, Deserialize)]
 pub struct HomeGrades {
     pub grades: Vec<Grade>,
-    pub period: Period,
+    pub period: Option<Period>,
 }
 
 #[derive(Debug, Clone, Deserialize)]

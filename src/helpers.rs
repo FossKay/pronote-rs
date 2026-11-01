@@ -238,9 +238,9 @@ macro_rules! deser {
     };
 }
 
-deser!(HomeGrades, home_grades, |value: Value| {
+deser!(HomeGrades, home_grades, |mut value: Value| {
     let grades: Vec<Grade> = from_value(value["listeDevoirs"]["V"].clone()).unwrap();
-    let period: Period = from_value(value["page"]["periode"]["V"].clone()).unwrap();
+    let period: Option<Period> = value.get_mut("page").map(|x| from_value(x["periode"]["V"].take()).unwrap());
 
     Ok(HomeGrades { grades, period })
 });
