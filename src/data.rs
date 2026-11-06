@@ -591,6 +591,8 @@ pub struct Grades {
 
 #[derive(Debug, Clone, Deserialize)]
 pub struct Grade {
+    #[serde(rename = "N")]
+    pub id: String, // useful for home grades / full grades comparison
     #[serde(rename = "note", deserialize_with = "de_grade")]
     pub grade: GradeValue,
     #[serde(rename = "noteMin", deserialize_with = "de_grade", default)]
