@@ -2,6 +2,8 @@
 
 > This project is not affiliated with PRONOTE nor Index Education
 
+[Lire ce README en français](README_FR.md)
+
 An unofficial rust crate to interact with the french PRONOTE school website.
 Only student profiles are supported for now.
 
@@ -15,7 +17,7 @@ Only student profiles are supported for now.
 - Attachments
 - Agenda
 - Notifications
-- Info & polls
+- Info (& polls)
 - Discussions
 - Lesson details
 - Digital textbooks
@@ -31,6 +33,8 @@ The `req/` and `resp/` contain sample data from the network communications betwe
 - `cargo run (-r)` runs a CLI that can use mock data, connect to the demo pronote server or use real credentials. For a list of available commands, type `help`.
 - `cargo test (-r)` check if all the client methods work on the sample data without panicking.
 
+*A note on AI*: AI use is allowed but all the code must be handwritten and understandable.
+
 ## Legal notice
-Index Education [said](https://www.index-education.com/fr/article-1760-recommandations-relatives-a-l-application-papillon.php) that if an unofficial app doesn't steal credentials and isn't commercial, it is permitted.
-> Cette pratique n'est pas illégale en soi, car justifiée par le fait que l'utilisateur renseigne volontairement ses informations de connexion et aussi par le fait que \[l'application] n'a pas de finalité commerciale.
+Index Education [indicated](https://www.index-education.com/fr/article-1760-recommandations-relatives-a-l-application-papillon.php) that as long as an unofficial app uses credentials that the user provided voluntarily and isn't commercial, it isn't prohibited.
+> Cette pratique n'est pas illégale en soi, car justifiée par le fait que l'utilisateur renseigne volontairement ses informations de connexion et aussi par le fait que \[l'application (Papillon)] n'a pas de finalité commerciale.
